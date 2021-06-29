@@ -91,6 +91,7 @@ The following environment variables can be used to tweak settings:
 
 #### Required for LIVE, Optional for Dev ####
 | Variable | Default | Description |
+|---|---|---|
 | `HTTP_SERVER_BIND_IP` | `127.0.0.1` | The IP for the HTTP server to bind to |
 | `HTTP_SERVER_PASS` | `0E0CECB2B6808B3BECDF28936DE54AE6481` | The authentication key for the HTTP API |
 | `SENTRY_DSN` | `Disabled` | Sentry DSN |
@@ -165,7 +166,7 @@ Sentry.SentrySdk.CongiureScope(scope => {
 
 #### Discord Bot Setup ####
 
-- Create an `app` on discord's []developer portal](https://discordapp.com/developers/applications) for the application.
+- Create an `app` on discord's [developer portal](https://discordapp.com/developers/applications) for the application.
 - Create your bot with the following permissions
   - Change Nickname
   - Manage Nicknames
