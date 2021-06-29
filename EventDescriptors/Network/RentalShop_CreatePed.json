@@ -1,0 +1,9 @@
+{
+  "Type": "Network_ServerToClient_RemoteOnly",
+  "Parameters": {
+  	"storeID": "Int64",
+  	"vecPedPos" : "Vector3",
+  	"fPedRot": "float",
+  	"pedDimension": "uint"
+  }
+}

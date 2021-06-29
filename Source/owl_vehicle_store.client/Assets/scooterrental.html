@@ -1,0 +1,37 @@
+﻿<html>
+<head>
+    <link href="../../owl_client_shared/bootstrap/bootstrap.min.css" rel="stylesheet">
+    <link href="../../owl_client_shared/core/core.css" rel="stylesheet">
+    <script src="../../owl_client_shared/core/core.js"></script>
+
+    <link href="package://owl_client_shared/bootstrap.min.css" rel="stylesheet">
+    <link href="package://owl_client_shared/core.css" rel="stylesheet">
+    <script src="package://owl_client_shared//core.js"></script>
+
+    <style>
+        html, body {
+            height: 100vh;
+        }
+        .menu {
+            width: 300px;
+        }
+    </style>
+</head>
+<body>
+<div class="container h-100">
+    <div class="row h-100 justify-content-center align-items-center">
+        <div class="card menu align-middle">
+            <div class="card-header">Scoot Scoot Rentals</div>
+            <div class="card-body">
+                <p>Would you like to rent a scooter for the day for $25?</p>
+
+                <div class="btn-group btn-block">
+                    <button class="btn w-100 btn-danger" onclick="TriggerEvent('ScooterRental_Close');">Cancel</button>
+                    <button class="btn w-100 btn-primary" onclick="TriggerEvent('ScooterRental_Rent');">Rent Scooter</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

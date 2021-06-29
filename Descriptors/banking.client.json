@@ -1,0 +1,34 @@
+{
+  "Files": [
+    {
+      "Name": "Banking.Client.cs",
+      "Type": "ClientScript"
+    },
+    {
+      "Name": "CGUIBankingInterface.Client.cs",
+      "Type": "ClientScript"
+    },
+    {
+      "Name": "Assets/bankinginterface.html",
+      "Type": "ClientAsset"
+    },
+    {
+      "Name": "PayDay.Client.cs",
+      "Type": "ClientScript"
+    },
+    {
+      "Name": "CGUIPaydayOverview.Client.cs",
+      "Type": "ClientScript"
+    },
+    {
+      "Name": "Assets/paydayoverview.html",
+      "Type": "ClientAsset"
+    },
+    {
+      "Name": "Init.Client.cs",
+      "Type": "ClientScript"
+    }
+  ],
+  "ExportedFunctions": [
+  ]
+}

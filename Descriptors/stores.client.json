@@ -1,0 +1,70 @@
+{
+  "Files": [
+    {
+      "Name": "ClothingStore.Client.cs",
+      "Type": "ClientScript"
+    },
+    {
+      "Name": "BarberShop.Client.cs",
+      "Type": "ClientScript"
+    },
+    {
+      "Name": "CGUIFurnitureStore.Client.cs",
+      "Type": "ClientScript"
+    },
+    {
+      "Name": "FurnitureStore.Client.cs",
+      "Type": "ClientScript"
+    },
+    {
+      "Name": "CGUIStore.Client.cs",
+      "Type": "ClientScript"
+    },
+    {
+      "Name": "StoreSystem.Client.cs",
+      "Type": "ClientScript"
+    },
+    {
+      "Name": "CGUIGenericCharacterCustomization.Client.cs",
+      "Type": "ClientScript"
+    },
+    {
+      "Name": "GenericCharacterCustomization.Client.cs",
+      "Type": "ClientScript"
+    },
+    {
+      "Name": "TattooArtist.Client.cs",
+      "Type": "ClientScript"
+    },
+    {
+      "Name": "PlasticSurgeon.Client.cs",
+      "Type": "ClientScript"
+    },
+    {
+      "Name": "OutfitEditor.Client.cs",
+      "Type": "ClientScript"
+    },
+    {
+      "Name": "DancerSystem.Client.cs",
+      "Type": "ClientScript"
+    },
+    {
+      "Name": "Init.Client.cs",
+      "Type": "ClientScript"
+    },
+    {
+      "Name": "Assets/store.html",
+      "Type": "ClientAsset"
+    },
+    {
+      "Name": "Assets/furniturestore.html",
+      "Type": "ClientAsset"
+    },
+    {
+      "Name": "Assets/genericcharactercustomization.html",
+      "Type": "ClientAsset"
+    }
+  ],
+  "ExportedFunctions": [
+  ]
+}

@@ -1,0 +1,1106 @@
+[
+  {
+    "ID": 0,
+    "GXT": "CLO_BUS_H_0_0",
+    "Localized": "Short Side Part Dark Brown",
+    "HairTattooCollection": -2086773,
+    "HairTattooOverlay": 224730392,
+    "Gender": 0
+  },
+  {
+    "ID": 1,
+    "GXT": "CLO_BUS_H_0_1",
+    "Localized": "Short Side Part Light Brown",
+    "HairTattooCollection": -2086773,
+    "HairTattooOverlay": 1988816738,
+    "Gender": 0
+  },
+  {
+    "ID": 2,
+    "GXT": "CLO_BUS_H_0_2",
+    "Localized": "Short Side Part Auburn",
+    "HairTattooCollection": -2086773,
+    "HairTattooOverlay": 736778786,
+    "Gender": 0
+  },
+  {
+    "ID": 3,
+    "GXT": "CLO_BUS_H_0_3",
+    "Localized": "Short Side Part Blonde",
+    "HairTattooCollection": -2086773,
+    "HairTattooOverlay": 439629494,
+    "Gender": 0
+  },
+  {
+    "ID": 4,
+    "GXT": "CLO_BUS_H_0_4",
+    "Localized": "Short Side Part Black",
+    "HairTattooCollection": -2086773,
+    "HairTattooOverlay": 1048444745,
+    "Gender": 0
+  },
+  {
+    "ID": 5,
+    "GXT": "CLO_BUS_H_1_0",
+    "Localized": "High Slicked Sides Dark Brown",
+    "HairTattooCollection": -2086773,
+    "HairTattooOverlay": 2140603469,
+    "Gender": 0
+  },
+  {
+    "ID": 6,
+    "GXT": "CLO_BUS_H_1_1",
+    "Localized": "High Slicked Sides Light Brown",
+    "HairTattooCollection": -2086773,
+    "HairTattooOverlay": -681528353,
+    "Gender": 0
+  },
+  {
+    "ID": 7,
+    "GXT": "CLO_BUS_H_1_2",
+    "Localized": "High Slicked Sides Auburn",
+    "HairTattooCollection": -2086773,
+    "HairTattooOverlay": 1006238992,
+    "Gender": 0
+  },
+  {
+    "ID": 8,
+    "GXT": "CLO_BUS_H_1_3",
+    "Localized": "High Slicked Sides Blonde",
+    "HairTattooCollection": -2086773,
+    "HairTattooOverlay": 214245031,
+    "Gender": 0
+  },
+  {
+    "ID": 9,
+    "GXT": "CLO_BUS_H_1_4",
+    "Localized": "High Slicked Sides Black",
+    "HairTattooCollection": -2086773,
+    "HairTattooOverlay": 689952604,
+    "Gender": 0
+  },
+  {
+    "ID": 10,
+    "GXT": "CLO_HP_HR_0_0",
+    "Localized": "Long Slicked Dark Brown",
+    "HairTattooCollection": -1398869298,
+    "HairTattooOverlay": 965649655,
+    "Gender": 0
+  },
+  {
+    "ID": 11,
+    "GXT": "CLO_HP_HR_0_1",
+    "Localized": "Long Slicked Light Brown",
+    "HairTattooCollection": -1398869298,
+    "HairTattooOverlay": 718800778,
+    "Gender": 0
+  },
+  {
+    "ID": 12,
+    "GXT": "CLO_HP_HR_0_2",
+    "Localized": "Long Slicked Auburn",
+    "HairTattooCollection": -1398869298,
+    "HairTattooOverlay": 1959959422,
+    "Gender": 0
+  },
+  {
+    "ID": 13,
+    "GXT": "CLO_HP_HR_0_3",
+    "Localized": "Long Slicked Blonde",
+    "HairTattooCollection": -1398869298,
+    "HairTattooOverlay": 1200177388,
+    "Gender": 0
+  },
+  {
+    "ID": 14,
+    "GXT": "CLO_HP_HR_0_4",
+    "Localized": "Long Slicked Black",
+    "HairTattooCollection": -1398869298,
+    "HairTattooOverlay": -1874439579,
+    "Gender": 0
+  },
+  {
+    "ID": 15,
+    "GXT": "CLO_HP_HR_1_0",
+    "Localized": "Hipster Youth Dark Brown",
+    "HairTattooCollection": -1398869298,
+    "HairTattooOverlay": -1679505893,
+    "Gender": 0
+  },
+  {
+    "ID": 16,
+    "GXT": "CLO_HP_HR_1_1",
+    "Localized": "Hipster Youth Blonde",
+    "HairTattooCollection": -1398869298,
+    "HairTattooOverlay": -1976229188,
+    "Gender": 0
+  },
+  {
+    "ID": 17,
+    "GXT": "CLO_HP_HR_1_2",
+    "Localized": "Hipster Youth Auburn",
+    "HairTattooCollection": -1398869298,
+    "HairTattooOverlay": 2037875009,
+    "Gender": 0
+  },
+  {
+    "ID": 18,
+    "GXT": "CLO_HP_HR_1_3",
+    "Localized": "Hipster Youth Light Brown",
+    "HairTattooCollection": -1398869298,
+    "HairTattooOverlay": -235146664,
+    "Gender": 0
+  },
+  {
+    "ID": 19,
+    "GXT": "CLO_HP_HR_1_4",
+    "Localized": "Hipster Youth Black",
+    "HairTattooCollection": -1398869298,
+    "HairTattooOverlay": -441853516,
+    "Gender": 0
+  },
+  {
+    "ID": 20,
+    "GXT": "CLO_S1M_H_0_0",
+    "Localized": "Classic Cornrows",
+    "HairTattooCollection": 62137527,
+    "HairTattooOverlay": 534771589,
+    "Gender": 0
+  },
+  {
+    "ID": 21,
+    "GXT": "CLO_S1M_H_1_0",
+    "Localized": "Palm Cornrows",
+    "HairTattooCollection": 62137527,
+    "HairTattooOverlay": -1340139519,
+    "Gender": 0
+  },
+  {
+    "ID": 22,
+    "GXT": "CLO_S1M_H_2_0",
+    "Localized": "Lightning Cornrows",
+    "HairTattooCollection": 62137527,
+    "HairTattooOverlay": -849980761,
+    "Gender": 0
+  },
+  {
+    "ID": 23,
+    "GXT": "CLO_S1M_H_3_0",
+    "Localized": "Whipped Cornrows",
+    "HairTattooCollection": 62137527,
+    "HairTattooOverlay": -551553478,
+    "Gender": 0
+  },
+  {
+    "ID": 24,
+    "GXT": "CLO_S2M_H_0_0",
+    "Localized": "Zig Zag Cornrows",
+    "HairTattooCollection": 1529191571,
+    "HairTattooOverlay": -1431204514,
+    "Gender": 0
+  },
+  {
+    "ID": 25,
+    "GXT": "CLO_S2M_H_1_0",
+    "Localized": "Snail Cornrows",
+    "HairTattooCollection": 1529191571,
+    "HairTattooOverlay": -1133334304,
+    "Gender": 0
+  },
+  {
+    "ID": 26,
+    "GXT": "CLO_S2M_H_2_0",
+    "Localized": "Hightop",
+    "HairTattooCollection": 1529191571,
+    "HairTattooOverlay": -1809784771,
+    "Gender": 0
+  },
+  {
+    "ID": 27,
+    "GXT": "CLO_BIM_H_0_0",
+    "Localized": "Loose Swept Back",
+    "HairTattooCollection": -240234547,
+    "HairTattooOverlay": 1431846777,
+    "Gender": 0
+  },
+  {
+    "ID": 28,
+    "GXT": "CLO_BIM_H_1_0",
+    "Localized": "Undercut Swept Back",
+    "HairTattooCollection": -240234547,
+    "HairTattooOverlay": -460168116,
+    "Gender": 0
+  },
+  {
+    "ID": 29,
+    "GXT": "CLO_BIM_H_2_0",
+    "Localized": "Undercut Swept Side",
+    "HairTattooCollection": -240234547,
+    "HairTattooOverlay": -311245907,
+    "Gender": 0
+  },
+  {
+    "ID": 30,
+    "GXT": "CLO_BIM_H_3_0",
+    "Localized": "Spiked Mohawk",
+    "HairTattooCollection": -240234547,
+    "HairTattooOverlay": -942031335,
+    "Gender": 0
+  },
+  {
+    "ID": 31,
+    "GXT": "CLO_BIM_H_4_0",
+    "Localized": "Mod",
+    "HairTattooCollection": -240234547,
+    "HairTattooOverlay": -644503216,
+    "Gender": 0
+  },
+  {
+    "ID": 32,
+    "GXT": "CLO_BIM_H_5_0",
+    "Localized": "Layered Mod",
+    "HairTattooCollection": -240234547,
+    "HairTattooOverlay": 211198653,
+    "Gender": 0
+  },
+  {
+    "ID": 33,
+    "GXT": "CC_M_HS_1",
+    "Localized": "Buzzcut",
+    "HairTattooCollection": 598190139,
+    "HairTattooOverlay": 739308497,
+    "Gender": 0
+  },
+  {
+    "ID": 34,
+    "GXT": "CC_M_HS_2",
+    "Localized": "Faux Hawk",
+    "HairTattooCollection": 598190139,
+    "HairTattooOverlay": 495343292,
+    "Gender": 0
+  },
+  {
+    "ID": 35,
+    "GXT": "CC_M_HS_3",
+    "Localized": "Hipster",
+    "HairTattooCollection": 598190139,
+    "HairTattooOverlay": -1686711653,
+    "Gender": 0
+  },
+  {
+    "ID": 36,
+    "GXT": "CC_M_HS_4",
+    "Localized": "Side Parting",
+    "HairTattooCollection": 598190139,
+    "HairTattooOverlay": 1187457341,
+    "Gender": 0
+  },
+  {
+    "ID": 37,
+    "GXT": "CC_M_HS_5",
+    "Localized": "Shorter Cut",
+    "HairTattooCollection": 598190139,
+    "HairTattooOverlay": 956403122,
+    "Gender": 0
+  },
+  {
+    "ID": 38,
+    "GXT": "CC_M_HS_6",
+    "Localized": "Biker",
+    "HairTattooCollection": 598190139,
+    "HairTattooOverlay": 1647042566,
+    "Gender": 0
+  },
+  {
+    "ID": 39,
+    "GXT": "CC_M_HS_7",
+    "Localized": "Ponytail",
+    "HairTattooCollection": 598190139,
+    "HairTattooOverlay": -461478743,
+    "Gender": 0
+  },
+  {
+    "ID": 40,
+    "GXT": "CC_M_HS_8",
+    "Localized": "Cornrows",
+    "HairTattooCollection": 598190139,
+    "HairTattooOverlay": -1883325653,
+    "Gender": 0
+  },
+  {
+    "ID": 41,
+    "GXT": "CC_M_HS_9",
+    "Localized": "Slicked",
+    "HairTattooCollection": 598190139,
+    "HairTattooOverlay": -2114248796,
+    "Gender": 0
+  },
+  {
+    "ID": 42,
+    "GXT": "CC_M_HS_10",
+    "Localized": "Short Brushed",
+    "HairTattooCollection": 598190139,
+    "HairTattooOverlay": 314228205,
+    "Gender": 0
+  },
+  {
+    "ID": 43,
+    "GXT": "CC_M_HS_11",
+    "Localized": "Spikey",
+    "HairTattooCollection": 598190139,
+    "HairTattooOverlay": 1503775674,
+    "Gender": 0
+  },
+  {
+    "ID": 44,
+    "GXT": "CC_M_HS_12",
+    "Localized": "Caesar",
+    "HairTattooCollection": 598190139,
+    "HairTattooOverlay": 1862399610,
+    "Gender": 0
+  },
+  {
+    "ID": 45,
+    "GXT": "CC_M_HS_13",
+    "Localized": "Chopped",
+    "HairTattooCollection": 598190139,
+    "HairTattooOverlay": 708472048,
+    "Gender": 0
+  },
+  {
+    "ID": 46,
+    "GXT": "CC_M_HS_14",
+    "Localized": "Dreads",
+    "HairTattooCollection": 598190139,
+    "HairTattooOverlay": -1207367545,
+    "Gender": 0
+  },
+  {
+    "ID": 47,
+    "GXT": "CC_M_HS_15",
+    "Localized": "Long Hair",
+    "HairTattooCollection": 598190139,
+    "HairTattooOverlay": 111650251,
+    "Gender": 0
+  },
+  {
+    "ID": 48,
+    "GXT": "CLO_BUS_H_0_0",
+    "Localized": "Short Side Part Dark Brown",
+    "HairTattooCollection": -2086773,
+    "HairTattooOverlay": 224730392,
+    "Gender": 0
+  },
+  {
+    "ID": 49,
+    "GXT": "CLO_BUS_H_1_0",
+    "Localized": "High Slicked Sides Dark Brown",
+    "HairTattooCollection": -2086773,
+    "HairTattooOverlay": 2140603469,
+    "Gender": 0
+  },
+  {
+    "ID": 50,
+    "GXT": "CLO_HP_HR_0_0",
+    "Localized": "Long Slicked Dark Brown",
+    "HairTattooCollection": -1398869298,
+    "HairTattooOverlay": 965649655,
+    "Gender": 0
+  },
+  {
+    "ID": 51,
+    "GXT": "CLO_HP_HR_1_0",
+    "Localized": "Hipster Youth Dark Brown",
+    "HairTattooCollection": -1398869298,
+    "HairTattooOverlay": -1679505893,
+    "Gender": 0
+  },
+  {
+    "ID": 52,
+    "GXT": "CLO_S1M_H_0_0",
+    "Localized": "Classic Cornrows",
+    "HairTattooCollection": 62137527,
+    "HairTattooOverlay": 534771589,
+    "Gender": 0
+  },
+  {
+    "ID": 53,
+    "GXT": "CLO_S1M_H_1_0",
+    "Localized": "Palm Cornrows",
+    "HairTattooCollection": 62137527,
+    "HairTattooOverlay": -1340139519,
+    "Gender": 0
+  },
+  {
+    "ID": 54,
+    "GXT": "CLO_S1M_H_2_0",
+    "Localized": "Lightning Cornrows",
+    "HairTattooCollection": 62137527,
+    "HairTattooOverlay": -849980761,
+    "Gender": 0
+  },
+  {
+    "ID": 55,
+    "GXT": "CLO_S1M_H_3_0",
+    "Localized": "Whipped Cornrows",
+    "HairTattooCollection": 62137527,
+    "HairTattooOverlay": -551553478,
+    "Gender": 0
+  },
+  {
+    "ID": 56,
+    "GXT": "CLO_S2M_H_0_0",
+    "Localized": "Zig Zag Cornrows",
+    "HairTattooCollection": 1529191571,
+    "HairTattooOverlay": -1431204514,
+    "Gender": 0
+  },
+  {
+    "ID": 57,
+    "GXT": "CLO_S2M_H_1_0",
+    "Localized": "Snail Cornrows",
+    "HairTattooCollection": 1529191571,
+    "HairTattooOverlay": -1133334304,
+    "Gender": 0
+  },
+  {
+    "ID": 58,
+    "GXT": "CLO_S2M_H_2_0",
+    "Localized": "Hightop",
+    "HairTattooCollection": 1529191571,
+    "HairTattooOverlay": -1809784771,
+    "Gender": 0
+  },
+  {
+    "ID": 59,
+    "GXT": "CLO_BIM_H_0_0",
+    "Localized": "Loose Swept Back",
+    "HairTattooCollection": -240234547,
+    "HairTattooOverlay": 1431846777,
+    "Gender": 0
+  },
+  {
+    "ID": 60,
+    "GXT": "CLO_BIM_H_1_0",
+    "Localized": "Undercut Swept Back",
+    "HairTattooCollection": -240234547,
+    "HairTattooOverlay": -460168116,
+    "Gender": 0
+  },
+  {
+    "ID": 61,
+    "GXT": "CLO_BIM_H_2_0",
+    "Localized": "Undercut Swept Side",
+    "HairTattooCollection": -240234547,
+    "HairTattooOverlay": -311245907,
+    "Gender": 0
+  },
+  {
+    "ID": 62,
+    "GXT": "CLO_BIM_H_3_0",
+    "Localized": "Spiked Mohawk",
+    "HairTattooCollection": -240234547,
+    "HairTattooOverlay": -942031335,
+    "Gender": 0
+  },
+  {
+    "ID": 63,
+    "GXT": "CLO_BIM_H_4_0",
+    "Localized": "Mod",
+    "HairTattooCollection": -240234547,
+    "HairTattooOverlay": -644503216,
+    "Gender": 0
+  },
+  {
+    "ID": 64,
+    "GXT": "CLO_BIM_H_5_0",
+    "Localized": "Layered Mod",
+    "HairTattooCollection": -240234547,
+    "HairTattooOverlay": 211198653,
+    "Gender": 0
+  },
+  {
+    "ID": 65,
+    "GXT": "CLO_GRM_H_0_0",
+    "Localized": "Flattop",
+    "HairTattooCollection": 1616273011,
+    "HairTattooOverlay": -1119221482,
+    "Gender": 0
+  },
+  {
+    "ID": 66,
+    "GXT": "CLO_GRM_H_1_0",
+    "Localized": "Military Buzzcut",
+    "HairTattooCollection": 1616273011,
+    "HairTattooOverlay": -1642199958,
+    "Gender": 0
+  },
+  {
+    "ID": 67,
+    "GXT": "CLO_VWM_H_0_0",
+    "Localized": "Impotent Rage",
+    "HairTattooCollection": 1347816957,
+    "HairTattooOverlay": -599666460,
+    "Gender": 0
+  },
+  {
+    "ID": 68,
+    "GXT": "CLO_BBF_H_05",
+    "Localized": "Messy Bun Chestnut",
+    "HairTattooCollection": -1398869298,
+    "HairTattooOverlay": -811206225,
+    "Gender": 1
+  },
+  {
+    "ID": 69,
+    "GXT": "CLO_BBF_H_06",
+    "Localized": "Messy Bun Blonde",
+    "HairTattooCollection": -1398869298,
+    "HairTattooOverlay": -1586815686,
+    "Gender": 1
+  },
+  {
+    "ID": 70,
+    "GXT": "CLO_BBF_H_07",
+    "Localized": "Messy Bun Auburn",
+    "HairTattooCollection": -1398869298,
+    "HairTattooOverlay": -1423429452,
+    "Gender": 1
+  },
+  {
+    "ID": 71,
+    "GXT": "CLO_BBF_H_08",
+    "Localized": "Messy Bun Black",
+    "HairTattooCollection": -1398869298,
+    "HairTattooOverlay": -1697869815,
+    "Gender": 1
+  },
+  {
+    "ID": 72,
+    "GXT": "CLO_BBF_H_09",
+    "Localized": "Messy Bun Brown",
+    "HairTattooCollection": -1398869298,
+    "HairTattooOverlay": -1470846183,
+    "Gender": 1
+  },
+  {
+    "ID": 73,
+    "GXT": "CLO_BUS_F_H_0_0",
+    "Localized": "Tight Bun Black",
+    "HairTattooCollection": -2086773,
+    "HairTattooOverlay": -1816086813,
+    "Gender": 1
+  },
+  {
+    "ID": 74,
+    "GXT": "CLO_BUS_F_H_0_1",
+    "Localized": "Tight Bun Brown",
+    "HairTattooCollection": -2086773,
+    "HairTattooOverlay": -2113006722,
+    "Gender": 1
+  },
+  {
+    "ID": 75,
+    "GXT": "CLO_BUS_F_H_0_2",
+    "Localized": "Tight Bun Auburn",
+    "HairTattooCollection": -2086773,
+    "HairTattooOverlay": -1398740829,
+    "Gender": 1
+  },
+  {
+    "ID": 76,
+    "GXT": "CLO_BUS_F_H_0_3",
+    "Localized": "Tight Bun Chestnut",
+    "HairTattooCollection": -2086773,
+    "HairTattooOverlay": -131530830,
+    "Gender": 1
+  },
+  {
+    "ID": 77,
+    "GXT": "CLO_BUS_F_H_0_4",
+    "Localized": "Tight Bun Blonde",
+    "HairTattooCollection": -2086773,
+    "HairTattooOverlay": -1101886458,
+    "Gender": 1
+  },
+  {
+    "ID": 78,
+    "GXT": "CLO_BUS_F_H_1_0",
+    "Localized": "Twisted Bob Chestnut",
+    "HairTattooCollection": -1398869298,
+    "HairTattooOverlay": 558694786,
+    "Gender": 1
+  },
+  {
+    "ID": 79,
+    "GXT": "CLO_BUS_F_H_1_1",
+    "Localized": "Twisted Bob Black",
+    "HairTattooCollection": -1398869298,
+    "HairTattooOverlay": 569279177,
+    "Gender": 1
+  },
+  {
+    "ID": 80,
+    "GXT": "CLO_BUS_F_H_1_2",
+    "Localized": "Twisted Bob Auburn",
+    "HairTattooCollection": -1398869298,
+    "HairTattooOverlay": 544309199,
+    "Gender": 1
+  },
+  {
+    "ID": 81,
+    "GXT": "CLO_BUS_F_H_1_3",
+    "Localized": "Twisted Bob Brown",
+    "HairTattooCollection": -1398869298,
+    "HairTattooOverlay": 1190448341,
+    "Gender": 1
+  },
+  {
+    "ID": 82,
+    "GXT": "CLO_BUS_F_H_1_4",
+    "Localized": "Twisted Bob Blonde",
+    "HairTattooCollection": -1398869298,
+    "HairTattooOverlay": 885139568,
+    "Gender": 1
+  },
+  {
+    "ID": 83,
+    "GXT": "CLO_HP_F_HR_1_0",
+    "Localized": "Braided Top Knot Chestnut",
+    "HairTattooCollection": -1398869298,
+    "HairTattooOverlay": -1845683606,
+    "Gender": 1
+  },
+  {
+    "ID": 84,
+    "GXT": "CLO_HP_F_HR_1_1",
+    "Localized": "Braided Top Knot Blonde",
+    "HairTattooCollection": -1398869298,
+    "HairTattooOverlay": -1555317497,
+    "Gender": 1
+  },
+  {
+    "ID": 85,
+    "GXT": "CLO_HP_F_HR_1_2",
+    "Localized": "Braided Top Knot Auburn",
+    "HairTattooCollection": -1398869298,
+    "HairTattooOverlay": 1704673699,
+    "Gender": 1
+  },
+  {
+    "ID": 86,
+    "GXT": "CLO_HP_F_HR_1_3",
+    "Localized": "Braided Top Knot Black",
+    "HairTattooCollection": -1398869298,
+    "HairTattooOverlay": 1993401358,
+    "Gender": 1
+  },
+  {
+    "ID": 87,
+    "GXT": "CLO_HP_F_HR_1_4",
+    "Localized": "Braided Top Knot Brown",
+    "HairTattooCollection": -1398869298,
+    "HairTattooOverlay": 1227065524,
+    "Gender": 1
+  },
+  {
+    "ID": 88,
+    "GXT": "CLO_S1F_H_0_0",
+    "Localized": "Pinched Cornrows",
+    "HairTattooCollection": 62137527,
+    "HairTattooOverlay": -1325458477,
+    "Gender": 1
+  },
+  {
+    "ID": 89,
+    "GXT": "CLO_S1F_H_1_0",
+    "Localized": "Leaf Cornrows",
+    "HairTattooCollection": 62137527,
+    "HairTattooOverlay": -566725051,
+    "Gender": 1
+  },
+  {
+    "ID": 90,
+    "GXT": "CLO_S1F_H_2_0",
+    "Localized": "Zig Zag Cornrows",
+    "HairTattooCollection": 62137527,
+    "HairTattooOverlay": -787850263,
+    "Gender": 1
+  },
+  {
+    "ID": 91,
+    "GXT": "CLO_S1F_H_3_0",
+    "Localized": "Pigtail Bangs",
+    "HairTattooCollection": 1529191571,
+    "HairTattooOverlay": 2039295216,
+    "Gender": 1
+  },
+  {
+    "ID": 92,
+    "GXT": "CLO_S2F_H_0_0",
+    "Localized": "Wave Braids",
+    "HairTattooCollection": 1529191571,
+    "HairTattooOverlay": 2039295216,
+    "Gender": 1
+  },
+  {
+    "ID": 93,
+    "GXT": "CLO_S2F_H_1_0",
+    "Localized": "Coil Braids",
+    "HairTattooCollection": 1529191571,
+    "HairTattooOverlay": 1800147054,
+    "Gender": 1
+  },
+  {
+    "ID": 94,
+    "GXT": "CLO_S2F_H_2_0",
+    "Localized": "Rolled Quiff",
+    "HairTattooCollection": 1529191571,
+    "HairTattooOverlay": -2019505897,
+    "Gender": 1
+  },
+  {
+    "ID": 95,
+    "GXT": "CLO_BIF_H_0_0",
+    "Localized": "Loose Swept Back",
+    "HairTattooCollection": -240234547,
+    "HairTattooOverlay": -328340062,
+    "Gender": 1
+  },
+  {
+    "ID": 96,
+    "GXT": "CLO_BIF_H_1_0",
+    "Localized": "Undercut Swept Back",
+    "HairTattooCollection": -240234547,
+    "HairTattooOverlay": 1657725123,
+    "Gender": 1
+  },
+  {
+    "ID": 97,
+    "GXT": "CLO_BIF_H_2_0",
+    "Localized": "Undercut Swept Side",
+    "HairTattooCollection": -240234547,
+    "HairTattooOverlay": -1517964336,
+    "Gender": 1
+  },
+  {
+    "ID": 98,
+    "GXT": "CLO_BIF_H_3_0",
+    "Localized": "Spiked Mohawk",
+    "HairTattooCollection": -240234547,
+    "HairTattooOverlay": 1677522529,
+    "Gender": 1
+  },
+  {
+    "ID": 99,
+    "GXT": "CLO_BIF_H_4_0",
+    "Localized": "Bandana and Braid",
+    "HairTattooCollection": 598190139,
+    "HairTattooOverlay": -1362677538,
+    "Gender": 1
+  },
+  {
+    "ID": 100,
+    "GXT": "CLO_BIF_H_6_0",
+    "Localized": "Skinbyrd",
+    "HairTattooCollection": -240234547,
+    "HairTattooOverlay": 1841934566,
+    "Gender": 1
+  },
+  {
+    "ID": 101,
+    "GXT": "CLO_BIF_H_5_0",
+    "Localized": "Layered Mod",
+    "HairTattooCollection": -240234547,
+    "HairTattooOverlay": 1742494019,
+    "Gender": 1
+  },
+  {
+    "ID": 102,
+    "GXT": "CC_F_HS_1",
+    "Localized": "Short",
+    "HairTattooCollection": 598190139,
+    "HairTattooOverlay": 104062694,
+    "Gender": 1
+  },
+  {
+    "ID": 103,
+    "GXT": "CC_F_HS_2",
+    "Localized": "Layered Bob",
+    "HairTattooCollection": 598190139,
+    "HairTattooOverlay": 869579299,
+    "Gender": 1
+  },
+  {
+    "ID": 104,
+    "GXT": "CC_F_HS_3",
+    "Localized": "Pigtails",
+    "HairTattooCollection": 598190139,
+    "HairTattooOverlay": 1201332655,
+    "Gender": 1
+  },
+  {
+    "ID": 105,
+    "GXT": "CC_F_HS_4",
+    "Localized": "Ponytail",
+    "HairTattooCollection": 598190139,
+    "HairTattooOverlay": 1028967715,
+    "Gender": 1
+  },
+  {
+    "ID": 106,
+    "GXT": "CC_F_HS_5",
+    "Localized": "Braided Mohawk",
+    "HairTattooCollection": 598190139,
+    "HairTattooOverlay": -1651634800,
+    "Gender": 1
+  },
+  {
+    "ID": 107,
+    "GXT": "CC_F_HS_6",
+    "Localized": "Braids",
+    "HairTattooCollection": 598190139,
+    "HairTattooOverlay": -892278763,
+    "Gender": 1
+  },
+  {
+    "ID": 108,
+    "GXT": "CC_F_HS_7",
+    "Localized": "Bob",
+    "HairTattooCollection": 598190139,
+    "HairTattooOverlay": -1032005779,
+    "Gender": 1
+  },
+  {
+    "ID": 109,
+    "GXT": "CC_F_HS_8",
+    "Localized": "Faux Hawk",
+    "HairTattooCollection": 598190139,
+    "HairTattooOverlay": -255675400,
+    "Gender": 1
+  },
+  {
+    "ID": 110,
+    "GXT": "CC_F_HS_9",
+    "Localized": "French Twist",
+    "HairTattooCollection": 598190139,
+    "HairTattooOverlay": 1890137027,
+    "Gender": 1
+  },
+  {
+    "ID": 111,
+    "GXT": "CC_F_HS_10",
+    "Localized": "Long Bob",
+    "HairTattooCollection": 598190139,
+    "HairTattooOverlay": -406805808,
+    "Gender": 1
+  },
+  {
+    "ID": 112,
+    "GXT": "CC_F_HS_11",
+    "Localized": "Loose Tied",
+    "HairTattooCollection": 598190139,
+    "HairTattooOverlay": -592540500,
+    "Gender": 1
+  },
+  {
+    "ID": 113,
+    "GXT": "CC_F_HS_12",
+    "Localized": "Pixie",
+    "HairTattooCollection": 598190139,
+    "HairTattooOverlay": 205417419,
+    "Gender": 1
+  },
+  {
+    "ID": 114,
+    "GXT": "CC_F_HS_13",
+    "Localized": "Shaved Bangs",
+    "HairTattooCollection": 598190139,
+    "HairTattooOverlay": -2127276619,
+    "Gender": 1
+  },
+  {
+    "ID": 115,
+    "GXT": "CC_F_HS_14",
+    "Localized": "Top Knot",
+    "HairTattooCollection": 598190139,
+    "HairTattooOverlay": -1362677538,
+    "Gender": 1
+  },
+  {
+    "ID": 116,
+    "GXT": "CC_F_HS_15",
+    "Localized": "Wavy Bob",
+    "HairTattooCollection": 598190139,
+    "HairTattooOverlay": -1549722990,
+    "Gender": 1
+  },
+  {
+    "ID": 117,
+    "GXT": "CLO_BBF_H_05",
+    "Localized": "Messy Bun Chestnut",
+    "HairTattooCollection": -1398869298,
+    "HairTattooOverlay": -811206225,
+    "Gender": 1
+  },
+  {
+    "ID": 118,
+    "GXT": "CLO_BUS_F_H_0_0",
+    "Localized": "Tight Bun Black",
+    "HairTattooCollection": -2086773,
+    "HairTattooOverlay": -1816086813,
+    "Gender": 1
+  },
+  {
+    "ID": 119,
+    "GXT": "CLO_BUS_F_H_1_0",
+    "Localized": "Twisted Bob Chestnut",
+    "HairTattooCollection": -1398869298,
+    "HairTattooOverlay": 558694786,
+    "Gender": 1
+  },
+  {
+    "ID": 120,
+    "GXT": "CLO_HP_F_HR_1_0",
+    "Localized": "Braided Top Knot Chestnut",
+    "HairTattooCollection": -1398869298,
+    "HairTattooOverlay": -1845683606,
+    "Gender": 1
+  },
+  {
+    "ID": 121,
+    "GXT": "CLO_S1F_H_0_0",
+    "Localized": "Pinched Cornrows",
+    "HairTattooCollection": 62137527,
+    "HairTattooOverlay": -1325458477,
+    "Gender": 1
+  },
+  {
+    "ID": 122,
+    "GXT": "CLO_S1F_H_1_0",
+    "Localized": "Leaf Cornrows",
+    "HairTattooCollection": 62137527,
+    "HairTattooOverlay": -566725051,
+    "Gender": 1
+  },
+  {
+    "ID": 123,
+    "GXT": "CLO_S1F_H_2_0",
+    "Localized": "Zig Zag Cornrows",
+    "HairTattooCollection": 62137527,
+    "HairTattooOverlay": -787850263,
+    "Gender": 1
+  },
+  {
+    "ID": 124,
+    "GXT": "CLO_S1F_H_3_0",
+    "Localized": "Pigtail Bangs",
+    "HairTattooCollection": 1529191571,
+    "HairTattooOverlay": 2039295216,
+    "Gender": 1
+  },
+  {
+    "ID": 125,
+    "GXT": "CLO_S2F_H_0_0",
+    "Localized": "Wave Braids",
+    "HairTattooCollection": 1529191571,
+    "HairTattooOverlay": 2039295216,
+    "Gender": 1
+  },
+  {
+    "ID": 126,
+    "GXT": "CLO_S2F_H_1_0",
+    "Localized": "Coil Braids",
+    "HairTattooCollection": 1529191571,
+    "HairTattooOverlay": 1800147054,
+    "Gender": 1
+  },
+  {
+    "ID": 127,
+    "GXT": "CLO_S2F_H_2_0",
+    "Localized": "Rolled Quiff",
+    "HairTattooCollection": 1529191571,
+    "HairTattooOverlay": -2019505897,
+    "Gender": 1
+  },
+  {
+    "ID": 128,
+    "GXT": "CLO_BIF_H_0_0",
+    "Localized": "Loose Swept Back",
+    "HairTattooCollection": -240234547,
+    "HairTattooOverlay": -328340062,
+    "Gender": 1
+  },
+  {
+    "ID": 129,
+    "GXT": "CLO_BIF_H_1_0",
+    "Localized": "Undercut Swept Back",
+    "HairTattooCollection": -240234547,
+    "HairTattooOverlay": 1657725123,
+    "Gender": 1
+  },
+  {
+    "ID": 130,
+    "GXT": "CLO_BIF_H_2_0",
+    "Localized": "Undercut Swept Side",
+    "HairTattooCollection": -240234547,
+    "HairTattooOverlay": -1517964336,
+    "Gender": 1
+  },
+  {
+    "ID": 131,
+    "GXT": "CLO_BIF_H_3_0",
+    "Localized": "Spiked Mohawk",
+    "HairTattooCollection": -240234547,
+    "HairTattooOverlay": 1677522529,
+    "Gender": 1
+  },
+  {
+    "ID": 132,
+    "GXT": "CLO_BIF_H_4_0",
+    "Localized": "Bandana and Braid",
+    "HairTattooCollection": 598190139,
+    "HairTattooOverlay": -1362677538,
+    "Gender": 1
+  },
+  {
+    "ID": 133,
+    "GXT": "CLO_BIF_H_5_0",
+    "Localized": "Layered Mod",
+    "HairTattooCollection": -240234547,
+    "HairTattooOverlay": 1742494019,
+    "Gender": 1
+  },
+  {
+    "ID": 134,
+    "GXT": "CLO_BIF_H_6_0",
+    "Localized": "Skinbyrd",
+    "HairTattooCollection": -240234547,
+    "HairTattooOverlay": 1841934566,
+    "Gender": 1
+  },
+  {
+    "ID": 135,
+    "GXT": "CLO_GRF_H_0_0",
+    "Localized": "Neat Bun",
+    "HairTattooCollection": 1616273011,
+    "HairTattooOverlay": 687338866,
+    "Gender": 1
+  },
+  {
+    "ID": 136,
+    "GXT": "CLO_GRF_H_1_0",
+    "Localized": "Short Bob",
+    "HairTattooCollection": 1616273011,
+    "HairTattooOverlay": 1827923343,
+    "Gender": 1
+  },
+  {
+    "ID": 137,
+    "GXT": "CLO_VWF_H_0_0",
+    "Localized": "Impotent Rage",
+    "HairTattooCollection": 1347816957,
+    "HairTattooOverlay": 987747946,
+    "Gender": 1
+  }
+]

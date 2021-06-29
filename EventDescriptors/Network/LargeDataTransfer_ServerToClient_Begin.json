@@ -1,0 +1,11 @@
+{
+    "Type": "Network_ServerToClient_RemoteOnly",
+    "Parameters": {
+        "a_TransferType": "ELargeDataTransferType",
+        "a_Identifier": "int",
+        "totalBytes": "int",
+        "crc32": "int",
+        "bAllowClientsideCaching": "bool",
+        "key": "byte[]"
+  }
+}

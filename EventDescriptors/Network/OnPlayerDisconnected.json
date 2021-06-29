@@ -1,0 +1,8 @@
+{
+  "Type": "ServerLocal",
+  "Parameters": {
+  	"a_Player": "CPlayer",
+  	"type": "DisconnectionType",
+  	"reason": "string"
+  }
+}

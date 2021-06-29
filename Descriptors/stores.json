@@ -1,0 +1,11 @@
+{
+  "Files": [
+    {
+      "Name": "owl_stores.dll",
+      "Type": "ServerScript"
+    }
+  ],
+  "ExportedFunctions":
+  [
+  ]
+}

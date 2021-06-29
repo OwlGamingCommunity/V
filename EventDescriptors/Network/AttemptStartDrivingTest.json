@@ -1,0 +1,7 @@
+{
+  "Type": "Network_ClientToServer_RemoteOnly",
+  "Parameters": {
+    "a_DrivingTestType": "EDrivingTestType",
+    "a_Location": "EScriptLocation"
+  }
+}

@@ -1,0 +1,999 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link href="../../owl_client_shared/bootstrap/bootstrap.min.legacy.css" rel="stylesheet">
+	<link href="../../owl_client_shared/core/core.css" rel="stylesheet">
+	<link href="../../owl_client_shared/core/menu.css" rel="stylesheet">
+	<link href="../../owl_client_shared/slider.css" rel="stylesheet">
+	<link href="../../owl_client_shared/animate.css" rel="stylesheet">
+	<script src="../../owl_client_shared/core/core.js"></script>
+	<script src="../../owl_client_shared/jquery.min.js"></script>
+	<script src="../../owl_client_shared/jquery-ui.min.js"></script>
+	<script src="../../owl_client_shared/vue.min.js"></script>
+	<script src="../../owl_client_shared/jscolor.min.js"></script>
+
+	<link href="package://owl_client_shared/bootstrap.min.legacy.css" rel="stylesheet">
+	<link href="package://owl_client_shared/core.css" rel="stylesheet">
+	<link href="package://owl_client_shared/menu.css" rel="stylesheet">
+	<link href="package://owl_client_shared/slider.css" rel="stylesheet">
+	<link href="package://owl_client_shared/animate.css" rel="stylesheet">
+	<script src="package://owl_client_shared//core.js"></script>
+	<script src="package://owl_client_shared//jquery.min.js"></script>
+	<script src="package://owl_client_shared//jquery-ui.min.js"></script>
+	<script src="package://owl_client_shared//vue.min.js"></script>
+	<script src="package://owl_client_shared//jscolor.min.js"></script>
+
+	<script type="text/javascript">
+		const max_messages_limit = 100;
+		const max_messages_internal_storage = 1000;
+		var max_messages_displayed = 10; // TODO: Make setting for this not part of tabs... but global...
+		var chatbox_background_enabled = true;
+		var chatbox_background_alpha = 0.8;
+		var g_Tabs = [];
+		var next_tab_slot = 0;
+        var g_Messages = [];
+
+        let g_KeyNormalChat = 84;
+        let g_KeyLocalOOCChat = 66;
+        let g_KeyPrimaryRadioChat = 89;
+        let g_KeyQuickReplyChat = 85;
+
+        // TODO_CHATBOX: Get from font size 
+        const baseHeightPerCharacter = 22;
+
+        function InitializeControls(normalChat, localOOCChat, primaryRadioChat)
+        {
+            g_KeyNormalChat = normalChat;
+            g_KeyLocalOOCChat = localOOCChat;
+            g_KeyPrimaryRadioChat = primaryRadioChat;
+        }
+
+		function AddDebugMessages()
+		{
+			for (var i = 0; i < 5; i++)
+			{
+				AddMessage(`Name: message${i}`, 0);
+			}
+
+			for (var i = 0; i < 10; i++)
+			{
+				AddMessage(`Faction Name: faction message${i}`, 1);
+			}
+        }
+
+        // keybinds
+        $(function ()
+        {   
+            $(document).keydown(function (objEvent)
+			{        
+				if (!g_ChatInputEnabled && g_GlobalKeybindsEnabled)
+                {
+                   if (objEvent.keyCode == g_KeyNormalChat)
+                    {
+                        SetChatInputEnabled(true, "", "");
+                        return false;
+                    }
+                    else if (objEvent.keyCode == g_KeyLocalOOCChat)
+                    {
+                        SetChatInputVisible(true, "/b ", "Local OOC");
+                        return false;
+                    }
+                    else if (objEvent.keyCode == g_KeyPrimaryRadioChat)
+                    {
+                        SetChatInputVisible(true, "/r ", "Primary Radio");
+                        return false;
+                   }
+                   else if (objEvent.keyCode == g_KeyQuickReplyChat)
+                    {
+                        SetChatInputVisible(true, "/u ", "Quick reply");
+                        return false;
+                    }
+
+                     // disable select all / ctrl a
+					if (objEvent.ctrlKey)
+					{          
+						if (objEvent.keyCode == 65)
+						{                         
+							return false;
+						}            
+					}        
+				}
+            });
+        });   
+
+        function Reset()
+        {
+            // TODO: Show user which type of chat they're sending
+            // NOTE: Needed, client will invoke this, but we need to initialize data still
+            Initialize(max_messages_displayed, chatbox_background_enabled, chatbox_background_alpha);
+            ApplyDefaultSettings();
+        }
+
+        function OnLoad()
+        {
+			return;
+        	Reset();
+        	PopulateTabsFromSettings();
+        	//AddMessage("a", 0);
+        	//AddMessage("b", 0);
+        	//AddMessage("c", 0);
+
+        	for (var i = 0; i < 20; ++i)
+            {
+            	AddMessage(`Message ${i+1}`, 0);
+            	//AddMessage(`${i} Large Message Large Message Large Message Large Message Large Message Large Message Large Message Large Message Large Message Large Message Large Message Large Message Large Message Large Message Large Message Large Message Large Message Large Message Large Message Large Message Large Message Large Message Large Message Large Message Large Message Large Message Large Message Large Message Large Message Large Message Large Message Large Message Large Message Large Message Large Message Large Message Large Message Large Message Large Message Large Message Large Message Large Message Large Message Large Message Large Message Large Message Large Message Large Message Large Message Large Message Large Message Large Message Large Message Large Message Large Message Large Message Large Message Large Message Large Message Large Message Large Message Large Message Large Message Large Message Large Message`, 0);
+            }
+        }
+
+		function PopulateTabsFromSettings()
+		{
+			next_tab_slot = 0;
+			document.getElementById("tab_list").innerHTML = "";
+
+			for (var tab_id = 0; tab_id < g_ChatSettings.length; ++tab_id)
+			{
+				// TODO: If none, give them an MTA like setup?
+				// TODO: Default should be an MTA setup
+				if (g_ChatSettings[tab_id]["Enabled"])
+				{
+					var label_style = "label-default";
+					if (next_tab_slot == 0)
+					{
+						label_style = "label-success";
+					}
+
+					g_Tabs[next_tab_slot] = [];
+					g_Tabs[next_tab_slot]['unread'] = 0;
+					document.getElementById("tab_list").innerHTML += `<a href='#' tabindex='-1' onclick='SwitchTab(${next_tab_slot});'><span id='tab_button_${next_tab_slot}' class="label ${label_style}">${g_ChatSettings[tab_id]["Name"]}<span id="tab_button_${next_tab_slot}_badge"></span></span></a>`;
+
+					next_tab_slot++;
+				}
+			}
+
+			// Add settings
+			document.getElementById("tab_list").innerHTML += `<a href='#' tabindex='-1' onclick='GotoChatSettings();'><span id='tab_button_settings' class="label-default">Settings</span></a>`;
+		}
+		
+		function UpdateNumMessagesShown(skipUpdateMessages)
+		{
+			document.getElementById("messages").innerHTML = "";
+
+			// Initialize messages
+			for (var i = 0; i < max_messages_limit; ++i)
+			{
+				element = CreateOrGetChatElement(i);
+			}
+
+
+
+			// calculate height
+			var height = max_messages_displayed * baseHeightPerCharacter;
+			document.getElementById('messages').style.height = `${height}px`;
+
+			// scroll to bottom
+			document.getElementById("messages").scrollTop = 9999;
+
+			if (!skipUpdateMessages)
+			{
+				UpdateDisplayedMessages(false);
+			}
+		}
+
+		function Initialize(max_msg_to_show, showChatboxBackground, chatboxBackgroundAlpha)
+		{
+			// TODO: This should be from client
+			//AddSettings(0, "Tab 0", true, "[true,false,true,false]");
+			//AddSettings(1, "Tab 1", true, "[true,false,true,false]");
+			//AddSettings(2, "Tab 2", true, "[true,false,true,false]");
+			//AddSettings(3, "Tab 3", true, "[true,false,true,false]");
+
+			max_messages_displayed = max_msg_to_show;
+			chatbox_background_enabled = showChatboxBackground;
+			chatbox_background_alpha = chatboxBackgroundAlpha;
+
+			g_Messages = [];
+			g_Tabs = [];
+			next_tab_slot = 0;
+			document.getElementById("tab_list").innerHTML = "";
+
+			PopulateTabsFromSettings();
+
+			UpdateNumMessagesShown(false);
+
+			UpdateDisplayedMessages(true);
+
+			for (var i = 0; i < max_messages_internal_storage; ++i)
+			{
+				g_Messages[i] = [];
+			}
+			//SetSettingsCurrentTab(0);
+
+			UpdateChatBackground();
+
+			// calculate height
+			var height = max_messages_displayed * baseHeightPerCharacter;
+			document.getElementById('messages').style.height = `${height}px`;
+
+			// scroll to bottom
+			document.getElementById("messages").scrollTop = 9999;
+		}
+
+		function UpdateChatBackground()
+		{
+			if (chatbox_background_enabled)
+			{
+				document.getElementById("messages").style.backgroundColor = `rgba(0, 0, 0, ${chatbox_background_alpha})`;
+			}
+			else
+			{
+				document.getElementById("messages").style.backgroundColor = "rgba(0, 0, 0, 0.0)";
+			}
+		}
+
+		function GotoChatSettings()
+		{
+			g_ChatVisible = false;
+
+			g_SettingsCurrentTab = active_tab;
+			SetSettingsCurrentTab(active_tab);
+
+			document.getElementById("chatbox").style.display = "block";
+			document.getElementById("settings").style.display = "block";
+
+			document.getElementById("settings_num_lines").value = max_messages_displayed;
+			document.getElementById("chatbox_background_enabled").checked = chatbox_background_enabled;
+			document.getElementById("chatbox_background_alpha").value = chatbox_background_alpha;
+
+			SetChatInputEnabled(false, "", "");
+
+			TriggerEvent("ShowChatSettings");
+		}
+
+		var g_ChatSettings = [];
+
+		function SaveAndApplySettings()
+		{
+			SaveSettingsForTab(g_SettingsCurrentTab);
+
+			max_messages_displayed = Number(document.getElementById("settings_num_lines").value);
+			// clamp max
+			if (max_messages_displayed > max_messages_limit)
+			{
+				max_messages_displayed = max_messages_limit;
+			}
+			else if (max_messages_displayed < 1)
+			{
+				max_messages_displayed = 1;
+			}
+
+			chatbox_background_enabled = document.getElementById("chatbox_background_enabled").checked;
+			chatbox_background_alpha = Number(document.getElementById("chatbox_background_alpha").value);
+
+			if (chatbox_background_alpha > 1.0)
+			{
+				chatbox_background_alpha = 1.0;
+			}
+			else if (chatbox_background_alpha < 0.0)
+			{
+				chatbox_background_alpha = 0.0;
+			}
+
+
+            TriggerEvent("SaveChatSettingsGlobal", max_messages_displayed, chatbox_background_enabled, chatbox_background_alpha);
+
+			PopulateTabsFromSettings();
+			UpdateNumMessagesShown(false);
+			UpdateChatBackground();
+
+			// Update messages shown, settings might have changed
+			UpdateDisplayedMessages(true);
+		}
+
+        function RestoreDefaults()
+        {
+            GotoChatBox(false);
+            TriggerEvent("ResetChatSettings");
+        }
+
+		function GotoChatBox(saveToServer = true)
+		{
+			g_ChatVisible = true;
+			document.getElementById("chatbox").style.display = "block";
+			document.getElementById("settings").style.display = "none";
+
+			SaveAndApplySettings();
+
+			TriggerEvent("HideChatSettings", saveToServer);
+		}
+
+		function SaveSettingsForTab(tab)
+		{
+			g_ChatSettings[tab]["Name"] = document.getElementById("settings_tab_name").value;
+			g_ChatSettings[tab]["Enabled"] = document.getElementById("tab_enabled").checked;
+
+			for (var i = 0; i < g_MaxChannels; ++i)
+			{
+				g_ChatSettings[tab]["Channels"][i] = document.getElementById(`channel_enabled_${i}`).checked;
+			}
+
+			TriggerEvent("SaveChatSettingsForTab", tab, JSON.stringify(g_ChatSettings[tab]));
+		}
+
+		var g_MaxChannels = 8;
+		var g_MaxNumTabs = 4;
+
+		function ApplyDefaultSettings()
+		{
+			for (var i = 0; i < g_MaxNumTabs; ++i)
+			{
+				g_ChatSettings[i] = [];
+				g_ChatSettings[i]["Name"] = `Tab #${i+1}`;
+				g_ChatSettings[i]["Enabled"] = true;
+
+                g_ChatSettings[i]["Channels"] = {};
+				for (var j = 0; j < g_MaxChannels; ++j)
+				{
+					g_ChatSettings[i]["Channels"][j] = true;
+				}
+			}
+		}
+
+		function AddSettings(tab_id, name, enabled, channels_json)
+		{
+			var channels = JSON.parse(channels_json);
+			g_ChatSettings[tab_id] = {};
+			g_ChatSettings[tab_id]["Name"] = name;
+            g_ChatSettings[tab_id]["Enabled"] = enabled;
+
+            var i = 0;
+            g_ChatSettings[tab_id]["Channels"] = {};
+            Object.entries(channels).forEach(channel =>
+            {
+                g_ChatSettings[tab_id]["Channels"][i] = channel[1];
+                ++i;
+            });
+		}
+
+		var g_SettingsCurrentTab = 0;
+		function SetSettingsCurrentTab(tab_id)
+		{
+			//dropdownClass_SettingsTab
+			// Save previous tab
+			if (tab_id != g_SettingsCurrentTab)
+			{
+				SaveAndApplySettings();
+			}
+
+			g_SettingsCurrentTab = tab_id;
+		
+			$("#dropdownClass_SettingsTab").text(`Tab #${tab_id+1}`);
+			$("#dropdownClass_SettingsTab").val(`Tab #${tab_id+1}`);
+			
+			// load settings for this tab
+			var tab_settings = g_ChatSettings[tab_id];
+			document.getElementById("tab_enabled").checked = tab_settings["Enabled"];
+			document.getElementById("settings_tab_name").value = tab_settings["Name"];
+
+			for (var i = 0; i < g_MaxChannels; ++i)
+			{
+				document.getElementById(`channel_enabled_${i}`).checked = g_ChatSettings[tab_id]["Channels"][i];
+			}
+		}
+
+		function ScrollUp()
+		{
+			document.getElementById("messages").scrollTop -= document.getElementById("message_0").offsetHeight;
+		}
+
+		function ScrollDown()
+		{
+			document.getElementById("messages").scrollTop += document.getElementById("message_0").offsetHeight;
+		}
+
+		function ScrollToStart()
+		{
+			document.getElementById("messages").scrollTop = 0;
+		}
+
+		function ScrollToEnd()
+		{
+			document.getElementById("messages").scrollTop = 9999;
+		}
+
+		var active_tab = 0;
+
+		function ClearChat()
+		{
+            g_Messages = [];
+            for (var i = 0; i < max_messages_internal_storage; ++i)
+            {
+                g_Messages[i] = [];
+            }
+
+			UpdateDisplayedMessages(true);
+		}
+
+		function CreateOrGetChatElement(id)
+		{
+			var element = document.getElementById(`message_${id}`);
+			if (element == null)
+			{
+				document.getElementById("messages").insertAdjacentHTML('afterBegin', `<span class="messages chatbox_text" id="message_${id}"></span><br>`);
+				return document.getElementById(`message_${id}`);
+			}
+
+			return element;
+		}
+
+		function UpdateDisplayedMessages(isTabSwitch)
+		{
+			// TODO_CHATBOX: Kinda slow...
+			if (isTabSwitch)
+			{
+				UpdateNumMessagesShown(isTabSwitch);
+			}
+
+			var num_messages_shown = 0;
+			for (var i = 0; i < max_messages_limit; i++)
+			{
+				var pushedMessage = false;
+				if (g_Messages[i] != null && g_Messages[i]['message'] != null && g_Messages[i]['channel'] != null)
+				{
+					var message = g_Messages[i]['message'];
+					var channel = g_Messages[i]['channel'];
+
+					// Does this tab allow for channel to be shown?
+					var filter_active = g_ChatSettings[active_tab]["Channels"][channel];
+
+					if (filter_active)
+					{
+						element = CreateOrGetChatElement(num_messages_shown);
+
+						pushedMessage = true;
+						element.innerHTML = message;
+						num_messages_shown++;
+
+						if (num_messages_shown == max_messages_limit)
+						{
+							break;
+						}
+					}
+				}
+			}
+
+			$("#messages").scrollTop($("#messages")[0].scrollHeight);
+		}
+
+		function UpdateBadges()
+		{
+			for (var i = 0; i < g_Tabs.length; ++i)
+			{
+				var element_id = `tab_button_${i}_badge`;
+
+				var unread = g_Tabs[i]['unread'];
+
+				if (unread > 0)
+				{
+					// clamp unread to max_messages since they wont see any more than that anyway via scrolling
+					if (unread > max_messages_limit)
+					{
+						unread = max_messages_limit;
+					}
+					document.getElementById(element_id).innerHTML = `[${unread}]`;
+				}
+				else
+				{
+					document.getElementById(element_id).innerHTML = ``;
+				}
+			}
+		}
+
+		function ParseColors(message)
+		{
+			var search_string = "!{"; // }
+			var start_pos = 0;
+			var pos = message.indexOf(search_string, start_pos);
+
+			while (pos != -1)
+			{
+				var end_pos = message.indexOf("}", pos + 1);
+
+				if (end_pos != -1)
+				{
+					var col_str = message.substring(pos, end_pos);
+					var rgb = col_str.match(/[-]{0,1}[\d]*[\.]{0,1}[\d]+/g);
+
+
+					var to_replace = `!{${rgb[0]}, ${rgb[1]}, ${rgb[2]}}`;
+					var replace_with = `<font style="color:rgb(${rgb[0]}, ${rgb[1]}, ${rgb[2]})">`;
+					message = message.replace(to_replace, replace_with);
+
+					// find an end...
+					var next_color_marker = message.indexOf(search_string, end_pos + 1);
+					if (next_color_marker == -1) // entire remainder of string is colored
+					{
+						message += "</font>";
+					}
+					else
+					{
+						// add in an end marker
+						message = message.substr(0, next_color_marker) + "</font>" + src.substr(next_color_marker);
+					}
+
+					start_pos = end_pos + 1;
+					pos = message.indexOf(search_string, start_pos);
+				}
+			}
+
+			return message;
+		}
+
+		function AddMessage(message, channel)
+		{
+			if (message.indexOf("[RADIO") != -1)
+			{
+				TriggerEvent("GotRadioMessage");
+			}
+
+			// parse any color codes
+			message = ParseColors(message);
+
+			// shift all messages and store
+
+			for (var i = max_messages_internal_storage - 1; i > 0; --i)
+			{
+				g_Messages[i]['message'] = g_Messages[i - 1]['message'];
+				g_Messages[i]['channel'] = g_Messages[i - 1]['channel'];
+			}
+
+			//g_Messages[0] = [];
+			g_Messages[0]['message'] = message;
+			g_Messages[0]['channel'] = channel;
+
+			UpdateDisplayedMessages(false);
+
+			// update unreads
+			for (var i = 0; i < g_ChatSettings.length; ++i)
+			{
+				// does this tab have the requested channel enabled?
+				if (g_ChatSettings[i]["Channels"][channel])
+				{
+					// Is this tab currently active? reset unread to 0
+					if (g_Tabs[i] != null)
+					{
+						if (i == active_tab)
+						{
+							g_Tabs[i]['unread'] = 0;
+						}
+						else
+						{
+							g_Tabs[i]['unread']++;
+						}
+					}
+				}
+			}
+
+			// Update badges
+			UpdateBadges();
+		}
+
+		function SwitchTab(tab_id)
+		{
+			g_Tabs[tab_id]['unread'] = 0;
+			active_tab = tab_id;
+			var target_element_name = `tab_button_${tab_id}`;
+
+			// Set all other tabs to disabled
+			for (var i = 0; i < g_Tabs.length; ++i)
+			{
+				var elementName = `tab_button_${i}`;
+				if (elementName != target_element_name)
+				{
+					document.getElementById(elementName).className = "label label-default";
+				}
+			}
+
+			document.getElementById(target_element_name).className = "label label-success";
+
+			// Update badges
+			UpdateBadges();
+			UpdateDisplayedMessages(true);
+		}
+
+        function SetChatInputBoxContent(text)
+        {
+            document.getElementById('message').value = text;
+        }
+        var g_GlobalKeybindsEnabled = true;
+		var g_ChatInputEnabled = false;
+		var g_ChatVisible = true;
+		function SetChatInputEnabled(enabled, preset_text, placeholder)
+        {
+			g_ChatInputEnabled = enabled;
+			document.getElementById('message').value = preset_text;
+			document.getElementById('message').placeholder = placeholder;
+			document.getElementById('message').style.visibility = enabled ? "visible" : "hidden";
+			document.getElementById("message").focus();
+
+			// RAGE event so we get chat status for free
+			mp.invoke("setTypingInChatState", enabled);
+
+			TriggerEvent("OnChatInputVisibleChanged", enabled);
+        }
+
+        function SetGlobalInputEnabled(enabled)
+        {
+            g_GlobalKeybindsEnabled = enabled;
+        }
+
+        var g_HasSentDisconnectionNotification = false;
+
+		var chatAPI =
+		{
+			push: (text) =>
+            {
+				var channel = text[0];
+				if (!isNaN(channel))
+				{
+					AddMessage(text.substring(1, text.length), channel);
+                }
+                else if (text.startsWith("RAGE MP: ")) // RAGE informative message
+                {
+                    if (text.startsWith("RAGE MP: Connection lost"))
+                    {
+                        // OK to only do this once as the html reloads on reconnect
+                        if (!g_HasSentDisconnectionNotification)
+                        {
+                            g_HasSentDisconnectionNotification = true;
+                            TriggerEvent("OnDisconnectedFromServer");
+                        }
+                    }
+                    else
+                    {
+                        AddMessage(text, 0);
+                    }
+                }
+				else
+				{
+					console.log(`Malformed message received!`);
+				}
+			},
+
+			clear: () =>
+			{
+				for (var i = 0; i < g_Tabs.length; ++i)
+				{
+					g_Tabs[i]["messages"] = [];
+				}
+			},
+
+			activate: (toggle) =>
+			{
+				g_IsActivated = toggle;
+			},
+
+			show: (toggle) =>
+            {
+                SetInputEnabled(true);
+				g_ChatVisible = toggle;
+				document.getElementById("chatbox").style.display = toggle ? "block" : "none";
+			}
+        };
+
+		let api = {"chat:push": chatAPI.push, "chat:clear": chatAPI.clear, "chat:activate": chatAPI.activate, "chat:show": chatAPI.show}; 
+
+		for(let fn in api)
+		{
+			mp.events.add(fn, api[fn]);
+		}
+
+        var g_IsActivated = true;
+
+        function SetChatInputVisible(visible, prefix, info_text)
+        {
+            if (visible) {
+                if (!g_ChatInputEnabled && g_ChatVisible) {
+                    SetChatInputEnabled(true, prefix, info_text);
+                }
+            }
+            else
+            {
+                if (g_ChatInputEnabled)
+                {
+                    SetChatInputEnabled(false, "", "");
+                }
+            }
+        }
+
+        function SubmitChatMessage()
+        {
+            if (g_ChatVisible && g_IsActivated)
+            {
+                if (g_ChatInputEnabled)
+				{
+					var value = removeTags(document.getElementById('message').value);
+					document.getElementById('message').value = "";
+
+					if (value.length > 0)
+					{
+						if (value[0] == "/")
+						{
+							value = value.substr(1);
+
+							if (value.length > 0)
+							{
+								TriggerEvent("OnChatBoxCommand", value);
+							}
+						}
+						else
+                        {
+                            TriggerEvent("OnChatBoxMessage", value);
+							mp.invoke("chatMessage", value);
+						}
+					}
+
+					SetChatInputEnabled(false, "", "");
+				}
+            }
+        }
+	</script>
+
+	<style>
+
+		@font-face {
+			font-family: 'Roboto';
+			src: url('package://owl_client_shared/Roboto-Regular.woff2') format('woff2'),
+				url('package://owl_client_shared/Roboto-Regular.woff') format('woff');
+			font-weight: normal;
+			font-style: normal;
+			font-size: 36px;
+		}
+
+		body {
+			background-color: transparent;
+			margin: 0;
+			padding: 0;
+			position: relative;
+		}
+
+
+		#messages{
+			width: 660px;
+
+  			overflow: auto;
+  			padding-bottom: 0px
+		}
+
+		::-webkit-scrollbar
+		{
+  			width: 10px;
+  			color: rgba(0, 0, 0, 0);
+		}
+
+
+		/* Handle */
+		::-webkit-scrollbar-thumb
+		{
+		  color: rgba(0, 0, 0, 0);
+		}
+
+		/* Handle on hover */
+		::-webkit-scrollbar-thumb:hover
+		{
+		  color: rgba(0, 0, 0, 0);
+		}
+
+		.root_container {
+			left: 25px;
+			min-width: 660px;
+			position: fixed;
+			top: 15px;
+			width: 34%;
+		}
+
+		.root_container_settings {
+			left: 25px;
+			min-width: 238px;
+			position: fixed;
+			top: 45%;
+			left: 55%;
+			transform: translate(-50%, -50%);
+		}
+
+		#tab_list {
+			overflow: hidden;
+			padding-top: 10px;
+			user-select: none;
+		}
+
+			#tab_list > a {
+				display: block;
+				float: left;
+				margin-right: 2px;
+				min-width: 105px;
+				text-align: center;
+			}
+
+			#tab_list .label,
+			#tab_list .label-success,
+			#tab_list .label-default {
+				background: rgba(17,17,17,0.77);
+				color: #ffffff;
+				display: block;
+				font-size: 11px;
+				font-weight: 700;
+				letter-spacing: 1.5px;
+				line-height: 1em;
+				padding: 13px 10px;
+				position: relative;
+				text-transform: uppercase;
+				transition: background-color 0.2s linear, border-color 0.2s linear, color 0.2s linear, opacity 0.2s linear;
+			}
+
+				#tab_list .label:hover,
+				#tab_list .label-success:hover,
+				#tab_list .label-default:hover {
+					background: #ffffff;
+					color: #000000;
+				}
+
+				#tab_list .label::before {
+					content: "";
+					display: block;
+					background-color: #61B8D6;
+					opacity: 0;
+					position: absolute;
+					top: -5px;
+					transition: opacity 0.2s linear;
+					height: 5px;
+					left: 0;
+					width: 100%;
+				}
+
+				#tab_list .label:hover::before,
+				#tab_list .label-success:hover::before,
+				#tab_list .label-default:hover::before {
+					opacity: 1;
+				}
+
+			#tab_list .label-default {
+				opacity: 0.6;
+			}
+
+        .root_container #messages,
+        .root_container .form-control {
+            color: #ffffff;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            padding: 13px 10px;
+        }
+
+        @media screen and (max-width: 1920px) {
+            .root_container #messages,
+            .root_container .form-control {
+                font-size: 15px;
+                line-height: 19px;
+            }
+        }
+
+        @media screen and (min-width: 2000px) {
+            .root_container #messages,
+            .root_container .form-control {
+                font-size: 21px;
+                line-height: 28px;
+            }
+        }
+
+		.root_container #messages {
+			text-shadow: -1px -1px 0 rgba(0,0,0,0.75), 1px -1px 0 rgba(0,0,0,0.75), -1px 1px 0 rgba(0,0,0,0.75), 1px 1px 0 rgba(0,0,0,0.75);
+			user-select: text;
+			padding: 13px 10px;
+		}
+
+		.chatbox_text {
+			user-select: all;
+		}
+
+		.root_container .form-control,
+		.root_container .form-control:active,
+		.root_container .form-control:focus {
+			background: rgba(17,17,17,0.77);
+			border: 3px solid #111111;
+			outline: none;
+			padding: 10px;
+			width: 660px;
+		}
+
+		a:hover, a:visited, a:link, a:active {
+			border: none;
+			outline: none;
+			text-decoration: none;
+		}
+	</style>
+
+</head>
+<body>
+	<div class="root_container" id="chatbox">
+		<div id="tab_list"></div>
+		<div id="messages"></div>
+		<input type="text" class="form-control" placeholder="Message..." value="" maxlength="255" aria-describedby="basic-addon1" style="visibility:hidden;" id="message">
+	</div>
+
+
+	<div class="root_container_settings" id="settings" style="display:none">
+
+		<div class="panel panel-default col-sm-8">
+			<div class="panel-heading">
+				<h5>Global Settings</h5>
+			</div>
+			Number of Lines: <input type="number" class="form-control" placeholder="Number of Chat Lines"  oninput='SaveAndApplySettings()' onkeydown='SaveAndApplySettings()' onchange='SaveAndApplySettings()' value="" maxlength="2" aria-describedby="basic-addon1" id="settings_num_lines">
+			<br /><br />
+
+			Chatbox Background: <input type="checkbox"  onclick='SaveAndApplySettings()' id="chatbox_background_enabled">
+			<br>
+
+			Chatbox Background Transparency (0-1.0): <input type="number" class="form-control" placeholder="Background Transparency"  oninput='SaveAndApplySettings()' onkeydown='SaveAndApplySettings()' onchange='SaveAndApplySettings()' value="" maxlength="3" aria-describedby="basic-addon1" id="chatbox_background_alpha">
+			<br>
+
+			<div class="panel-heading">
+				<h5>Tab Settings</h5>
+			</div>
+
+			<div class="btn-group btn-group-justified" role="group" aria-label="Justified button group">
+
+				<div class="btn-group">
+					<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" id="dropdownClass_SettingsTab">
+						</span>
+					</button>
+					<ul class="dropdown-menu" role="menu" id="tabs">
+
+						<li><a href='#' onclick='SetSettingsCurrentTab(0)' id='settings_tab_0'>Tab #1</a></li>
+						<li><a href='#' onclick='SetSettingsCurrentTab(1)' id='settings_tab_1'>Tab #2</a></li>
+						<li><a href='#' onclick='SetSettingsCurrentTab(2)' id='settings_tab_2'>Tab #3</a></li>
+						<li><a href='#' onclick='SetSettingsCurrentTab(3)' id='settings_tab_3'>Tab #4</a></li>
+					</ul>
+				</div>
+			</div>
+			
+			Tab Enabled: <input type="checkbox"  onclick='SaveAndApplySettings()' id="tab_enabled">
+			<br>
+			Tab Name: <input type="text" class="form-control" maxlength="15" oninput='SaveAndApplySettings()' onkeydown='SaveAndApplySettings()' onchange='SaveAndApplySettings()' placeholder="Tab Name..." value="Tab #1" maxlength="255" aria-describedby="basic-addon1" id="settings_tab_name">
+
+					  <div class="panel panel-default col-sm-12">
+					  	<div class="panel-heading">
+					  		<h5>Channels</h5>
+					  	</div>
+
+					  	<input type="checkbox" onclick='SaveAndApplySettings()' id="channel_enabled_0">Nearby<br>
+					  	<input type="checkbox" onclick='SaveAndApplySettings()' id="channel_enabled_1">Factions<br>
+					  	<input type="checkbox" onclick='SaveAndApplySettings()' id="channel_enabled_2">Global<br>
+					  	<input type="checkbox" onclick='SaveAndApplySettings()' id="channel_enabled_3">Notifications<br>
+					  	<input type="checkbox" onclick='SaveAndApplySettings()' id="channel_enabled_4">Syntax / Commands<br>
+					  	<input type="checkbox" onclick='SaveAndApplySettings()' id="channel_enabled_5">Admin Chat<br>
+					  	<input type="checkbox" onclick='SaveAndApplySettings()' id="channel_enabled_6">Admin Actions<br>
+					  	<input type="checkbox" onclick='SaveAndApplySettings()' id="channel_enabled_7">Admin Reports<br>
+
+					  </div>
+
+			<div class="btn-group btn-group-justified" role="group" aria-label="Justified button group">
+
+                <div class="btn-group">
+                    <button id="restoredefaults" type='button' class='btn btn-danger' onclick='RestoreDefaults();'>Restore Defaults</button>
+                    <button id="exitbutton" type='button' class='btn btn-success' onclick='GotoChatBox();'>Done</button>
+                </div>
+			</div>
+
+
+
+		</div>
+
+
+
+	</div>
+
+</body>
+</html>

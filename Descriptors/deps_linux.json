@@ -1,0 +1,31 @@
+{
+  "Files": [
+  	    {
+      "Name": "System.Interactive.Async.dll",
+      "Type": "ServerDependency"
+    },
+      {
+      "Name": "System.Configuration.ConfigurationManager.dll",
+      "Type": "ServerDependency"
+    },
+    {
+      "Name": "System.Security.Cryptography.ProtectedData.dll",
+      "Type": "ServerDependency"
+    },
+    {
+      "Name": "System.Security.Permissions.dll",
+      "Type": "ServerDependency"
+    },
+    {
+      "Name": "System.Text.Encoding.CodePages.dll",
+      "Type": "ServerDependency"
+    },
+    {
+      "Name": "System.Collections.Immutable.dll",
+      "Type": "ServerDependency"
+    }
+  ],
+  "ExportedFunctions":
+  [
+  ]
+}

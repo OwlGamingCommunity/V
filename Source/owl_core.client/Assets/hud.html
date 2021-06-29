@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <link href="../../owl_client_shared/bootstrap/bootstrap.min.legacy.css" rel="stylesheet">
+    <link href="../../owl_client_shared/core/core.css" rel="stylesheet">
+    <link href="../../owl_client_shared/core/menu.css" rel="stylesheet">
+    <link href="../../owl_client_shared/slider.css" rel="stylesheet">
+    <link href="../../owl_client_shared/animate.css" rel="stylesheet">
+    <link href="../../owl_client_shared/fontawesome/all.min.dev.css" rel="stylesheet">
+    <link href="../../owl_core.client/Assets/hud.css" rel="stylesheet">
+    <script src="../../owl_client_shared/core/core.js"></script>
+    <script src="../../owl_client_shared/jquery.min.js"></script>
+    <script src="../../owl_client_shared/jquery-ui.min.js"></script>
+    <script src="../../owl_client_shared/vue.min.js"></script>
+    <script src="../../owl_client_shared/jscolor.min.js"></script>
+
+    <link href="package://owl_client_shared/bootstrap.min.legacy.css" rel="stylesheet">
+    <link href="package://owl_client_shared/core.css" rel="stylesheet">
+    <link href="package://owl_client_shared/menu.css" rel="stylesheet">
+    <link href="package://owl_client_shared/slider.css" rel="stylesheet">
+    <link href="package://owl_client_shared/animate.css" rel="stylesheet">
+    <link href="package://owl_client_shared/all.min.css" rel="stylesheet">
+    <link href="package://owl_core.client/hud.css" rel="stylesheet">
+    <script src="package://owl_client_shared//core.js"></script>
+    <script src="package://owl_client_shared//jquery.min.js"></script>
+    <script src="package://owl_client_shared//jquery-ui.min.js"></script>
+    <script src="package://owl_client_shared//vue.min.js"></script>
+    <script src="package://owl_client_shared//jscolor.min.js"></script>
+</head>
+<body>
+
+    <span id="content">
+        <div class="align-right">
+            <div class="item">
+                <div id="notifications">
+                    <x-notification-bell ref="bell"></x-notification-bell>
+                </div>
+                <script src="./js/notifications.js"></script>
+                <script src="package://owl_core.client/notifications.js"></script>
+            </div>
+            <br><br>
+
+            <div class="item">
+                <span id="ammo" style="display:none">
+                    <span id="total"></span>
+                    <span id="clip"></span>
+                </span>
+                <span id="weapon"></span>
+            </div>
+
+        </div>
+
+        <div id="progress" class="progress align-bottom-progress align-middle-progress" style="font-size: 24px; height: 40px; width: 300px; display: none;">
+            <span style="position: absolute; top: 12px; bottom: 0; left: 0; right: 0; color: #000;" id="progress-text"></span>
+            <div class="progress-bar" aria-valuemax="100" style="width: 0%;" id="progress-bar"></div>
+        </div>
+
+        <span id="location">
+
+        </span>
+
+        <div class="align-bottom-speedlimit align-right-speedlimit">
+            <span id="speedlimit"></span>
+        </div>
+
+        <div class="align-bottom-speedo align-right-speedo">
+            <span id="vehicle_hud">
+                <span id="mph"></span><br>
+                <span id="miles"></span><br>
+                <span id="fuel"></span>
+            </span>
+        </div>
+
+        <div class="align-content-center wrapper" style="display: none;" id="hud_menu">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h4>Main Menu <button class="pull-right close" onclick="TriggerEvent('CloseF10Menu');">&times;</button></h4>
+                </div>
+                <div class="list-group list-group-flush">
+                    <a class="list-group-item" href="javascript:ChangeCharacter();TriggerEvent('CloseF10Menu');">Change Character</a>
+                    <a class="list-group-item" href="javascript:GotoLanguages();TriggerEvent('CloseF10Menu');">Character Languages</a>
+                    <a class="list-group-item" href="javascript:ToggleLocalNametag();TriggerEvent('CloseF10Menu');">Toggle Nametag</a>
+                    <a class="list-group-item" href="javascript:GotoDiscordLinking();TriggerEvent('CloseF10Menu');">Discord Linking</a>
+                    <a class="list-group-item" href="javascript:GotoDonations();TriggerEvent('CloseF10Menu');">Donation Manager</a>
+                    <a class="list-group-item" href="javascript:GotoRadioManager();TriggerEvent('CloseF10Menu');">Radio Manager</a>
+                    <a class="list-group-item" href="javascript:ReportBug();TriggerEvent('CloseF10Menu');">Report Bug</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="buttons align-bottom-buttons align-right menu-button" id="hud_menu_root">
+            <div class="btn-group">
+                <button class="btn btn-block btn-default" onclick="GotoEditInterior();" id="edit_interior_button" style="display:none">
+                    Edit Interior
+                </button>
+            </div>
+        </div>
+
+        <!-- // TODO_GITHUB: Replace CommunityName with your community name -->
+        <div class="align-bottom align-right" id="version">
+            <span>CommunityName | RAGE 1.1</span>
+        </div>
+
+        <div class="align-bottom align-center-h">
+            <h3><span id="subtitle"></span></h3>
+        </div>
+
+        <div class="align-radio align-center-h">
+            <h3><span id="radio"></span></h3>
+        </div>
+    </span>
+
+    <script type="text/javascript">
+        function OnLoad() {
+            if (IsRunningInRAGECEF()) {
+                return;
+            }
+
+            SetPersistentNotifications([
+                {
+                    id: 1,
+                    title: 'Inactivity Scanner',
+                    event: null,
+                    body: `Your Vapid Enforcer will be deleted in 6 hours. Make sure you use the vehicle at least every
+                14 days to keep it!`
+                },
+            ]);
+        }
+        
+        function SetProgressBar(text, percent)
+        {
+            document.getElementById("progress").style.display = 'unset';
+            document.getElementById("progress-text").innerHTML = text;
+            document.getElementById("progress-bar").style.width = percent;
+        }
+        
+        function HideProgressBar()
+        {
+            document.getElementById("progress").style.display = 'none';
+        }
+        
+        var g_HudMenuExpanded = false;
+        function ToggleHudMenu(open) {
+            if (open === undefined) {
+                open = false;
+            }
+            g_HudMenuExpanded = open;
+
+            if (g_HudMenuExpanded) {
+                document.getElementById("hud_menu").style.display = "block";
+            }
+            else {
+                TriggerEvent("HideHudMenu");
+                document.getElementById("hud_menu").style.display = "none";
+            }
+        }
+
+        function GotoEditInterior() {
+            document.getElementById("edit_interior_button").selected = false;
+            TriggerEvent("GotoEditInterior");
+        }
+
+        function SetEditInteriorVisible(visible) {
+            SetElementVisible("edit_interior_button", visible);
+        }
+
+        function SetElementVisible(name, visible) {
+            if (visible) {
+                document.getElementById(name).style.display = "block";
+            }
+            else {
+                document.getElementById(name).style.display = "none";
+            }
+        }
+
+        function SetVehicleHUDVisible(visible) {
+            if (visible) {
+                document.getElementById("vehicle_hud").style.display = "block";
+            }
+            else {
+                document.getElementById("vehicle_hud").style.display = "none";
+            }
+        }
+
+        function Debug() {
+            SetVehicleHUDVisible(true);
+            UpdateVehicleHUD(0, 1, 2, 3, 50);
+        }
+
+        let g_LastSpeedLimit = 0;
+        let g_HideSpeedLimitTimeout = null;
+        function UpdateVehicleHUD(odometer, speed, gear, fuel, speedlimit) {
+            if (g_LastSpeedLimit != speedlimit) {
+                g_LastSpeedLimit = speedlimit;
+                if (speedlimit == 0) {
+                    TryCleanupSpeedLimitTimer();
+                    HideSpeedLimit();
+                }
+                else {
+                    document.getElementById("speedlimit").innerHTML = `<img src="${speedlimit}mph.png" align="right" width="76" height="101">`;
+                    document.getElementById("speedlimit").style.display = "block";
+                    TryCleanupSpeedLimitTimer();
+                    setTimeout(HideSpeedLimit, 3500, 1);
+                }
+            }
+
+
+            document.getElementById("mph").innerHTML = `${speed} MPH | ${gear}`;
+            document.getElementById("miles").innerHTML = `${odometer} Miles`;
+            document.getElementById("fuel").innerHTML = `F: ${fuel}%`;
+        }
+
+        function TryCleanupSpeedLimitTimer() {
+            if (g_HideSpeedLimitTimeout != null) {
+                clearTimeout(g_HideSpeedLimitTimeout);
+                g_HideSpeedLimitTimeout = null;
+            }
+        }
+
+        function HideSpeedLimit() {
+            TryCleanupSpeedLimitTimer();
+            document.getElementById("speedlimit").innerHTML = ``;
+            document.getElementById("speedlimit").style.display = "none";
+        }
+
+        function SetAmmo(clip, total) {
+
+        }
+
+        var fadeTimeout = null;
+        function SetWeaponInfo(weapon_id, clip, total) {
+            if (clip >= 0 && total >= 0) {
+                document.getElementById("ammo").innerHTML = '<span id="total">' + total + '</span><span id="clip">' + clip + '</span>';
+            }
+            else if (clip + total == 0) {
+                document.getElementById("ammo").innerHTML = '<span id="total">Out Of Ammo</span><span id="clip"></span>';
+            }
+            else if (total == -2) {
+                document.getElementById("ammo").innerHTML = `<span id="total">Tazer Prods:&nbsp</span><span id="clip">${clip}</span>`;
+            }
+            else if (clip == -1) {
+                document.getElementById("ammo").innerHTML = '<span id="total">Melee</span><span id="clip"></span>';
+            }
+
+            document.getElementById("weapon").innerHTML = `<img src="package://owl_items.client/${weapon_id}.png">`;
+            document.getElementById("weapon").style.display = "none";
+
+            $(`#weapon`).fadeIn(1000);
+            $(`#ammo`).fadeIn(1000);
+            if (fadeTimeout != null) {
+                clearTimeout(fadeTimeout);
+            }
+            setTimeout(FadeOutWeaponInfo, 2000);
+        }
+
+        function FadeOutWeaponInfo() {
+            $(`#weapon`).fadeOut(1000);
+            $(`#ammo`).fadeOut(1000);
+            fadeTimeout = null;
+        }
+
+        function GetOrdinal(d) {
+            if (d > 3 && d < 21) return 'th';
+            switch (d % 10) {
+                case 1: return "st";
+                case 2: return "nd";
+                case 3: return "rd";
+                default: return "th";
+            }
+        }
+
+        $("#subtitle").fadeOut();
+        $("#radio").fadeOut();
+
+        function GotoDiscordLinking() {
+            TriggerEvent("GotoDiscordLinking");
+        }
+
+        function ReportBug() {
+            TriggerEvent("ReportBug");
+        }
+
+        function ChangeCharacter() {
+            TriggerEvent("ChangeCharacterRequested");
+        }
+
+		function GotoLanguages() {
+			TriggerEvent("GotoLanguages");
+        }
+
+        function ToggleLocalNametag() {
+            TriggerEvent("ToggleLocalNametag");
+		}
+
+        function GotoDonations() {
+            TriggerEvent("GotoDonations");
+        }
+
+        function GotoRadioManager() {
+            TriggerEvent("OpenRadioManager");
+        }
+
+        function SetLocation(location) {
+            document.getElementById("location").innerHTML = `<div class="align-bottom-location align-right-location">${location}</div>`;
+        }
+
+        function HideSubtitle() {
+            $("#subtitle").fadeOut(500);
+        }
+
+        function ShowSubtitle(message, time) {
+            document.getElementById("subtitle").textContent = message;
+            $("#subtitle").fadeIn(500);
+            setTimeout(HideSubtitle, time + 500);
+        }
+
+        function HideRadio() {
+            $("#radio").fadeOut(500);
+        }
+
+        function ShowRadio(message) {
+            document.getElementById("radio").textContent = message;
+            $("#radio").fadeIn(500);
+            setTimeout(HideRadio, 5000 + 500);
+        }
+
+        let g_WeaponSelectorItems = [];
+        function ResetWeaponSelector() {
+            g_WeaponSelectorItems = [];
+        }
+
+        function AddWeaponSelectorItem(weapon_id, ammo) {
+            var newItem = [];
+            newItem['weapon_id'] = weapon_id;
+            newItem['ammo'] = ammo;
+            g_WeaponSelectorItems.push(newItem);
+        }
+
+        let g_WeaponSelectorFadeOutTimer = null;
+
+        function CleanupWeaponSelectorTimer() {
+            if (g_WeaponSelectorFadeOutTimer != null) {
+                clearTimeout(g_WeaponSelectorFadeOutTimer);
+                g_WeaponSelectorFadeOutTimer = null;
+            }
+        }
+
+        function FadeOutWeaponSelector() {
+            CleanupWeaponSelectorTimer()
+            $("#weapon_selector").removeClass("animated fadeIn");
+            $("#weapon_selector").addClass("animated fadeOut");
+            TriggerEvent("FadeOutWeaponSelector");
+        }
+
+        function CommitWeaponSelectorItems(selected_index) {
+            CleanupWeaponSelectorTimer()
+            g_WeaponSelectorFadeOutTimer = setTimeout(FadeOutWeaponSelector, 2500);
+
+
+            $("#weapon_selector").removeClass("animated fadeOut");
+            $("#weapon_selector").addClass("animated fadeIn");
+
+            document.getElementById("weapon_selector").style.display = "block";
+
+            var element_html = ``;
+
+            // Add placeholder if empty
+            if (g_WeaponSelectorItems.length == 0) {
+                AddWeaponSelectorItem(-2, "Slot Empty");
+                selected_index = 0;
+            }
+
+            for (var i = 0; i < g_WeaponSelectorItems.length; ++i) {
+                var currentItem = g_WeaponSelectorItems[i];
+
+                var weapon_id = currentItem['weapon_id'];
+                var ammo = currentItem['ammo'];
+                var opacity = (i == selected_index) ? 0.8 : 0.5;
+
+                if (ammo < 0) {
+                    ammo = "Melee";
+                }
+                element_html += `<button type="button" class="btn btn-default" style="opacity:${opacity}"><img src="package://owl_items.client/${weapon_id}.png"><br />${ammo}</button>`;
+            }
+
+            document.getElementById("weapon_selector").innerHTML = element_html;
+        }
+    </script>
+    <div class="btn-group align-bottom-mid align-center-h" id="weapon_selector" style="display:none">
+    </div>
+</body>
+</html>

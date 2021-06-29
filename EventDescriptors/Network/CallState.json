@@ -1,0 +1,7 @@
+{
+  "Type": "Network_ServerToClient_RemoteOnly",
+  "Parameters": {
+    "number": "Int64",
+    "bIsConnected": "bool"
+  }
+}

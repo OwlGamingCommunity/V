@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link href="../../owl_client_shared/bootstrap/bootstrap.min.legacy.css" rel="stylesheet">
+	<link href="../../owl_client_shared/core/core.css" rel="stylesheet">
+	<link href="../../owl_client_shared/core/menu.css" rel="stylesheet">
+	<link href="../../owl_client_shared/slider.css" rel="stylesheet">
+	<link href="../../owl_client_shared/animate.css" rel="stylesheet">
+	<script src="../../owl_client_shared/core/core.js"></script>
+	<script src="../../owl_client_shared/jquery.min.js"></script>
+	<script src="../../owl_client_shared/jquery-ui.min.js"></script>
+	<script src="../../owl_client_shared/vue.min.js"></script>
+	<script src="../../owl_client_shared/jscolor.min.js"></script>
+
+	<link href="package://owl_client_shared/bootstrap.min.legacy.css" rel="stylesheet">
+	<link href="package://owl_client_shared/core.css" rel="stylesheet">
+	<link href="package://owl_client_shared/menu.css" rel="stylesheet">
+	<link href="package://owl_client_shared/slider.css" rel="stylesheet">
+	<link href="package://owl_client_shared/animate.css" rel="stylesheet">
+	<script src="package://owl_client_shared//core.js"></script>
+	<script src="package://owl_client_shared//jquery.min.js"></script>
+	<script src="package://owl_client_shared//jquery-ui.min.js"></script>
+	<script src="package://owl_client_shared//vue.min.js"></script>
+	<script src="package://owl_client_shared//jscolor.min.js"></script>
+
+	<script src="package://owl_client_shared/PlayFabClientApi.js"></script>
+
+	<style>
+		body {
+			background-color: transparent;
+		}
+	</style>
+</head>
+<body>
+	<div class="background-frame">
+		<div class='right-image'><img src='Capture.jpg'></img></div>
+		<div id="content">
+
+		</div>
+	</div>
+</body>
+</html>
+
+<script type="text/javascript">
+function Reset()
+{
+	ShowLoginBox(false, true, "");
+}
+
+function OnLoginPressed()
+{
+    var Username = document.getElementById('username').value;
+	var Password = document.getElementById('password').value;
+	var AutoLogin = document.getElementById("auto_login").checked;
+
+	TriggerEvent("DoLogin", Username, Password, AutoLogin);
+    ShowInformativeMessage("Logging In...");
+}
+
+function OnRegisterPressed()
+{
+	TriggerEvent("GotoRegisterPressed");
+}
+
+let g_Username = "";
+function DoBackendLogin(user_id, title_id, username)
+{
+	g_Username = username;
+
+	PlayFab.settings.titleId = title_id;
+    var loginRequest =
+    {
+        TitleId: PlayFab.settings.titleId,
+        CustomId: user_id,
+        CreateAccount: true
+    };
+
+	PlayFabClientSDK.LoginWithCustomID(loginRequest, OnLoginBackend);
+}
+
+function OnLoginBackend(result, error)
+{
+	var displayNameRequest =
+	{
+		DisplayName: g_Username
+	};
+	PlayFabClientSDK.UpdateUserTitleDisplayName(displayNameRequest, null);
+
+	g_Username = "";
+}
+
+function ShowLoginBox(show_error, auto_login_checked, error_msg)
+{
+	// TODO_GITHUB: You should replace website.com below with your web address & CommunityName with your community name
+	document.getElementById("content").innerHTML = `
+	<div class='server-title'>CommunityName Roleplay</div>
+			<div class='slogan'>Your World, Your Imagination</div>
+			<div class='server-description'>CommunityName is a long-term roleplaying project introduced on January 1st, 2014, with the ambition of housing well-experienced roleplayers. We intend on bringing roleplayers the best of text-based roleplay for as long as possible!
+				<br>For more information, head to our website at website.com and read our rules at docs.website.com</div>
+			<div class='login-name'><input id="username"rows="1" class="magnibox" placeholder="Username"></input></div>
+			<div class='password' ><input id="password" rows="1" class="magnibox" placeholder="Password"></input></div>
+			<div class='auto-login'><input type='checkbox' id='auto_login'` + (auto_login_checked ? "checked" : "") + `>Auto-Login</label ></div>` + (show_error ? "<div class='error-message'><b>Login Failed - " + error_msg + "</b></div>" : "") + `
+			<div class='login-button' id='login-button' onclick='OnLoginPressed();'>Login</div>
+			<div class='register-button' id='register-button' onclick='OnRegisterPressed();'>Register</div>`;
+
+
+	document.getElementById("content").classList.remove('informative-message');
+
+	document.getElementById("username").focus();
+}
+
+function ShowInformativeMessage(msg)
+{
+	document.getElementById("content").innerHTML = `<br><br><h2>${msg}</h2>`;
+	document.getElementById("content").classList.add('informative-message');
+}
+</script>

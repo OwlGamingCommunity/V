@@ -1,0 +1,123 @@
+<html>
+<head>
+	<link href="../../owl_client_shared/bootstrap/bootstrap.min.css" rel="stylesheet">
+	<link href="../../owl_client_shared/core/core.css" rel="stylesheet">
+	<link href="../../owl_client_shared/core/menu.css" rel="stylesheet">
+	<link href="../../owl_client_shared/slider.css" rel="stylesheet">
+	<link href="../../owl_client_shared/animate.css" rel="stylesheet">
+	<script src="../../owl_client_shared/core/core.js"></script>
+	<script src="../../owl_client_shared/jquery.min.js"></script>
+	<script src="../../owl_client_shared/jquery-ui.min.js"></script>
+	<script src="../../owl_client_shared/vue.min.js"></script>
+	<script src="../../owl_client_shared/jscolor.min.js"></script>
+
+	<link href="package://owl_client_shared/bootstrap.min.css" rel="stylesheet">
+	<link href="package://owl_client_shared/core.css" rel="stylesheet">
+	<link href="package://owl_client_shared/menu.css" rel="stylesheet">
+	<link href="package://owl_client_shared/slider.css" rel="stylesheet">
+	<link href="package://owl_client_shared/animate.css" rel="stylesheet">
+	<script src="package://owl_client_shared//core.js"></script>
+	<script src="package://owl_client_shared//jquery.min.js"></script>
+	<script src="package://owl_client_shared//jquery-ui.min.js"></script>
+	<script src="package://owl_client_shared//vue.min.js"></script>
+	<script src="package://owl_client_shared//jscolor.min.js"></script>
+
+
+	<script type="text/javascript">
+		function ToggleSpeedTrap()
+		{
+			TriggerEvent("ToggleSpeedTrap");
+		}
+
+		function ToggleSilentSiren()
+		{
+			TriggerEvent("ToggleSilentSiren");
+		}
+
+		function RunPlate()
+		{
+			TriggerEvent("RunPlate");
+		}
+
+		function SetUnit(unit)
+		{
+			document.getElementById("unit_number").textContent = unit;
+		}
+
+		function SetSpeed(speed)
+		{
+			document.getElementById("speed").textContent = speed.toFixed(0) + " MPH";
+		}
+
+		function SetSpeedLimit(speed_limit)
+		{
+			document.getElementById("speed_limit").textContent = speed_limit + " MPH";
+		}
+
+		function SetVehicleInfo(desc, plate)
+		{
+			document.getElementById("vehicle_details").innerHTML = `${desc} (${plate})<br><a href="javascript:RunPlate()">[Run Plate]</a>`;
+		}
+
+		function SetSilentSiren(bEnabled)
+		{
+			document.getElementById("toggle_silentsiren").checked = bEnabled;
+		}
+
+	</script>
+
+	<style type="text/css">
+		body {
+			background-color: transparent;
+		}
+
+		.bottom-right-align {
+			margin-left: 2%;
+			width: 300px;
+			vertical-align: middle;
+			position: relative;
+			top: 60%;
+			left: 90%;
+			transform: translate(-50%, -50%);
+		}
+
+		.panel {
+			margin-bottom: 0;
+		}
+
+		.panel-body p {
+			margin-bottom: 0;
+		}
+
+
+		p {
+			font-family: "Lucida Console", Monaco, monospace;
+		}
+	</style>
+
+</head>
+<body>
+
+		<div class="card bottom-right-align" id="root" align="center">
+		<div class="card-header">
+			<h5 class="card-title">Police Cruiser</h5>
+		</div>
+		<span><b>UNIT: </b><font style="color:red;" id="unit_number">Off Duty</font></span>
+		<br>
+		<span><b>ANPR: </b><font style="color:red;" id="vehicle_details">No Data</font></span>
+		<br>
+		<span><b>LIDAR: </b><font style="color:red;" id="speed">No Data</font></span>
+		<br>
+		<span><b>AREA SPEED LIMIT: </b><font style="color:red;" id="speed_limit">Determining...</font></span>
+		<br>
+		<div class="custom-control custom-switch" align="center">
+				<input type="checkbox" class="custom-control-input" id="toggle_silentsiren" onclick="ToggleSilentSiren()"><label class="custom-control-label" for="toggle_silentsiren">Silent Siren</label>
+			</div>
+		<div class="custom-control custom-switch" align="center">
+				<input type="checkbox" class="custom-control-input" id="toggle_speedtrap" onclick="ToggleSpeedTrap()"><label class="custom-control-label" for="toggle_speedtrap">Speed Trap</label>
+			</div>
+	</div>
+		
+</div>
+</body>
+</html>

@@ -1,0 +1,276 @@
+/* Begin taxi CSS */
+
+.taxiBg {
+    height: 100%;
+    background: url(package://owl_chat.client/taxibackground.png);
+    background-size: cover;
+}
+
+.taxiBtn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    background-color: black;
+    color: #f1f1f1;
+    font-size: 12px;
+    padding: 16px 30px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    text-align: center;
+    width: 200px;
+    height: auto;
+}
+
+    .taxiBtn:hover {
+        box-shadow: 0 5px #222;
+    }
+
+/* End taxi CSS */
+
+/* Begin call CSS */
+
+.callBg {
+    height: 100%;
+    background: url(package://owl_chat.client/callbackground.png);
+    background-size: cover;
+}
+
+.wrapper {
+    width: 250px;
+    height: 300px;
+    margin: 20px auto 0 auto;
+    position: relative;
+    padding: 24px 0 0 0;
+}
+
+.key {
+    border-radius: 50px 50px 50px 50px;
+    color: #999;
+    width: 60px;
+    height: 60px;
+    text-align: center;
+    font-size: 30px;
+    float: left;
+    box-sizing: border-box;
+    padding: 5px 0 0 0;
+    margin: 10px 2px 2px 15px;
+    border: 1px solid #999;
+    cursor: pointer;
+}
+
+    .key:hover {
+        background: #666;
+    }
+
+    .key span {
+        display: block;
+        color: #999;
+        text-align: center;
+        font-size: 12px;
+        text-transform: uppercase;
+    }
+
+    .key.special {
+        line-height: 50px;
+    }
+
+    .key.nb {
+        border: none;
+    }
+
+.clear {
+    clear: both;
+}
+
+.call-icon {
+    width: 60px;
+    height: 60px;
+    float: left;
+    box-sizing: border-box;
+    padding: 5px 0 0 0;
+    margin: 15px 7px 0px 94px;
+}
+
+    .call-icon:hover {
+        opacity: 0.9;
+    }
+
+.call-input {
+    width: auto;
+    border: none;
+    background: transparent;
+    font-size: 16px;
+    color: white;
+    position: absolute;
+    text-align: center;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+/* End call CSS */
+
+/* Begin dial CSS */
+
+.dialBg {
+    height: 100%;
+    background: url(package://owl_chat.client/dialbackground.png);
+    background-size: cover;
+}
+
+.dialBtn {
+    position: absolute;
+    left: 37%;
+    bottom: 5%;
+    width: 65px;
+    height: 65px;
+}
+
+.dial-input {
+    width: 250px;
+    border: none;
+    background: transparent;
+    font-size: 24px;
+    color: white;
+    position: absolute;
+    text-align: center;
+    margin-top: 1em;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+.dial-counter {
+    width: auto;
+    border: none;
+    background: transparent;
+    font-size: 12px;
+    color: gray;
+    position: absolute;
+    text-align: center;
+    margin-top: 6em;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+.dial-icon {
+    margin: 5px auto;
+    width: 64px;
+    height: 64px;
+}
+
+.dial-icon:hover {
+    opacity: 0.9;
+}
+
+.accept-call {
+    position: absolute;
+    left: 10%;
+    bottom: 5%;
+    padding: 15px;
+    width: 64px;
+    height: 64px;
+}
+
+.decline-call {
+    position: absolute;
+    right: 10%;
+    bottom: 5%;
+    padding: 15px;
+    width: 64px;
+    height: 64px;
+}
+/* End dial CSS */
+
+/* Begin contacts CSS */
+
+.remove-contact-icon {
+    float: right;
+    padding: 15px;
+}
+
+#contactsBackBtn:hover, #addContactBackBtn:hover {
+    color: rgb(24, 114, 192);
+    cursor: pointer;
+}
+
+#addContactBtn:hover {
+    color: rgb(24, 114, 192);
+    cursor: pointer;
+}
+
+#addContactScreen {
+    background: white;
+}
+
+.centerAddForm {
+    position: fixed;
+    top: 50%;
+    left: 43%;
+}
+
+#saveContactBtn:hover, #cancelContactBtn:hover, #callContactBtn:hover, #textContactBtn:hover {
+    background: rgb(242, 242, 242);
+    cursor: pointer;
+}
+/* End contacts CSS */
+
+/* Begin messages CSS */
+
+.messages {
+    height: 91%;
+    overflow: auto;
+    position: relative;
+    width: 250px;
+    zoom: 1;
+    background: #FFF;
+    background-size: cover;
+    border-bottom: 1px solid #000;
+}
+
+ul.list-group {
+    padding: 0;
+}
+
+ul.list-group li.list-group-item {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 1rem 1.3rem;
+    margin-bottom: 2%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    list-style: none;
+    transition: all 200ms ease-out;
+    background: white;
+    font-size: 12px;
+    height: 20px;
+}
+
+ul.list-group li.list-group-item:hover {
+    background: rgb(242, 242, 242);
+    cursor: pointer;
+}
+
+ul.list-group li.list-group-item div.avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 1rem;
+}
+
+ul.list-group li.list-group-item div.avatar img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.remove-message-icon {
+    margin-left: auto;
+}
+/* End messages CSS */

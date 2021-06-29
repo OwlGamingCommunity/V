@@ -1,0 +1,14 @@
+{
+  "Files": [
+    {
+      "Name": "owl_properties.dll",
+      "Type": "ServerScript"
+    }
+  ],
+  "ExportedFunctions": [
+    {
+      "Class": "PropertySystem",
+      "Function": "LoadPropertyIPLForPlayer"
+    }
+  ]
+}

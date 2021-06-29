@@ -1,0 +1,8 @@
+{
+  "Type": "Network_ClientToServer_RemoteOnly",
+  "Parameters": {
+  	"gtaVehicle" : "VehicleType",
+  	"vehicleInventoryType": "EVehicleInventoryType",
+  	"bIsInvertedTrunk": "bool"
+  }
+}

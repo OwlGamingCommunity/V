@@ -1,0 +1,11 @@
+{
+  "Type": "Network_ClientToServer_RemoteOnly",
+  "Parameters": {
+  	"PropertyID": "Int64",
+  	"purchaserType": "EPurchaserType",
+  	"purchaserID": "long",
+  	"method": "EPaymentMethod",
+  	"fDownpayment": "float",
+    "numMonthsForPaymentPlan": "int"
+  }
+}

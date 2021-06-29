@@ -1,0 +1,11 @@
+{
+  "Type": "Network_ServerToClient_RemoteOnly",
+  "Parameters": {
+    "achievementID": "int",
+    "strTitle": "string",
+    "strCaption": "string",
+    "points": "int",
+    "rarity": "EAchievementRarity",
+    "percent": "int"
+  }
+}

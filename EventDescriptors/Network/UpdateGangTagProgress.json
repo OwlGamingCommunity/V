@@ -1,0 +1,7 @@
+{
+  "Type": "Network_ServerToClient_RemoteOnly",
+  "Parameters": {
+    "a_ID": "Int64",
+    "fProgress":  "float"
+  }
+}

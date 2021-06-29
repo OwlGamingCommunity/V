@@ -1,0 +1,45 @@
+{
+  "Files": [
+    {
+      "Name": "Assets/vehiclestore.html",
+      "Type": "ClientAsset"
+    },
+    {
+      "Name": "Assets/scooterrental.html",
+      "Type": "ClientAsset"
+    },
+    {
+      "Name": "VehicleStore.Client.cs",
+      "Type": "ClientScript"
+    },
+    {
+      "Name": "VehicleRentalShopPeds.Client.cs",
+      "Type": "ClientScript"
+    },
+    {
+      "Name": "CGUIVehicleStore.Client.cs",
+      "Type": "ClientScript"
+    },
+    {
+      "Name": "Assets/vehiclerentalstore.html",
+      "Type": "ClientAsset"
+    },
+    {
+      "Name": "VehicleRentalStore.Client.cs",
+      "Type": "ClientScript"
+    },
+    {
+      "Name": "CGUIVehicleRentalStore.Client.cs",
+      "Type": "ClientScript"
+    },
+    {
+      "Name": "CGUIScooterRentalStore.Client.cs",
+      "Type": "ClientScript"
+    },
+    {
+      "Name": "Init.Client.cs",
+      "Type": "ClientScript"
+    }
+  ],
+  "ExportedFunctions": []
+}

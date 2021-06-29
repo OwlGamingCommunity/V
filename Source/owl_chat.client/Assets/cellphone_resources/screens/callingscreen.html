@@ -1,0 +1,26 @@
+<div class="ui-topbar" id="topbar">
+    <div class="signal">
+        <div class="hidden" id="flight-mode"><i class="fa fa-plane"></i></div>
+        <div id="signal-mode"><span></span><span></span><span></span><span class="signal-darker"></span>
+            <p>YGN</p>
+        </div>
+    </div>
+    <div class="lock--time"><span class="top-clock">
+            <div class="hour"></div>:
+            <div class="minute"></div>
+        </span></div>
+    <div class="battery-section">
+        <div class="settings"></div>
+        <div class="battery"><span>100%</span><i class="fas fa-battery-full"></i></div>
+    </div>
+</div>
+<div id="dialingScreen">
+    <div class="number-input">
+        <input type="text" class="dial-input" name="numberInput" maxlength="12" id="callingNumber" readonly>
+        <div class="dial-counter" id="callingStatus">Calling...</div>
+    </div>
+
+    <div class="dial-icon">
+        <img src="package://owl_chat.client/decline.png" class="dialBtn" id="cancelDialBtn">
+    </div>
+</div>

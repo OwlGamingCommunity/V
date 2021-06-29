@@ -1,0 +1,218 @@
+<html>
+<head>
+	<link href="../../owl_client_shared/bootstrap/bootstrap.min.legacy.css" rel="stylesheet">
+	<link href="../../owl_client_shared/core/core.css" rel="stylesheet">
+	<link href="../../owl_client_shared/core/menu.css" rel="stylesheet">
+	<link href="../../owl_client_shared/slider.css" rel="stylesheet">
+	<link href="../../owl_client_shared/animate.css" rel="stylesheet">
+	<script src="../../owl_client_shared/core/core.js"></script>
+	<script src="../../owl_client_shared/jquery.min.js"></script>
+	<script src="../../owl_client_shared/jquery-ui.min.js"></script>
+	<script src="../../owl_client_shared/vue.min.js"></script>
+	<script src="../../owl_client_shared/jscolor.min.js"></script>
+
+	<link href="package://owl_client_shared/bootstrap.min.legacy.css" rel="stylesheet">
+	<link href="package://owl_client_shared/core.css" rel="stylesheet">
+	<link href="package://owl_client_shared/menu.css" rel="stylesheet">
+	<link href="package://owl_client_shared/slider.css" rel="stylesheet">
+	<link href="package://owl_client_shared/animate.css" rel="stylesheet">
+	<script src="package://owl_client_shared//core.js"></script>
+	<script src="package://owl_client_shared//jquery.min.js"></script>
+	<script src="package://owl_client_shared//jquery-ui.min.js"></script>
+	<script src="package://owl_client_shared//vue.min.js"></script>
+	<script src="package://owl_client_shared//jscolor.min.js"></script>
+
+	<script type="text/javascript">
+		function CloseRadioManagement()
+		{
+			TriggerEvent("CloseRadioManagement");
+		}
+
+		function PurchaseRadio()
+		{
+			TriggerEvent("PurchaseRadio");
+		}
+
+		// Reuses the event from donator panel
+		function PurchaseGC()
+		{
+			TriggerEvent("PurchaseGC");
+        }
+
+        function EditRadio(id)
+		{
+			TriggerEvent("EditRadio", id);
+		}
+
+		function ExtendRadio7Days(id)
+		{
+			TriggerEvent("ExtendRadio7Days", id);
+		}
+
+		function ExtendRadio30Days(id)
+		{
+			TriggerEvent("ExtendRadio30Days", id);
+		}
+
+		///////////////////////////////////////////////////////////////
+		// RADIOS
+		///////////////////////////////////////////////////////////////
+
+		var arrRadios = [];
+		function AddRadio(id, name, expiration)
+		{
+			var newItem = [];
+			newItem["id"] = id;
+			newItem["name"] = name;
+			newItem["expiration"] = expiration;
+			arrRadios.push(newItem);
+		}
+
+		function Reset_GC()
+		{
+			SetGCBalance("Loading...");
+		}
+
+		function Reset_Radios()
+		{
+			arrRadios = [];
+		}
+
+		function CommitRadios()
+		{
+			var html_string = `<table class="table"><thead><tr><th>Name</th><th>Expiration</th><th>Actions</th></tr></thead><tbody>`;
+
+			for (var i = 0; i < arrRadios.length; ++i)
+            {
+                var id = arrRadios[i]["id"];
+				var name = arrRadios[i]["name"];
+				var expiration = new Date(arrRadios[i]["expiration"] * 1000);
+
+				var actions = `<button type="button" class="btn btn-success btn-sm" onclick="EditRadio(${id});">Edit</button>
+					<button type="button" class="btn btn-info btn-sm" onclick="ExtendRadio7Days(${id});">Extend (7 Days)</button><button type="button" class="btn btn-info btn-sm" onclick="ExtendRadio30Days(${id});">Extend (30 Days)</button>`;
+				
+				html_string += `<tr><td>${name}</td><td>${expiration}</td><td>${actions}</td></tr>`;
+			}
+			html_string += `</tbody></table> <ul class="pagination">`;
+
+			html_string += `</ul><br><button type="button" class="btn btn-success" onclick="PurchaseRadio();">Purchase New Radio</button>`;
+
+			document.getElementById("radios").innerHTML = html_string;
+		}
+		// END RADIO LIST
+
+		function SetGCBalance(amount)
+		{
+			document.getElementById("gc_balance").textContent = amount;
+        }
+
+        function GotoEditRadio(name, endpoint)
+        {
+        	document.getElementById("edit_radio_name").value = name;
+        	document.getElementById("edit_radio_endpoint").value = endpoint;
+        	document.getElementById("radios-box").style.display = "none";
+        	document.getElementById("edit-radio-box").style.display = "block";
+        }
+
+        function GotoRadioList()
+        {
+        	document.getElementById("edit-radio-box").style.display = "none";
+        	document.getElementById("radios-box").style.display = "block";
+        }
+
+        function CancelEditRadio()
+        {
+        	TriggerEvent("CancelEditRadio");
+        	GotoRadioList();
+        }
+
+        function SaveRadio()
+        {
+        	var name = document.getElementById("edit_radio_name").value;
+        	var endpoint = document.getElementById("edit_radio_endpoint").value;
+
+        	TriggerEvent("SaveRadio", name, endpoint);
+        	GotoRadioList();
+        }
+	</script>
+
+	<style type="text/css">
+
+		body {
+			background-color: transparent;
+		}
+
+		#radios-box {
+			width: 800px;
+			margin-left: 2%;
+			vertical-align: middle;
+			position: relative;
+			top: 45%;
+			left: 45%;
+			transform: translate(-50%, -50%);
+		}
+
+		#edit-radio-box {
+			width: 800px;
+			margin-left: 2%;
+			vertical-align: middle;
+			position: relative;
+			top: 45%;
+			left: 45%;
+			transform: translate(-50%, -50%);
+		}
+
+		.panel {
+			margin-bottom: 0;
+		}
+
+		.panel-body p {
+			margin-bottom: 0;
+		}
+	</style>
+
+</head>
+<body>
+<div id="edit-radio-box" class="text-center" style="display:none">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4>Edit Radio</h4>
+                <br>
+                <p><strong>Radio Name: </strong><input type='text' class='form-control' id='edit_radio_name' maxlength="16"></p>
+                <p><strong>Radio URL: </strong><input type='text' class='form-control' id='edit_radio_endpoint'></p>
+
+                <button type="button" class="btn btn-danger" id="btn_purchasegc" onclick="CancelEditRadio();">Cancel</button>
+                <button type="button" class="btn btn-success" onclick="SaveRadio();">Save</button>
+
+
+            </div>
+        </div>
+    </div>
+
+    <div id="radios-box" class="text-center" style="display:block">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4>Radio Management</h4>
+                <br>
+                <p><strong>Current GC Balance: </strong><span id="gc_balance"></span></p>
+                <button type="button" class="btn btn-success" id="btn_purchasegc" onclick="PurchaseGC();">Get More</button>
+
+
+            </div>
+        </div>
+        <br>
+
+        <div id="radios_list" style="display:block">
+            <div class="panel panel-info">
+                <div class="panel-heading">Radios</div>
+                <div class="panel-body" id="radios">
+
+                </div>
+            </div>
+        </div>
+
+        <br />
+        <button type="button" class="btn btn-danger" onclick="CloseRadioManagement();">Close</button>
+    </div>
+</body>
+</html>

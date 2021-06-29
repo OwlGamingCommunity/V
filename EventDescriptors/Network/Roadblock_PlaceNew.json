@@ -1,0 +1,9 @@
+{
+  "Type": "Network_ClientToServer_RemoteOnly",
+  "Parameters": {
+  	"descriptorIndex": "int",
+  	"x": "float",
+  	"y": "float",
+  	"z": "float"
+  }
+}

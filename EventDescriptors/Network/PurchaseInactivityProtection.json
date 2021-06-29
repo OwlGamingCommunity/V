@@ -1,0 +1,8 @@
+{
+  "Type": "Network_ClientToServer_RemoteOnly",
+  "Parameters": {
+  	"TargetEntityID": "Int64",
+  	"TargetEntityType": "EDonationInactivityEntityType",
+  	"InactivityLength": "int"
+  }
+}

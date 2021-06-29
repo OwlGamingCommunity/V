@@ -1,0 +1,7 @@
+{
+  "Type": "Network_ClientToServer_RemoteOnly",
+  "Parameters": {
+  	"dutyType": "EDutyType",
+  	"outfitID": "Int64"
+  }
+}

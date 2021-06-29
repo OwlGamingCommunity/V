@@ -1,0 +1,16 @@
+{
+  "Type": "Network_ServerToClient_RemoteOnly",
+  "Parameters": {
+    "characterID": "Int64",
+    "characterName": "string",
+    "age": "Int32",
+    "height": "Int32",
+    "weight": "Int32",
+    "physicalAppearance": "string",
+    "scars": "string",
+    "tattoos": "string",
+    "makeup": "string",
+    "createdAt": "Int32",
+    "updatedAt": "Int32"
+  }
+}

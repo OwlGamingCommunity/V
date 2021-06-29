@@ -1,0 +1,8 @@
+{
+  "Type": "Network_ServerToClient_RemoteOnly",
+  "Parameters": {
+  	"PropertyID": "Int32",
+  	"strName": "string",
+  	"vecPos": "Vector3",
+  }
+}

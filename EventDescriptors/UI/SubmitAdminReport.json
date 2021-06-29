@@ -1,0 +1,8 @@
+{
+  "Type": "UI",
+  "Parameters": {
+  	"reportType" : "EAdminReportType",
+  	"strDetails" : "string",
+  	"playerID" : "int",
+  }
+}

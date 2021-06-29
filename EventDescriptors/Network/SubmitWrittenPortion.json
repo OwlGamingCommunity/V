@@ -1,0 +1,9 @@
+{
+  "Type": "Network_ClientToServer_RemoteOnly",
+  "Parameters": {
+  	"strQ1Answer" : "string",
+  	"strQ2Answer" : "string",
+  	"strQ3Answer" : "string",
+  	"strQ4Answer" : "string",
+  }
+}

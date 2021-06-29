@@ -1,0 +1,92 @@
+<html>
+<head>
+	<link href="../../owl_client_shared/bootstrap/bootstrap.min.legacy.css" rel="stylesheet">
+	<link href="../../owl_client_shared/core/core.css" rel="stylesheet">
+	<link href="../../owl_client_shared/core/menu.css" rel="stylesheet">
+	<link href="../../owl_client_shared/slider.css" rel="stylesheet">
+	<link href="../../owl_client_shared/animate.css" rel="stylesheet">
+	<script src="../../owl_client_shared/core/core.js"></script>
+	<script src="../../owl_client_shared/jquery.min.js"></script>
+	<script src="../../owl_client_shared/jquery-ui.min.js"></script>
+	<script src="../../owl_client_shared/vue.min.js"></script>
+	<script src="../../owl_client_shared/jscolor.min.js"></script>
+
+	<link href="package://owl_client_shared/bootstrap.min.legacy.css" rel="stylesheet">
+	<link href="package://owl_client_shared/core.css" rel="stylesheet">
+	<link href="package://owl_client_shared/menu.css" rel="stylesheet">
+	<link href="package://owl_client_shared/slider.css" rel="stylesheet">
+	<link href="package://owl_client_shared/animate.css" rel="stylesheet">
+	<script src="package://owl_client_shared//core.js"></script>
+	<script src="package://owl_client_shared//jquery.min.js"></script>
+	<script src="package://owl_client_shared//jquery-ui.min.js"></script>
+	<script src="package://owl_client_shared//vue.min.js"></script>
+	<script src="package://owl_client_shared//jscolor.min.js"></script>
+	
+	<script type="text/javascript">
+		function ShowInvite(faction_name, from_name)
+		{
+			document.getElementById("faction_name").textContent = faction_name;
+			document.getElementById("from_name").textContent = from_name;
+
+			document.getElementById('invite-box').style.display = 'block';
+		}
+
+		function Decline()
+		{
+			TriggerEvent("FactionInvite_Decline");
+		}
+
+		function Accept()
+		{
+			TriggerEvent("FactionInvite_Accept");
+		}
+	</script>
+
+	<style type="text/css">
+
+		body {
+			background-color: transparent;
+		}
+
+		#invite-box {
+			margin-left: 2%;
+			min-width: 0;
+			width: 320px;
+			vertical-align: middle;
+			position: relative;
+			top: 45%;
+			left: 45%;
+			transform: translate(-50%, -50%);
+		}
+
+		.panel {
+			margin-bottom: 0;
+		}
+
+		.panel-body p {
+			margin-bottom: 0;
+		}
+	</style>
+
+</head>
+<body>
+
+	<div id="invite-box" class="text-center">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h4>Faction Invite</h4>
+			</div>
+			<div class="panel-body">
+				<br />
+				<p>You have been invited to join <strong><span id="faction_name"></span></strong> by <strong><span id="from_name"></span></strong>.</p>
+				<br />
+			</div>
+			<div class="btn-group btn-group-justified">
+				<a type='button' class='btn btn-danger' onclick="Decline();">Decline</a>
+				<a type='button' class='btn btn-success' onclick="Accept();">Accept</a>
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>

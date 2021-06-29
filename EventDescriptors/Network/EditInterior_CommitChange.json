@@ -1,0 +1,12 @@
+{
+  "Type": "Network_ClientToServer_RemoteOnly",
+  "Parameters": {
+  	"x": "float",
+    "y": "float",
+    "z": "float",
+    "rx": "float",
+    "ry": "float",
+    "rz": "float",
+    "dbid": "long"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "Files": [
+    {
+      "Name": "owl_factions.dll",
+      "Type": "ServerScript"
+    }
+  ],
+  "ExportedFunctions": [
+  	{
+      "Class": "SpikeStripSystem",
+      "Function": "DeploySpikeStrip"
+    },
+    {
+      "Class": "PDSystem",
+      "Function": "Add911Call"
+    },
+    {
+      "Class": "PDSystem",
+      "Function": "Remove911CallsForPlayer"
+    },
+  ]
+}

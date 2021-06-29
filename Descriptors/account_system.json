@@ -1,0 +1,14 @@
+{
+  "Files": [
+    {
+      "Name": "owl_account_system.dll",
+      "Type": "ServerScript"
+    }
+  ],
+  "ExportedFunctions": [
+  {
+      "Class": "AccountSystem",
+      "Function": "HandleApplicationStateAndTransmitCharacters"
+    },
+  ]
+}

@@ -1,0 +1,96 @@
+<html>
+<head>
+	<link href="../../owl_client_shared/bootstrap/bootstrap.min.css" rel="stylesheet">
+	<link href="../../owl_client_shared/core/core.css" rel="stylesheet">
+	<link href="../../owl_client_shared/core/menu.css" rel="stylesheet">
+	<link href="../../owl_client_shared/slider.css" rel="stylesheet">
+	<link href="../../owl_client_shared/animate.css" rel="stylesheet">
+	<link href="./maploader.css" rel="stylesheet">
+
+	<script src="../../owl_client_shared/core/core.js"></script>
+	<script src="../../owl_client_shared/jquery.min.js"></script>
+	<script src="../../owl_client_shared/jquery-ui.min.js"></script>
+	<script src="../../owl_client_shared/vue.min.js"></script>
+	<script src="../../owl_client_shared/jscolor.min.js"></script>
+	<script src="./maploader.js"></script>
+	<script src="./xmlToJson.min.js"></script>
+
+	<link href="package://owl_client_shared/bootstrap.min.css" rel="stylesheet">
+	<link href="package://owl_client_shared/core.css" rel="stylesheet">
+	<link href="package://owl_client_shared/menu.css" rel="stylesheet">
+	<link href="package://owl_client_shared/slider.css" rel="stylesheet">
+	<link href="package://owl_client_shared/animate.css" rel="stylesheet">
+	<link href="package://owl_maps.client/maploader.css" rel="stylesheet">
+
+	<script src="package://owl_client_shared//core.js"></script>
+	<script src="package://owl_client_shared//jquery.min.js"></script>
+	<script src="package://owl_client_shared//jquery-ui.min.js"></script>
+	<script src="package://owl_client_shared//vue.min.js"></script>
+	<script src="package://owl_client_shared//jscolor.min.js"></script>
+	<script src="package://owl_maps.client//maploader.js"></script>
+	<script src="package://owl_maps.client//xmlToJson.min.js"></script>
+
+</head>
+<body>
+	<div id="box-middle">
+		<div class="row">
+			<div class="card">
+					<div class="card-header" id="header">
+						Upload Custom Interior Mapping
+						<button type="button" class="ml-2 mb-1 close" onclick="Close();" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="card-body">
+						<p>
+							In this window, you are able to upload a custom interior for your interior.
+							The interior must be owned by yourself or from the faction you're a manager of.
+
+							<!-- // TODO_GITHUB: Replace CommunityName with your community name -->
+							You can only upload your map in an XML way. More info on how to do this can be found on the CommunityName Forums.
+						</p>
+						<p>
+							An interior costs <b>500 GCs</b>.
+							Upon purchasing the custom interior, you'll have 24 hours to make changes to your custom interior if it's not up to your needs.
+							After 24 hours, you'll have 1 week of reduced costs. The reduction is <b>250 GCs</b>. After a week you'll be paying the regular amount.
+						</p>
+						<p>
+							<b>You are adding a custom interior to the following interior:</b>
+							<br /><br />
+							Property ID: <b id="propertyID"></b><br />
+							Street: <b id="propertyName"></b>
+						</p>
+						<hr />
+
+						<div class="form-group row">
+							<label class="col-3 col-form-label">Map file:</label>
+							<div class="input-group col-9" style="padding-left: 0px;">
+								<input id="fileNameField" type="text" class="form-control" readonly placeholder="Upload Ymap or Menyoo file">
+								<label class="input-group-btn">
+									<span class="btn btn-large btn-primary" id="browse">
+										Browse&hellip;
+										<input id="mapFile" type="file" accept=".ymap, .xml">
+									</span>
+								</label>
+							</div>
+						</div>
+
+						<div class="form-group row">
+							<label class="col-3 col-form-label">Marker position:</label>
+							<div class="input-group col-9" style="padding-left: 0px;">
+								<input type="number" aria-label="X" placeholder="X" id="exitX" class="form-control">
+								<input type="number" aria-label="Y" placeholder="Y" id="exitY" class="form-control">
+								<input type="number" aria-label="Z" placeholder="Z" id="exitZ" class="form-control">
+							</div>
+						</div>
+
+						<div class="form-group row">
+							<span id="errorText" style="color: red; margin-bottom: 5px;"></span>
+							<button type="button" onclick="validateInput();" class="btn btn-primary btn-lg btn-block">Upload Custom Interior</button>
+						</div>
+					</div>
+				</div>
+		</div>
+	</div>
+</body>
+</html>

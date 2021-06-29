@@ -1,0 +1,153 @@
+﻿<html>
+<head>
+    <script src="../../owl_client_shared/jquery.min.js"></script>
+    <script src="../../owl_client_shared/popper.min.js"></script>
+    <script src="../../owl_client_shared/bootstrap/bootstrap.min.js"></script>
+    <link href="../../owl_client_shared/bootstrap/bootstrap.min.css" rel="stylesheet">
+    <link href="../../owl_client_shared/fontawesome/all.min.dev.css" rel="stylesheet">
+    <link href="../../owl_client_shared/core/core.css" rel="stylesheet">
+    <link href="../../owl_client_shared/core/menu.css" rel="stylesheet">
+    <link href="../../owl_client_shared/slider.css" rel="stylesheet">
+    <link href="../../owl_client_shared/animate.css" rel="stylesheet">
+    <script src="../../owl_client_shared/core/core.js"></script>
+    <script src="../../owl_client_shared/jquery-ui.min.js"></script>
+    <script src="../../owl_client_shared/vue.min.js"></script>
+    <script src="../../owl_client_shared/jscolor.min.js"></script>
+    <link href="../../owl_client_shared/nouislider.min.css" rel="stylesheet">
+    <script src="../../owl_client_shared/nouislider.min.js"></script>
+
+    <script src="package://owl_client_shared//jquery.min.js"></script>
+    <script src="package://owl_client_shared//popper.min.js"></script>
+    <script src="package://owl_client_shared//bootstrap.min.js"></script>
+    <link href="package://owl_client_shared/bootstrap.min.css" rel="stylesheet">
+    <link href="package://owl_client_shared/all.min.css" rel="stylesheet">
+    <link href="package://owl_client_shared/core.css" rel="stylesheet">
+    <link href="package://owl_client_shared/menu.css" rel="stylesheet">
+    <link href="package://owl_client_shared/slider.css" rel="stylesheet">
+    <link href="package://owl_client_shared/animate.css" rel="stylesheet">
+    <script src="package://owl_client_shared//core.js"></script>
+    <script src="package://owl_client_shared//jquery-ui.min.js"></script>
+    <script src="package://owl_client_shared//vue.min.js"></script>
+    <script src="package://owl_client_shared//jscolor.min.js"></script>
+    <link href="package://owl_client_shared//nouislider.min.css" rel="stylesheet">
+    <script src="package://owl_client_shared//nouislider.min.js"></script>
+
+</head>
+<body>
+
+<div class="container h-100" id="app">
+    <div class="row h-100 justify-content-center align-items-center">
+        <div class="col-7">
+            <div class="card align-middle">
+                <div class="card-header">
+                    Character Look: {{ name }}
+                    <button class="close" @click="CloseMenu">&times;</button>
+                </div>
+                <div class="card-body">
+                    <form @submit.prevent="SaveCharacterLook">
+                        <div class="row">
+                            <div class="col-4">
+                                <div class="mb-3">
+                                    <h5>Age</h5>
+                                    <p>{{ age }}</p>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="mb-3">
+                                    <h5>Height</h5>
+                                    <p>{{ height }} inches</p>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="mb-3">
+                                    <h5>Weight</h5>
+                                    <p>{{ weight }} lbs</p>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="mb-3">
+                                    <h5>Physical Appearance</h5>
+                                    <p>{{ physical_appearance }}</p>
+                                </div>
+                                <div class="mb-3">
+                                    <h5>Scars</h5>
+                                    <p>{{ scars }}</p>
+                                </div>
+                                <div class="mb-3">
+                                    <h5>Tattoos</h5>
+                                    <p>{{ tattoos }}</p>
+                                </div>
+                                <div class="mb-3">
+                                    <h5>Makeup</h5>
+                                    {{ makeup }}
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script type="text/javascript">
+    var app = new Vue({
+        el: '#app',
+        data() {
+            return {
+                name: "",
+                age: 0,
+                height: 0,
+                weight: 0,
+                physical_appearance: "",
+                scars: "",
+                tattoos: "",
+                makeup: "",
+                createdAt: 0,
+                updatedAt: 0,
+            }
+        },
+        methods: {
+            SetData(name, age, height, weight, physical_appearance, scars, tattoos, makeup, createdAt, updatedAt) {
+                this.name = name;
+                this.age = age;
+                this.height = height;
+                this.weight = weight;
+                this.physical_appearance = physical_appearance;
+                this.scars = scars;
+                this.tattoos = tattoos;
+                this.makeup = makeup;
+                this.createdAt = createdAt;
+                this.updatedAt = updatedAt;
+            },
+            CloseMenu() {
+                TriggerEvent("CharacterLook_Close");
+            }
+        }
+    });
+    
+    function SetData(name, age, height, weight, physical_appearance, scars, tattoos, makeup, createdAt, updatedAt) {
+        app.SetData(name, age, height, weight, physical_appearance, scars, tattoos, makeup, createdAt, updatedAt);
+    }
+
+    function OnLoad() {
+        if (IsRunningInRAGECEF()) {
+            return;
+        }
+
+        app.SetData(
+            "John Smith",
+            27,
+            73,
+            185,
+            "",
+            "",
+            "",
+            ""
+        );
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,217 @@
+{
+  "Files": [
+    {
+      "Name": "bootstrap/bootstrap.min.css",
+      "Type": "ClientAsset"
+    },
+    {
+      "Name": "bootstrap/bootstrap.min.legacy.css",
+      "Type": "ClientAsset"
+    },
+    {
+      "Name": "bootstrap/bootstrap.min.js",
+      "Type": "ClientAsset"
+    },
+    {
+      "Name": "bootstrap/bootstrap-table.min.js",
+      "Type": "ClientAsset"
+    },
+    {
+      "Name": "bootstrap/bootstrap-table.min.css",
+      "Type": "ClientAsset"
+    },
+    {
+      "Name": "nouislider.min.css",
+      "Type": "ClientAsset"
+    },
+    {
+      "Name": "nouislider.min.js",
+      "Type": "ClientAsset"
+    },
+    {
+      "Name": "popper.min.js",
+      "Type": "ClientAsset"
+    },
+    {
+      "Name": "components/input.js",
+      "Type": "ClientAsset"
+    },
+    {
+      "Name": "components/window.js",
+      "Type": "ClientAsset"
+    },
+    {
+      "Name": "utilities/form.js",
+      "Type": "ClientAsset"
+    },
+    {
+      "Name": "utilities/string.js",
+      "Type": "ClientAsset"
+    },
+    {
+      "Name": "utilities/validator.js",
+      "Type": "ClientAsset"
+    },
+    {
+      "Name": "fontawesome/all.min.css",
+      "Type": "ClientAsset"
+    },
+    {
+      "Name": "webfonts/fa-brands-400.ttf",
+      "Type": "ClientAsset"
+    },
+    {
+      "Name": "webfonts/fa-regular-400.ttf",
+      "Type": "ClientAsset"
+    },
+    {
+      "Name": "webfonts/fa-solid-900.ttf",
+      "Type": "ClientAsset"
+    },
+    {
+      "Name": "webfonts/fa-brands-400.woff",
+      "Type": "ClientAsset"
+    },
+    {
+      "Name": "webfonts/fa-regular-400.woff",
+      "Type": "ClientAsset"
+    },
+    {
+      "Name": "webfonts/fa-solid-900.woff",
+      "Type": "ClientAsset"
+    },
+    {
+      "Name": "webfonts/fa-brands-400.woff2",
+      "Type": "ClientAsset"
+    },
+    {
+      "Name": "webfonts/fa-regular-400.woff2",
+      "Type": "ClientAsset"
+    },
+    {
+      "Name": "webfonts/fa-solid-900.woff2",
+      "Type": "ClientAsset"
+    },
+    {
+      "Name": "jquery.min.js",
+      "Type": "ClientAsset"
+    },
+    {
+      "Name": "jquery-ui.min.js",
+      "Type": "ClientAsset"
+    },
+    {
+      "Name": "core/core.js",
+      "Type": "ClientAsset"
+    },
+    {
+      "Name": "slider.css",
+      "Type": "ClientAsset"
+    },
+    {
+      "Name": "core/core.css",
+      "Type": "ClientAsset"
+    },
+    {
+      "Name": "jscolor.min.js",
+      "Type": "ClientAsset"
+    },
+    {
+      "Name": "animate.css",
+      "Type": "ClientAsset"
+    },
+    {
+      "Name": "core/loadingicon_circular.gif",
+      "Type": "ClientAsset"
+    },
+    {
+      "Name": "core/loadingicon_square.gif",
+      "Type": "ClientAsset"
+    },
+    {
+      "Name": "core/menu.css",
+      "Type": "ClientAsset"
+    },
+    {
+      "Name": "core/reset.css",
+      "Type": "ClientAsset"
+    },
+    {
+      "Name": "fonts/chalet.ttf",
+      "Type": "ClientAsset"
+    },
+    {
+      "Name": "fonts/chaletlondonnineteensixty.woff",
+      "Type": "ClientAsset"
+    },
+    {
+      "Name": "fonts/chaletlondonnineteensixty.woff2",
+      "Type": "ClientAsset"
+    },
+    {
+      "Name": "fonts/Roboto-Regular.woff",
+      "Type": "ClientAsset"
+    },
+    {
+      "Name": "fonts/Roboto-Regular.woff2",
+      "Type": "ClientAsset"
+    },
+    {
+      "Name": "fonts/chaletsixty.ttf",
+      "Type": "ClientAsset"
+    },
+    {
+      "Name": "fonts/helvetica.ttf",
+      "Type": "ClientAsset"
+    },
+    {
+      "Name": "fonts/pricedow.woff",
+      "Type": "ClientAsset"
+    },
+    {
+      "Name": "fonts/pricedow.woff2",
+      "Type": "ClientAsset"
+    },
+    {
+      "Name": "fonts/signpainter.woff",
+      "Type": "ClientAsset"
+    },
+    {
+      "Name": "fonts/signpainter.woff2",
+      "Type": "ClientAsset"
+    },
+    {
+      "Name": "fonts/glyphicons-halflings-regular.ttf",
+      "Type": "ClientAsset"
+    },
+    {
+      "Name": "fonts/glyphicons-halflings-regular.woff",
+      "Type": "ClientAsset"
+    },
+    {
+      "Name": "fonts/glyphicons-halflings-regular.woff2",
+      "Type": "ClientAsset"
+    },
+    {
+      "Name": "PlayFabClientApi.js",
+      "Type": "ClientAsset"
+    },
+    {
+      "Name": "vue.min.js",
+      "Type": "ClientAsset"
+    },
+    {
+      "Name": "raphael.min.js",
+      "Type": "ClientAsset"
+    },
+    {
+      "Name": "raphael.icons.min.js",
+      "Type": "ClientAsset"
+    },
+    {
+      "Name": "wheelnav.min.js",
+      "Type": "ClientAsset"
+    }
+  ],
+  "ExportedFunctions": []
+}

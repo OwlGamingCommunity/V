@@ -1,0 +1,8 @@
+{
+  "Type": "Network_ClientToServer_RemoteOnly",
+  "Parameters": {
+  	"radioID": "int",
+  	"strName": "string",
+  	"strEndpoint": "string"
+  }
+}

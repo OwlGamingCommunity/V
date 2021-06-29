@@ -1,0 +1,7 @@
+{
+  "Type": "Network_ServerToClient_RemoteOnly",
+  "Parameters": {
+  	"donatorCurrency": "int",
+    "lstDonationInventory": "List<DonationInventoryItemTransmit>"
+  }
+}

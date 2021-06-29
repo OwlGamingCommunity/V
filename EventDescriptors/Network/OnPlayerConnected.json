@@ -1,0 +1,6 @@
+{
+  "Type": "ServerLocal",
+  "Parameters": {
+  	"a_Player": "CPlayer"
+  }
+}

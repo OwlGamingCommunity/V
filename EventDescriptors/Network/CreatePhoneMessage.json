@@ -1,0 +1,7 @@
+{
+    "Type": "Network_ClientToServer_RemoteOnly",
+    "Parameters": {
+        "to": "string",
+        "content": "string"
+    }
+}

@@ -1,0 +1,382 @@
+<html>
+<head>
+	<link href="../../owl_client_shared/bootstrap/bootstrap.min.legacy.css" rel="stylesheet">
+	<link href="../../owl_client_shared/core/core.css" rel="stylesheet">
+	<link href="../../owl_client_shared/core/menu.css" rel="stylesheet">
+	<link href="../../owl_client_shared/slider.css" rel="stylesheet">
+	<link href="../../owl_client_shared/animate.css" rel="stylesheet">
+	<script src="../../owl_client_shared/core/core.js"></script>
+	<script src="../../owl_client_shared/jquery.min.js"></script>
+	<script src="../../owl_client_shared/jquery-ui.min.js"></script>
+	<script src="../../owl_client_shared/vue.min.js"></script>
+	<script src="../../owl_client_shared/jscolor.min.js"></script>
+
+	<link href="package://owl_client_shared/bootstrap.min.legacy.css" rel="stylesheet">
+	<link href="package://owl_client_shared/core.css" rel="stylesheet">
+	<link href="package://owl_client_shared/menu.css" rel="stylesheet">
+	<link href="package://owl_client_shared/slider.css" rel="stylesheet">
+	<link href="package://owl_client_shared/animate.css" rel="stylesheet">
+	<script src="package://owl_client_shared//core.js"></script>
+	<script src="package://owl_client_shared//jquery.min.js"></script>
+	<script src="package://owl_client_shared//jquery-ui.min.js"></script>
+	<script src="package://owl_client_shared//vue.min.js"></script>
+	<script src="package://owl_client_shared//jscolor.min.js"></script>
+
+	<script type="text/javascript">
+		function Logout()
+		{
+			TriggerEvent("Logout");
+		}
+
+		function SetLogoutVisible(bVisible)
+		{
+			document.getElementById("logout_button").style.display = bVisible ? "block" : "none";
+		}
+
+		function GotoPrevQuestion()
+		{
+			if (g_QuestionIndex > 0)
+			{
+				g_QuestionIndex--;
+				UpdateQuestion();
+			}
+		}
+
+		function OnQuizComplete()
+		{
+			TriggerEvent("QuizComplete", JSON.stringify(g_Responses));
+
+			document.getElementById("box_questions").style.display = "none";
+			document.getElementById("box_quizresults").style.display = "none";
+			document.getElementById("box_writtenapplication").style.display = "none";
+			document.getElementById("box_message").style.display = "none";
+		}
+
+		function ContinueToNextStep()
+		{
+			// TODO: goto written stage
+			// Reset questions
+			g_Questions = [];
+			document.getElementById("box_questions").style.display = "none";
+			document.getElementById("box_quizresults").style.display = "none";
+			document.getElementById("box_writtenapplication").style.display = "none";
+			document.getElementById("box_message").style.display = "none";
+
+			TriggerEvent("RequestWrittenQuestions");
+		}
+
+		function RestartQuiz()
+		{
+			g_Questions = [];
+			document.getElementById("box_questions").style.display = "block";
+			document.getElementById("box_quizresults").style.display = "none";
+			document.getElementById("box_writtenapplication").style.display = "none";
+			document.getElementById("box_message").style.display = "none";
+			TriggerEvent("RestartQuiz");
+		}
+
+		function OnQuizComplete_Response(passed, num_correct, num_incorrect)
+		{
+			var num_questions = num_correct + num_incorrect;
+
+			var percent = Math.round((num_correct/num_questions) * 100);
+
+			document.getElementById("box_questions").style.display = "none";
+			document.getElementById("box_quizresults").style.display = "block";
+			document.getElementById("box_writtenapplication").style.display = "none";
+			document.getElementById("box_message").style.display = "none";
+
+			var message = ``;
+			if (passed)
+			{
+				message = `Congratulations! You passed!<br><br>Your score was ${num_correct}/${num_questions} (${percent}%)<br><br><div class="btn-group btn-group-justified"><a type='button' class='btn btn-success' onclick="ContinueToNextStep();">Continue</a></div>`;
+			}
+			else
+			{
+				message = `Oops! You failed!<br><br>Your score was ${num_correct}/${num_questions} (${percent}%)<br><br><div class="btn-group btn-group-justified"><a type='button' class='btn btn-danger' onclick="RestartQuiz();">Retry</a></div>`;
+			}
+
+			document.getElementById("results").innerHTML = message;
+		}
+
+		function GotoNextQuestion()
+		{
+			var should_proceed = true;
+			if (g_QuestionIndex >= 0)
+			{
+				var response = -1;
+
+				var answer1_checked = document.getElementById("rb_answer1").checked;
+				var answer2_checked = document.getElementById("rb_answer2").checked;
+				var answer3_checked = document.getElementById("rb_answer3").checked;
+				var answer4_checked = document.getElementById("rb_answer4").checked;
+
+				if (answer1_checked)
+				{
+					response = 0;
+				}
+				else if (answer2_checked)
+				{
+					response = 1;
+				}
+				else if (answer3_checked)
+				{
+					response = 2;
+				}
+				else if (answer4_checked)
+				{
+					response = 3;
+				}
+
+				if (response >= 0)
+				{
+					g_Responses[g_QuestionIndex] = response;
+				}
+				else
+				{
+					should_proceed = false;
+				}
+			}
+
+			if (should_proceed)
+			{
+				g_QuestionIndex++;
+
+				UpdateQuestion();
+			}
+		}
+
+		function UpdateQuestion()
+		{
+			if (g_QuestionIndex == g_Questions.length)
+			{
+				OnQuizComplete();
+			}
+			else
+			{
+				var questionData = g_Questions[g_QuestionIndex];
+
+				document.getElementById("question_counter").textContent = `${g_QuestionIndex+1}/${g_Questions.length}`;
+
+				document.getElementById("question").textContent = questionData["question"];
+				document.getElementById("answer1").textContent = questionData["answer1"];
+				document.getElementById("answer2").textContent = questionData["answer2"];
+				document.getElementById("answer3").textContent = questionData["answer3"];
+				document.getElementById("answer4").textContent = questionData["answer4"];
+
+				// Reset radio button states
+				document.getElementById("rb_answer1").checked = false;
+				document.getElementById("rb_answer2").checked = false;
+				document.getElementById("rb_answer3").checked = false;
+				document.getElementById("rb_answer4").checked = false;
+
+				// Did we already record an answer for this question?
+				if (g_Responses.length > g_QuestionIndex)
+				{
+					var element_name = `rb_answer${g_Responses[g_QuestionIndex] + 1}`;
+					document.getElementById(element_name).checked = true;
+				}
+			}
+		}
+
+		var g_WrittenQuestions = [];
+		var g_WrittenResponses = [];
+		function AddWrittenQuestion(question)
+		{
+			g_WrittenQuestions.push(question);
+		}
+
+		function CommitWrittenQuestions()
+		{
+			g_WrittenResponses = [];
+
+			// populate the written ones
+			document.getElementById("written_q1").textContent = g_WrittenQuestions[0];
+			document.getElementById("written_q2").textContent = g_WrittenQuestions[1];
+			document.getElementById("written_q3").textContent = g_WrittenQuestions[2];
+			document.getElementById("written_q4").textContent = g_WrittenQuestions[3];
+
+			document.getElementById("box_questions").style.display = "none";
+			document.getElementById("box_quizresults").style.display = "none";
+			document.getElementById("box_writtenapplication").style.display = "block";
+			document.getElementById("box_message").style.display = "none";
+		}
+
+		function SubmitWrittenPortion()
+		{
+			var q1_answer = document.getElementById("box1").value;
+			var q2_answer = document.getElementById("box2").value;
+			var q3_answer = document.getElementById("box3").value;
+			var q4_answer = document.getElementById("box4").value;
+
+			// TODO: dont send if its blank or too short
+			TriggerEvent("SubmitWrittenPortion", q1_answer, q2_answer, q3_answer, q4_answer);
+			GotoApplicationPendingState();
+			SetLogoutVisible(true);
+		}
+
+		function GotoApplicationPendingState()
+		{
+			ShowMessage("Application Under Review", "Your application is currently under review. You will receive a notification here when a decision has been made. You may leave the game and come back later.");
+		}
+
+		function GotoApplicationRejectedState()
+		{
+			ShowMessage("Application Rejected", "Your application was rejected. You will now be redirected to re-take the application.");
+		}
+
+		function ShowMessage(title, message)
+		{
+			document.getElementById("message_title").textContent = title;
+			document.getElementById("message").textContent = message;
+
+			document.getElementById("box_questions").style.display = "none";
+			document.getElementById("box_quizresults").style.display = "none";
+			document.getElementById("box_writtenapplication").style.display = "none";
+			document.getElementById("box_message").style.display = "block";
+		}
+
+		var g_QuestionIndex = -1;
+		var g_Questions = [];
+		var g_Responses = [];
+		function AddQuestion(question, answer1, answer2, answer3, answer4)
+		{
+			var newObj = [];
+			newObj["question"] = question;
+			newObj["answer1"] = answer1;
+			newObj["answer2"] = answer2;
+			newObj["answer3"] = answer3;
+			newObj["answer4"] = answer4;
+
+			g_Questions.push(newObj);
+		}
+
+		function CommitQuestions()
+		{
+			// Get the first question
+			g_Responses = [];
+			g_QuestionIndex = -1;
+			GotoNextQuestion();
+
+			document.getElementById("box_questions").style.display = "block";
+			document.getElementById("box_quizresults").style.display = "none";
+			document.getElementById("box_writtenapplication").style.display = "none";
+			document.getElementById("box_message").style.display = "none";
+        }
+
+        function Reset()
+        {
+            g_QuestionIndex = -1;
+		    g_Questions = [];
+			g_Responses = [];
+			g_WrittenQuestions = [];
+			g_WrittenResponses = [];
+        }
+
+	</script>
+
+	<style type="text/css">
+
+		body {
+			background-color: transparent;
+		}
+
+		#quiz-box {
+			width: 480px;
+			margin-left: 2%;
+			vertical-align: middle;
+			position: relative;
+			top: 45%;
+			left: 45%;
+			transform: translate(-50%, -50%);
+		}
+
+		#written-box {
+			width: 680px;
+			margin-left: 2%;
+			vertical-align: middle;
+			position: relative;
+			top: 50%;
+			left: 45%;
+			transform: translate(-50%, -50%);
+		}
+
+		.panel {
+			margin-bottom: 0;
+		}
+
+		.panel-body p {
+			margin-bottom: 0;
+		}
+	</style>
+
+</head>
+<body>
+
+	<div id="written-box" class="text-center">
+		<div class="panel panel-default" id="box_writtenapplication" style="display:none">
+			<div class="panel-heading">
+				<h4>Application</h4>
+				<p><strong><span id="written_q1"></span></strong></p>
+				<textarea class="form-control" rows="4" id="box1" style="resize:none"></textarea>
+				<br>
+				<p><strong><span id="written_q2"></span></strong></p>
+				<textarea class="form-control" rows="4" id="box2" style="resize:none"></textarea>
+				<br>
+				<p><strong><span id="written_q3"></span></strong></p>
+				<textarea class="form-control" rows="4" id="box3" style="resize:none"></textarea>
+				<br>
+				<p><strong><span id="written_q4"></span></strong></p>
+				<textarea class="form-control" rows="4" id="box4" style="resize:none"></textarea>
+				<br/>
+				<div class="btn-group btn-group-justified">
+					<a type='button' class='btn btn-success' onclick="SubmitWrittenPortion();">Submit For Review</a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="quiz-box" class="text-center">
+		<div class="panel panel-default" id="box_quizresults" style="display:none">
+			<div class="panel-heading">
+				<h4>Quiz Results</h4>
+				<p><strong><span id="results"></span></strong></p>
+			</div>
+		</div>
+
+		<div id="messagebox" class="text-center">
+			<div class="panel panel-default" id="box_message" style="display:none">
+				<div class="panel-heading">
+					<h4><span id="message_title"></span></h4>
+					<p><span id="message"></span></p>
+				</div>
+			</div>
+
+			<div class="panel panel-default" id="box_questions" style="display:none">
+				<div class="panel-heading">
+					<h4>Application Quiz: Question <span id="question_counter"></span></h4>
+				</div>
+				<div class="panel-body">
+					<br />
+					<p><strong><span id="question"></span></strong></p>
+					<br />
+					<form>
+						<input type="radio" id="rb_answer1" name="answers">&nbsp <span id="answer1"></span><br>
+						<input type="radio" id="rb_answer2" name="answers">&nbsp <span id="answer2"></span><br>
+						<input type="radio" id="rb_answer3" name="answers">&nbsp <span id="answer3"></span><br>
+						<input type="radio" id="rb_answer4" name="answers">&nbsp <span id="answer4"></span><br>
+					</form>
+				</div>
+				<div class="btn-group btn-group-justified">
+					<a type='button' class='btn btn-danger' onclick="GotoPrevQuestion();">Previous Question</a>
+					<a type='button' class='btn btn-success' onclick="GotoNextQuestion();">Next Question</a>
+				</div>
+			</div>
+		</div>
+
+		<div class="btn-group text-center" id="logout_button" style="display:none">
+			<br><center><a class="btn btn-danger" onclick="Logout();">Logout</a></center>
+		</div>
+	</div>
+</body>
+</html>

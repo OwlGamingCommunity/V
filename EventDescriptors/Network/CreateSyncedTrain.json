@@ -1,0 +1,12 @@
+{
+  "Type": "Network_ServerToClient_RemoteOnly",
+  "Parameters": {
+    "ID": "int",
+    "TrainType": "ETrainType",
+    "Position": "Vector3",
+    "CurrentSector": "int",
+    "LastTripWireID": "int",
+    "Speed": "float",
+    "bDoorsOpen": "bool"
+  }
+}

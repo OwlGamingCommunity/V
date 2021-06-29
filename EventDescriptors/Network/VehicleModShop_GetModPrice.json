@@ -1,0 +1,12 @@
+{
+  "Type": "Network_ClientToServer_RemoteOnly",
+  "Parameters": {
+  	"modSlot": "EModSlot",
+  	"modIndex": "int",
+  	"strPlateText": "string",
+  	"neon_r": "int",
+  	"neon_g": "int",
+  	"neon_b": "int",
+  	"neons_enabled": "bool"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "Type": "UI",
+  "Parameters": {
+    "to": "string",
+    "content": "string"
+  }
+}

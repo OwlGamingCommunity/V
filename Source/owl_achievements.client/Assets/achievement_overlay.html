@@ -1,0 +1,202 @@
+<html>
+<head>
+	<link href="../../owl_client_shared/bootstrap/bootstrap.min.css" rel="stylesheet">
+	<link href="../../owl_client_shared/fontawesome/all.min.dev.css" rel="stylesheet">
+	<link href="../../owl_client_shared/core/core.css" rel="stylesheet">
+	<link href="../../owl_client_shared/core/menu.css" rel="stylesheet">
+	<link href="../../owl_client_shared/slider.css" rel="stylesheet">
+	<link href="../../owl_client_shared/animate.css" rel="stylesheet">
+	<script src="../../owl_client_shared/core/core.js"></script>
+	<script src="../../owl_client_shared/jquery.min.js"></script>
+	<script src="../../owl_client_shared/jquery-ui.min.js"></script>
+	<script src="../../owl_client_shared/vue.min.js"></script>
+	<script src="../../owl_client_shared/jscolor.min.js"></script>
+
+	<link href="package://owl_client_shared/bootstrap.min.css" rel="stylesheet">
+	<link href="package://owl_client_shared/all.min.css" rel="stylesheet">
+	<link href="package://owl_client_shared/core.css" rel="stylesheet">
+	<link href="package://owl_client_shared/menu.css" rel="stylesheet">
+	<link href="package://owl_client_shared/slider.css" rel="stylesheet">
+	<link href="package://owl_client_shared/animate.css" rel="stylesheet">
+	<script src="package://owl_client_shared//core.js"></script>
+	<script src="package://owl_client_shared//jquery.min.js"></script>
+	<script src="package://owl_client_shared//jquery-ui.min.js"></script>
+	<script src="package://owl_client_shared//vue.min.js"></script>
+	<script src="package://owl_client_shared//jscolor.min.js"></script>
+	<script>
+		function ShowAchievement(id, name, description, points, rarity, percent) {
+
+			// set trophy first
+			var color = "";
+			if (rarity == 0) // common
+			{
+				color = "rgb(177, 86, 15)";
+			}
+			else if (rarity == 1) // rare
+			{
+				color = "rgb(153, 153, 153)";
+			}
+			else if (rarity == 2) // very rare
+			{
+				color = "rgb(212,175,55)";
+			}
+
+			document.getElementById("achievement_points").textContent = "";
+
+			setTimeout(function () {
+				document.getElementById("achievement_image").innerHTML = `<i class="fas fa-trophy fa-4x" style="color:${color}">`
+				animateCSS('#achievement_image', 'bounceIn');
+				animateCSS('#achievement_name', 'bounceIn');
+				animateCSS('#achievement_description', 'bounceIn');
+
+				setTimeout(ShowAchievementImage, 3500, id, name, description, points);
+
+				var rareName = "";
+				if (rarity == 0) // common
+				{
+					rareName = "Common";
+				}
+				else if (rarity == 1) // rare
+				{
+					rareName = "Rare";
+				}
+				else if (rarity == 2) // very rare
+				{
+					rareName = "Very Rare";
+				}
+
+				document.getElementById("achievement_name").textContent = `${rareName} Achievement Unlocked!`;
+				document.getElementById("achievement_description").textContent = `${percent}% of Owl Gamers have unlocked this achievement.`;
+
+			}, 300);
+
+			document.getElementById("achievement_box").style.display = "block";
+			animateCSS('#achievement_box', 'fadeInUp', function ()
+			{
+				
+
+				setTimeout(FadeOut, 7000);
+			})
+		}
+
+		function ShowAchievementImage(id, name, description, points)
+		{
+			// first anim out
+			animateCSS('#achievement_image', 'bounceOut', function ()
+			{
+				document.getElementById("achievement_image").innerHTML = `<img src="${id}.png">`;
+				animateCSS('#achievement_image', 'bounceIn');
+			})
+
+			animateCSS('#achievement_name', 'bounceOut', function ()
+			{
+				document.getElementById("achievement_name").textContent = name;
+				animateCSS('#achievement_name', 'bounceIn');
+			})
+
+			animateCSS('#achievement_description', 'bounceOut', function ()
+			{
+				animateCSS('#achievement_description', 'bounceIn');
+				animateCSS('#achievement_points', 'bounceIn');
+
+				document.getElementById("achievement_description").textContent = description;
+				document.getElementById("achievement_points").innerHTML = `${points}&nbsp;<i class="fas fa-coins" style="color:gold">`;
+			})
+		}
+
+		function FadeOut()
+		{
+			animateCSS('#achievement_box', 'fadeOutDown', function ()
+			{
+				OnFadedOut();
+				document.getElementById("achievement_box").style.display = "none";
+			})
+		}
+
+		function OnFadedOut()
+		{
+			TriggerEvent("AchievementOverlay_OnFadedOut");
+		}
+	</script>
+	<style>
+
+		body {
+			background-color: transparent;
+			opacity: 1;
+		}
+
+		h3 {
+			color: white;
+		}
+
+		h5 {
+			color: white;
+		}
+
+		span {
+			color: white;
+		}
+
+		.center-box {
+			margin-left: 0px;
+			position: fixed;
+			top: 85%;
+			left: 35%;
+
+			width: 520px;
+			background-color: rgba(0, 0, 0, 0.8);
+		}
+
+		.icon {
+			float: left;
+			width: 20%;
+		}
+
+		#achievement_image {
+			display: block;
+			position: relative;
+			height: 64px;
+			width: 64px;
+		}
+
+			#achievement_image span {
+				display: block;
+				height: 100%;
+				-webkit-mask-size: 100%;
+				mask-repeat: no-repeat;
+				position: absolute;
+				top: 0;
+				width: 100%;
+			}
+
+			#achievement_image .stroke {
+				background-color: #000000;
+				position: relative;
+				z-index: 1;
+			}
+
+			#achievement_image .fill {
+				background-color: #ffffff;
+				z-index: 0;
+			}
+
+		.text {
+			float: right;
+			width: 80%;
+		}
+	</style>
+</head>
+<body>
+	<center>
+<div id="achievement_box" class="center-box card" style="width: 35rem; height:7rem; display:none;">
+  <div class="card-body">
+  	<div class="icon">
+		<div id="achievement_image"></div>
+		<span id="achievement_points"></span></i>
+	</div>
+    <h5 class="card-title" id="achievement_name"></h5>
+    <h6 class="card-subtitle mb-2 text-muted" id="achievement_description"></h6>
+  </div>
+</div>
+</body>
+</html>

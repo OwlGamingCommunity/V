@@ -1,0 +1,9 @@
+{
+  "Type": "Network_ClientToServer_RemoteOnly",
+  "Parameters": {
+  	"speed": "float",
+  	"speedLimit": "int",
+  	"name": "string",
+  	"cameraID": "int"
+  }
+}

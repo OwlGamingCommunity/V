@@ -1,0 +1,172 @@
+<html>
+<head>
+    <script src="../../owl_client_shared/jquery.min.js"></script>
+    <script src="../../owl_client_shared/popper.min.js"></script>
+    <script src="../../owl_client_shared/bootstrap/bootstrap.min.js"></script>
+    <link href="../../owl_client_shared/bootstrap/bootstrap.min.css" rel="stylesheet">
+    <link href="../../owl_client_shared/fontawesome/all.min.dev.css" rel="stylesheet">
+    <link href="../../owl_client_shared/core/core.css" rel="stylesheet">
+    <link href="../../owl_client_shared/core/menu.css" rel="stylesheet">
+    <link href="../../owl_client_shared/slider.css" rel="stylesheet">
+    <link href="../../owl_client_shared/animate.css" rel="stylesheet">
+    <script src="../../owl_client_shared/core/core.js"></script>
+    <script src="../../owl_client_shared/jquery-ui.min.js"></script>
+    <script src="../../owl_client_shared/vue.min.js"></script>
+    <script src="../../owl_client_shared/jscolor.min.js"></script>
+    <link href="../../owl_client_shared/nouislider.min.css" rel="stylesheet">
+    <script src="../../owl_client_shared/nouislider.min.js"></script>
+
+    <script src="package://owl_client_shared//jquery.min.js"></script>
+    <script src="package://owl_client_shared//popper.min.js"></script>
+    <script src="package://owl_client_shared//bootstrap.min.js"></script>
+    <link href="package://owl_client_shared/bootstrap.min.css" rel="stylesheet">
+    <link href="package://owl_client_shared/all.min.css" rel="stylesheet">
+    <link href="package://owl_client_shared/core.css" rel="stylesheet">
+    <link href="package://owl_client_shared/menu.css" rel="stylesheet">
+    <link href="package://owl_client_shared/slider.css" rel="stylesheet">
+    <link href="package://owl_client_shared/animate.css" rel="stylesheet">
+    <script src="package://owl_client_shared//core.js"></script>
+    <script src="package://owl_client_shared//jquery-ui.min.js"></script>
+    <script src="package://owl_client_shared//vue.min.js"></script>
+    <script src="package://owl_client_shared//jscolor.min.js"></script>
+    <link href="package://owl_client_shared//nouislider.min.css" rel="stylesheet">
+    <script src="package://owl_client_shared//nouislider.min.js"></script>
+
+    <style>
+        .form-text {
+            /*color: #3e3e3e;*/
+            font-size: 11px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container h-100" id="app">
+    <div class="row h-100 justify-content-center align-items-center">
+        <div class="col-7">
+            <div class="card align-middle">
+                <div class="card-header">
+                    Character Look: {{ name }}
+                    <button class="close" @click="CloseMenu">&times;</button>
+                </div>
+                <div class="card-body">
+                    <form @submit.prevent="SaveCharacterLook">
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="mb-3">
+                                    <label for="txtHeight" class="form-label">Height</label>
+                                    <div class="input-group">
+                                        <input type="number" class="form-control" id="txtHeight" maxlength="255" v-model="height">
+                                        <span class="input-group-text">inches</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="mb-3">
+                                    <label for="txtWeight" class="form-label">Weight</label>
+                                    <div class="input-group">
+                                        <input type="number" class="form-control" id="txtWeight" max="500" v-model="weight">
+                                        <span class="input-group-text">lbs</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="mb-3">
+                                    <label for="txtPhysicalAppearance" class="form-label">Physical Appearance</label>
+                                    <input type="text" class="form-control" id="txtPhysicalAppearance" maxlength="255" v-model="physical_appearance">
+                                    <div class="form-text">Describe attributes of your physical appearance that cannot
+                                        be accurately conveyed by your character's Grand Theft Auto appearance.
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="txtScars" class="form-label">Scars</label>
+                                    <input type="text" class="form-control" id="txtScars" maxlength="255" v-model="scars">
+                                    <div class="form-text">Describe any scars that would be visible on your body to a
+                                        person passing by you in the street.
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="txtTattoos" class="form-label">Tattoos</label>
+                                    <input type="text" class="form-control" id="txtTattoos" maxlength="500" v-model="tattoos">
+                                    <div class="form-text">Describe any tattoos that you have on your character in
+                                        more detail than can be conveyed by Grand Theft Auto.
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="txtMakeup" class="form-label">Makeup</label>
+                                    <input type="text" class="form-control" id="txtMakeup" maxlength="255" v-model="makeup">
+                                    <div class="form-text">Describe any makeup your character is wearing that is not
+                                        accurately conveyed by Grand Theft Auto.
+                                    </div>
+                                </div>
+                                <button class="btn btn-success">Save Character Look</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    var app = new Vue({
+        el: '#app',
+        data() {
+            return {
+                name: "",
+                height: 0,
+                weight: 0,
+                physical_appearance: "",
+                scars: "",
+                tattoos: "",
+                makeup: "",
+                createdAt: 0,
+                updatedAt: 0,
+            }
+        },
+        methods: {
+            SetData(name, height, weight, physical_appearance, scars, tattoos, makeup, createdAt, updatedAt) {
+                this.name = name;
+                this.height = height;
+                this.weight = weight;
+                this.physical_appearance = physical_appearance;
+                this.scars = scars;
+                this.tattoos = tattoos;
+                this.makeup = makeup;
+                this.createdAt = createdAt;
+                this.updatedAt = updatedAt;
+            },
+            CloseMenu() {
+                TriggerEvent("UpdateCharacterLook_Close");
+            },
+            SaveCharacterLook() {
+                TriggerEvent("UpdateCharacterLook_Save", this.height, this.weight, this.physical_appearance, this.scars, this.tattoos, this.makeup);
+            }
+        }
+    })
+
+
+    function SetData(name, age, height, weight, physical_appearance, scars, tattoos, makeup, createdAt, updatedAt) {
+        app.SetData(name, age, height, weight, physical_appearance, scars, tattoos, makeup, createdAt, updatedAt);
+    }
+
+    function OnLoad() {
+        if (IsRunningInRAGECEF()) {
+            return;
+        }
+
+        app.SetData(
+            "John Smith",
+            73,
+            185,
+            "Test",
+            "",
+            "",
+            ""
+        );
+    }
+</script>
+
+</body>
+</html>

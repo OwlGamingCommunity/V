@@ -1,0 +1,9 @@
+{
+  "Type": "Network_ServerToClient_RemoteOnly",
+  "Parameters": {
+    "fPrice": "float",
+    "hasToken": "bool",
+    "numAdded": "uint",
+    "numRemoved": "uint"
+  }
+}

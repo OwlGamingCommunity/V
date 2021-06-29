@@ -1,0 +1,10 @@
+{
+	"Files": [
+		{
+			"Name": "owl_radios.dll",
+			"Type": "ServerScript"
+		},
+	],
+  "ExportedFunctions":[
+  ]
+}

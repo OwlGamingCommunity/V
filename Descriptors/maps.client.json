@@ -1,0 +1,33 @@
+{
+  "Files": [
+    {
+      "Name": "Assets/maploader.html",
+      "Type": "ClientAsset"
+    },
+    {
+      "Name": "Assets/maploader.css",
+      "Type": "ClientAsset"
+    },
+    {
+      "Name": "Assets/maploader.js",
+      "Type": "ClientAsset"
+    },
+    {
+      "Name": "Assets/xmlToJson.min.js",
+      "Type": "ClientAsset"
+    },
+    {
+      "Name": "CustomMapLoader.Client.cs",
+      "Type": "ClientScript"
+    },
+    {
+      "Name": "CGUICustomMapLoader.Client.cs",
+      "Type": "ClientScript"
+    },
+    {
+      "Name": "Init.Client.cs",
+      "Type": "ClientScript"
+    }
+  ],
+  "ExportedFunctions": []
+}

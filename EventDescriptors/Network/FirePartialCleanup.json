@@ -1,0 +1,6 @@
+{
+  "Type": "Network_Bidirectional_RemoteOnly",
+  "Parameters": {
+  	"cleanedUpSlots" : "List<int>",
+  }
+}

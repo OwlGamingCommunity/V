@@ -1,0 +1,145 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title></title>
+
+    <link href="package://owl_client_shared/bootstrap.min.css" rel="stylesheet">
+    <link href="package://owl_client_shared/core.css" rel="stylesheet">
+    <link href="package://owl_client_shared/menu.css" rel="stylesheet">
+    <link href="package://owl_client_shared/slider.css" rel="stylesheet">
+    <link href="package://owl_client_shared/animate.css" rel="stylesheet">
+    <link href="package://owl_admin.client/checkint.css" rel="stylesheet" />
+</head>
+<body>
+    <div id="box-middle">
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="card" id="panel1">
+                    <div class="card-header" id="header">Property Details</div>
+                    <div class="card-body">
+                        <table class="table" id="detailsTable">
+                            <tbody>
+                                <tr>
+                                    <th>Username:</th>
+                                    <td id="username"></td>
+                                </tr>
+                                <tr>
+                                    <th>Character Name:</th>
+                                    <td id="characterName"></td>
+                                </tr>
+                                <tr>
+                                    <th>Price:</th>
+                                    <td id="propPrice"></td>
+                                </tr>
+                                <tr>
+                                    <th>Locked:</th>
+                                    <td id="locked"></td>
+                                </tr>
+                                <tr>
+                                    <th>Property name:</th>
+                                    <td id="propName"></td>
+                                </tr>
+                                <tr>
+                                    <th>Interior ID:</th>
+                                    <td id="intID"></td>
+                                </tr>
+                                <tr>
+                                    <th>Payment method:</th>
+                                    <td id="paymentMethod"></td>
+                                </tr>
+                                <tr>
+                                    <th>Payments made:</th>
+                                    <td id="paymentMade"></td>
+                                </tr>
+                                <tr>
+                                    <th>Payments remaining:</th>
+                                    <td id="paymentRemaining"></td>
+                                </tr>
+                                <tr>
+                                    <th>Payments missed:</th>
+                                    <td id="paymentMissed"></td>
+                                </tr>
+                                <tr>
+                                    <th>Credit amount:</th>
+                                    <td id="creditAmount"></td>
+                                </tr>
+                                <tr>
+                                    <th>Property state:</th>
+                                    <td id="propertyState"></td>
+                                </tr>
+                                <tr>
+                                    <th>Rented price:</th>
+                                    <td id="rentedPrice"></td>
+                                </tr>
+                                <tr>
+                                    <th>Last Used:</th>
+                                    <td id="lastUsed"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="card">
+                    <div class="card-header">Logged interactions</div>
+                    <div class="card-body">
+                        <ul class="nav nav-tabs" id="vehicleTabs" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link active" id="actions" href="#">Actions</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="adminNotes" href="#">Admin Notes</a>
+                            </li>
+                        </ul>
+                        <div class="scrollbox">
+                            <table class="table" id="notesTable">
+                                <thead>
+                                    <tr id="actionHeaders">
+                                        <th scope="col">ACTION</th>
+                                        <th scope="col">ACTOR</th>
+                                        <th scope="col">TIMESTAMP</th>
+                                    </tr>
+                                    <tr id="noteHeaders" class="hiddenHeader">
+                                        <th scope="col">NOTE</th>
+                                        <th scope="col">CREATOR</th>
+                                        <th scope="col">DATE</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="tableBody"></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="card" style="margin-bottom: 5px;">
+                    <div class="card-header">Add new note</div>
+                    <div class="card-body">
+                        <textarea class="col-sm-12" id="adminnotes" rows="3" cols="120" maxlength="255" placeholder="Type to enter a new note..."></textarea>
+                    </div>
+                </div>
+                <div class="col-sm-12">
+                    <div class="btn-group btn-group-justified" role="group" aria-label="Justified button group" style="margin-bottom: 5px;">
+                        <div class="btn-group">
+                            <button id="savenotesbutton" type="button" class="btn btn-success btn-lg btn-block" onclick="AddNote();">Add new note</button>
+                        </div>
+                    </div>
+                    <div class="btn-group btn-group-justified" role="group" aria-label="Justified button group">
+                        <div class="btn-group">
+                            <button id="closebutton" type="button" class="btn btn-danger btn-lg btn-block" onclick="Close();">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="package://owl_client_shared//core.js"></script>
+    <script src="package://owl_client_shared//jquery.min.js"></script>
+    <script src="package://owl_client_shared//jquery-ui.min.js"></script>
+    <script src="package://owl_client_shared//vue.min.js"></script>
+    <script src="package://owl_client_shared//jscolor.min.js"></script>
+    <script src="package://owl_admin.client/checkint.js"></script>
+</body>
+</html>

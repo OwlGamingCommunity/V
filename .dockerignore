@@ -1,0 +1,30 @@
+## Owl V Gitignore
+
+# User-specific files
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.userprefs
+*.ide
+.vs/
+**/.git/
+
+
+# Build
+**/obj/
+**/Binaries/
+FixPaths.exe
+**/Packages/
+**/packages/
+**/Data/
+**/Source/Launch/bin/
+**/bin/
+**/Output/Debug/
+.gitlab-ci.yml
+
+# Used by the cooker
+*.ar
+HashCache/
+
+PSD/

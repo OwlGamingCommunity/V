@@ -1,0 +1,99 @@
+<html>
+<head>
+	<link href="../../owl_client_shared/bootstrap/bootstrap.min.css" rel="stylesheet">
+	<link href="../../owl_client_shared/core/core.css" rel="stylesheet">
+	<link href="../../owl_client_shared/core/menu.css" rel="stylesheet">
+	<script src="../../owl_client_shared/core/core.js"></script>
+	<script src="../../owl_client_shared/vue.min.js"></script>
+
+	<link href="package://owl_client_shared/bootstrap.min.css" rel="stylesheet">
+	<link href="package://owl_client_shared/core.css" rel="stylesheet">
+	<link href="package://owl_client_shared/menu.css" rel="stylesheet">
+	<script src="package://owl_client_shared//core.js"></script>
+	<script src="package://owl_client_shared//vue.min.js"></script>
+
+	<style type="text/css">
+		body {
+			background-color: transparent;
+		}
+		
+		.disabled {
+			color: #fff !important;
+		}
+	</style>
+
+</head>
+<body>
+<div class="container h-100" id="app">
+	<div class="row h-100 justify-content-center align-items-center">
+		<div class="col-4">
+			<div class="card align-middle">
+				<div class="card-header">
+					Languages
+					<button class="close" @click="CloseMenu">&times;</button>				
+				</div>
+				<div class="list-group list-group-flush">
+					<a
+							v-for="language in languages"
+							class="list-group-item list-group-item-action text-success"
+							:class="{disabled: language.current}"
+							@click="SelectLanguage(language.name)"
+					>{{ language.name }}<span v-show="language.current">(Current)</span>
+										<div class="progress">
+										<div class="progress-bar" role="progressbar" :style="{width: language.progress + '%'}" aria-valuenow="{{ language.progress }}" aria-valuemin="0" aria-valuemax="100">{{ language.progress }}%</div>
+										</div><br/></a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript">
+	function OnLoad() {
+		if (IsRunningInRAGECEF()) {
+			return;
+
+		}
+
+		Reset();
+	}
+
+	function GetProgress() {
+		return { progress: app.language.progress }
+	}
+
+	function AddLanguageToUI(language, active, progress) {
+		app.AddLanguage(language, active, progress)
+	}
+
+	function Reset() {
+		app.languages = [];
+	}
+
+	var app = new Vue({
+		el: '#app',
+		data() {
+			return {languages: []}
+		},
+		methods: {
+			AddLanguage(lang, active, progress) {
+				this.languages.push({name: lang, current: active, progress: progress});
+			},
+			SelectLanguage(lang) {
+				this.languages = this.languages.map(language => {
+					language.current = language.name === lang;
+					
+					return language;
+				});
+				TriggerEvent('LanguageMenu_SelectLanguage', String(lang));
+			},
+			CloseMenu() {
+				Reset();
+				TriggerEvent('LanguageMenu_Close');
+				
+			}
+		}
+	})
+</script>
+</body>
+</html>

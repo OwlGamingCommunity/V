@@ -1,0 +1,69 @@
+.alert * {
+	-webkit-tap-highlight-color: transparent;
+	-webkit-touch-callout: none;
+	-ms-touch-action: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+.alert *:focus {
+	outline: 0
+}
+
+.alert {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-left: -120px;
+    margin-top: -75px;
+    width: 240px;
+    text-align: center;
+    font-family: -apple-system, SF UI Text, Helvetica Neue, Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.4;
+    border-radius: 13px;
+    overflow: hidden;
+    z-index: 9999999999999999999999998;
+    background-color: #FFF;
+    -moz-box-shadow: 0 0 3px #ccc;
+    -webkit-box-shadow: 0 0 3px #ccc;
+    box-shadow: 0 0 3px #ccc;
+}
+
+.alert .inner {
+	padding: 15px;
+}
+
+.alert .title {
+	font-weight: 500;
+	font-size: 18px;
+}
+
+.alert .text {
+	margin-top: 5px;
+}
+
+.alert .button {
+	position: relative;
+	height: 44px;
+	line-height: 44px;
+	font-size: 17px;
+	color: #007aff;
+	border-radius: 0 0 13px 13px;
+	overflow: hidden;
+	cursor: pointer;
+}
+
+.alert .button:after {
+	content: '';
+	position: absolute;
+	left: 0;
+	top: 0;
+	height: 1px;
+	width: 100%;
+	display: block;
+	background-color: #c4c4c4;
+	z-index: 9999999999999999999999999;
+}

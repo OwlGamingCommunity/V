@@ -1,0 +1,35 @@
+﻿body {
+    background-color: transparent;
+}
+
+#box-middle {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 1200px;
+}
+
+#vehicle_listbox {
+    margin-bottom: 15px;
+}
+
+
+.dropdown-menu > li > a {
+    padding: 7.5px 15px;
+}
+
+#detailsTable > tr {
+    text-align: right;
+}
+
+.scrollbox {
+    position: relative;
+    height: 200px;
+    overflow: auto;
+}
+
+.hiddenHeader {
+    display: none;
+}

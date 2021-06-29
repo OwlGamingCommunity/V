@@ -1,0 +1,9 @@
+{
+  "Files": [
+    {
+      "Name": "owl_animations.dll",
+      "Type": "ServerScript"
+    }
+  ],
+  "ExportedFunctions": []
+}

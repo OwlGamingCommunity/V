@@ -1,0 +1,7 @@
+{
+  "Type": "ClientLocal",
+  "Parameters": {
+    "vecOldArea": "RAGE.Vector3",
+    "vecNewArea": "RAGE.Vector3"
+  }
+}

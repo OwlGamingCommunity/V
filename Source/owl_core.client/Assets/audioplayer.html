@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<script src="package://owl_client_shared//core.js"></script>
+	<script type="text/javascript">
+		let g_ActiveElements = [];
+
+
+		let g_AudioInstances = [];
+		let g_poolSize = 0;
+		function InitAudioPool(poolSize)
+		{
+			g_poolSize = poolSize;
+
+			for (var i = 0; i < poolSize; ++i)
+			{
+				document.body.innerHTML += `<div id="audioplayer_${i}_root"></div>`;
+				document.body.innerHTML += `<div id="audioplayer_${i}_secondary_root"></div>`;
+
+				g_ActiveElements[i] = 0;
+			}
+
+			setInterval(OnTick, 100);
+		}
+
+		function OnTick()
+		{
+			for (var poolIndex = 0; poolIndex < g_poolSize; ++poolIndex)
+			{
+				var audioInst = g_AudioInstances[poolIndex];
+
+				if (audioInst != null)
+				{	
+					// Do we need the main or alt player?
+					var playerInUse = null;
+					if (audioInst.state == 0) // primary is our target, secondary is playing
+					{
+						playerInUse = document.getElementById(`audioplayer_${poolIndex}_secondary`);
+					}
+					else if (audioInst.state == 1) // secondary is our target, primary is playing
+					{
+						playerInUse = document.getElementById(`audioplayer_${poolIndex}`);
+					}
+
+					if (playerInUse != null)
+					{
+						var timeUntilEnd = playerInUse.duration - playerInUse.currentTime;
+						const delta = 0.13;
+						if (timeUntilEnd <= delta)
+						{
+							PlayAudio(poolIndex);
+						}
+
+						// Fade out
+						if (audioInst.isFadingOut)
+						{
+							audioInst.volume -= 0.01;
+
+							// clamp
+							if (audioInst.volume < 0.0)
+							{
+								audioInst.volume = 0.0;
+							}
+
+							UpdateVolumes(poolIndex);
+						}
+					}
+				}
+			}
+		}
+
+		function StopAudio(poolIndex)
+		{
+			if (g_AudioInstances[poolIndex] != null)
+			{
+				document.getElementById(`audioplayer_${poolIndex}_root`).innerHTML = "";
+				document.getElementById(`audioplayer_${poolIndex}_secondary_root`).innerHTML = "";
+				g_AudioInstances[poolIndex] = null;
+			}
+		}
+
+		function InitAudio(poolIndex, loopAudio)
+		{
+			g_AudioInstances[poolIndex] = {};
+			g_AudioInstances[poolIndex].state = 0;
+			g_AudioInstances[poolIndex].current_track = 0;
+			g_AudioInstances[poolIndex].tracks = [];
+			g_AudioInstances[poolIndex].volume = 0.25;
+			g_AudioInstances[poolIndex].isFadingOut = false;
+			g_AudioInstances[poolIndex].loopAudio = loopAudio;
+		}
+
+		function AddAudioTrack(poolIndex, path)
+		{
+			if (g_AudioInstances[poolIndex] != null)
+			{
+				g_AudioInstances[poolIndex].tracks.push(path);
+			}
+		}
+
+		function FadeOutAudio(poolIndex)
+		{
+			var audioInst = g_AudioInstances[poolIndex];
+
+			if (audioInst != null)
+			{
+				audioInst.isFadingOut = true;
+			}
+		}
+
+		function UpdateVolumes(poolIndex)
+		{
+			var audioInst = g_AudioInstances[poolIndex];
+
+			if (audioInst != null)
+			{	
+				var primaryElement = document.getElementById(`audioplayer_${poolIndex}`);
+				if (primaryElement != null)
+				{
+					primaryElement.volume = audioInst.volume;	
+				}
+				
+				var secondaryElement = document.getElementById(`audioplayer_${poolIndex}_secondary`);
+				if (secondaryElement != null)
+				{
+					secondaryElement.volume = audioInst.volume;	
+				}
+			}
+		}
+
+		function PlayAudio(poolIndex)
+		{
+			var audioInst = g_AudioInstances[poolIndex];
+
+			if (audioInst != null)
+			{	
+				var currentTrackPath = audioInst.tracks[audioInst.current_track];
+
+				// end if we've faded out
+				if (currentTrackPath != null && audioInst.volume > 0.0)
+				{
+					var playPlayerID = ``;
+					var preloadPlayerID = ``;
+
+					if (audioInst.state == 0)
+					{
+						playPlayerID = `audioplayer_${poolIndex}`;
+						preloadPlayerID = `audioplayer_${poolIndex}_secondary`;
+						g_AudioInstances[poolIndex].state = 1;
+					}
+					else if (audioInst.state == 1)
+					{
+						playPlayerID = `audioplayer_${poolIndex}_secondary`;
+						preloadPlayerID = `audioplayer_${poolIndex}`;
+						g_AudioInstances[poolIndex].state = 0;
+					}
+
+					// first time
+					if (document.getElementById(`${playPlayerID}_root`).innerHTML.length == 0)
+					{
+						document.getElementById(`${playPlayerID}_root`).innerHTML = `<audio id='${playPlayerID}' preload autobuffer controls><source src='${currentTrackPath}'></audio>`;
+						document.getElementById(`${playPlayerID}_root`).style.display = "none";
+						document.getElementById(`${preloadPlayerID}_root`).style.display = "none";
+					}
+
+					// play and preload on the other
+					document.getElementById(`${playPlayerID}`).play();
+					// volumes
+					UpdateVolumes(poolIndex);
+
+					// Preload 2nd track if available
+					if (audioInst.tracks.length - audioInst.current_track > 1)
+					{
+						var preloadTrackPath = audioInst.tracks[audioInst.current_track + 1];
+						document.getElementById(`${preloadPlayerID}_root`).innerHTML = `<audio id='${preloadPlayerID}' preload autobuffer controls><source src='${preloadTrackPath}'></audio>`;
+					}
+					else
+					{
+						document.getElementById(`${preloadPlayerID}_root`).innerHTML = "";
+					}
+
+					g_AudioInstances[poolIndex].current_track += 1;
+				}
+				else
+				{
+					// Should we loop?
+					if (audioInst.loopAudio && !audioInst.isFadingOut)
+					{
+						g_AudioInstances[poolIndex].state = 0;
+						g_AudioInstances[poolIndex].current_track = 0;
+						PlayAudio(poolIndex);
+					}
+					else
+					{
+						document.getElementById(`audioplayer_${poolIndex}_root`).innerHTML = "";
+						TriggerEvent("AudioPlayFinished", poolIndex);
+						document.getElementById(`audioplayer_${poolIndex}_secondary_root`).innerHTML = "";
+						g_AudioInstances[poolIndex] = null;
+					}
+				}
+			}
+		}
+	</script>
+</head>
+<body>
+
+
+</body>
+</html>

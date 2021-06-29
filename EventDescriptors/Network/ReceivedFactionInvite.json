@@ -1,0 +1,8 @@
+{
+  "Type": "Network_ServerToClient_RemoteOnly",
+  "Parameters": {
+    "strFactionName": "string",
+    "strFromPlayerName": "string",
+    "factionID": "Int64"
+  }
+}

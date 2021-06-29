@@ -1,0 +1,117 @@
+<html>
+<head>
+	<link href="../../owl_client_shared/bootstrap/bootstrap.min.legacy.css" rel="stylesheet">
+	<link href="../../owl_client_shared/core/core.css" rel="stylesheet">
+	<link href="../../owl_client_shared/core/menu.css" rel="stylesheet">
+	<link href="../../owl_client_shared/slider.css" rel="stylesheet">
+	<link href="../../owl_client_shared/animate.css" rel="stylesheet">
+	<script src="../../owl_client_shared/core/core.js"></script>
+	<script src="../../owl_client_shared/jquery.min.js"></script>
+	<script src="../../owl_client_shared/jquery-ui.min.js"></script>
+	<script src="../../owl_client_shared/vue.min.js"></script>
+	<script src="../../owl_client_shared/jscolor.min.js"></script>
+
+	<link href="package://owl_client_shared/bootstrap.min.legacy.css" rel="stylesheet">
+	<link href="package://owl_client_shared/core.css" rel="stylesheet">
+	<link href="package://owl_client_shared/menu.css" rel="stylesheet">
+	<link href="package://owl_client_shared/slider.css" rel="stylesheet">
+	<link href="package://owl_client_shared/animate.css" rel="stylesheet">
+	<script src="package://owl_client_shared//core.js"></script>
+	<script src="package://owl_client_shared//jquery.min.js"></script>
+	<script src="package://owl_client_shared//jquery-ui.min.js"></script>
+	<script src="package://owl_client_shared//vue.min.js"></script>
+	<script src="package://owl_client_shared//jscolor.min.js"></script>
+	
+	<script type="text/javascript">
+		var g_SubmitEventName = null;
+		var g_CancelEventName = null;
+
+		function ShowLoginBox(title, caption, submit_event_name, cancel_event_name, maxLength)
+		{
+			document.getElementById("title").textContent = title;
+			document.getElementById("caption").innerHTML = caption;
+
+			document.getElementById("username_textbox").placeholder = "Username";
+			document.getElementById("username_textbox").focus();
+			document.getElementById("username_textbox").value = "";
+			document.getElementById("username_textbox").maxLength = maxLength;
+			document.getElementById('username_textbox').style.display = 'block';
+
+			document.getElementById("password_textbox").placeholder = "Password";
+			document.getElementById("password_textbox").focus();
+			document.getElementById("password_textbox").value = "";
+			document.getElementById("password_textbox").maxLength = maxLength;
+			document.getElementById('password_textbox').style.display = 'block';
+
+			g_SubmitEventName = submit_event_name;
+			g_CancelEventName = cancel_event_name;
+
+			document.getElementById('input-frame').style.display = 'block';
+		}
+
+		function Cancel()
+		{
+			TriggerEvent("GenericUserLoginBox_OnClose");
+			TriggerEvent(g_CancelEventName);
+		}
+
+		function Submit()
+		{
+			TriggerEvent("GenericUserLoginBox_OnClose");
+			var username = document.getElementById('username_textbox').value;
+			var password = document.getElementById('password_textbox').value;
+
+			TriggerEvent(g_SubmitEventName, username, password);
+		}
+
+	</script>
+
+	<style type="text/css">
+
+		body {
+			background-color: transparent;
+		}
+
+		#input-frame {
+			margin: 0 auto;
+			position: absolute;
+			top: 45%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			width: 30%;
+			min-width: 500px;
+		}
+
+		.panel {
+			margin-bottom: 0;
+		}
+
+		.panel-body p {
+			margin-bottom: 0;
+		}
+	</style>
+
+</head>
+<body>
+	<div id="input-frame" class="text-center">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h4><span id="title"></span></h4>
+			</div>
+			<div class="panel-body">
+
+				<p><span id="caption"></span></p><br>
+				Username: <input type='text' class='form-control' aria-describedby='basic-addon1' id='username_textbox' value='' style="display:none">
+				<br>
+				Password: <input type='password' class='form-control' aria-describedby='basic-addon1' id='password_textbox' value='' style="display:none">
+				<br />
+			</div>
+			<div class="btn-group btn-group-justified">
+				<a type='button' class='btn btn-danger' onclick="Cancel();">Cancel</a>
+				<a type='button' class='btn btn-success' onclick="Submit();">Login</a>
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>

@@ -1,0 +1,8 @@
+{
+  "Type": "UI",
+  "Parameters": {
+    "factionIndex": "int",
+    "memberIndex": "int",
+    "rankIndex": "int"
+  }
+}

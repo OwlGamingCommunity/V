@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<script src="../../owl_client_shared/core/core.js"></script>
+	<script src="package://owl_client_shared//core.js"></script>
+
+	<script type="text/javascript">
+	function SetVolume(volume)
+	{
+		document.getElementById("audioplayer").volume = volume;
+	}
+
+	function PlayRadioStation(url)
+	{
+		document.getElementById("audioplayer").src = url;
+		document.getElementById("audioplayer").play();
+	}
+
+	function StopRadioStation()
+	{
+		document.getElementById("audioplayer").pause();
+	}
+
+	</script>
+</head>
+<body>
+<audio id='audioplayer' preload autobuffer><source src=''></audio>
+</body>
+</html>

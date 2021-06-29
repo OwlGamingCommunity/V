@@ -1,0 +1,68 @@
+{
+  "Files": [
+    {
+      "Name": "PlayFabAllSDK.dll",
+      "Type": "ServerDependency"
+    },
+
+    /*
+    SENTRY DEPS FOR v1.2.0
+    Also depends on a newer version of json which is added in rageoverrides
+    */
+    {
+      "Name": "Sentry.dll",
+      "Type": "ServerDependency"
+    },
+    {
+      "Name": "Sentry.PlatformAbstractions.dll",
+      "Type": "ServerDependency"
+    },
+    {
+      "Name": "Sentry.Protocol.dll",
+      "Type": "ServerDependency"
+    },
+    {
+      "Name": "BCrypt.Net-Next.dll",
+      "Type": "ServerDependency"
+    },
+    {
+      "Name": "Discord.Net.Core.dll",
+      "Type": "ServerDependency"
+    },
+    {
+      "Name": "Discord.Net.Rest.dll",
+      "Type": "ServerDependency"
+    },
+    {
+      "Name": "Discord.Net.WebSocket.dll",
+      "Type": "ServerDependency"
+    },
+    {
+      "Name": "Discord.Net.Commands.dll",
+      "Type": "ServerDependency"
+    },
+    {
+      "Name": "Elasticsearch.Net.dll",
+      "Type": "ServerDependency"
+    },
+    {
+      "Name": "Nest.dll",
+      "Type": "ServerDependency"
+    },
+    {
+      "Name": "libCodewalker.dll",
+      "Type": "ServerDependency"
+    },
+    {
+      "Name": "SharpDX.dll",
+      "Type": "ServerDependency"
+    },
+    {
+      "Name": "SharpDX.Mathematics.dll",
+      "Type": "ServerDependency"
+    }
+  ],
+  "ExportedFunctions":
+  [
+  ]
+}

@@ -1,0 +1,18 @@
+{
+	"Files": [
+		{
+			"Name": "InventorySystem.client.cs",
+			"Type": "ClientScript"
+		},
+		{
+			"Name": "..//Shared//ItemData.cs",
+			"Type": "ClientScript"
+		},
+		{
+			"Name": "..//Shared//ItemShared.cs",
+			"Type": "ClientScript"
+		}
+	],
+  "ExportedFunctions": [
+  ]
+}

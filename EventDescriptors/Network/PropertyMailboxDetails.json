@@ -1,0 +1,8 @@
+{
+  "Type": "Network_ServerToClient_RemoteOnly",
+  "Parameters": {
+  	"propertyID": "Int64",
+  	"accessLevel": "EMailboxAccessType",
+  	"inventory": "List<CItemInstanceDef>"
+  }
+}

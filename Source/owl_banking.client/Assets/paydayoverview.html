@@ -1,0 +1,275 @@
+<html>
+<head>
+	<script src="../../owl_client_shared/jquery.min.js"></script>
+	<script src="../../owl_client_shared/popper.min.js"></script>
+	<script src="../../owl_client_shared/bootstrap/bootstrap.min.js"></script>
+	<link href="../../owl_client_shared/bootstrap/bootstrap.min.css" rel="stylesheet">
+	<link href="../../owl_client_shared/fontawesome/all.min.dev.css" rel="stylesheet">
+	<link href="../../owl_client_shared/core/core.css" rel="stylesheet">
+	<link href="../../owl_client_shared/core/menu.css" rel="stylesheet">
+	<link href="../../owl_client_shared/slider.css" rel="stylesheet">
+	<link href="../../owl_client_shared/animate.css" rel="stylesheet">
+	<script src="../../owl_client_shared/core/core.js"></script>
+	<script src="../../owl_client_shared/jquery-ui.min.js"></script>
+	<script src="../../owl_client_shared/vue.min.js"></script>
+	<script src="../../owl_client_shared/jscolor.min.js"></script>
+	<link href="../../owl_client_shared/nouislider.min.css" rel="stylesheet">
+	<script src="../../owl_client_shared/nouislider.min.js"></script>
+
+	<script src="package://owl_client_shared//jquery.min.js"></script>
+	<script src="package://owl_client_shared//popper.min.js"></script>
+	<script src="package://owl_client_shared//bootstrap.min.js"></script>
+	<link href="package://owl_client_shared/bootstrap.min.css" rel="stylesheet">
+	<link href="package://owl_client_shared/all.min.css" rel="stylesheet">
+	<link href="package://owl_client_shared/core.css" rel="stylesheet">
+	<link href="package://owl_client_shared/menu.css" rel="stylesheet">
+	<link href="package://owl_client_shared/slider.css" rel="stylesheet">
+	<link href="package://owl_client_shared/animate.css" rel="stylesheet">
+	<script src="package://owl_client_shared//core.js"></script>
+	<script src="package://owl_client_shared//jquery-ui.min.js"></script>
+	<script src="package://owl_client_shared//vue.min.js"></script>
+	<script src="package://owl_client_shared//jscolor.min.js"></script>
+	<link href="package://owl_client_shared//nouislider.min.css" rel="stylesheet">
+	<script src="package://owl_client_shared//nouislider.min.js"></script>
+
+	
+	<script type="text/javascript">
+		function CurrencyFormat(number)
+		{
+			return number.toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, "$1,");
+		}
+
+		function AddDebugData()
+		{
+			Add_OverviewItem("Gross Income", 0.0);
+			Add_OverviewItem("Net Income", 1.0);
+			Add_OverviewItem("State Income Tax", 2.0);
+			Add_OverviewItem("Federal Income Tax", 3.0);
+			Add_OverviewItem("Donator Perk Income", 4.0);
+			Add_OverviewItem("Total Vehicle Payments", 5.0);
+			Add_OverviewItem("Total Vehicle Tax", 6.0);
+			Add_OverviewItem("Total Property Payments", 7.0);
+			Add_OverviewItem("Total Property Tax", 8.0);
+			Add_OverviewItem("Total Vehicle Tax Saved via Donation Perks", 9.0);
+			Add_OverviewItem("Total Property Tax Saved via Donation Perks", 10.0);
+
+			Add_PaycheckItem("A Long Role Name", 1.0);
+			Add_PaycheckItem("B", 2.0);
+			Add_PaycheckItem("C", 3.0);
+			Add_PaycheckItem("D", 4.0);
+			Add_PaycheckItem("E", 5.0);
+			Add_PaycheckItem("F", 6.0);
+			Add_PaycheckItem("G", 7.0);
+			Add_PaycheckItem("H", 8.0);
+			Add_PaycheckItem("I", 9.0);
+
+			Add_VehicleItem("Test Vehicle", 0.0, 0, 0, 0, false, false, 50.0);
+			Add_VehicleItem("Test Vehicle 2", 100.0, 0, 0, 0, false, false, 0.0);
+			Add_VehicleItem("Test Vehicle 3", 200.0, 50, 25, 2, false, false, 100.0);
+			Add_VehicleItem("Test Vehicle 4", 300.0, 50, 25, 2, true, false, 150.0);
+			Add_VehicleItem("Test Vehicle 5", 400.0, 50, 25, 3, true, true, 300.0);
+
+			Add_PropertyItem("Test Property", 0.0, 0, 0, 0, false, false, 50.0);
+			Add_PropertyItem("Test Property 2", 100.0, 0, 0, 0, false, false, 0.0);
+			Add_PropertyItem("Test Property 3", 200.0, 50, 25, 2, false, false, 100.0);
+			Add_PropertyItem("Test Property 4", 300.0, 50, 25, 2, true, false, 150.0);
+			Add_PropertyItem("Test Property 5", 400.0, 50, 25, 3, true, true, 300.0);
+
+			SetNumbers(1, 2, 3);
+		}
+
+		function SetNoPaychecks()
+		{
+			document.getElementById("list_paychecks").innerText = "You did not receive any paychecks.";
+		}
+
+		function SetNoVehicles()
+		{
+			document.getElementById("list_vehicles").innerText = "You do not have any vehicles.";
+		}
+
+		function SetNoProperties()
+		{
+			document.getElementById("list_properties").innerText = "You do not have any properties.";
+		}
+
+		function Add_OverviewItem(displayName, amount)
+		{
+			document.getElementById("list_overview").innerHTML += `<div class="list-group-item list-group-item-action">
+				<div class="d-flex w-100 justify-content-between">
+					<h5 class="mb-1">${displayName}</h5>
+					<small>$${CurrencyFormat(amount)}</small>
+				</div>`;				
+		}
+
+		function SetNumbers(numPaychecks, numVehicles, numProperties)
+		{
+			document.getElementById("num_paychecks").innerText = numPaychecks;
+			document.getElementById("num_vehicles").innerText = numVehicles;
+			document.getElementById("num_properties").innerText = numProperties;
+		}
+
+		function Add_PaycheckItem(displayName, amount)
+		{
+			document.getElementById("list_paychecks").innerHTML += `<div class="list-group-item list-group-item-action">
+				<div class="d-flex w-100 justify-content-between">
+					<h5 class="mb-1">${displayName}</h5>
+					<small>Net Amount: $${CurrencyFormat(amount)}</small>
+				</div>`;
+		}
+
+		function Add_VehicleItem(displayName, monthlyPayment, paymentsRemaining, paymentsMade, paymentsMissed, missedPayment, wasRepossessed, monthlyTax)
+		{
+			var paymentsRemainingAndMade_html = paymentsMade > 0 ? `<div class="d-flex w-100 justify-content-between"><small>Payments Made: ${paymentsMade}/${paymentsRemaining+paymentsMade}</small></div>` : ``;
+			var paymentsMissed_html = paymentsMissed > 0 ? `<div class="d-flex w-100 justify-content-between"><small>Payments Missed: ${paymentsMissed}/3</small></div>` : ``;
+			var monthlyPayment_html = monthlyPayment > 0 ? `Monthly Payment: $${CurrencyFormat(monthlyPayment)}` : `Fully paid off`
+
+			var missedPayment_html = (missedPayment && !wasRepossessed) ? `<div class="d-flex w-100 justify-content-between"><b>You failed to make a payment on this vehicle!</b></div>` : ``;
+			var repo_html = wasRepossessed ? `<div class="d-flex w-100 justify-content-between"><b>This vehicle has been repossessed!</b></div>` : ``;
+
+			var monthlyTax_html = monthlyTax > 0 ? `$${CurrencyFormat(monthlyTax)}` : `Free (Donator Perk)`;
+
+			var displayClass = ``;
+			if (wasRepossessed)
+			{
+				displayClass = `list-group-item-danger`;
+			}
+			else if (missedPayment)
+			{
+				displayClass = `list-group-item-warning`;
+			}
+
+			document.getElementById("list_vehicles").innerHTML += `<div class="list-group-item list-group-item-action ${displayClass}">
+				<div class="d-flex w-100 justify-content-between">
+					<h5 class="mb-1">${displayName}</h5>
+					<small align="right">${monthlyPayment_html}<br>Monthly Tax: ${monthlyTax_html}</small>
+				</div>
+					${paymentsRemainingAndMade_html}
+					${paymentsMissed_html}
+					${missedPayment_html}
+					${repo_html}
+				</div>`;
+		}
+
+		function Add_PropertyItem(displayName, monthlyPayment, paymentsRemaining, paymentsMade, paymentsMissed, missedPayment, wasRepossessed, monthlyTax)
+		{
+			var paymentsRemainingAndMade_html = paymentsMade > 0 ? `<div class="d-flex w-100 justify-content-between"><small>Payments Made: ${paymentsMade}/${paymentsRemaining}</small></div>` : ``;
+			var paymentsMissed_html = paymentsMissed > 0 ? `<div class="d-flex w-100 justify-content-between"><small>Payments Missed: ${paymentsMissed}/3</small></div>` : ``;
+			var monthlyPayment_html = monthlyPayment > 0 ? `Monthly Payment: $${CurrencyFormat(monthlyPayment)}` : `Fully paid off`
+
+			var missedPayment_html = (missedPayment && !wasRepossessed) ? `<div class="d-flex w-100 justify-content-between"><b>You failed to make a payment on this property!</b></div>` : ``;
+			var repo_html = wasRepossessed ? `<div class="d-flex w-100 justify-content-between"><b>This property has been repossessed!</b></div>` : ``;
+
+			var monthlyTax_html = monthlyTax > 0 ? `$${CurrencyFormat(monthlyTax)}` : `Free (Donator Perk)`;
+
+			var displayClass = ``;
+			if (wasRepossessed)
+			{
+				displayClass = `list-group-item-danger`;
+			}
+			else if (missedPayment)
+			{
+				displayClass = `list-group-item-warning`;
+			}
+
+			document.getElementById("list_properties").innerHTML += `<div class="list-group-item list-group-item-action ${displayClass}">
+				<div class="d-flex w-100 justify-content-between">
+					<h5 class="mb-1">${displayName}</h5>
+					<small align="right">${monthlyPayment_html}<br>Monthly Tax: ${monthlyTax_html}</small>
+
+				</div>
+					${paymentsRemainingAndMade_html}
+					${paymentsMissed_html}
+					${missedPayment_html}
+					${repo_html}
+				</div>`;
+		}
+
+		function OnHide()
+		{
+			TriggerEvent("PaydayOverview_OnClose");
+		}
+
+	</script>
+
+	<style type="text/css">
+
+		body {
+			background-color: transparent;
+		}
+
+		#input-frame {
+			margin: 0 auto;
+			position: absolute;
+			top: 45%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			width: 600px;
+			min-width: 600px;
+			min-height: 485px;
+			opacity: 80%;
+		}
+
+		.panel {
+			margin-bottom: 0;
+		}
+
+		.panel-body p {
+			margin-bottom: 0;
+		}
+
+		.list-group {
+			max-height: 300px;
+			margin: 0;
+			overflow: auto;
+		}
+
+		.list-group::-webkit-scrollbar
+		{
+  			//display: none;
+		}
+	</style>
+
+</head>
+<body>
+
+	<div id="input-frame" class="card mb-3 text-center">
+  <div class="card-header"><font color="black">Paycheck Overview</font></div>
+  <div class="card-body">
+    
+
+
+
+  	<ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+  <li class="nav-item">
+    <a class="nav-link active" id="pills-overview-tab" data-toggle="pill" href="#pills-overview" role="tab">Overview</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="pills-paychecks-tab" data-toggle="pill" href="#pills-paychecks" role="tab">Paychecks <span class="badge badge-primary badge-pill" id="num_paychecks"></span></a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="pills-vehicles-tab" data-toggle="pill" href="#pills-vehicles" role="tab">Vehicles <span class="badge badge-primary badge-pill" id="num_vehicles"></span></a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="pills-properties-tab" data-toggle="pill" href="#pills-properties" role="tab">Properties <span class="badge badge-primary badge-pill" id="num_properties"></span></a>
+  </li>
+</ul>
+<div class="tab-content" id="pills-tabContent">
+  <div class="tab-pane fade show active" id="pills-overview" role="tabpanel"><ul class="list-group" id="list_overview"></ul></div>
+  <div class="tab-pane fade" id="pills-paychecks" role="tabpanel"><ul class="list-group" id="list_paychecks"></ul></div>
+  <div class="tab-pane fade" id="pills-vehicles" role="tabpanel"><ul class="list-group" id="list_vehicles"></ul></div>
+  <div class="tab-pane fade" id="pills-properties" role="tabpanel"><ul class="list-group" id="list_properties"></ul></div>
+</div>
+
+
+
+
+
+</div>
+   	<div class="btn-group btn-group-justified btn-block" role="group" aria-label="Justified button group">
+    	<button id="hidebutton" type="button" class="btn btn-info" onclick="OnHide();">Close</button>
+	</div>
+  </div>
+
+</body>
+</html>

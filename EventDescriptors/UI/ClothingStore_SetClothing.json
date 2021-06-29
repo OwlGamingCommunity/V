@@ -1,0 +1,7 @@
+{
+  "Type": "UI",
+  "Parameters": {
+    "index": "int",
+    "value": "int"
+  }
+}

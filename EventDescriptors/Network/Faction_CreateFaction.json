@@ -1,0 +1,8 @@
+{
+  "Type": "Network_ClientToServer_RemoteOnly",
+  "Parameters": {
+  	"strFullName" : "string",
+  	"strShortName" : "string",
+    "strFactionType": "string"
+  }
+}

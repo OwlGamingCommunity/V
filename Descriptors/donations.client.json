@@ -1,0 +1,21 @@
+{
+  "Files": [
+    {
+      "Name": "Assets/donationperks.html",
+      "Type": "ClientAsset"
+    },
+    {
+      "Name": "Donations.Client.cs",
+      "Type": "ClientScript"
+    },
+    {
+      "Name": "CGUIDonations.Client.cs",
+      "Type": "ClientScript"
+    },
+    {
+      "Name": "Init.Client.cs",
+      "Type": "ClientScript"
+    }
+  ],
+  "ExportedFunctions": []
+}

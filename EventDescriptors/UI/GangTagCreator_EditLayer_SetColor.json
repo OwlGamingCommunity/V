@@ -1,0 +1,8 @@
+{
+  "Type": "UI",
+  "Parameters": {
+  	"r": "int",
+  	"g": "int",
+  	"b": "int"
+  }
+}

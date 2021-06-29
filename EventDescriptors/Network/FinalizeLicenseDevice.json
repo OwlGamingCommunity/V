@@ -1,0 +1,8 @@
+{
+  "Type": "Network_ClientToServer_RemoteOnly",
+  "Parameters": {
+  	"strTargetName": "string",
+  	"weaponLicenseType" : "EWeaponLicenseType",
+  	"isRemoval": "bool"
+  }
+}

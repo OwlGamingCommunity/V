@@ -1,0 +1,370 @@
+<html>
+<head>
+
+	<link href="../../owl_client_shared/bootstrap/bootstrap.min.legacy.css" rel="stylesheet">
+	<link href="../../owl_client_shared/core/core.css" rel="stylesheet">
+	<link href="../../owl_client_shared/core/menu.css" rel="stylesheet">
+	<link href="../../owl_client_shared/slider.css" rel="stylesheet">
+	<link href="../../owl_client_shared/animate.css" rel="stylesheet">
+	<script src="../../owl_client_shared/core/core.js"></script>
+	<script src="../../owl_client_shared/jquery.min.js"></script>
+	<script src="../../owl_client_shared/jquery-ui.min.js"></script>
+	<script src="../../owl_client_shared/vue.min.js"></script>
+	<script src="../../owl_client_shared/jscolor.min.js"></script>
+
+	<link href="package://owl_client_shared/bootstrap.min.legacy.css" rel="stylesheet">
+	<link href="package://owl_client_shared/core.css" rel="stylesheet">
+	<link href="package://owl_client_shared/menu.css" rel="stylesheet">
+	<link href="package://owl_client_shared/slider.css" rel="stylesheet">
+	<link href="package://owl_client_shared/animate.css" rel="stylesheet">
+	<script src="package://owl_client_shared//core.js"></script>
+	<script src="package://owl_client_shared//jquery.min.js"></script>
+	<script src="package://owl_client_shared//jquery-ui.min.js"></script>
+	<script src="package://owl_client_shared//vue.min.js"></script>
+	<script src="package://owl_client_shared//jscolor.min.js"></script>
+
+	<!--
+	<link href="../../owl_client_shared/bootstrap/bootstrap.min.legacy.css" rel="stylesheet">
+	<link href="../../owl_client_shared/core/core.css" rel="stylesheet">
+	<script src="../../owl_client_shared/core/cefcore.js"></script>
+	<script src="../../owl_client_shared/jquery.min.js"></script>
+	<script src="../../owl_client_shared/bootstrap/bootstrap-dropdown.js"></script>
+	-->
+	<script type="text/javascript">
+		let g_Commands = [];
+
+		var g_NumTabs = 4;
+		function GotoTab(index)
+		{
+			if (index == 3) // 3 is a hyperlink basically
+			{
+				// TODO_GITHUB: You should replace the below with your own website
+				TriggerEvent("GotoFullScreenBrowser", "https://docs.website.com/");
+				ExitHelpCenter();
+				return;
+			}
+
+			if (index == 2) // 2 retrieves info from server
+			{
+				document.getElementById("tab_2_content").innerHTML = "Loading...";
+				g_Commands = [];
+				TriggerEvent("HelpRequestCommands");
+			}
+
+			for (var i = 1; i <= g_NumTabs; ++i)
+			{
+				if (i != index)
+				{
+					document.getElementById(`tab_${i}`).style.display = "none";
+					$(`#tab_${i}_button`).removeClass("active");
+				}
+			}
+
+			document.getElementById(`tab_${index}`).style.display = "block";
+			$(`#tab_${index}_button`).addClass("active");
+		}
+
+		function AddCommandInfo(cmd, desc, requirements, syntax)
+		{
+			var newItem = [];
+			newItem["cmd"] = cmd;
+			newItem["desc"] = desc;
+			newItem["requirements"] = requirements;
+			newItem["syntax"] = syntax;
+			g_Commands.push(newItem);
+		}
+
+		function CommitCommands()
+		{
+			// Sort alphabetic
+			g_Commands.sort(function (a, b) {
+				if (a.cmd < b.cmd) { return -1; }
+				if (a.cmd > b.cmd) { return 1; }
+				return 0;
+			});
+
+			var htmlString = `<table class="table">
+						<thead>
+							<tr>
+								<th scope="col" width="20%">Command</th>
+								<th scope="col" width="30%">Parameters</th>
+								<th scope="col" width="30%">Description</th>
+								<th scope="col" width="20%">Requirements</th>
+							</tr>
+						</thead>
+						<tbody>`
+
+			for (var i = 0; i < g_Commands.length; ++i)
+			{
+				var cmd = g_Commands[i];
+				htmlString += `<tr><th scope="row">${cmd.cmd}</th><td>${cmd.syntax}</td><td>${cmd.desc}</td><td>${cmd.requirements}</td></tr>`
+			}
+			
+			htmlString += `</tbody ></table>`
+
+			document.getElementById("tab_2_content").innerHTML = htmlString;
+		}
+
+		function Reset()
+		{
+			GotoTab(1);
+			g_CurrentPlayerID = -1;
+			g_CurrentPlayerName = "";
+			g_CurrentReportType = -1;
+			document.getElementById(`report_error`).textContent = ``;
+			document.getElementById(`playername_result`).textContent = ``;
+			document.getElementById(`playerid_result`).textContent = ``;
+
+			document.getElementById(`report_details`).value = "";
+
+			document.getElementById(`dropdownClass_Account`).innerHTML = `Select Report Type<span class="caret"></span>`;
+			
+		}
+
+		function SetReportType(index)
+		{
+			g_CurrentReportType = index;
+			var text = document.getElementById(`report_type_${index}`).textContent;
+			$("#dropdownClass_Account").text(text);
+			$("#dropdownClass_Account").val(text);
+		}
+
+		function FindPlayerForReport()
+		{
+			var text = document.getElementById(`playername`).value;
+
+			TriggerEvent("FindPlayerForReport", text);
+		}
+
+		var g_CurrentPlayerID = -1;
+		var g_CurrentPlayerName = "";
+		var g_CurrentReportType = -1;
+
+		function FindPlayerForReportResult(player_id, player_name)
+		{
+			g_CurrentPlayerID = player_id;
+			g_CurrentPlayerName = player_name;
+
+			if (player_id == -1)
+			{
+				document.getElementById(`playername_result`).textContent = "No player found, reporting yourself.";
+				document.getElementById(`playerid_result`).textContent = "";
+
+				document.getElementById(`report_error`).textContent = ``;
+			}
+			else if (player_id == -2)
+			{
+				document.getElementById(`playername_result`).textContent = "Multiple Players Found, please narrow down your search";
+				document.getElementById(`playerid_result`).textContent = "";
+
+				document.getElementById(`report_error`).textContent = ``;
+			}
+			else
+			{
+				document.getElementById(`playername_result`).textContent = `${player_name}`;
+				document.getElementById(`playerid_result`).textContent = `(${player_id})`;
+
+				document.getElementById(`report_error`).textContent = ``;
+			}
+		}
+
+		function SubmitReport()
+		{
+			var reporttype_name = document.getElementById(`reporttype`).textContent;
+			var reporttype_index = g_CurrentReportType;
+			var details = document.getElementById(`report_details`).value;
+			var playername = document.getElementById(`playername_result`).textContent;
+
+			if (reporttype_index == -1)
+			{
+				document.getElementById(`report_error`).textContent = `Please select a report type.`;
+			}
+			else if (details.length < 15)
+			{
+				document.getElementById(`report_error`).textContent = `Please enter at least 15 characters in the report details.`;
+			}
+			else
+			{
+				TriggerEvent("SubmitAdminReport", reporttype_index, details, g_CurrentPlayerID);
+				Reset();
+				Init(true);
+			}
+		}
+
+		function ExitHelpCenter()
+		{
+			TriggerEvent("HideHelpCenter");
+		}
+
+		function CancelReport()
+		{
+			TriggerEvent("CancelAdminReport");
+			Init(false);
+		}
+
+		function Init(hasPendingAdminReport)
+		{
+			if (hasPendingAdminReport)
+			{
+				document.getElementById(`new_report`).style.display = "none";
+				document.getElementById(`pending_report`).style.display = "block";
+			}
+			else
+			{
+				document.getElementById(`new_report`).style.display = "block";
+				document.getElementById(`pending_report`).style.display = "none";
+			}
+		}
+	</script>
+
+	<style type="text/css">
+
+		body {
+			background-color: transparent;
+		}
+
+		#help-box {
+			width: 750px;
+			min-height: 50%;
+			margin-left: 2%;
+			vertical-align: middle;
+			position: relative;
+			top: 45%;
+			left: 45%;
+			transform: translate(-50%, -50%);
+		}
+
+		.panel {
+			margin-bottom: 0;
+		}
+
+		.panel-body p {
+			margin-bottom: 0;
+		}
+	</style>
+
+</head>
+<body>
+
+	<div id="help-box" class="text-center">
+				
+				<ul class="nav nav-tabs nav-dark-tabs">
+  <li id="tab_1_button"><a href="javascript:GotoTab(1);">Report Center</a></li>
+  <li id="tab_2_button"><a href="javascript:GotoTab(2);">Commands & Help</a></li>
+  <li id="tab_3_button"><a href="javascript:GotoTab(3);">Server Rules</a></li>
+  <li id="tab_4_button"><a href="javascript:GotoTab(4);">Roleplay Overview</a></li>
+</ul>
+		<div class="panel panel-default" id="content">
+			<div class="panel-heading">
+				<br>
+				<span id="tab_1" style="display:block">
+
+
+
+					<span id="new_report" style="display:block">
+						<b>What are you reporting about?</b>
+						<div class="btn-group btn-group-justified" role="group" aria-label="Justified button group">
+							<div class="btn-group">
+								<div class="btn-group btn-group-justified">
+								<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" id="dropdownClass_Account" aria-haspopup="true" aria-expanded="false">
+									Select a Report Type
+								</button>
+								<ul class="dropdown-menu" role="menu" id="reporttype">
+									<!-- NOTE: THESE IDS MUST MATCH EAdminReportType -->
+									<li id="report_type_0" onclick='SetReportType(0);'>General</li>
+									<li id="report_type_1" onclick='SetReportType(1);'>Player Grievance</li>
+									<li id="report_type_2" onclick='SetReportType(2);'>Properties</li>
+									<li id="report_type_3" onclick='SetReportType(3);'>Vehicles</li>
+									<li id="report_type_4" onclick='SetReportType(4);'>Other</li>
+								</ul>
+							</div>
+							<br>
+
+								<br>
+								<br>
+
+								<b>Please add any details which are relevant</b>
+								<textarea id="report_details" class="form-control" rows="5" maxlength="150" id="box1" style="resize:none"></textarea>
+
+								<br>
+								<br>
+
+								<b>Player you wish to report (or leave empty to report yourself if no player was involved)</b>
+								<input type="text" class="form-control" maxlength="15" oninput='FindPlayerForReport()' onkeydown='FindPlayerForReport()' onchange='FindPlayerForReport()' placeholder="Character Name..." value="" maxlength="255" aria-describedby="basic-addon1" id="playername">
+								<span id="playername_result"></span>&nbsp;<span id="playerid_result"></span>
+
+								<br />
+								<br />
+								<font color="red"><b><span id="report_error"></span></b></font>
+
+								<br />
+								<br />
+								<a type='button' class='btn btn-success' onclick="SubmitReport();">Submit Report</a>
+							</div>
+						</div>
+					</span>
+
+					<span id="pending_report" style="display:none">
+						<b>You already have a pending report in progress.<br><br><a type='button' class='btn btn-danger' onclick="CancelReport();">Cancel Report</a></b>
+					</span>
+
+
+
+
+
+
+				</span>
+
+				<span id="tab_2" style="display:none">
+					<div id="tab_2_content" style="height:25%;width:100%;border:1px solid #ccc;font:16px/26px Georgia, Garamond, Serif;overflow:auto;">
+
+						</div>
+				</span>
+
+				<span id="tab_3" style="display:none">
+				Tab  3
+				</span>
+
+				<span id="tab_4" style="display:none">
+					<div style="height:25%;width:100%;border:1px solid #ccc;font:16px/26px Georgia, Garamond, Serif;overflow:auto;">
+				<b>Some basic terms in Roleplay!</b>
+<br><br>
+	<b>Roleplay? Whats that?!</b>
+<br><br>
+Roleplay is a somewhat virutal life where you can create a character and act as you would in real life. You must roleplay as realistic as possible. You can be anything from a poor gangbanger that is addicted to heroin to an ruthless mobster, a police officer, a judge, a taxi driver and more! The list goes on and on and if you can think if it, you can do it. It's your choice! Let your imagination run wild when creating a character. This MTA server in particular is a high standard roleplay server. You give your character has its own personality that YOU create and you can make him or her their own special features!
+<br><br>
+If you are new to the RP life in general you can read some guides on the forum as well as asking players and even admins for help with roleplaying. Most admins and gamemasters are glad to help out new players!!
+<br><br>
+	<b>Metagaming? What is that?!</b>
+<br><br>
+Well, Metagaming is When you use out of Character knowledge and decide to use it in Character. Some examples of Metagaming would be if a player private messages you his location and you actually go to him, acting on the metagame IC. Another example of metagaming would be if you know information such as a gun stash on one character and you then decide to roleplay as if another one of your characters knows where the gun stash is. Another common example is reading a players name tag above their head and saying it in character. You must find out names from in character situations. If you break this rule you can be facing a long jail time and or a ban!
+<br><br>
+	<b>Powergaming? I don't know what that means!</b>
+<br><br>
+Powergaming is a term used to describe a character's action that is unrealistic as well as not giving players time to roleplay in a situation. You must give time for players to write up a /me when roleplaying against them. The /me also must be reasonable. You MUST have a reason behind the /me. You can not just spam /me dodges the punch as it is powergaming and your character isn't super fast. You can only have your characters actions reflect upon real life. A person in real life can not break free of hand cuffs unless they are extreme body builders with near super human strength so most characters in the server would not be able to break free from them. It is powergaming if you do. A person in real life can not fly as well. You can't make a /me saying "/me flys away ". It's powergaming and if you actually do fly away...Well, you will be punished more severely than just the powergaming offense. If you are caught powergaming the administrator will usually give you a heads up but it you can also be jailed or warning and sometimes a ban.
+<br><br>
+	<b>Revenge Killing? What not do when killed..</b>
+<br><br>
+Revenge killing is when you are killed by another player and decide your are going to go after the player that killed you. When you are killed you can not go back to the situation and attack the player. Also if you are hospitalized you must role play memory loss and you would not remember who attacked you or what even happend. Dieng like this is a PK (player kill) and you must RP it as such. If you are caught breaking this rule you can be jailed, warned, and even banned! 
+<br><br>
+	<b>Common Sense...</b>
+<br><br>
+Use common sense at all times, this rule should go hand in hand with everything you do in the server. 
+<br><br>
+For example, if you have a problem with a man refusing to pay you $10,000, your first action should probably be a warning, followed up with a beating, then a severe beating and only then should you consider murdering them. Common sense factors into this because you don't want to murder someone because of police and other repercussions such as you not being able to get your money back in the first place. Be realistic about your role play by using common sense If you end up roleplaying a character lacking common sense it could lead to a kick, warn, and even a temporary ban!
+<br><br>
+	<b>Character Kill(ing) and Player Kill(ing), what are they?</b>
+<br><br>
+Character killing is the most uncommon way someone is killed in game and is used only in situations where it's needed. When you are killed from a CK, it's permenant and the only way to get your stuff back is from a stats transfer. You may get a stats transfer by purchasing it with GCs. When when you are killed from a PK, it's RP'd as you having severe injuries and haivng memmory loss. You pass out and a paramedic RPly takes you to the hospital. After that, RP your injuries accordingly. You need a good reason for a PK and the person getting PK'd not only loses their memmory from the killing, but all events leading up to it.
+<br><br>
+If you wish to CK someone, you can fill out a CK application on the forums. If you wish to to perform a private CK due to the said player being part of the General Administration Team this can be done by filling out the Private CK form on the forums.
+
+				</span>
+	</div>
+	</div>
+<div class="btn-group btn-group-justified">
+					<a type='button' class='btn btn-danger' onclick="ExitHelpCenter();">Exit</a>
+				</div>
+		</div>
+</body>
+</html>

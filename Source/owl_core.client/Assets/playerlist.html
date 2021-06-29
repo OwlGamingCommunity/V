@@ -1,0 +1,235 @@
+<html>
+<head>
+	<link href="../../owl_client_shared/bootstrap/bootstrap.min.css" rel="stylesheet">
+	<link href="../../owl_client_shared/core/core.css" rel="stylesheet">
+	<link href="../../owl_client_shared/core/menu.css" rel="stylesheet">
+	<link href="../../owl_client_shared/slider.css" rel="stylesheet">
+	<link href="../../owl_client_shared/animate.css" rel="stylesheet">
+	<script src="../../owl_client_shared/core/core.js"></script>
+	<script src="../../owl_client_shared/jquery.min.js"></script>
+	<script src="../../owl_client_shared/jquery-ui.min.js"></script>
+	<script src="../../owl_client_shared/vue.min.js"></script>
+	<script src="../../owl_client_shared/jscolor.min.js"></script>
+
+	<link href="package://owl_client_shared/bootstrap.min.css" rel="stylesheet">
+	<link href="package://owl_client_shared/core.css" rel="stylesheet">
+	<link href="package://owl_client_shared/menu.css" rel="stylesheet">
+	<link href="package://owl_client_shared/slider.css" rel="stylesheet">
+	<link href="package://owl_client_shared/animate.css" rel="stylesheet">
+	<script src="package://owl_client_shared//core.js"></script>
+	<script src="package://owl_client_shared//jquery.min.js"></script>
+	<script src="package://owl_client_shared//jquery-ui.min.js"></script>
+	<script src="package://owl_client_shared//vue.min.js"></script>
+	<script src="package://owl_client_shared//jscolor.min.js"></script>
+
+	<script type="text/javascript">
+
+		function AddDebugData()
+		{
+			for (var i = 0; i < 50; i++)
+			{
+				if (i == 10)
+				{
+					AddPlayer(i, "Player Name", "Selecting Character", 100, 50, false, true);
+				}
+				else if (i%2==0)
+				{
+					AddPlayer(i, "Player Name", "Logging In", 100, 50, false, false);
+				}
+				else
+				{
+					AddPlayer(i, "Player Name", "Admin", 100, 50, true, false);
+				}
+			}
+			CommitPlayers();
+		}
+		
+		function OnLoad()
+		{
+			if (!IsRunningInRAGECEF()) {
+				AddDebugData();
+			}
+		}
+
+		function Reset()
+		{
+			document.getElementById("playerlist").innerHTML = ``;
+			players = [];
+			insert_pos = 0;
+		}
+
+		var players = [];
+		var insert_pos = 0;
+
+		function SortById(a, b)
+		{
+			// make local user already first
+			if (a["isLocal"])
+			{
+				return -1;
+			}
+			else if (b["isLocal"])
+			{
+				return 1;
+			}
+
+            if (a["id"] > b["id"])
+            {
+                return 1;
+            }
+            else if (a["id"] < b["id"])
+            {
+                return -1;
+            }
+
+            return 0;
+		}
+
+		function AddPlayer(id, name, title, latency, hoursPlayed, duty, isLocal, username)
+		{
+			players[insert_pos] = [];
+			players[insert_pos]["id"] = id;
+			players[insert_pos]["isLocal"] = isLocal;
+			players[insert_pos]["name"] = name;
+			players[insert_pos]["title"] = title;
+			players[insert_pos]["latency"] = latency;
+			players[insert_pos]["hours"] = hoursPlayed;
+			players[insert_pos]["duty"] = duty;
+            players[insert_pos]["username"] = username;
+			insert_pos++;
+		}
+		
+		function GetColor(title, duty)
+		{
+			if (title === 'Selecting Character' || title === 'Logging In') {
+				return '#fff';
+			}
+			
+			if ((title === 'Lead Admin' || title === 'Head Admin') && duty) {
+				return '#00a3ff'; // UAT blue man
+			}
+
+			if (title !== 'Player' && duty) {
+				return '#ff9800'; // Default non-player color
+			}
+
+			return '#fff';
+		}
+		
+		function NameField(name, title)
+		{
+			if (title === 'Selecting Character' || title === 'Logging In') {
+				return title;
+			}
+
+			return name;
+		}
+
+		function NameFieldAdmin(name, title, username) {
+			if (title === 'Selecting Character' || title === 'Logging In') {
+				return title;
+			}
+
+			return `${name} (${username})`;
+		}
+
+		function CommitPlayers(bAdminDuty)
+		{
+			players.sort(SortById);
+
+			if (bAdminDuty) {
+				for (var i = 0; i < players.length; ++i) {
+					var id = players[i]["id"];
+					var name = players[i]["name"];
+					var title = players[i]["title"];
+					var latency = players[i]["latency"];
+					var hours = players[i]["hours"];
+					var duty = players[i]["duty"];
+					var username = players[i]["username"];
+
+					document.getElementById("playerlist").innerHTML += `
+					<tr>
+						<td>${id}</td>
+						<td style="color: ${GetColor(title, duty)};">${NameFieldAdmin(name, title, username)}</td>
+						<td>${hours}</td>
+						<td>${latency}ms</td>
+					</tr>
+				`;
+				}
+			}
+			else {
+				for (var i = 0; i < players.length; ++i) {
+					var id = players[i]["id"];
+					var name = players[i]["name"];
+					var title = players[i]["title"];
+					var latency = players[i]["latency"];
+					var hours = players[i]["hours"];
+					var duty = players[i]["duty"];
+					var username = players[i]["username"];
+
+					document.getElementById("playerlist").innerHTML += `
+					<tr>
+						<td>${id}</td>
+						<td style="color: ${GetColor(title, duty)};">${NameField(name, title)}</td>
+						<td>${hours}</td>
+						<td>${latency}ms</td>
+					</tr>
+				`;
+				}
+			}
+
+			
+
+            document.getElementById("playercount").innerHTML = players.length;
+		}
+	</script>
+
+	<style type="text/css">
+		body {
+			background-color: transparent;
+		}
+
+		#box-middle {
+			margin: 0;
+			position: absolute;
+			top: 45%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			width: 600px;
+		}
+
+		.player-table {
+			max-height: 556px;
+			margin: 0;
+			overflow: auto;
+		}
+	</style>
+
+</head>
+<body>
+
+	<div id="box-middle">
+		<div class="card">
+			<div class="card-header">
+				<h4 class="card-title mb-0">
+					Players
+					<small class="text-muted small float-right"><span id="playercount"></span> Online</small>
+				</h4>
+			</div>
+			<div class="player-table">
+				<table class="table table-sm mb-0 ">
+					<thead>
+					<tr>
+						<th>ID</th>
+						<th>Name</th>
+						<th>Hours</th>
+						<th>Ping</th>
+					</tr>
+					</thead>
+					<tbody id="playerlist"></tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,10 @@
+{
+	"Files": [
+		{
+			"Name": "owl_script_loader.dll",
+			"Type": "ServerScript"
+		}
+	],
+  "ExportedFunctions": [
+  ]
+}

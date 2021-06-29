@@ -1,0 +1,355 @@
+<html>
+<head>
+	<link href="../../owl_client_shared/bootstrap/bootstrap.min.css" rel="stylesheet">
+	<link href="../../owl_client_shared/fontawesome/all.min.dev.css" rel="stylesheet">
+	<link href="../../owl_client_shared/core/core.css" rel="stylesheet">
+	<link href="../../owl_client_shared/core/menu.css" rel="stylesheet">
+	<link href="../../owl_client_shared/slider.css" rel="stylesheet">
+	<link href="../../owl_client_shared/animate.css" rel="stylesheet">
+	<script src="../../owl_client_shared/core/core.js"></script>
+	<script src="../../owl_client_shared/jquery.min.js"></script>
+	<script src="../../owl_client_shared/jquery-ui.min.js"></script>
+	<script src="../../owl_client_shared/vue.min.js"></script>
+	<script src="../../owl_client_shared/jscolor.min.js"></script>
+
+	<link href="package://owl_client_shared/bootstrap.min.css" rel="stylesheet">
+	<link href="package://owl_client_shared/all.min.css" rel="stylesheet">
+	<link href="package://owl_client_shared/core.css" rel="stylesheet">
+	<link href="package://owl_client_shared/menu.css" rel="stylesheet">
+	<link href="package://owl_client_shared/slider.css" rel="stylesheet">
+	<link href="package://owl_client_shared/animate.css" rel="stylesheet">
+	<script src="package://owl_client_shared//core.js"></script>
+	<script src="package://owl_client_shared//jquery.min.js"></script>
+	<script src="package://owl_client_shared//jquery-ui.min.js"></script>
+	<script src="package://owl_client_shared//vue.min.js"></script>
+	<script src="package://owl_client_shared//jscolor.min.js"></script>
+
+	<script type="text/javascript">
+		function OnExit()
+		{
+			TriggerEvent("ExitAchievements");
+		}
+
+		function AddDebugData()
+		{
+
+			Reset();
+			Initialize(500, 1000, 10, 50);
+			for (var i = 0; i < 100; ++i)
+			{
+				//AddAchievement(i, `Achievement ${i+1}`, `Test Achievement ${i+1}`, 1583592005 , 50);
+				AddAchievement(i, `I'm just gettin' started`, `Play 5 hours on your account`, 1583592005 , 50, 2, 25);
+			}
+
+		};
+
+		function OnLoad()
+		{
+			// AddDebugData();
+		};
+
+		function Reset()
+		{
+			document.getElementById("achievementslist").innerHTML = `<center><br><div class="spinner-border text-primary" role="status"><span class="sr-only">Loading...</span></div><br><br>`;
+		}
+
+		function Initialize(total_score, max_score, total_achievements, max_achievements)
+		{
+			document.getElementById("achievementslist").innerHTML = "";
+			document.getElementById("score-total").textContent = total_score;
+			document.getElementById("score-max").textContent = max_score;
+			document.getElementById("achievements-total").textContent = total_achievements;
+			document.getElementById("achievements-max").textContent = max_achievements;
+		}
+
+		function imageExists(url, callback)
+		{
+			var img = new Image();
+			img.onload = function () { callback(true); };
+			img.onerror = function () { callback(false); };
+			img.src = url;
+		}
+
+		function AddAchievement(id, title, description, date_time, points, rarity, percent)
+		{
+			date_time = new Date(date_time * 1000).toLocaleString();
+
+			var imageUrl = `screenshots://achievement_${id}.png`;
+			imageExists(imageUrl, function (exists)
+			{
+				var htmlForScreenshot = ``;
+				if (exists)
+				{
+					var titlename = title.replace(/'/g, "");
+					htmlForScreenshot = `<small class="text-muted"><a href="javascript:ShowScreenshot(${id}, '${titlename}');">View Screenshot</a></small></p>`;
+				}
+
+				var rareName = "";
+				if (rarity == 0) // common
+				{
+					rareName = "Common";
+				}
+				else if (rarity == 1) // rare
+				{
+					rareName = "Rare";
+				}
+				else if (rarity == 2) // very rare
+				{
+					rareName = "Very Rare";
+				}
+
+				document.getElementById("achievementslist").insertAdjacentHTML("beforeend", `<div class="row no-gutters">
+    <div class="col-md-4" align="center">
+      <br><img src="package://owl_achievements.client/${id}.png"><br><br>${htmlForScreenshot}
+    </div>
+    <div class="col-md-8">
+    <div class="card" style="border: 0">
+      <div class="card-body">
+        <h5 class="card-title">${title}<small class="text-muted"><br><i class="fas fa-coins"></i>&nbsp;${points}</small></h5>
+        <p class="card-text">${description}
+        <br>
+        <small class="text-muted">Unlocked ${date_time}
+<br>
+${rareName} Achievement
+<br>
+${percent}% Unlocked
+</small></p>
+      </div>
+    </div>
+    </div>
+  </div>`);
+			});
+		}
+
+		function ShowScreenshot(id, displayName)
+		{
+			var modal = document.getElementById('screenshotmodal');
+
+			var modalImg = document.getElementById("screenshotImg");
+			var captionText = document.getElementById("caption");
+			modal.style.display = "block";
+			modalImg.src = `screenshots://achievement_${id}.png`;
+			
+			captionText.innerHTML = displayName;
+
+			// Get the <span> element that closes the modal
+			var span = document.getElementsByClassName("close")[0];
+
+			// When the user clicks on <span> (x), close the modal
+			span.onclick = function ()
+			{
+				modal.style.display = "none";
+			}
+		}
+	</script>
+
+	<style type="text/css">
+
+		body {
+			background-color: transparent;
+		}
+		/* The Modal (background) */
+		.modal {
+			display: none; /* Hidden by default */
+			position: fixed; /* Stay in place */
+			z-index: 1; /* Sit on top */
+			padding-top: 100px; /* Location of the box */
+			left: 0;
+			top: 0;
+			width: 100%; /* Full width */
+			height: 100%; /* Full height */
+			overflow: auto; /* Enable scroll if needed */
+			background-color: rgb(0,0,0); /* Fallback color */
+			background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+		}
+
+		/* Modal Content (image) */
+		.modal-content {
+			margin: auto;
+			display: block;
+			width: 100%;
+			max-width: 1280px;
+			height: 100%;
+			max-height: 720px;
+		}
+
+		/* Caption of Modal Image */
+		#caption {
+			margin: auto;
+			display: block;
+			width: 80%;
+			max-width: 700px;
+			text-align: center;
+			color: #ccc;
+			padding: 10px 0;
+			height: 150px;
+		}
+
+		/* Add Animation */
+		.modal-content, #caption {
+			animation-name: zoom;
+			animation-duration: 0.6s;
+		}
+
+		@keyframes zoom {
+			from {
+				transform: scale(0.1)
+			}
+
+			to {
+				transform: scale(1)
+			}
+		}
+
+		/* The Close Button */
+		.close {
+			position: absolute;
+			top: 15px;
+			right: 35px;
+			color: #f1f1f1;
+			font-size: 40px;
+			font-weight: bold;
+			transition: 0.3s;
+		}
+
+			.close:hover,
+			.close:focus {
+				color: #bbb;
+				text-decoration: none;
+				cursor: pointer;
+			}
+
+		/* 100% Image Width on Smaller Screens */
+		@media only screen and (max-width: 700px) {
+			.modal-content {
+				width: 100%;
+			}
+		}
+
+		#screenshot {
+			position: relative;
+			border-radius: 8px;
+		}
+
+		#left-box {
+			margin-left: 2%;
+			width: 350px;
+			vertical-align: middle;
+			position: relative;
+			top: 30%;
+			transform: translateY(-30%);
+		}
+
+		#left-box > .panel {
+			margin-bottom: 0;
+		}
+
+		.loading-icon {
+			display: block;
+			margin: 20px auto;
+		}
+
+		.list-group > p {
+			margin: 15px;
+		}
+
+		#achievementslist {
+			max-height: 492px;
+			overflow: auto;
+		}
+
+		.achievement-meta,
+		.achievement-text {
+			float: left;
+		}
+
+		.achievement {
+			overflow: hidden;
+		}
+
+		.achievement-meta {
+			max-width: 64px;
+		}
+
+		.achievement-icon {
+			display: block;
+			position: relative;
+			height: 64px;
+			width: 64px;
+		}
+
+			.achievement-icon span {
+				display: block;
+				height: 100%;
+				-webkit-mask-size: 100%;
+				mask-repeat: no-repeat;
+				position: absolute;
+				top: 0;
+				width: 100%;
+			}
+
+			.achievement-icon .stroke {
+				background-color: #000000;
+				position: relative;
+				z-index: 1;
+			}
+
+			.achievement-icon .fill {
+				background-color: #ffffff;
+				z-index: 0;
+			}
+
+
+		.achievement-points {
+			margin-top: 10px;
+			text-align: center;
+		}
+
+		.achievement-text {
+			padding-left: 15px;
+			width: 207px
+		}
+
+			.achievement-text h5 {
+				margin-top: 0;
+			}
+
+			.achievement-text h6 {
+				line-height: 1.4em;
+			}
+
+			.achievement-text > *:last-child {
+				margin-bottom: 0;
+			}
+
+		.achievements-score {
+			margin-bottom: 10.5px;
+		}
+
+	</style>
+
+</head>
+<body>
+	<div id="screenshotmodal" class="modal">
+		<span class="close">&times;</span>
+		<img class="modal-content" id="screenshotImg">
+		<div id="caption"></div>
+	</div>
+
+	<div id="left-box">
+		<div class="card">
+			<div class="card-header">
+				<h4 class="card-title">Achievements</h4>
+				<h6 class="card-subtitle mb-2 text-muted"><i class="fas fa-coins"></i> <span id="score-total"></span>/<span id="score-max"></span></h6>
+				<h6 class="card-subtitle mb-2 text-muted"><i class="fas fa-trophy"></i> <span id="achievements-total"></span>/<span id="achievements-max"></span></h6>
+			</div>
+			<div id="achievementslist"></div>
+		</div>
+		<br>
+		<div class="btn-group btn-group-justified btn-block" role="group" aria-label="Justified button group">
+			<a class='btn btn-info' href="#" style="opacity:0.9" onclick="OnExit();">Return to Character Select</a>
+		</div>
+	</div>
+
+</body>
+</html>

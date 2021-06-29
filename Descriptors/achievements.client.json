@@ -1,0 +1,310 @@
+{
+	"Files": [
+		{
+			"Name": "Init.Client.cs",
+			"Type": "ClientScript"
+		},
+		{
+			"Name": "Achievements.Client.cs",
+			"Type": "ClientScript"
+		},
+		{
+			"Name": "Credits.Client.cs",
+			"Type": "ClientScript"
+		},
+		{
+			"Name": "CGUIAchievementOverlay.Client.cs",
+			"Type": "ClientScript"
+		},
+		{
+			"Name": "Uganda.Client.cs",
+			"Type": "ClientScript"
+		},
+		{
+			"Name": "Vub.Client.cs",
+			"Type": "ClientScript"
+		},
+		{
+	      "Name": "Assets/achievement_overlay.html",
+	      "Type": "ClientAsset"
+	    },
+	    {
+	      "Name": "Assets/achievement-images/0.png",
+	      "Type": "ClientAsset"
+	    },
+	    {
+	      "Name": "Assets/achievement-images/1.png",
+	      "Type": "ClientAsset"
+	    },
+	    {
+	      "Name": "Assets/achievement-images/2.png",
+	      "Type": "ClientAsset"
+	    },
+	    {
+	      "Name": "Assets/achievement-images/3.png",
+	      "Type": "ClientAsset"
+	    },
+	    {
+	      "Name": "Assets/achievement-images/4.png",
+	      "Type": "ClientAsset"
+	    },
+	    {
+	      "Name": "Assets/achievement-images/5.png",
+	      "Type": "ClientAsset"
+	    },
+	    {
+	      "Name": "Assets/achievement-images/6.png",
+	      "Type": "ClientAsset"
+	    },
+	    {
+	      "Name": "Assets/achievement-images/7.png",
+	      "Type": "ClientAsset"
+	    },
+	    {
+	      "Name": "Assets/achievement-images/8.png",
+	      "Type": "ClientAsset"
+	    },
+	    {
+	      "Name": "Assets/achievement-images/9.png",
+	      "Type": "ClientAsset"
+	    },
+	    {
+	      "Name": "Assets/achievement-images/10.png",
+	      "Type": "ClientAsset"
+	    },
+	    {
+	      "Name": "Assets/achievement-images/11.png",
+	      "Type": "ClientAsset"
+	    },
+	    {
+	      "Name": "Assets/achievement-images/12.png",
+	      "Type": "ClientAsset"
+	    },
+	    {
+	      "Name": "Assets/achievement-images/13.png",
+	      "Type": "ClientAsset"
+	    },
+	    {
+	      "Name": "Assets/achievement-images/14.png",
+	      "Type": "ClientAsset"
+	    },
+	    {
+	      "Name": "Assets/achievement-images/15.png",
+	      "Type": "ClientAsset"
+	    },
+	    {
+	      "Name": "Assets/achievement-images/16.png",
+	      "Type": "ClientAsset"
+	    },
+	    {
+	      "Name": "Assets/achievement-images/17.png",
+	      "Type": "ClientAsset"
+	    },
+	    {
+	      "Name": "Assets/achievement-images/18.png",
+	      "Type": "ClientAsset"
+	    },
+	    {
+	      "Name": "Assets/achievement-images/19.png",
+	      "Type": "ClientAsset"
+	    },
+	    {
+	      "Name": "Assets/achievement-images/20.png",
+	      "Type": "ClientAsset"
+	    },
+	    {
+	      "Name": "Assets/achievement-images/21.png",
+	      "Type": "ClientAsset"
+	    },
+	    {
+	      "Name": "Assets/achievement-images/22.png",
+	      "Type": "ClientAsset"
+	    },
+	    {
+	      "Name": "Assets/achievement-images/23.png",
+	      "Type": "ClientAsset"
+	    },
+	    {
+	      "Name": "Assets/achievement-images/24.png",
+	      "Type": "ClientAsset"
+	    },
+	    {
+	      "Name": "Assets/achievement-images/25.png",
+	      "Type": "ClientAsset"
+	    },
+	    {
+	      "Name": "Assets/achievement-images/26.png",
+	      "Type": "ClientAsset"
+	    },
+	    {
+	      "Name": "Assets/achievement-images/27.png",
+	      "Type": "ClientAsset"
+	    },
+	    {
+	      "Name": "Assets/achievement-images/28.png",
+	      "Type": "ClientAsset"
+	    },
+	    {
+	      "Name": "Assets/achievement-images/29.png",
+	      "Type": "ClientAsset"
+	    },
+	    {
+	      "Name": "Assets/achievement-images/30.png",
+	      "Type": "ClientAsset"
+	    },
+	    {
+	      "Name": "Assets/achievement-images/31.png",
+	      "Type": "ClientAsset"
+	    },
+	    {
+	      "Name": "Assets/achievement-images/32.png",
+	      "Type": "ClientAsset"
+	    },
+	    {
+	      "Name": "Assets/achievement-images/33.png",
+	      "Type": "ClientAsset"
+	    },
+	    {
+	      "Name": "Assets/achievement-images/34.png",
+	      "Type": "ClientAsset"
+	    },
+	    {
+	      "Name": "Assets/achievement-images/35.png",
+	      "Type": "ClientAsset"
+	    },
+	    {
+	      "Name": "Assets/achievement-images/36.png",
+	      "Type": "ClientAsset"
+	    },
+	    {
+	      "Name": "Assets/achievement-images/37.png",
+	      "Type": "ClientAsset"
+	    },
+	    {
+	      "Name": "Assets/achievement-images/38.png",
+	      "Type": "ClientAsset"
+	    },
+	    {
+	      "Name": "Assets/achievement-images/39.png",
+	      "Type": "ClientAsset"
+	    },
+	    {
+	      "Name": "Assets/achievement-images/40.png",
+	      "Type": "ClientAsset"
+	    },
+	    {
+	      "Name": "Assets/achievement-images/41.png",
+	      "Type": "ClientAsset"
+	    },
+	    {
+	      "Name": "Assets/achievement-images/42.png",
+	      "Type": "ClientAsset"
+	    },
+	    {
+	      "Name": "Assets/achievement-images/43.png",
+	      "Type": "ClientAsset"
+	    },
+	    {
+	      "Name": "Assets/achievement-images/44.png",
+	      "Type": "ClientAsset"
+	    },
+	    {
+	      "Name": "Assets/achievement-images/45.png",
+	      "Type": "ClientAsset"
+	    },
+	    {
+	      "Name": "Assets/achievement-images/46.png",
+	      "Type": "ClientAsset"
+	    },
+	    {
+	      "Name": "Assets/achievement-images/47.png",
+	      "Type": "ClientAsset"
+	    },
+	    {
+	      "Name": "Assets/achievement-images/48.png",
+	      "Type": "ClientAsset"
+	    },
+		{
+	      "Name": "Assets/achievement-images/49.png",
+	      "Type": "ClientAsset"
+	    },
+	    {
+	      "Name": "Assets/achievement-images/50.png",
+	      "Type": "ClientAsset"
+	    },
+	    {
+	      "Name": "Assets/achievement-images/51.png",
+	      "Type": "ClientAsset"
+	    },
+	    {
+	      "Name": "Assets/achievement-images/52.png",
+	      "Type": "ClientAsset"
+	    },
+	    {
+	      "Name": "Assets/achievement-images/53.png",
+	      "Type": "ClientAsset"
+	    },
+	    {
+	      "Name": "Assets/achievement-images/54.png",
+	      "Type": "ClientAsset"
+	    },
+	    {
+	      "Name": "Assets/achievement-images/55.png",
+	      "Type": "ClientAsset"
+	    },
+	    {
+	      "Name": "Assets/achievement-images/56.png",
+	      "Type": "ClientAsset"
+	    },
+	    {
+	      "Name": "Assets/achievement-images/57.png",
+	      "Type": "ClientAsset"
+	    },
+	    {
+	      "Name": "Assets/achievement-images/58.png",
+	      "Type": "ClientAsset"
+	    },
+	    {
+	      "Name": "Assets/achievement-images/59.png",
+	      "Type": "ClientAsset"
+	    },
+	    {
+	      "Name": "Assets/achievement-images/60.png",
+	      "Type": "ClientAsset"
+	    },
+	    {
+	      "Name": "Assets/achievement-images/61.png",
+	      "Type": "ClientAsset"
+	    },
+	    {
+	      "Name": "Assets/achievement-images/62.png",
+	      "Type": "ClientAsset"
+	    },
+	    {
+	      "Name": "Assets/achievement-images/63.png",
+	      "Type": "ClientAsset"
+	    },
+	    {
+	      "Name": "Assets/achievement-images/64.png",
+	      "Type": "ClientAsset"
+	    },
+	    {
+	      "Name": "Assets/achievement-images/65.png",
+	      "Type": "ClientAsset"
+	    },
+	    {
+	      "Name": "Assets/achievement-images/66.png",
+	      "Type": "ClientAsset"
+	    },
+	    {
+	    	"Name": "Assets/Audio/uganda-XX.ogg",
+	    	"Type": "Audio"
+	    },
+	    {
+	    	"Name": "Assets/Audio/mex-XX.ogg",
+	    	"Type": "Audio"
+	    },
+	],
+  "ExportedFunctions": [
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "Type": "Network_ServerToClient_RemoteOnly",
+  "Parameters": {
+  	"infoMarkerID": "Int64",
+  	"bIsCreator": "bool",
+  	"strText": "string"
+  }
+}

@@ -1,0 +1,1 @@
+mp.game.controls.useDefaultVehicleEntering = false;

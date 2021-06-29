@@ -1,0 +1,12 @@
+{
+    "Type": "Network_ClientToServer_RemoteOnly",
+  "Parameters": {
+    "mapType": "string",
+    "propertyID": "long",
+    "markerX": "float",
+    "markerY": "float",
+    "markerZ": "float",
+    "expectedBytesLen": "int",
+    "crc": "int"
+  }
+}

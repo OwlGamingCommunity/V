@@ -1,0 +1,9 @@
+{
+  "Type": "Network_ServerToClient_RemoteOnly",
+  "Parameters": {
+  	"uniqueActivityIdentifier": "Int64",
+  	"activityType": "EActivityType",
+  	"strDealerOutcome": "string",
+  	"lstPlayerOutcomes": "List<string>",
+  }
+}

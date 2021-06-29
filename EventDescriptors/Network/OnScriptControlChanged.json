@@ -1,0 +1,8 @@
+{
+  "Type": "ClientLocal",
+  "Parameters": {
+    "controlID": "EScriptControlID",
+    "oldKey": "ConsoleKey",
+    "newKey": "ConsoleKey",
+  }
+}

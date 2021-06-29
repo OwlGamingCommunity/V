@@ -1,0 +1,122 @@
+<html>
+<head>
+	<link href="../../owl_client_shared/bootstrap/bootstrap.min.css" rel="stylesheet">
+	<link href="../../owl_client_shared/core/core.css" rel="stylesheet">
+	<link href="../../owl_client_shared/core/menu.css" rel="stylesheet">
+	<link href="../../owl_client_shared/slider.css" rel="stylesheet">
+	<link href="../../owl_client_shared/animate.css" rel="stylesheet">
+	<script src="../../owl_client_shared/core/core.js"></script>
+	<script src="../../owl_client_shared/jquery.min.js"></script>
+	<script src="../../owl_client_shared/jquery-ui.min.js"></script>
+	<script src="../../owl_client_shared/vue.min.js"></script>
+	<script src="../../owl_client_shared/jscolor.min.js"></script>
+
+	<link href="package://owl_client_shared/bootstrap.min.css" rel="stylesheet">
+	<link href="package://owl_client_shared/core.css" rel="stylesheet">
+	<link href="package://owl_client_shared/menu.css" rel="stylesheet">
+	<link href="package://owl_client_shared/slider.css" rel="stylesheet">
+	<link href="package://owl_client_shared/animate.css" rel="stylesheet">
+	<script src="package://owl_client_shared//core.js"></script>
+	<script src="package://owl_client_shared//jquery.min.js"></script>
+	<script src="package://owl_client_shared//jquery-ui.min.js"></script>
+	<script src="package://owl_client_shared//vue.min.js"></script>
+	<script src="package://owl_client_shared//jscolor.min.js"></script>
+
+	<script type="text/javascript">
+		var g_LeftEventName = null;
+		var g_CenterEventName = null;
+		var g_RightEventName = null;
+
+		function ShowGenericPrompt(title, caption, left_text, center_text, right_text, left_event_name, center_event_name, right_event_name, position) {
+			document.getElementById("title").textContent = title;
+			document.getElementById("caption").innerHTML = caption;
+
+			document.getElementById("leftbutton").textContent = left_text;
+			document.getElementById("centerbutton").textContent = center_text;
+			document.getElementById("rightbutton").textContent = right_text;
+
+			g_LeftEventName = left_event_name;
+			g_CenterEventName = center_event_name;
+			g_RightEventName = right_event_name;
+
+			if (position == 0) // center
+			{
+				document.getElementById("input-frame").style.left = "50%"
+				document.getElementById("input-frame").style.top = "45%"
+			} else if (position == 1) // bottom center
+			{
+				document.getElementById("input-frame").style.left = "50%"
+				document.getElementById("input-frame").style.top = "90%"
+			}
+
+		}
+
+		function RightAnswer() {
+			TriggerEvent("GenericPrompt3_OnClose");
+
+			if (g_RightEventName.length > 0) {
+				TriggerEvent(g_RightEventName);
+			}
+		}
+
+		function CenterAnswer() {
+			TriggerEvent("GenericPrompt3_OnClose");
+
+			if (g_CenterEventName.length > 0) {
+				TriggerEvent(g_CenterEventName);
+			}
+		}
+
+		function LeftAnswer() {
+			TriggerEvent("GenericPrompt3_OnClose");
+
+			if (g_LeftEventName.length > 0) {
+				TriggerEvent(g_LeftEventName);
+			}
+		}
+
+	</script>
+
+	<style type="text/css">
+
+		body {
+			background-color: transparent;
+		}
+
+		#input-frame {
+			margin: 0 auto;
+			position: absolute;
+			top: 45%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			width: 30%;
+			min-width: 500px;
+		}
+
+		.panel {
+			margin-bottom: 0;
+		}
+
+		.panel-body p {
+			margin-bottom: 0;
+		}
+	</style>
+
+</head>
+<body>
+
+<div id="input-frame" class="card mb-3 text-center" style="max-width: 18rem;">
+	<div class="card-header"><span id="title"></span></div>
+	<div class="card-body">
+		<h5 class="card-title"></h5>
+		<p class="card-text"><span id="caption"></span></p>
+	</div>
+	<div class="btn-group btn-group-justified btn-block" role="group" aria-label="Justified button group">
+		<button id="leftbutton" type="button" class="btn btn-success" onclick="LeftAnswer();"></button>
+		<button id="centerbutton" type="button" class="btn btn-info" onclick="CenterAnswer();"></button>
+		<button id="rightbutton" type="button" class="btn btn-warning" onclick="RightAnswer();"></button>
+	</div>
+</div>
+
+</body>
+</html>

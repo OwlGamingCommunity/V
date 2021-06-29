@@ -1,0 +1,10 @@
+{
+  "Type": "Network_ClientToServer_RemoteOnly",
+  "Parameters": {
+  	"item_dbid": "Int64",
+  	"container_dbid": "Int64",
+  	"is_going_to_socket_container": "bool",
+  	 "currentVehicle" : "VehicleType",
+  	 "currentFurnitureDBID": "Int64"
+  }
+}

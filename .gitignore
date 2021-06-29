@@ -1,0 +1,36 @@
+## Owl V Gitignore
+
+# User-specific files
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.userprefs
+*.ide
+.vs/
+*.code-workspace
+.vscode/
+.idea/
+
+
+# Build
+obj/
+Binaries/
+FixPaths.exe
+Packages/
+Source/Launch/bin/
+bin/
+Output/
+Debug/
+filebeat/
+packages/
+Release/
+Cooker_Temp/
+
+# diagnostics files
+*.diagsession
+
+# Used by the cooker
+*.ar
+HashCache/
+/Source/owl_maps

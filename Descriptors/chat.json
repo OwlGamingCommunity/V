@@ -1,0 +1,22 @@
+{
+  "Files": [
+    {
+      "Name": "owl_chat.dll",
+      "Type": "ServerScript"
+    }
+  ],
+  "ExportedFunctions": [
+    {
+      "Class": "ChatSystem",
+      "Function": "OnMeMessage"
+    },
+    {
+      "Class": "ChatSystem",
+      "Function": "OnDoMessage"
+    },
+    {
+      "Class": "ChatSystem",
+      "Function": "SendMessageToAdmins"
+    }
+  ]
+}

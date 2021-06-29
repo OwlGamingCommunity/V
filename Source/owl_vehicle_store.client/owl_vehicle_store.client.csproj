@@ -1,0 +1,31 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\owl_core.client\owl_core.client.csproj" />
+    <ProjectReference Include="..\owl_vehicles.client\owl_vehicles.client.csproj" />
+  </ItemGroup>
+    <ItemGroup>
+    <Reference Include="RageSharp">
+      <HintPath>..\..\RageDeps\rage-sharp.dll</HintPath>
+    </Reference>
+	<Reference Include="Newtonsoft.Json">
+      <HintPath>..\..\RageDeps\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <PropertyGroup> 
+     <CodeAnalysisRuleSet>$(SolutionDir)\OwlV.ruleset</CodeAnalysisRuleSet> 
+     <Features>IOperation</Features> 
+     <NoWarn></NoWarn>   
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <PlatformTarget>x64</PlatformTarget>
+  </PropertyGroup>  
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <PlatformTarget>x64</PlatformTarget>
+  </PropertyGroup>  
+</Project>

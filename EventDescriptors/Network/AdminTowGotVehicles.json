@@ -1,0 +1,6 @@
+{
+  "Type": "Network_ClientToServer_RemoteOnly",
+  "Parameters": {
+    "lstVehicles": "List<Int64>"
+  }
+}

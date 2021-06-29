@@ -1,0 +1,8 @@
+{
+  "Type": "UI",
+  "Parameters": {
+  	"key": "ConsoleKey",
+  	"bindType": "EPlayerKeyBindType",
+  	"strAction": "string",
+  }
+}

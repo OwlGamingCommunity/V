@@ -1,0 +1,183 @@
+﻿<html lang="en">
+<head>
+    <link href="../../owl_client_shared/bootstrap/bootstrap.min.css" rel="stylesheet">
+    <link href="../../owl_client_shared/core/core.css" rel="stylesheet">
+    <link href="../../owl_client_shared/animate.css" rel="stylesheet">
+    <script src="../../owl_client_shared/core/core.js"></script>
+    <script src="../../owl_client_shared/jquery.min.js"></script>
+    <script src="../../owl_client_shared/jquery-ui.min.js"></script>
+    <script src="../../owl_client_shared/popper.min.js"></script>
+    <script src="../../owl_client_shared/bootstrap/bootstrap.min.js"></script>
+    <script src="../../owl_client_shared/vue.min.js"></script>
+    <script src="../../owl_client_shared/jscolor.min.js"></script>
+    <script src="../../owl_client_shared/components/window.js"></script>
+    <script src="../../owl_client_shared/components/input.js"></script>
+    <script src="../../owl_client_shared/utilities/string.js"></script>
+    <script src="../../owl_client_shared/utilities/validator.js"></script>
+    <script src="../../owl_client_shared/utilities/form.js"></script>
+
+    <link href="package://owl_client_shared/bootstrap.min.css" rel="stylesheet">
+    <link href="package://owl_client_shared/core.css" rel="stylesheet">
+    <link href="package://owl_client_shared/animate.css" rel="stylesheet">
+    <script src="package://owl_client_shared//core.js"></script>
+    <script src="package://owl_client_shared//jquery.min.js"></script>
+    <script src="package://owl_client_shared//jquery-ui.min.js"></script>
+    <script src="package://owl_client_shared/popper.min.js"></script>
+    <script src="package://owl_client_shared/bootstrap.min.js"></script>
+    <script src="package://owl_client_shared//vue.min.js"></script>
+    <script src="package://owl_client_shared//jscolor.min.js"></script>
+    <script src="package://owl_client_shared/window.js"></script>
+    <script src="package://owl_client_shared/input.js"></script>
+    <script src="package://owl_client_shared/string.js"></script>
+    <script src="package://owl_client_shared/validator.js"></script>
+    <script src="package://owl_client_shared/form.js"></script>
+</head>
+<body>
+<div id="app">
+    <x-window :title="'Asset Transfer From ' + fromName" width="6" close-event="CloseAssetTransfer">
+        <form @submit.prevent="SubmitAssetTransfer" class="mb-0">
+            <div class="alert alert-danger animated bounceIn" v-show="form.error">
+                {{ form.error }}
+            </div>
+
+            <x-input
+                    type="select"
+                    display-name="Transfer To"
+                    name="toCharacter"
+                    v-model="form.fields.toCharacter"
+                    :errors="form.errors.toCharacter"
+                    :values="characters"
+                    display-key="name"
+                    input-key="id"
+            ></x-input>
+    
+            <x-input
+                    type="money"
+                    display-name="Money"
+                    name="money"
+                    v-model="form.fields.money"
+                    :errors="form.errors.money"
+            ></x-input>
+    
+            <x-input
+                    type="money"
+                    display-name="Bank Money"
+                    name="bankMoney"
+                    v-model="form.fields.bankMoney"
+                    :errors="form.errors.bankMoney"
+            ></x-input>
+    
+            <x-input
+                    type="checkbox"
+                    display-name="Vehicles"
+                    name="vehicles"
+                    v-model="form.fields.vehicles"
+                    :errors="form.errors.vehicles"
+                    :values="availableVehicles"
+                    display-key="Name"
+                    input-key="Id"
+            ></x-input>
+    
+            <x-input
+                    type="checkbox"
+                    display-name="Properties"
+                    name="properties"
+                    v-model="form.fields.properties"
+                    :errors="form.errors.properties"
+                    :values="availableProperties"
+                    display-key="Name"
+                    input-key="Id"
+            ></x-input>
+
+            <div class="form-group mb-0">
+                <button type="submit" class="btn btn-primary btn-block">Transfer Assets <span style='color: #ff6464'>(750 GameCoins)</span></button>
+            </div>
+        </form>
+    </x-window>
+</div>
+
+
+<script>
+    var app = new Vue({
+        el: '#app',
+        data() {
+            return {
+                form: new Form(),
+
+                fromCharacter: 0,
+                fromName: '',
+                availableMoney: 0,
+                availableBankMoney: 0,
+                characters: [],
+                availableVehicles: [],
+                availableProperties: []
+            };
+        },
+        methods: {
+            InitializeForm() {
+                let form = new Form();
+
+                form.fields = {
+                    toCharacter: null,
+                    money: this.availableMoney,
+                    bankMoney: this.availableBankMoney,
+                    vehicles: [],
+                    properties: [],
+                };
+
+                form.validations = {
+                    toCharacter: ['required'],
+                    money: ['number', 'lessThanOrEqual:' + this.availableMoney],
+                    bankMoney: ['number', 'lessThanOrEqual:' + this.availableBankMoney],
+                };
+
+                this.form = form;
+            },
+            SetData(fromId, fromName, money, bankMoney, characters, vehicles, properties) {
+                this.fromCharacter = fromId;
+                this.fromName = fromName;
+                this.availableMoney = money;
+                this.availableBankMoney = bankMoney;
+                this.characters = JSON.parse(characters);
+                this.availableVehicles = JSON.parse(vehicles);
+                this.availableProperties = JSON.parse(properties);
+
+                this.InitializeForm();
+            },
+            SubmitAssetTransfer() {
+                if (!this.form.validate()) {
+                    return;
+                }
+
+                TriggerEvent(
+                    "SubmitAssetTransfer",
+                    this.fromCharacter,
+                    this.form.fields.toCharacter,
+                    this.form.fields.money,
+                    this.form.fields.bankMoney,
+                    JSON.stringify(this.form.fields.vehicles),
+                    JSON.stringify(this.form.fields.properties),
+                );
+            }
+        }
+    });
+
+    function OnLoad()
+    {
+        if (!IsRunningInRAGECEF()) {
+            app.SetData(1, 'Casey Hughes', 5276, 200493.5, JSON.stringify([
+                {id: 1, name: 'Marco Caruso',},
+                {id: 2, name: 'Jeremy Stafford',},
+                {id: 3, name: 'John Smith',},
+            ]),JSON.stringify([
+                {Id: 1, Name: "Grotti Carbonizare",},
+                {Id: 2, Name: "Pickup truck",},
+            ]), JSON.stringify([
+                {Id: 1, Name: "3 Rich St"},
+                {Id: 2, Name: "4 Mirror Park Lane"},
+            ]));
+        }
+    }
+</script>
+</body>
+</html>

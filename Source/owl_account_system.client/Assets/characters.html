@@ -1,0 +1,354 @@
+<html>
+<head>
+
+
+
+	<link href="../../owl_client_shared/bootstrap/bootstrap.min.css" rel="stylesheet">
+	<link href="../../owl_client_shared/core/core.css" rel="stylesheet">
+	<link href="../../owl_client_shared/core/menu.css" rel="stylesheet">
+	<link href="../../owl_client_shared/slider.css" rel="stylesheet">
+	<link href="../../owl_client_shared/animate.css" rel="stylesheet">
+	<script src="../../owl_client_shared/core/core.js"></script>
+	<script src="../../owl_client_shared/jquery.min.js"></script>
+	<script src="../../owl_client_shared/jquery-ui.min.js"></script>
+	<script src="../../owl_client_shared/bootstrap/bootstrap.min.js"></script>
+	<script src="../../owl_client_shared/vue.min.js"></script>
+	<script src="../../owl_client_shared/jscolor.min.js"></script>
+
+	<link href="package://owl_client_shared/bootstrap.min.css" rel="stylesheet">
+	<link href="package://owl_client_shared/core.css" rel="stylesheet">
+	<link href="package://owl_client_shared/menu.css" rel="stylesheet">
+	<link href="package://owl_client_shared/slider.css" rel="stylesheet">
+	<link href="package://owl_client_shared/animate.css" rel="stylesheet">
+	<script src="package://owl_client_shared//core.js"></script>
+	<script src="package://owl_client_shared//jquery.min.js"></script>
+	<script src="package://owl_client_shared//jquery-ui.min.js"></script>
+	<script src="package://owl_client_shared/bootstrap.min.js"></script>
+	<script src="package://owl_client_shared//vue.min.js"></script>
+	<script src="package://owl_client_shared//jscolor.min.js"></script>
+
+	<script type="text/javascript">
+
+		function AddDebugData()
+		{
+
+			AddCharacter(1, "Firstname Lastname", "never", "Pershing Square", true);
+
+			function randomString()
+			{
+
+				var chars = "ABCDEFGHIJKLMNOPQRSTUVWXTZabcdefghiklmnopqrstuvwxyz";
+				var string_length = 5;
+				var randomstring = '';
+				for (var i = 0; i < string_length; i++)
+				{
+					var rnum = Math.floor(Math.random() * chars.length);
+					randomstring += chars.substring(rnum, rnum + 1);
+				}
+
+				return randomstring;
+
+			}
+
+			for (i = 0; i < 20; ++i)
+			{
+				var firstname = "";
+				var lastname = "";
+				firstname = randomString();
+				lastname = randomString();
+				AddCharacter(2, `${i}_${firstname} ${lastname}`, "today", "Mirror Park", true);
+				GotoCharacterPage(current_page);
+			}
+
+			GotoCharacterPage(current_page);
+
+		};
+
+		function OnLoad()
+		{
+			if (IsRunningInRAGECEF()) {
+				return;
+			}
+			
+			AddDebugData();
+		}
+
+		var characters = [];
+		var num_characters_per_page = 6;
+		var current_page = 0;
+
+		function GotoCreateCharacter()
+		{
+			TriggerEvent("GotoCreateCharacter");
+		}
+
+		function PreviewCharacter(index)
+        {
+            TriggerEvent("PreviewCharacter", index);
+		}
+
+		function GotoViewAchievements()
+		{
+			TriggerEvent("GotoViewAchievements");
+		}
+
+		function NextPage()
+		{
+			var NumPages = Math.max(1, (characters.length / num_characters_per_page));
+			if (current_page < NumPages - 1)
+			{
+				current_page += 1;
+				GotoCharacterPage(current_page);
+			}
+		}
+
+		function PreviousPage()
+		{
+			if (current_page > 0)
+			{
+				current_page -= 1;
+				GotoCharacterPage(current_page);
+			}
+		}
+
+		function ClearCharacters()
+		{
+			characters = [];
+		}
+
+		function Logout()
+		{
+			TriggerEvent("Logout");
+		}
+
+		function SetAutoSpawn()
+		{
+			TriggerEvent("SetAutoSpawn");
+		}
+		
+		function TransferAssetsClicked()
+		{
+			TriggerEvent("OpenTransferAssets");
+		}
+
+		function SetAutoSpawnVisible(visible)
+		{
+			document.getElementById("auto_spawn_button").style.display = visible ? "block" : "none";
+			document.getElementById("transfer_assets_button").style.display = visible ? "block" : "none";
+		}
+
+		function SetAutoSpawnText(text)
+		{
+			document.getElementById("auto_spawn_button").innerText = text;
+		}
+
+		function AddCharacter(id, name, lastseen_date, lastseen_location, alive)
+		{
+			characters.push([id, name, lastseen_date, lastseen_location, alive]);
+		}
+
+		function GotoCharacterPage(index)
+		{
+			current_page = index;
+			var NumPages = Math.max(1, (characters.length / num_characters_per_page));
+			var starting_index = index * num_characters_per_page;
+			PopulateCharacters(starting_index);
+		}
+
+		function PopulateCharacters(starting_index)
+		{
+			// Page selector calculation
+			var NumPages = Math.max(0, (characters.length / num_characters_per_page));
+
+			if (NumPages == 0)
+			{
+				document.getElementById('characterslist').innerHTML = "<p>You do not have any characters.</p>";
+			}
+			else
+			{
+				if (NumPages > 1)
+				{
+					document.getElementById('pageselector').innerHTML = "";
+
+				var content = `<div align="center" class="btn-toolbar mb-3" role="toolbar">
+  <div align="center" class="btn-group mr-2" role="group">`;
+
+				for (var i = 0; i < NumPages; i++)
+				{
+					content += `<button type="button" class="btn" style="opacity:0.9" onclick="GotoCharacterPage(${i});">${i + 1}</button>`;
+				}
+
+				content += `</div></div>`;
+				document.getElementById('pageselector').innerHTML = content;
+				}
+				
+				document.getElementById('characterslist').innerHTML = "";
+
+				var upper_bound = Math.min(starting_index + num_characters_per_page, characters.length);
+
+				for (var i = starting_index; i < upper_bound; i++)
+				{
+					var id = characters[i][0];
+					var name = characters[i][1];
+					var lastseen_date = characters[i][2];
+					var lastseen_location = characters[i][3];
+					var alive = characters[i][4];
+
+					var prefix = alive ? "Seen" : "Died ";
+					var lastseen_string = `${prefix} ${lastseen_date} at ${lastseen_location}`;
+
+					if (lastseen_location == "")
+					{
+						lastseen_string = "You have never played on this character.";
+					}
+
+					if (alive)
+					{
+						document.getElementById('characterslist').innerHTML += `<button type="button" onclick="PreviewCharacter(${id});" class="btn btn-default"><h5>${name}</h5><p>${lastseen_string}</p></button>`;
+					}
+					else
+					{
+						document.getElementById('characterslist').innerHTML += `<button type="button" onclick="PreviewCharacter(${id});" class="btn btn-danger"><h5>${name} (Dead)</h5><p>${lastseen_string}</p></button>`;
+					}
+				}
+
+			}
+
+		}
+
+	</script>
+
+	<style type="text/css">
+
+		body {
+			background-color: transparent;
+		}
+		
+		.btn-default:hover {
+			background-color: #3e3e3e;
+		}
+
+		.middle-left-align {
+			margin-left: 2%;
+			width: 300px;
+			vertical-align: middle;
+			position: relative;
+			top: 30%;
+			transform: translateY(-30%);
+		}
+
+		[class*="align-"] {
+			position: fixed;
+		}
+
+		.align-bottom {
+			bottom: 20px;
+		}
+
+		.align-left {
+			left: 25px;
+		}
+
+		.align-right {
+			right: 25px;
+		}
+
+		.align-top {
+			top: 20px;
+		}
+
+		.list-group .list-group-item:active,
+		.list-group .list-group-item:focus {
+			outline: none;
+		}
+
+		.loading-icon {
+			display: block;
+			margin: 20px auto;
+		}
+
+		.list-group-item h5 {
+			padding-right: 60px;
+			position: relative;
+		}
+
+		.list-group-item .label {
+			position: absolute;
+			right: 0;
+			top: 0;
+		}
+
+		.list-group > p {
+			margin: 15px;
+		}
+
+		.pagination {
+			margin: 0;
+			text-align: center;
+			width: 100%;
+		}
+
+			.pagination > li {
+				display: inline-block;
+			}
+
+				.pagination > li > a:hover,
+				.pagination > li > span:hover,
+				.pagination > li > a:focus,
+				.pagination > li > span:focus {
+					color: #999999;
+				}
+
+
+		.align-bottom-buttons {
+			bottom: 60px;
+		}
+	</style>
+
+</head>
+<body>
+
+	<div id="characters" class="middle-left-align" style="visibility:visible">
+		<div class="card">
+			<div class="card-header">
+				<h4 class="card-title">Characters</h4>
+				<h6 class="card-subtitle mb-2 text-muted">Sorted by Last Used</h6>
+			</div>
+			<div id="characterslist" class="list-group">
+
+				<div class="d-flex justify-content-center">
+					<div class="spinner-grow text-primary" role="status">
+						<span class="sr-only">Loading...</span>
+					</div>
+
+				</div>
+
+			</div>
+		</div><br>
+		<span id="pageselector"></span>
+
+		<div class="btn-group btn-group-justified btn-block" role="group" aria-label="Justified button group">
+			<a class='btn btn-success' href="#" style="opacity:0.9" onclick="GotoCreateCharacter();">Create Character</a>
+		</div>
+		<div class="btn-group btn-group-justified btn-block" role="group" aria-label="Justified button group">
+			<a class='btn btn-warning' href="#" style="opacity:0.9" onclick="GotoViewAchievements();">View Achievements</a>
+		</div>
+	</div>
+	</div>
+
+<div class="buttons align-bottom-buttons align-right menu-button" id="button-right-menu-root">
+			<div class="btn-group">
+				<a class="btn btn-info" id="transfer_assets_button" href="#" style="display:none" onclick="TransferAssetsClicked();">Transfer Assets</a>
+			</div>
+			<div class="btn-group">
+				<a class="btn btn-info" id="auto_spawn_button" href="#" style="display:none" onclick="SetAutoSpawn();">Enable Auto Spawn</a>
+			</div>
+
+			<div class="btn-group">
+				<a class="btn btn-danger" href="#" onclick="Logout();">Logout</a>
+			</div>
+			
+		</div>
+
+</body>
+</html>

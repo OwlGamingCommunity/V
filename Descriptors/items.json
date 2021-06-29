@@ -1,0 +1,14 @@
+{
+  "Files": [
+    {
+      "Name": "owl_items.dll",
+      "Type": "ServerScript"
+    },
+  ],
+  "ExportedFunctions": [
+    {
+      "Class": "ItemSystem",
+      "Function": "TriggerClientsideFrisk"
+    }
+  ]
+}

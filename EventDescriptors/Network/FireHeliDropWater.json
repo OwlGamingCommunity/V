@@ -1,0 +1,7 @@
+{
+  "Type": "Network_ServerToClient_RemoteOnly",
+  "Parameters": {
+  	"vecPos" : "Vector3",
+  	"bIsSyncer" : "bool"
+  }
+}

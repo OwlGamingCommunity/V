@@ -1,0 +1,7 @@
+{
+  "Type": "Network_ServerToClient_RemoteOnly",
+  "Parameters": {
+  	"a_Type": "EPetType",
+    "petID": "Int64"
+  }
+}

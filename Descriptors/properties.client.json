@@ -1,0 +1,22 @@
+{
+  "Files": [
+    {
+      "Name": "Properties.Client.cs",
+      "Type": "ClientScript"
+    },
+    {
+      "Name": "CGUIPurchaseProperty.Client.cs",
+      "Type": "ClientScript"
+    },
+    {
+      "Name": "Assets/purchaseinterior.html",
+      "Type": "ClientAsset"
+    },
+    {
+      "Name": "Init.Client.cs",
+      "Type": "ClientScript"
+    }
+  ],
+  "ExportedFunctions": [
+  ]
+}

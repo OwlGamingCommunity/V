@@ -1,0 +1,10 @@
+{
+  "Type": "Network_ClientToServer_RemoteOnly",
+  "Parameters": {
+    "DrawablesClothing": "int[]",
+    "TexturesClothing": "int[]",
+    "CurrentPropDrawables": "Dictionary<ECustomPropSlot, int>",
+    "CurrentPropTextures": "Dictionary<ECustomPropSlot, int>",
+    "skinID": "uint"
+  }
+}

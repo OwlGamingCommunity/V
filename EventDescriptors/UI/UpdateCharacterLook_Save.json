@@ -1,0 +1,11 @@
+{
+  "Type": "UI",
+  "Parameters": {
+    "height": "Int32",
+    "weight": "Int32",
+    "physicalAppearance": "string",
+    "scars": "string",
+    "tattoos": "string",
+    "makeup": "string"
+  }
+}

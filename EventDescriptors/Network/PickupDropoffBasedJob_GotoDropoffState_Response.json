@@ -1,0 +1,7 @@
+{
+  "Type": "Network_ServerToClient_RemoteOnly",
+  "Parameters": {
+  	"a_JobID": "EJobID",
+  	"a_vecCheckpointPos": "Vector3",
+  }
+}

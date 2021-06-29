@@ -1,0 +1,10 @@
+{
+  "Type": "UI",
+  "Parameters": {
+    "mapData": "string",
+    "mapType": "string",
+    "markerX": "float",
+    "markerY": "float",
+    "markerZ": "float"
+  }
+}

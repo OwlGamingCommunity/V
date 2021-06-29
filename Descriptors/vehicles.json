@@ -1,0 +1,42 @@
+{
+  "Files": [
+    {
+      "Name": "owl_vehicles.dll",
+      "Type": "ServerScript"
+    },
+  ],
+  "ExportedFunctions": [
+    {
+      "Class": "FuelStations",
+      "Function": "CreateFuelPoint"
+    },
+    {
+      "Class": "FuelStations",
+      "Function": "DestroyFuelPoint"
+    },
+    {
+      "Class": "CarWashStations",
+      "Function": "CreateCarWashPoint"
+    },
+    {
+      "Class": "CarWashStations",
+      "Function": "DestroyCarWashPoint"
+    },
+    {
+      "Class": "CVehicleRepairPoints",
+      "Function": "CreateVehicleRepairPoint"
+    },
+    {
+      "Class": "CVehicleRepairPoints",
+      "Function": "DestroyVehicleRepairPoint"
+    },
+    {
+      "Class": "DrivingTest",
+      "Function": "DrivingTest_ResetForPlayer"
+    },
+    {
+      "Class": "DrivingTest",
+      "Function": "IsPlayerDoingDrivingTest"
+    }
+  ]
+}

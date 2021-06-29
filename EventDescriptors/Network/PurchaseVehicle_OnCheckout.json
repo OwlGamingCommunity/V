@@ -1,0 +1,19 @@
+{
+  "Type": "Network_ClientToServer_RemoteOnly",
+  "Parameters": {
+  	"VehicleIndex": "int",
+  	"primary_r": "uint",
+  	"primary_g": "uint",
+  	"primary_b": "uint",
+	"secondary_r": "uint",
+  	"secondary_g": "uint",
+  	"secondary_b": "uint",
+  	"purchaserType": "EPurchaserType",
+  	"purchaserID": "long",
+  	"method": "EPaymentMethod",
+    "fDownpayment": "float",
+    "numMonthsForPaymentPlan": "int",
+    "location": "EScriptLocation",
+    "storeType": "EVehicleStoreType"
+  }
+}

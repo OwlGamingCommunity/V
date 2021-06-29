@@ -1,0 +1,6 @@
+{
+  "Type": "ServerLocal",
+  "Parameters": {
+  	"FurnitureInstance": "CPropertyFurnitureInstance"
+  }
+}

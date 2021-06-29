@@ -1,0 +1,8 @@
+{
+  "Type": "UI",
+  "Parameters": {
+    "strUsername": "string",
+    "strPassword": "string",
+    "bAutoLogin": "bool"
+  }
+}

@@ -1,0 +1,45 @@
+<div class="ui-topbar" id="topbar">
+    <div class="signal">
+        <div class="hidden" id="flight-mode"><i class="fa fa-plane"></i></div>
+        <div id="signal-mode"><span></span><span></span><span></span><span class="signal-darker"></span>
+            <p>YGN</p>
+        </div>
+    </div>
+    <div class="lock--time">
+        <span class="top-clock">
+            <div class="hour"></div>:
+            <div class="minute"></div>
+        </span>
+    </div>
+    <div class="battery-section">
+        <div class="settings"></div>
+        <div class="battery"><span>100%</span><i class="fas fa-battery-full"></i></div>
+    </div>
+</div>
+<div id="contactsScreen" class="ui-ios">
+    <header>
+        <span class="left" id="contactsBackBtn">Back</span>
+        <span class="headerText">Contacts</span>
+        <span class="right" id="addContactBtn"><i class="fas fa-plus"></i></span>
+    </header>
+    <div class="ioslist" id="contactsList">
+        <div class="ioslist-group-container">
+            <div class="ioslist-group-header">Default</div>
+            <ul>
+                <li onclick="callContact('911')">Emergency Services</li>
+                <li onclick="callContact('311')">Police</li>
+                <li onclick="callContact('411')">Fire Department</li>
+                <li onclick="callContact('511')">Government</li>
+                <li onclick="callContact('9021')">LSC Traffic Services</li>
+                <li onclick="callContact('2600')">Saint Ernest Medical Center</li>
+                <li onclick="callContact('699')">Sabre Ltd</li>
+                <li onclick="callContact('711')">Superior Court of San Andreas</li>
+                <li onclick="callContact('811')">Federal Task Force</li>
+            </ul>
+        </div>
+        <div class="ioslist-group-container">
+            <div class="ioslist-group-header">My Contacts</div>
+            <ul id="addedContacts"></ul>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,136 @@
+<html>
+<head>
+	<link href="../../owl_client_shared/bootstrap/bootstrap.min.legacy.css" rel="stylesheet">
+	<link href="../../owl_client_shared/core/core.css" rel="stylesheet">
+	<link href="../../owl_client_shared/core/menu.css" rel="stylesheet">
+	<link href="../../owl_client_shared/slider.css" rel="stylesheet">
+	<link href="../../owl_client_shared/animate.css" rel="stylesheet">
+	<script src="../../owl_client_shared/core/core.js"></script>
+	<script src="../../owl_client_shared/jquery.min.js"></script>
+	<script src="../../owl_client_shared/jquery-ui.min.js"></script>
+	<script src="../../owl_client_shared/vue.min.js"></script>
+	<script src="../../owl_client_shared/jscolor.min.js"></script>
+
+	<link href="package://owl_client_shared/bootstrap.min.legacy.css" rel="stylesheet">
+	<link href="package://owl_client_shared/core.css" rel="stylesheet">
+	<link href="package://owl_client_shared/menu.css" rel="stylesheet">
+	<link href="package://owl_client_shared/slider.css" rel="stylesheet">
+	<link href="package://owl_client_shared/animate.css" rel="stylesheet">
+	<script src="package://owl_client_shared//core.js"></script>
+	<script src="package://owl_client_shared//jquery.min.js"></script>
+	<script src="package://owl_client_shared//jquery-ui.min.js"></script>
+	<script src="package://owl_client_shared//vue.min.js"></script>
+	<script src="package://owl_client_shared//jscolor.min.js"></script>
+
+
+	<script type="text/javascript">
+		function GoOnDuty()
+		{
+			TriggerEvent("GoOnDuty");
+		}
+
+		function CancelGoingOnDuty()
+		{
+			TriggerEvent("CancelGoingOnDuty");
+		}
+
+		function GotoDutyOutfits()
+		{
+			TriggerEvent("Duty_GotoOutfits");
+		}
+
+		function ClearDropdown()
+		{
+			document.getElementById("dropdown_root").innerHTML = ``;
+			document.getElementById("dropdownClass_root").innerHTML = `Select Outfit <span class="caret"></span>`;
+		}
+
+		function SetDropdownText(text)
+		{
+			document.getElementById("dropdownClass_root").innerHTML = `${text} <span class="caret"></span>`;
+		}
+
+		function AddDropdownItem(name, value) {
+			document.getElementById("dropdown_root").innerHTML += `<li><a href='#' onmouseenter="OnDropdownItemHover('${name}', '${value}');" onclick="OnDropdownItemSelected('${name}', '${value}');">${name}</a></li>`;
+		}
+
+		function OnDropdownItemSelected(name, value)
+		{
+			document.getElementById("dropdownClass_root").innerHTML = `${name} <span class="caret"></span>`;
+			$("#dropdownClass_root").val(value);
+
+			TriggerEvent("Duty_SelectOutfit_DropdownSelectionChanged", name, value);
+		}
+
+		function OnDropdownItemHover(name, value)
+		{
+			TriggerEvent("Duty_SelectOutfit_DropdownSelectionHoverChanged", name, value);
+		}
+
+		function AddDebugData() {
+			for (var i = 0; i < 100; ++i) {
+				AddDropdownItem(`${i}`, `${i}`);
+			}
+		}
+	</script>
+
+	<style type="text/css">
+		body {
+			background: transparent;
+		}
+
+		.left-box {
+			margin-left: 2%;
+			width: 320px;
+			vertical-align: middle;
+			position: relative;
+			top: 40%;
+			transform: translateY(-30%);
+		}
+
+		.bottom-center-box {
+			position: fixed;
+			right: 25px;
+			top: 87%
+		}
+
+		.panel {
+			margin-bottom: 0;
+		}
+
+		.panel-body .row {
+			margin-bottom: 10.5px;
+		}
+
+		.panel-body *:last-child {
+			margin-bottom: 0;
+		}
+
+		.btn {
+			border: none;
+		}
+
+		.dropdown-menu {
+			max-height: 90px;
+			overflow-y: auto;
+		}
+	</style>
+
+</head>
+<body>
+	<!-- initial screen -->
+		<div class="buttons bottom-center-box" id="initial_prompt">
+			<div class="btn-group">
+				<a class="btn btn-sm btn-success" onclick="GoOnDuty();">Go On Duty</a>
+				<button type="button" class="btn btn-sm btn-info dropdown-toggle" data-toggle="dropdown" id="dropdownClass_root">
+					Select Outfit<span class="caret"></span>
+				</button>
+				<ul class="dropdown-menu" role="menu" id="dropdown_root">
+				</ul>
+				<a class="btn btn-sm btn-warning" onclick="GotoDutyOutfits();">Outfit Editor</a>
+				<a class="btn btn-sm btn-danger" onclick="CancelGoingOnDuty();">Cancel</a>
+			</div>
+		</div>
+
+</body>
+</html>

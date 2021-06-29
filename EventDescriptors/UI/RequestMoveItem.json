@@ -1,0 +1,7 @@
+{
+  "Type": "UI",
+  "Parameters": {
+  	"is_socket": "bool",
+  	"socket_or_item_dbid": "Int64"
+  }
+}

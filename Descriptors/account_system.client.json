@@ -1,0 +1,322 @@
+{
+	"Files": [
+		{
+			"Name": "Init.Client.cs",
+			"Type": "ClientScript"
+		},
+		{
+			"Name": "CGUICharacterCreation.Client.cs",
+			"Type": "ClientScript"
+		},
+		{
+			"Name": "CGUIAssetTransfer.Client.cs",
+			"Type": "ClientScript"
+		},
+		{
+			"Name": "CGUICharacterList.Client.cs",
+			"Type": "ClientScript"
+		},
+		{
+			"Name": "CGUIShowCharacterLook.Client.cs",
+			"Type": "ClientScript"
+		},
+		{
+			"Name": "CGUIUpdateCharacterLook.Client.cs",
+			"Type": "ClientScript"
+		},
+		{
+			"Name": "CharacterLook.Client.cs",
+			"Type": "ClientScript"
+		},
+		{
+			"Name": "CGUIRegisterScreen.Client.cs",
+			"Type": "ClientScript"
+		},
+		{
+			"Name": "CustomSkinDataHandler.Client.cs",
+			"Type": "ClientScript"
+		},
+		{
+			"Name": "CGUIApplication.Client.cs",
+			"Type": "ClientScript"
+		},
+		{
+			"Name": "CharacterSelection.Client.cs",
+			"Type": "ClientScript"
+		},
+		{
+			"Name": "Application.Client.cs",
+			"Type": "ClientScript"
+		},
+		{
+			"Name": "CGUILoginScreen.Client.cs",
+			"Type": "ClientScript"
+		},
+		{
+			"Name": "CGUIAchievementsList.Client.cs",
+			"Type": "ClientScript"
+		},
+		{
+			"Name": "LoginSystem.Client.cs",
+			"Type": "ClientScript"
+		},
+		{
+			"Name": "Tutorial.Client.cs",
+			"Type": "ClientScript"
+		},
+		{
+			"Name": "RegisterSystem.Client.cs",
+			"Type": "ClientScript"
+		},
+		{
+			"Name": "AchievementsList.Client.cs",
+			"Type": "ClientScript"
+		},
+		{
+			"Name": "CharacterCreation.Client.cs",
+			"Type": "ClientScript"
+		},
+		{
+			"Name": "Assets/login.html",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/show-character-look.html",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/update-character-look.html",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/register.html",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/Capture.jpg",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/characters.html",
+			"Type": "ClientAsset"
+		},
+		{
+	      "Name": "Assets/create_v2/createv2.html",
+	      "Type": "ClientAsset"
+	    },
+	    {
+	      "Name": "Assets/achievementslist.html",
+	      "Type": "ClientAsset"
+	    },
+	    {
+	      "Name": "Assets/asset_transfer.html",
+	      "Type": "ClientAsset"
+	    },
+	    {
+	      "Name": "Assets/application.html",
+	      "Type": "ClientAsset"
+	    },
+		{
+			"Name": "Assets/Audio/login-XX.ogg",
+			"Type": "Audio"
+		},
+		{
+			"Name": "Assets/Audio/country-XX.ogg",
+			"Type": "Audio"
+		},
+		{
+			"Name": "Assets/Audio/december-XX.ogg",
+			"Type": "Audio"
+		},
+		{
+			"Name": "Assets/Audio/halloween-XX.ogg",
+			"Type": "Audio"
+		},
+		{
+			"Name": "Assets/create_v2/assets/heritage/Face-0.jpg",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/create_v2/assets/heritage/Face-1.jpg",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/create_v2/assets/heritage/Face-10.jpg",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/create_v2/assets/heritage/Face-11.jpg",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/create_v2/assets/heritage/Face-12.jpg",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/create_v2/assets/heritage/Face-13.jpg",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/create_v2/assets/heritage/Face-14.jpg",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/create_v2/assets/heritage/Face-15.jpg",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/create_v2/assets/heritage/Face-16.jpg",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/create_v2/assets/heritage/Face-17.jpg",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/create_v2/assets/heritage/Face-18.jpg",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/create_v2/assets/heritage/Face-19.jpg",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/create_v2/assets/heritage/Face-2.jpg",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/create_v2/assets/heritage/Face-20.jpg",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/create_v2/assets/heritage/Face-21.jpg",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/create_v2/assets/heritage/Face-22.jpg",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/create_v2/assets/heritage/Face-23.jpg",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/create_v2/assets/heritage/Face-24.jpg",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/create_v2/assets/heritage/Face-25.jpg",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/create_v2/assets/heritage/Face-26.jpg",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/create_v2/assets/heritage/Face-27.jpg",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/create_v2/assets/heritage/Face-28.jpg",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/create_v2/assets/heritage/Face-29.jpg",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/create_v2/assets/heritage/Face-3.jpg",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/create_v2/assets/heritage/Face-30.jpg",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/create_v2/assets/heritage/Face-31.jpg",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/create_v2/assets/heritage/Face-32.jpg",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/create_v2/assets/heritage/Face-33.jpg",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/create_v2/assets/heritage/Face-34.jpg",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/create_v2/assets/heritage/Face-35.jpg",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/create_v2/assets/heritage/Face-36.jpg",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/create_v2/assets/heritage/Face-37.jpg",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/create_v2/assets/heritage/Face-38.jpg",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/create_v2/assets/heritage/Face-39.jpg",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/create_v2/assets/heritage/Face-4.jpg",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/create_v2/assets/heritage/Face-40.jpg",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/create_v2/assets/heritage/Face-41.jpg",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/create_v2/assets/heritage/Face-42.jpg",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/create_v2/assets/heritage/Face-43.jpg",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/create_v2/assets/heritage/Face-44.jpg",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/create_v2/assets/heritage/Face-45.jpg",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/create_v2/assets/heritage/Face-5.jpg",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/create_v2/assets/heritage/Face-6.jpg",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/create_v2/assets/heritage/Face-7.jpg",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/create_v2/assets/heritage/Face-8.jpg",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/create_v2/assets/heritage/Face-9.jpg",
+			"Type": "ClientAsset"
+		}
+	],
+	"ExportedFunctions": [
+	]
+}

@@ -1,0 +1,16 @@
+{
+  "Type": "Network_ClientToServer_RemoteOnly",
+  "Parameters": {
+  	"Name": "string",
+    "a_DutyType": "EDutyType",
+  	"DrawablesClothing": "Dictionary<ECustomClothingComponent, int>",
+    "TexturesClothing": "Dictionary<ECustomClothingComponent, int>",
+    "CurrentPropDrawables": "Dictionary<ECustomPropSlot, int>",
+    "CurrentPropTextures": "Dictionary<ECustomPropSlot, int>",
+  	"Loadout": "Dictionary<EDutyWeaponSlot, EItemID>",
+  	"outfitID": "Int64",
+    "charType": "EDutyOutfitType",
+    "premadeHash": "uint",
+    "bHideHair": "bool"
+  }
+}

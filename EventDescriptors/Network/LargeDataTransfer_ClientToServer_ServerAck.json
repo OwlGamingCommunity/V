@@ -1,0 +1,7 @@
+{
+    "Type": "Network_ServerToClient_RemoteOnly",
+    "Parameters": {
+    	"a_TransferType": "ELargeDataTransferType",
+    	"a_Identifier": "int"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "Type": "Network_ServerToClient_RemoteOnly",
+  "Parameters": {
+    "a_ID": "Int64",
+    "a_OwnerCharacterID": "Int64",
+    "vecPos": "Vector3",
+    "fRotZ": "float",
+    "a_Dimension": "uint",
+    "lstLayers": "List<GangTagLayer>",
+    "fProgress": "float"
+  }
+}

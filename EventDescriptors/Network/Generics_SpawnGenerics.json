@@ -1,0 +1,9 @@
+{
+  "Type": "Network_ClientToServer_RemoteOnly",
+  "Parameters": {
+  	"genericName": "string",
+    "model": "string",
+    "amount": "int",
+    "price": "float"
+  }
+}

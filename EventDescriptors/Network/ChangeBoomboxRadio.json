@@ -1,0 +1,9 @@
+{
+  "Type": "Network_ClientToServer_RemoteOnly",
+  "Parameters":
+  {
+  	"worldItemObject": "ObjectType",
+  	"strStationName": "string",
+  	"a_RadioID" : "int"
+  }
+}

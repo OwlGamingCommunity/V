@@ -1,0 +1,41 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <OutputPath>..\..\Output\Debug\</OutputPath>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <OutputPath>..\..\Output\Release\</OutputPath>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="..\DiscordBotShared\JSONRequest.cs" Link="Shared\JSONRequest.cs" />
+    <Compile Include="..\DiscordBotShared\RequestResponse\RequestResponse_BiDirectionalAdminChat.cs" Link="RequestResponse\RequestResponse_BiDirectionalAdminChat.cs" />
+    <Compile Include="..\DiscordBotShared\RequestResponse\RequestResponse_GetDiscordUsernameFromID.cs" Link="RequestResponse\RequestResponse_GetDiscordUsernameFromID.cs" />
+    <Compile Include="..\DiscordBotShared\RequestResponse\RequestResponse_PushCommand.cs" Link="RequestResponse\RequestResponse_PushCommand.cs" />
+    <Compile Include="..\DiscordBotShared\RequestResponse\RequestResponse_PushDM.cs" Link="RequestResponse\RequestResponse_PushDM.cs" />
+    <Compile Include="..\DiscordBotShared\RequestResponse\RequestResponse_PushRawChannelMessage.cs" Link="RequestResponse\RequestResponse_PushRawChannelMessage.cs" />
+    <Compile Include="..\DiscordBotShared\RequestResponse\RequestResponse_UpdateBotStatus.cs" Link="RequestResponse\RequestResponse_UpdateBotStatus.cs" />
+    <Compile Include="..\DiscordBotShared\Shared.cs" Link="Shared\Shared.cs" />
+    <Compile Include="..\owl_shared\HTTPServer.cs" Link="Shared\HTTPServer.cs" />
+    <Compile Include="..\owl_shared\RestClient.cs" Link="Shared\RestClient.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Discord.Net.Core" Version="2.2.0" />
+    <PackageReference Include="Discord.Net.Rest" Version="2.2.0" />
+    <PackageReference Include="Discord.Net.WebSocket" Version="2.2.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Handlers\" />
+    <Folder Include="RequestResponse\" />
+    <Folder Include="Shared\" />
+  </ItemGroup>
+
+</Project>

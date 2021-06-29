@@ -1,0 +1,99 @@
+<html>
+<head>
+	<link href="../../owl_client_shared/bootstrap/bootstrap.min.legacy.css" rel="stylesheet">
+	<link href="../../owl_client_shared/core/core.css" rel="stylesheet">
+	<link href="../../owl_client_shared/core/menu.css" rel="stylesheet">
+	<link href="../../owl_client_shared/slider.css" rel="stylesheet">
+	<link href="../../owl_client_shared/animate.css" rel="stylesheet">
+	<script src="../../owl_client_shared/core/core.js"></script>
+	<script src="../../owl_client_shared/jquery.min.js"></script>
+	<script src="../../owl_client_shared/jquery-ui.min.js"></script>
+	<script src="../../owl_client_shared/vue.min.js"></script>
+	<script src="../../owl_client_shared/jscolor.min.js"></script>
+
+	<link href="package://owl_client_shared/bootstrap.min.legacy.css" rel="stylesheet">
+	<link href="package://owl_client_shared/core.css" rel="stylesheet">
+	<link href="package://owl_client_shared/menu.css" rel="stylesheet">
+	<link href="package://owl_client_shared/slider.css" rel="stylesheet">
+	<link href="package://owl_client_shared/animate.css" rel="stylesheet">
+	<script src="package://owl_client_shared//core.js"></script>
+	<script src="package://owl_client_shared//jquery.min.js"></script>
+	<script src="package://owl_client_shared//jquery-ui.min.js"></script>
+	<script src="package://owl_client_shared//vue.min.js"></script>
+	<script src="package://owl_client_shared//jscolor.min.js"></script>
+	
+	<script type="text/javascript">
+		let g_CurrentLicenseType = 0;
+		function SetCurrentLicenseType(type)
+		{
+			g_CurrentLicenseType = type;
+		}
+
+		function ExitLicenseDevice()
+		{
+			TriggerEvent("HideLicenseDevice");
+		}
+
+		function FinalizeLicenseDevice()
+		{
+			TriggerEvent("FinalizeLicenseDevice", document.getElementById("targetname").value, g_CurrentLicenseType);
+		}
+	</script>
+
+	<style type="text/css">
+
+		body {
+			background-color: transparent;
+		}
+
+		#input-frame {
+			margin: 0 auto;
+			position: absolute;
+			top: 45%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			width: 30%;
+			min-width: 500px;
+		}
+
+		.panel {
+			margin-bottom: 0;
+		}
+
+		.panel-body p {
+			margin-bottom: 0;
+		}
+	</style>
+
+</head>
+<body>
+
+	<div id="input-frame" class="text-center">
+	<div class="panel panel-default">
+			<div class="panel-heading">
+				<h4>PD Licensing Device</h4>
+			</div>
+			<div class="panel-body">
+				<br />
+				<h4><p>Licensee Full Name:</p></h4>
+				<input type='text' class='form-control' aria-describedby='basic-addon1' id='targetname' value=''>
+				<br>
+				<h4><p>License Type:</p></h4>
+				<form>
+					<div class="radio">
+						<label><input type="radio" name="radiotype" id="radio_tier1" checked="true" onclick="SetCurrentLicenseType(0);">Tier 1</label>
+					</div>
+					<div class="radio">
+						<label><input type="radio" name="radiotype" id="radio_tier2" onclick="SetCurrentLicenseType(1);">Tier 2</label>
+					</div>
+				</form>
+			</div>
+			<div class="btn-group btn-group-justified">
+				<a type='button' class='btn btn-danger' onclick="ExitLicenseDevice();">Exit</a>
+				<a type='button' class='btn btn-success' onclick="FinalizeLicenseDevice();">Finish</a>
+			</div>
+		</div>
+</div>
+
+</body>
+</html>

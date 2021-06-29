@@ -1,0 +1,96 @@
+.ioslist-wrapper {
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+    position: absolute;
+    width: 100%;
+}
+
+
+.ioslist-group-container {
+    margin: 0;
+    min-height: 1px;
+    overflow: hidden;
+    padding: 24px 0 0 0;
+    position: relative;
+}
+
+.ioslist-group-header, .ioslist-fake-header {
+    background: rgb(242, 242, 242);
+    border-bottom: 1px solid #989EA4;
+    border-top: 1px solid #717D85;
+    color: #000;
+    font: normal 16px/21px Helvetica, Arial, sans-serif;
+    font-weight: 500;
+    margin: 0;
+    padding: 2px 0 0 12px;
+    position: absolute;
+}
+
+.ioslist-group-header {
+    bottom: auto;
+    min-height: 1px;
+    top: 0;
+    width: 273px;
+}
+
+.ioslist-fake-header {
+    width: 273px;
+    z-index: 1000;
+}
+
+    .ioslist-fake-header.ioslist-hidden {
+        visibility: hidden;
+    }
+
+.ioslist-group-container.ioslist-animated .ioslist-group-header {
+    bottom: 0;
+    top: auto;
+}
+
+#contactsList {
+    height: 91%;
+    overflow: auto;
+    position: relative;
+    width: 250px;
+    zoom: 1;
+    background: #FFF;
+    background-size: cover;
+    border-bottom: 1px solid #000;
+}
+
+::-webkit-scrollbar {
+    display: none; /* Chrome Safari */
+}
+
+.ioslist ul, .ioslist dl {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.ioslist li, .ioslist dt {
+    font: normal 14px/45px Helvetica, Arial, sans-serif;
+    margin: 0;
+    padding: 0 0 0 12px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.ioslist li:hover {
+    background: rgb(242, 242, 242);
+    cursor: pointer;
+}
+
+.ioslist li + li, .ioslist dd + dt {
+    border-top: 1px solid #CCC;
+}
+
+.ioslist dd {
+    padding: 0 12px;
+}
+
+[data-ios="true"] .ioslist-group-header,
+[data-ios="true"] .ioslist-fake-header {
+    width: 288px; /*scrollbars aren't visible in iOS devices, so make the headers wider */
+}

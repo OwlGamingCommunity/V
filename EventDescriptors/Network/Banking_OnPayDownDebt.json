@@ -1,0 +1,10 @@
+{
+  "Type": "Network_ClientToServer_RemoteOnly",
+  "Parameters": {
+  	"CreditSource": "EPurchaserType",
+  	"CreditSourceID": "Int64",
+  	"CreditType": "ECreditType",
+  	"ID": "Int64",
+  	"fAmount": "float"
+  }
+}

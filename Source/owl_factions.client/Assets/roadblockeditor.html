@@ -1,0 +1,167 @@
+<html>
+<head>
+
+	<link href="../../owl_client_shared/bootstrap/bootstrap.min.css" rel="stylesheet">
+	<link href="../../owl_client_shared/core/core.css" rel="stylesheet">
+	<link href="../../owl_client_shared/core/menu.css" rel="stylesheet">
+	<link href="../../owl_client_shared/slider.css" rel="stylesheet">
+	<link href="../../owl_client_shared/animate.css" rel="stylesheet">
+	<script src="../../owl_client_shared/core/core.js"></script>
+	<script src="../../owl_client_shared/jquery.min.js"></script>
+	<script src="../../owl_client_shared/jquery-ui.min.js"></script>
+	<script src="../../owl_client_shared/vue.min.js"></script>
+	<script src="../../owl_client_shared/jscolor.min.js"></script>
+
+	<link href="package://owl_client_shared/bootstrap.min.css" rel="stylesheet">
+	<link href="package://owl_client_shared/core.css" rel="stylesheet">
+	<link href="package://owl_client_shared/menu.css" rel="stylesheet">
+	<link href="package://owl_client_shared/slider.css" rel="stylesheet">
+	<link href="package://owl_client_shared/animate.css" rel="stylesheet">
+	<script src="package://owl_client_shared//core.js"></script>
+	<script src="package://owl_client_shared//jquery.min.js"></script>
+	<script src="package://owl_client_shared//jquery-ui.min.js"></script>
+	<script src="package://owl_client_shared//vue.min.js"></script>
+	<script src="package://owl_client_shared//jscolor.min.js"></script>
+
+	<script type="text/javascript">
+		var roadblock_types = [];
+
+
+		function AddDebugData()
+		{
+			AddRoadblockType(0, "Test 1");
+			AddRoadblockType(1, "Test 2");
+			AddRoadblockType(2, "Test 3");
+			CommitRoadblockTypes();
+		}
+
+		function Hide()
+		{
+			TriggerEvent("RoadblockEditor_Hide");
+		}
+
+
+		function PlaceRoadblock()
+		{
+			var value = document.getElementById("roadblock_listbox").value;
+			TriggerEvent("RoadblockEditor_PlaceRoadblock", value);
+		}
+
+		function SortByDisplayName(a, b)
+		{
+			return a["display_name"] > b["display_name"];
+		}
+
+		function AddRoadblockType(id, display_name)
+		{
+			var insert_id = roadblock_types.length;
+			roadblock_types[insert_id] = [];
+			roadblock_types[insert_id]["id"] = id;
+			roadblock_types[insert_id]["display_name"] = display_name;
+		}
+
+		function CommitRoadblockTypes()
+		{
+			roadblock_types.sort(SortByDisplayName);
+
+			var html = `<select id="roadblock_listbox" class="form-control" multiple>`;
+
+            if (roadblock_types.length > 0)
+            {
+                for (var i = 0; i < roadblock_types.length; ++i)
+			    {
+				    html += `<option value="${roadblock_types[i]["id"]}">${roadblock_types[i]["display_name"]}</option>`;
+			    }
+
+			    html += `</select>`;
+			    document.getElementById("roadblock_list").innerHTML = html;
+            }
+            else
+            {
+                document.getElementById("roadblock_list").innerHTML = "There are no roadblock types available.";
+            }
+
+			roadblock_types = [];
+		}
+
+	</script>
+
+	<style type="text/css">
+		body {
+			background-color: transparent;
+		}
+
+		.bottom-center-box-upper {
+			position: fixed;
+			right: 85px;
+			bottom: 100px
+		}
+
+		.bottom-center-box {
+			position: fixed;
+			right: 25px;
+			bottom: 60px
+		}
+
+		.bottom-center-box-lower {
+			position: fixed;
+			right: 80px;
+			bottom: 20px
+		}
+
+		#box-left {
+			left: 25px;
+			position: fixed;
+			top: 40%;
+			transform: translateY(-40%);
+			width: 320px;
+		}
+
+		#vehicle_listbox {
+			margin-bottom: 15px;
+		}
+
+
+		.dropdown-menu > li > a {
+			padding: 7.5px 15px;
+		}
+
+		#box-right {
+			position: fixed;
+			right: 25px;
+			top: 40%;
+			transform: translateY(-40%);
+			width: 320px;
+		}
+
+		tr {
+			text-align: right;
+		}
+
+
+		#error_text:empty {
+			display: none;
+		}
+
+		#error_text {
+			color: #FF0000;
+		}
+	</style>
+</head>
+<body>
+
+    <div id="box-left">
+
+		<div class="card">
+			<div class="card-header"><h4 class="card-title">Roadblock Type</h4></div>
+			<br />
+			<span id="roadblock_list">
+			</span>
+		</div>
+
+		<button type="button" class="btn btn-success btn-block" id="button_placeroadblock" onclick='PlaceRoadblock();'>Place Roadblock</button>
+		<button type="button" class="btn btn-danger btn-block" id="exitbutton" onclick='Hide();'>Exit</button>
+
+    </div>
+</body>
+</html>

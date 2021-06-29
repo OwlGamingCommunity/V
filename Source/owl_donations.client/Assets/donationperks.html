@@ -1,0 +1,651 @@
+<html>
+<head>
+	<link href="../../owl_client_shared/bootstrap/bootstrap.min.legacy.css" rel="stylesheet">
+	<link href="../../owl_client_shared/core/core.css" rel="stylesheet">
+	<link href="../../owl_client_shared/core/menu.css" rel="stylesheet">
+	<link href="../../owl_client_shared/slider.css" rel="stylesheet">
+	<link href="../../owl_client_shared/animate.css" rel="stylesheet">
+	<script src="../../owl_client_shared/core/core.js"></script>
+	<script src="../../owl_client_shared/jquery.min.js"></script>
+	<script src="../../owl_client_shared/jquery-ui.min.js"></script>
+	<script src="../../owl_client_shared/vue.min.js"></script>
+	<script src="../../owl_client_shared/jscolor.min.js"></script>
+
+	<link href="package://owl_client_shared/bootstrap.min.legacy.css" rel="stylesheet">
+	<link href="package://owl_client_shared/core.css" rel="stylesheet">
+	<link href="package://owl_client_shared/menu.css" rel="stylesheet">
+	<link href="package://owl_client_shared/slider.css" rel="stylesheet">
+	<link href="package://owl_client_shared/animate.css" rel="stylesheet">
+	<script src="package://owl_client_shared//core.js"></script>
+	<script src="package://owl_client_shared//jquery.min.js"></script>
+	<script src="package://owl_client_shared//jquery-ui.min.js"></script>
+	<script src="package://owl_client_shared//vue.min.js"></script>
+	<script src="package://owl_client_shared//jscolor.min.js"></script>
+
+	<script type="text/javascript">
+		const numPerPage = 5;
+
+		function HideAll()
+		{
+			document.getElementById("purchase_perks").style.display = "none";
+			document.getElementById("perk_inventory").style.display = "none";
+            document.getElementById("active_perks").style.display = "none";
+            document.getElementById("perk_inactivity").style.display = "none";
+
+			$("#btn_purchaseperks").removeClass("btn-info").addClass("btn-default");
+			$("#btn_perkinventory").removeClass("btn-info").addClass("btn-default");
+            $("#btn_activeperks").removeClass("btn-info").addClass("btn-default");
+            $("#btn_inactivity").removeClass("btn-info").addClass("btn-default");
+        }
+
+        function OnChangeInactivityType(type)
+        {
+            TriggerEvent("Donation_ChangeInactivityType", type);
+        }
+
+		function CloseDonations()
+		{
+			TriggerEvent("CloseDonations");
+		}
+
+		function PurchaseGC()
+		{
+			TriggerEvent("PurchaseGC");
+        }
+
+        function PurchaseInactivityProtection()
+        {
+            TriggerEvent("PurchaseInactivityProtection");
+        }
+
+		///////////////////////////////////////////////////////////////
+		// ACTIVE PERKS
+		///////////////////////////////////////////////////////////////
+		function GotoActivePerks()
+		{
+			HideAll();
+			document.getElementById("perks").style.display = "block";
+			$("#btn_activeperks").addClass("btn-info");
+		}
+
+		var arrActivePerks = [];
+		function AddActivePerk(purchaseable_id, time_applied, expire_time, target)
+		{
+			var newItem = [];
+			newItem["purchaseable_id"] = purchaseable_id;
+			newItem["time_applied"] = time_applied;
+			newItem["expire_time"] = expire_time;
+			newItem["target"] = target;
+			arrActivePerks.push(newItem);
+		}
+
+		function pad(n)
+		{
+			return n < 10 ? '0' + n : n;
+		}
+
+		function GetDescriptorFromPurchaseableID(id)
+		{
+			for (var j = 0; j < arrDonationDescriptors.length; ++j)
+			{
+				if (arrDonationDescriptors[j].id == id)
+				{
+					return arrDonationDescriptors[j];
+					break;
+				}
+			}
+
+			return null;
+		}
+
+		function GotoActivePerksPage(page)
+		{
+			var start = page * numPerPage;
+			var end = start + numPerPage;
+
+			// clamp
+			if (end >= arrActivePerks.length)
+			{
+				end = arrActivePerks.length;
+			}
+
+			var numPages = Math.ceil(arrActivePerks.length / numPerPage);
+			var html_string = `<table class="table"><thead><tr><th>Name</th><th>Description</th><th>Activated</th><th>Expires</th><th>Applied To</th></tr></thead><tbody>`;
+
+			for (var i = start; i < end; ++i)
+			{
+				var purchaseable_id = arrActivePerks[i]["purchaseable_id"];
+				var time_applied = new Date(arrActivePerks[i]["time_applied"] * 1000);
+				var expire_time = new Date(arrActivePerks[i]["expire_time"] * 1000);
+				var target = arrActivePerks[i]["target"];
+
+				var descriptor = GetDescriptorFromPurchaseableID(purchaseable_id);
+				if (descriptor != null)
+				{
+					var name = descriptor["name"];
+					var description = descriptor["description"];
+					var type = descriptor["type"];
+
+					var applied_to_string = (target == -1) ? "Account" : target;
+
+
+					var time_applied_string = pad(time_applied.getMonth() + 1) + "/" + pad(time_applied.getDate()) + "/" + time_applied.getFullYear();
+					var expire_time_string = pad(expire_time.getMonth() + 1) + "/" + pad(expire_time.getDate()) + "/" + expire_time.getFullYear();
+
+					if (arrActivePerks[i]["expire_time"] == -1)
+					{
+						expire_time_string = "Never";
+					}
+					else if (arrActivePerks[i]["expire_time"] == -2)
+					{
+						expire_time_string = "On Use";
+					}
+
+					html_string += `<tr><td>${name}</td><td>${description}</td><td>${time_applied_string}</td><td>${expire_time_string}</td><td>${applied_to_string}</td></tr>`;
+				}
+			}
+			html_string += `</tbody></table> <ul class="pagination">`;
+
+			//pagination
+			for (var i = 0; i < numPages; ++i)
+			{
+				html_string += `<li><a href="#" onclick='GotoActivePerksPage(${i});'>${i + 1}</a></li>`;
+			}
+			html_string += `</ul>`;
+
+			document.getElementById("perks").innerHTML = html_string;
+		}
+		///////////////////////////////////////////////////////////////
+		// END PERK INVENTORY
+		///////////////////////////////////////////////////////////////
+
+		///////////////////////////////////////////////////////////////
+		// PERK INVENTORY
+		///////////////////////////////////////////////////////////////
+		function GotoPerkInventory()
+		{
+			HideAll();
+			document.getElementById("perk_inventory").style.display = "block";
+			$("#btn_perkinventory").addClass("btn-info");
+		}
+
+		var arrPerkInventory = [];
+		function AddPerkInventoryItem(dbid, purchaseable_id)
+		{
+			var newItem = [];
+			newItem["dbid"] = dbid;
+			newItem["purchaseable_id"] = purchaseable_id;
+			arrPerkInventory.push(newItem);
+		}
+
+		function ConsumePerk(index)
+		{
+			var dbid = arrPerkInventory[index]["dbid"];
+			TriggerEvent("ConsumeDonationPerk", dbid);
+        }
+
+        function GetDonationTypeString(type)
+        {
+            if (type == 0)
+            {
+                return "Account";
+            }
+            else if (type == 1)
+            {
+                return "Character";
+            }
+            else if (type == 2)
+            {
+                return "Vehicle";
+            }
+            else if (type == 3)
+            {
+                return "Property";
+            }
+
+            return "Unknown";
+        }
+
+		function GotoPerkInventoryPage(page)
+		{
+			var start = page * numPerPage;
+			var end = start + numPerPage;
+
+			// clamp
+			if (end >= arrPerkInventory.length)
+			{
+				end = arrPerkInventory.length;
+			}
+
+			var numPages = Math.ceil(arrPerkInventory.length / numPerPage);
+			var html_string = `<table class="table"><thead><tr><th>Name</th><th>Description</th><th>Type</th><th>Duration</th><th>Consume</th></tr></thead><tbody>`;
+
+			for (var i = start; i < end; ++i)
+			{
+				var purchasable_id = arrPerkInventory[i]["purchaseable_id"];
+
+				var descriptor = GetDescriptorFromPurchaseableID(purchasable_id);
+				if (descriptor != null)
+				{
+					var name = descriptor["name"];
+					var description = descriptor["description"];
+					var type = descriptor["type"];
+                    var type_string = GetDonationTypeString(type);
+					var duration = descriptor["duration"];
+					var duration_string = `${duration} days`;
+
+					if (duration == -1)
+					{
+						duration_string = "Permanent";
+					}
+					else if (duration == -2)
+					{
+						duration_string = "Consumes On Use";
+					}
+
+					// TODO: enum rather than string?
+                    var consume_string = (type_string == "Account") ? "Apply to Account" : "Apply to  Current Character";
+
+					html_string += `<tr><td>${name}</td><td>${description}</td><td>${type_string}</td><td>${duration_string}</td><td><button type="button" class="btn btn-success" id="btn_purchaseperks" onclick="ConsumePerk(${i});">${consume_string}</button></td></tr>`;
+				}
+			}
+			html_string += `</tbody></table> <ul class="pagination">`;
+
+			//pagination
+			for (var i = 0; i < numPages; ++i)
+			{
+				html_string += `<li><a href="#" onclick='GotoPerkInventoryPage(${i});'>${i + 1}</a></li>`;
+			}
+			html_string += `</ul>`;
+
+			document.getElementById("inventory").innerHTML = html_string;
+		}
+		///////////////////////////////////////////////////////////////
+		// END PERK INVENTORY
+		///////////////////////////////////////////////////////////////
+
+		///////////////////////////////////////////////////////////////
+		// PURCHASE PERKS
+		///////////////////////////////////////////////////////////////
+		function GotoPurchasePerks()
+		{
+			HideAll();
+			document.getElementById("purchase_perks").style.display = "block";
+			$("#btn_purchaseperks").addClass("btn-info");
+		}
+
+		function GotoActivePerks()
+		{
+			HideAll();
+			document.getElementById("active_perks").style.display = "block";
+			$("#btn_activeperks").addClass("btn-info");
+        }
+
+        function GotoInactivity()
+		{
+			HideAll();
+			document.getElementById("perk_inactivity").style.display = "block";
+			$("#btn_inactivity").addClass("btn-info");
+        }
+
+		var arrDonationPurchasablesActive = [];
+		var arrDonationDescriptors = [];
+		function AddDonationPurchasable(id, name, description, type, price, duration, unique, active)
+		{
+			var newItem = [];
+			newItem["id"] = id;
+			newItem["name"] = name;
+			newItem["description"] = description;
+			newItem["type"] = type;
+			newItem["price"] = price;
+			newItem["duration"] = duration;
+			newItem["unique"] = unique;
+			newItem["active"] = active;
+			arrDonationDescriptors.push(newItem);
+
+			if (active)
+			{
+				arrDonationPurchasablesActive.push(newItem);
+			}
+		}
+
+		function PurchasePerk(id)
+		{
+			TriggerEvent("PurchaseDonationPerk", id);
+        }
+
+		function Reset()
+		{
+			arrDonationDescriptors = [];
+			arrDonationPurchasablesActive = [];
+			arrPerkInventory = [];
+			arrActivePerks = [];
+			SetGCBalance("Loading...");
+		}
+
+		function GotoPurchasePerkPage(page)
+		{
+			var start = page * numPerPage;
+			var end = start + numPerPage;
+
+			// clamp
+			if (end >= arrDonationPurchasablesActive.length)
+			{
+				end = arrDonationPurchasablesActive.length;
+			}
+
+			var numPages = Math.ceil(arrDonationPurchasablesActive.length / numPerPage);
+			var html_string = `<table class="table"><thead><tr><th>Name</th><th>Description</th><th>Type</th><th>Duration</th><th>Limit</th><th>Price</th><th></th></tr></thead><tbody>`;
+
+			for (var i = start; i < end; ++i)
+            {
+                var id = arrDonationPurchasablesActive[i]["id"];
+				var name = arrDonationPurchasablesActive[i]["name"];
+				var description = arrDonationPurchasablesActive[i]["description"];
+				var type = arrDonationPurchasablesActive[i]["type"];
+				var type_string = GetDonationTypeString(type);
+				var price = arrDonationPurchasablesActive[i]["price"];
+				var duration = arrDonationPurchasablesActive[i]["duration"];
+                var duration_string = `${duration} days`;
+                var buy_string = "Buy";
+                var buy_function = "PurchasePerk";
+
+				if (duration == -1)
+				{
+					duration_string = "Permanent";
+				}
+				else if (duration == -2)
+				{
+					duration_string = "Consumes On Use";
+				}
+
+				var unique = arrDonationPurchasablesActive[i]["unique"];
+				var unique_string = "Unlimited";
+
+				if (unique)
+				{
+					if (type == 0)
+					{
+						unique_string = "Once per account";
+					}
+					else
+					{
+						unique_string = "Once per character";
+					}
+				}
+
+				html_string += `<tr><td>${name}</td><td>${description}</td><td>${type_string}</td><td>${duration_string}</td><td>${unique_string}</td><td>${price} GC</td><td><button type="button" class="btn btn-success" id="btn_purchaseperks" onclick="${buy_function}(${id});">${buy_string}</button></td></tr>`;
+			}
+			html_string += `</tbody></table> <ul class="pagination">`;
+
+			//pagination
+			for (var i = 0; i < numPages; ++i)
+			{
+				html_string += `<li><a href="#" onclick='GotoPurchasePerkPage(${i});'>${i + 1}</a></li>`;
+			}
+			html_string += `</ul>`;
+
+			document.getElementById("purchasables").innerHTML = html_string;
+		}
+		///////////////////////////////////////////////////////////////
+		// END PURCHASE PERKS
+		///////////////////////////////////////////////////////////////
+
+		function CommitData()
+		{
+			GotoPurchasePerkPage(0);
+			GotoPerkInventoryPage(0);
+			GotoActivePerksPage(0);
+		}
+
+		function RemoveFromPerkInventory(index)
+		{
+			arrPerkInventory.splice(index, 1);
+		}
+
+		function Refresh()
+		{
+			CommitData();
+		}
+
+		function AddDebugData()
+		{
+			AddDonationPurchasable(0, "No Property Tax", "All characters pay 0% property tax", "Account", 5, 5, true);
+			AddDonationPurchasable(1, "No Vehicle Tax", "All characters pay 0% vehicle tax", "Account", 10, -1, true);
+			AddDonationPurchasable(2, "No Sales Tax", "All characters pay 0% sales tax", "Account", 15, -1, true);
+			AddDonationPurchasable(3, "Instant 15 Hours", "One character gets 15 hours play time instantly", "Character", 20, -1, true);
+			AddDonationPurchasable(4, "Instant 20 Hours", "One character gets 20 hours play time instantly", "Character", 20, -1, true);
+			AddDonationPurchasable(5, "Instant 25 Hours", "One character gets 25 hours play time instantly", "Character", 20, -1, true);
+			AddDonationPurchasable(6, "Golden Nametag", "Flaunt your wealth with a gold nametag!", "Account", 25, -1, true);
+
+			AddPerkInventoryItem(0);
+			AddPerkInventoryItem(1);
+			AddPerkInventoryItem(5);
+			AddPerkInventoryItem(5);
+			AddPerkInventoryItem(5);
+			AddPerkInventoryItem(6);
+
+			AddActivePerk(1, "Today", "29 days", "Account");
+			AddActivePerk(6, "5 days ago", "4 hours", "Character One");
+
+			AddActivePerk(6, "5 days ago", "4 hours", "Character One");
+			AddActivePerk(6, "5 days ago", "4 hours", "Character One");
+			AddActivePerk(6, "5 days ago", "4 hours", "Character One");
+			AddActivePerk(6, "5 days ago", "4 hours", "Character One");
+			AddActivePerk(6, "5 days ago", "4 hours", "Character One");
+            AddActivePerk(6, "5 days ago", "4 hours", "Character One");
+			CommitData();
+
+			GotoActivePerks();
+		}
+
+		function SetGCBalance(amount)
+		{
+			document.getElementById("gc_balance").textContent = amount;
+        }
+
+        function SetInactivityEntityType(text)
+        {
+            $("#dropdownClass_Type").text(text);
+            $("#dropdownClass_Type").val(text);
+        }
+
+        function SetInactivityEntity(text)
+        {
+            $("#dropdownClass_Entity").text(text);
+            $("#dropdownClass_Entity").val(text);
+        }
+
+        function OnSelectInactivityEntity(id)
+        {
+            TriggerEvent("Donation_ChangeInactivityEntity", id);
+        }
+
+        function ClearInactivityEntities()
+        {
+            document.getElementById("inactivity_entities").innerHTML = ``;
+            document.getElementById("dropdownClass_Entity").innerHTML = `Select Entity<span class="caret"></span>`;
+        }
+
+        function AddInactivityEntity(id, name)
+        {
+            document.getElementById("inactivity_entities").innerHTML += `<li><a href='#'' onclick='OnSelectInactivityEntity(${id}); SetInactivityEntity("${name}");'>${name}</a></li>`;
+        }
+
+        function SetInactivityEntitiesEmpty()
+        {
+            document.getElementById("inactivity_entities").innerHTML = `<li><a>None</a></li>`;
+        }
+
+        function DecementInactivityLength()
+        {
+            var step = 7;
+            var limit = 7;
+
+            var value = Number(document.getElementById("inactivity_length").innerHTML);
+
+            if (value - step >= limit)
+            {
+                document.getElementById("inactivity_length").innerHTML = value - step;
+            }
+        }
+
+        function IncrementInactivityLength()
+        {
+            var step = 7;
+            var limit = 182;
+
+            var value = Number(document.getElementById("inactivity_length").innerHTML);
+
+            if (value + step <= limit)
+            {
+                document.getElementById("inactivity_length").innerHTML = value + step;
+            }
+        }
+
+        function UpdateInactivityLength()
+        {
+            var inactivity_length = Number(document.getElementById("inactivity_length").innerHTML);
+            TriggerEvent("Donation_ChangeInactivityLength", inactivity_length);
+        }
+
+        function SetInactivityGCCost(cost)
+        {
+            document.getElementById("inactivity_cost").innerHTML = `= ${cost} GC`;
+        }
+	</script>
+
+	<style type="text/css">
+
+		body {
+			background-color: transparent;
+		}
+
+		#donation-box {
+			width: 800px;
+			margin-left: 2%;
+			vertical-align: middle;
+			position: relative;
+			top: 45%;
+			left: 45%;
+			transform: translate(-50%, -50%);
+		}
+
+		.panel {
+			margin-bottom: 0;
+		}
+
+		.panel-body p {
+			margin-bottom: 0;
+		}
+	</style>
+
+</head>
+<body>
+
+    <div id="donation-box" class="text-center">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4>Donations</h4>
+                <br>
+                <p><strong>Current GC Balance: </strong><span id="gc_balance"></span></p>
+                <button type="button" class="btn btn-success" id="btn_purchasegc" onclick="PurchaseGC();">Get More</button>
+
+
+            </div>
+        </div>
+        <br>
+
+        <div class="btn-group">
+            <button type="button" class="btn btn-info" id="btn_purchaseperks" onclick="GotoPurchasePerks();">Purchase Perks</button>
+            <button type="button" class="btn btn-default" id="btn_perkinventory" onclick="GotoPerkInventory();">Perk Inventory</button>
+            <button type="button" class="btn btn-default" id="btn_activeperks" onclick="GotoActivePerks();">Active Perks</button>
+            <button type="button" class="btn btn-default" id="btn_inactivity" onclick="GotoInactivity();">Inactivity Protections</button>
+        </div>
+
+        <div id="purchase_perks" style="display:block">
+            <div class="panel panel-info">
+                <div class="panel-heading">Purchase Perks</div>
+                <div class="panel-body" id="purchasables">
+
+                </div>
+            </div>
+        </div>
+
+        <div id="perk_inventory" style="display:none">
+            <div class="panel panel-info">
+                <div class="panel-heading">Perk Inventory</div>
+                <div class="panel-body">
+                    <div class="panel-body" id="inventory">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="active_perks" style="display:none">
+            <div class="panel panel-info">
+                <div class="panel-heading">Active Perks</div>
+                <div class="panel-body">
+                    <div class="panel-body" id="perks">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="perk_inactivity" style="display:none">
+            <div class="panel panel-info">
+                <div class="panel-heading">Inactivity Protection</div>
+				<div class="panel-body">
+					NOTE: Properties which are world interiors (e.g. walk in interiors) will not show due to being exempt from inactivity.
+					<br><br>
+					<div class="row">
+						<div class="panel-body" id="perk_inactivity_body">
+							<div class="btn-group">
+								<button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" id="dropdownClass_Type">Select Type<span class="caret"></span></button>
+								<ul class="dropdown-menu" role="menu" id="inactivity_types">
+									<li><a onclick='OnChangeInactivityType(0); SetInactivityEntityType("Property");'>Property</a></li>
+									<li><a onclick='OnChangeInactivityType(1); SetInactivityEntityType("Vehicle");'>Vehicle</a></li>
+								</ul>
+							</div>
+
+
+							<div class="btn-group">
+								<button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" id="dropdownClass_Entity">
+									Select Entity<span class="caret"></span>
+								</button>
+								<ul class="dropdown-menu" role="menu" id="inactivity_entities">
+									<li><a>Select a Type First</a></li>
+								</ul>
+							</div>
+						</div>
+
+					</div>
+					<div class="row">
+						<div align="center" class="col-sm-4">
+							<br />
+						</div>
+						<div align="center" class="col-sm-4">
+							<h5>Number of Days</h5>
+							<div class="btn-group btn-group-justified" role="group" aria-label="...">
+								<a class="btn btn-default" onclick="DecementInactivityLength(); UpdateInactivityLength();">-</a>
+								<a class="btn btn-default"><span id="inactivity_length">7</span></a>
+								<a class="btn btn-default" onclick="IncrementInactivityLength(); UpdateInactivityLength();">+</a>
+							</div>
+						</div>
+					</div>
+					<br />
+					<span id="inactivity_cost">  0 GC</span>
+					<br />
+					<button type="button" class="btn btn-success" id="btn_purchaseinactivityprotection" onclick="PurchaseInactivityProtection();">Purchase Protection</button>
+
+				</div>
+            </div>
+        </div>
+
+        <br />
+        <button type="button" class="btn btn-danger" id="btn_closedonations" onclick="CloseDonations();">Close</button>
+    </div>
+</body>
+</html>

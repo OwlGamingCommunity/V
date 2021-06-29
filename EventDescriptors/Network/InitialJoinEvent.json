@@ -1,0 +1,13 @@
+{
+  "Type": "Network_ServerToClient_RemoteOnly",
+  "Parameters": {
+    "day": "int",
+    "month": "int",
+    "year": "int",
+    "hour": "int",
+    "min": "int",
+    "sec": "int",
+    "weather": "int",
+    "bIsDebug": "bool"
+  }
+}

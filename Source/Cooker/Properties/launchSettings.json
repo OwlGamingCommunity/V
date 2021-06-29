@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "Cooker": {
+      "commandName": "Project",
+      "commandLineArgs": "-BuildConfig=\"$(ConfigurationName)\""
+    }
+  }
+}

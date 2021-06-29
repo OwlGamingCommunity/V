@@ -1,0 +1,12 @@
+{
+  "Files": [
+  	{
+      // 11.0.2
+      "Name": "Newtonsoft.Json.dll",
+      "Type": "ServerDependency"
+    }
+  ],
+  "ExportedFunctions":
+  [
+  ]
+}

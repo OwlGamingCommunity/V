@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RuleSet Name="OwlV Rules" Description="This rule set contains all OwlV Code Analysis rules" ToolsVersion="10.0">
+  <Localization ResourceAssembly="Microsoft.VisualStudio.CodeAnalysis.RuleSets.Strings.dll" ResourceBaseName="Microsoft.VisualStudio.CodeAnalysis.RuleSets.Strings.Localized">
+    <Name Resource="OwlVRules_Name" />
+    <Description Resource="OwlVRules_Description" />
+  </Localization>
+  <Rules AnalyzerId="Microsoft.Analyzers.ManagedCodeAnalysis" RuleNamespace="Microsoft.Rules.Managed">
+    <Rule Id="CA1707" Action="None" /> <!-- underscore in var name -->
+    <Rule Id="CA1304" Action="None" /> <!-- locale support for ToLower functions -->
+    <Rule Id="CA1305" Action="None" /> <!-- locale support for Convert functions -->
+    <Rule Id="CA1307" Action="None" /> <!-- locale support for Replace functions -->
+    <Rule Id="CA1822" Action="None" /> <!-- member function does not access instance data and can be marked static -->
+    <Rule Id="CA1819" Action="None" /> <!-- properties should not return arrays -->
+    <Rule Id="CA1801" Action="None" /> <!-- unused params -->
+    <Rule Id="CA1823" Action="None" /> <!-- unused fields -->
+    <Rule Id="CA2211" Action="None" /> <!-- non-constant fields should never be visible -->
+    <Rule Id="CA1724" Action="None" /> <!-- class name conflicts with part of a dotnet class (e.g. Core) -->
+    <Rule Id="CA1030" Action="None" /> <!-- Consider making 'x' an event (based on name having a keyword like Fire) -->
+    <Rule Id="CA1812" Action="None" /> <!-- is an internal class that is apparently never instantiated. If so, remove the code from the assembly. If this class is intended to contain only static members, make it static (basically flags everything deserialized) -->
+    <Rule Id="CA1717" Action="None" /> <!-- don't force FLAGS for plural named enums since it creates a bitfield/creates hard to track down bugs when used incorrectly -->
+    <Rule Id="CA2227" Action="None" /> <!-- allow get and set properties, JSON (de)serialization requires it -->
+  </Rules>
+</RuleSet>

@@ -1,0 +1,409 @@
+{
+  "Files": [
+    {
+      "Name": "OwlScriptManager.Client.cs",
+      "Type": "ClientScript"
+    },
+    {
+      "Name": "OptimizationCachePool.Client.cs",
+      "Type": "ClientScript"
+    },
+    {
+      "Name": "Island.Client.cs",
+      "Type": "ClientScript"
+    },
+    {
+      "Name": "KeyBinds.Client.cs",
+      "Type": "ClientScript"
+    },
+    {
+      "Name": "Cursor.Client.cs",
+      "Type": "ClientScript"
+    },
+    {
+      "Name": "CameraManager.Client.cs",
+      "Type": "ClientScript"
+    },
+    {
+      "Name": "ScreenFadeHelper.Client.cs",
+      "Type": "ClientScript"
+    },
+    {
+      "Name": "GangTagPool.Client.cs",
+      "Type": "ClientScript"
+    },
+    {
+      "Name": "ExceptionHelper.Client.cs",
+      "Type": "ClientScript"
+    },
+    {
+      "Name": "OwlJSON.Client.cs",
+      "Type": "ClientScript"
+    },
+    {
+      "Name": "DebugHelper.Client.cs",
+      "Type": "ClientScript"
+    },
+    {
+      "Name": "TrainManager.Client.cs",
+      "Type": "ClientScript"
+    },
+    {
+      "Name": "CClientTrain.Client.cs",
+      "Type": "ClientScript"
+    },
+    {
+      "Name": "MapLoader.Client.cs",
+      "Type": "ClientScript"
+    },
+    {
+      "Name": "CharacterCreationData.Client.cs",
+      "Type": "ClientScript"
+    },
+    {
+      "Name": "DiscordManager.Client.cs",
+      "Type": "ClientScript"
+    },
+    {
+      "Name": "VectorExtensions.Client.cs",
+      "Type": "ClientScript"
+    },
+    {
+      "Name": "PDRenderTargets.Client.cs",
+      "Type": "ClientScript"
+    },
+    {
+      "Name": "SerializationDefinitions.Client.cs",
+      "Type": "ClientScript"
+    },
+    {
+      "Name": "Christmas.Client.cs",
+      "Type": "ClientScript"
+    },
+    {
+      "Name": "Halloween.Client.cs",
+      "Type": "ClientScript"
+    },
+    {
+      "Name": "Nametags.Client.cs",
+      "Type": "ClientScript"
+    },
+    {
+      "Name": "EventManager.Client.cs",
+      "Type": "ClientScript"
+    },
+    {
+      "Name": "PerfManager.Client.cs",
+      "Type": "ClientScript"
+    },
+    {
+      "Name": "NetworkEventIDs.cs",
+      "Type": "ClientScript"
+    },
+    {
+      "Name": "UIEventIDs.Client.cs",
+      "Type": "ClientScript"
+    },
+    {
+      "Name": "EventManager.Definitions.Client.cs",
+      "Type": "ClientScript"
+    },
+    {
+      "Name": "CEFCore.Client.cs",
+      "Type": "ClientScript"
+    },
+    {
+      "Name": "ClientTimer.Client.cs",
+      "Type": "ClientScript"
+    },
+    {
+      "Name": "TextHelper.Client.cs",
+      "Type": "ClientScript"
+    },
+    {
+      "Name": "TaskManager.Client.cs",
+      "Type": "ClientScript"
+    },
+    {
+      "Name": "WorldHelper.Client.cs",
+      "Type": "ClientScript"
+    },
+    {
+      "Name": "ChatHelper.Client.cs",
+      "Type": "ClientScript"
+    },
+    {
+      "Name": "ShardManager.Client.cs",
+      "Type": "ClientScript"
+    },
+    {
+      "Name": "HUD.Client.cs",
+      "Type": "ClientScript"
+    },
+    {
+      "Name": "NotificationManager.Client.cs",
+      "Type": "ClientScript"
+    },
+    {
+      "Name": "VehicleHUD.Client.cs",
+      "Type": "ClientScript"
+    },
+    {
+      "Name": "WeaponSelector.Client.cs",
+      "Type": "ClientScript"
+    },
+    {
+      "Name": "CGUIHUD.Client.cs",
+      "Type": "ClientScript"
+    },
+    {
+      "Name": "CGUINotifications.Client.cs",
+      "Type": "ClientScript"
+    },
+    {
+      "Name": "WorldPedManager.Client.cs",
+      "Type": "ClientScript"
+    },
+    {
+      "Name": "AsyncModelLoader.Client.cs",
+      "Type": "ClientScript"
+    },
+    {
+      "Name": "AsyncAnimLoader.Client.cs",
+      "Type": "ClientScript"
+    },
+    {
+      "Name": "ControlHelper.Client.cs",
+      "Type": "ClientScript"
+    },
+    {
+      "Name": "HUDHelper.Client.cs",
+      "Type": "ClientScript"
+    },
+    {
+      "Name": "WorldHintManager.Client.cs",
+      "Type": "ClientScript"
+    },
+    {
+      "Name": "UserInputHelper.Client.cs",
+      "Type": "ClientScript"
+    },
+    {
+      "Name": "CGUIKeyBindManager.Client.cs",
+      "Type": "ClientScript"
+    },
+    {
+      "Name": "PlayerKeyBindManager.Client.cs",
+      "Type": "ClientScript"
+    },
+    {
+      "Name": "GenericMessageBox.Client.cs",
+      "Type": "ClientScript"
+    },
+    {
+      "Name": "GenericUserLoginBox.Client.cs",
+      "Type": "ClientScript"
+    },
+    {
+      "Name": "GenericProgressBar.Client.cs",
+      "Type": "ClientScript"
+    },
+    {
+      "Name": "GenericPrompt.Client.cs",
+      "Type": "ClientScript"
+    },
+    {
+      "Name": "GenericPrompt3.Client.cs",
+      "Type": "ClientScript"
+    },
+    {
+      "Name": "GenericDropdown.Client.cs",
+      "Type": "ClientScript"
+    },
+    {
+      "Name": "GenericListBox.Client.cs",
+      "Type": "ClientScript"
+    },
+    {
+      "Name": "GenericDataTable.Client.cs",
+      "Type": "ClientScript"
+    },
+    {
+      "Name": "GraphicsHelper.Client.cs",
+      "Type": "ClientScript"
+    },
+    {
+      "Name": "PlayerHelper.Client.cs",
+      "Type": "ClientScript"
+    },
+    {
+      "Name": "DataHelper.Client.cs",
+      "Type": "ClientScript"
+    },
+    {
+      "Name": "HashHelper.Client.cs",
+      "Type": "ClientScript"
+    },
+    {
+      "Name": "RAGEWeaponWorkaround.Client.cs",
+      "Type": "ClientScript"
+    },
+    {
+      "Name": "GTAWeaponSwitchFix.Client.cs",
+      "Type": "ClientScript"
+    },
+    {
+      "Name": "PlayerList.Client.cs",
+      "Type": "ClientScript"
+    },
+    {
+      "Name": "ScaleformManager.Client.cs",
+      "Type": "ClientScript"
+    },
+    {
+      "Name": "LargeDataTransferManager.Client.cs",
+      "Type": "ClientScript"
+    },
+    {
+      "Name": "RageClientStorage.Client.cs",
+      "Type": "ClientScript"
+    },
+    {
+      "Name": "WeatherAPI.Client.cs",
+      "Type": "ClientScript"
+    },
+    {
+      "Name": "Init.Client.cs",
+      "Type": "ClientScript"
+    },
+    {
+      "Name": "AudioManager.Client.cs",
+      "Type": "ClientScript"
+    },
+    {
+      "Name": "Assets/keybinds.html",
+      "Type": "ClientAsset"
+    },
+    {
+      "Name": "Assets/notifications.html",
+      "Type": "ClientAsset"
+    },
+    {
+      "Name": "Assets/shard.html",
+      "Type": "ClientAsset"
+    },
+    {
+      "Name": "Assets/userinput.html",
+      "Type": "ClientAsset"
+    },
+    {
+      "Name": "Assets/playerlist.html",
+      "Type": "ClientAsset"
+    },
+    {
+      "Name": "Assets/genericuserloginbox.html",
+      "Type": "ClientAsset"
+    },
+    {
+      "Name": "Assets/hud.html",
+      "Type": "ClientAsset"
+    },
+    {
+      "Name": "Assets/hud.css",
+      "Type": "ClientAsset"
+    },
+    {
+      "Name": "Assets/bootstrap-notify.min.js",
+      "Type": "ClientAsset"
+    },
+    {
+      "Name": "Assets/audioplayer.html",
+      "Type": "ClientAsset"
+    },
+    {
+      "Name": "Assets/jquery.min.js",
+      "Type": "ClientAsset"
+    },
+    {
+      "Name": "Assets/genericprompt.html",
+      "Type": "ClientAsset"
+    },
+    {
+      "Name": "Assets/genericprogressbar.html",
+      "Type": "ClientAsset"
+    },
+    {
+      "Name": "Assets/genericprompt3.html",
+      "Type": "ClientAsset"
+    },
+    {
+      "Name": "Assets/genericmessagebox.html",
+      "Type": "ClientAsset"
+    },
+    {
+      "Name": "Assets/genericdropdown.html",
+      "Type": "ClientAsset"
+    },
+    {
+      "Name": "Assets/genericlistbox.html",
+      "Type": "ClientAsset"
+    },
+    {
+      "Name": "Assets/genericdatatable.html",
+      "Type": "ClientAsset"
+    },
+    {
+      "Name": "Assets/icons/30mph.png",
+      "Type": "ClientAsset"
+    },
+    {
+      "Name": "Assets/icons/50mph.png",
+      "Type": "ClientAsset"
+    },
+    {
+      "Name": "Assets/icons/80mph.png",
+      "Type": "ClientAsset"
+    },
+    {
+      "Name": "Assets/fonts/Circular-Bold.ttf",
+      "Type": "ClientAsset"
+    },
+    {
+      "Name": "Assets/fonts/Circular-Bold.woff",
+      "Type": "ClientAsset"
+    },
+    {
+      "Name": "Assets/fonts/Circular-Bold.woff2",
+      "Type": "ClientAsset"
+    },
+    {
+      "Name": "Assets/fonts/Circular-Book.ttf",
+      "Type": "ClientAsset"
+    },
+    {
+      "Name": "Assets/fonts/Circular-Book.woff",
+      "Type": "ClientAsset"
+    },
+    {
+      "Name": "Assets/fonts/Circular-Book.woff2",
+      "Type": "ClientAsset"
+    },
+    {
+      "Name": "Assets/weatherinfo.html",
+      "Type": "ClientAsset"
+    },
+    {
+      "Name": "Assets/js/notifications.js",
+      "Type": "ClientAsset"
+    },
+    {
+      "Name": "CGUIWeather.Client.cs",
+      "Type": "ClientScript"
+    },
+    {
+      "Name": "ScreenshotHelper.Client.cs",
+      "Type": "ClientScript"
+    }
+  ],
+  "ExportedFunctions": []
+}

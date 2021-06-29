@@ -1,0 +1,11 @@
+{
+	"Type": "Network_ServerToClient_RemoteOnly",
+	"Parameters": {
+		"strWeatherMain": "string",
+		"strWeatherDescription": "string",
+		"weatherTemp": "float",
+		"weatherTempFeelsLike": "float",
+		"weatherHumidity": "Int32",
+		"weatherWindSpeed": "float"
+	}
+}

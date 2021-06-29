@@ -1,0 +1,8 @@
+{
+  "Type": "Network_ServerToClient_RemoteOnly",
+  "Parameters": {
+    "amount": "float",
+    "token": "bool",
+    "name": "string"
+  }
+}

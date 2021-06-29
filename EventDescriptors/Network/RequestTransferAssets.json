@@ -1,0 +1,12 @@
+{
+  "Type": "Network_ClientToServer_RemoteOnly",
+  "Parameters":
+  {
+    "fromCharacterId": "long",
+    "toCharacterId": "long",
+    "money": "float",
+    "bankmoney": "float",
+    "vehicles": "List<long>",
+    "properties": "List<long>"
+  }
+}

@@ -1,0 +1,572 @@
+<html>
+<head>
+    <link href="../../owl_client_shared/bootstrap/bootstrap.min.legacy.css" rel="stylesheet">
+    <link href="../../owl_client_shared/core/core.css" rel="stylesheet">
+    <link href="../../owl_client_shared/core/menu.css" rel="stylesheet">
+    <link href="../../owl_client_shared/slider.css" rel="stylesheet">
+    <link href="../../owl_client_shared/animate.css" rel="stylesheet">
+    <link href="../../owl_client_shared/fontawesome/all.min.dev.css" rel="stylesheet">
+    <script src="../../owl_client_shared/core/core.js"></script>
+    <script src="../../owl_client_shared/jquery.min.js"></script>
+    <script src="../../owl_client_shared/jquery-ui.min.js"></script>
+    <script src="../../owl_client_shared/vue.min.js"></script>
+    <script src="../../owl_client_shared/jscolor.min.js"></script>
+
+    <link href="package://owl_client_shared/bootstrap.min.legacy.css" rel="stylesheet">
+    <link href="package://owl_client_shared/core.css" rel="stylesheet">
+    <link href="package://owl_client_shared/menu.css" rel="stylesheet">
+    <link href="package://owl_client_shared/slider.css" rel="stylesheet">
+    <link href="package://owl_client_shared/animate.css" rel="stylesheet">
+    <link href="package://owl_client_shared/all.min.css" rel="stylesheet">
+    <script src="package://owl_client_shared//core.js"></script>
+    <script src="package://owl_client_shared//jquery.min.js"></script>
+    <script src="package://owl_client_shared//jquery-ui.min.js"></script>
+    <script src="package://owl_client_shared//vue.min.js"></script>
+    <script src="package://owl_client_shared//jscolor.min.js"></script>
+
+    <script type="text/javascript">
+    	let g_CurrentModCategory = 0;
+    	let g_NumModsThisCategory = 0;
+        function OnExit()
+        {
+
+        }
+
+        function Reset()
+        {
+            document.getElementById("modslist").innerHTML = "";
+        }
+
+        function AddModCategory(mod_category_index, name)
+        {
+            document.getElementById("modslist").innerHTML += `<button type="button" onclick="GotoSelectMod(${mod_category_index}, this);" class="list-group-item"><h5>${name}</h5></button>`;
+        }
+
+        function SetNumModsThisCategory(current_index, num_mods)
+        {
+            document.getElementById("mod_index").innerHTML = current_index;
+        	g_NumModsThisCategory = num_mods;
+        }
+
+        function SetPrice(price, price_gc)
+        {
+            document.getElementById("total-cost").innerHTML = price;
+            document.getElementById("total-cost-gc").innerHTML = price_gc;
+        }
+
+        function SetModCost(mod_cost, mod_cost_gc)
+        {
+            document.getElementById("mod-cost").innerHTML = mod_cost;
+            document.getElementById("mod-cost-gc").innerHTML = mod_cost_gc;
+            document.getElementById("mod-cost-plate").innerHTML = mod_cost;
+            document.getElementById("mod-cost-plate-gc").innerHTML = mod_cost_gc;
+            document.getElementById("mod-cost-neons").innerHTML = mod_cost;
+            document.getElementById("mod-cost-neons-gc").innerHTML = mod_cost_gc;
+        }
+
+        function OnLoad()
+        {
+           //AddDebugData();
+        }
+
+        function DecrementModIndex()
+		{
+			var step = 1;
+			var limit = 0;
+
+			var value = Number(document.getElementById("mod_index").innerHTML);
+
+			if (value - step >= limit)
+			{
+				document.getElementById("mod_index").innerHTML = value - step;
+			}
+        }
+
+        function IncrementModIndex()
+		{
+			var step = 1;
+			var limit = g_NumModsThisCategory;
+			
+			var value = Number(document.getElementById("mod_index").innerHTML);
+
+			if (value + step <= limit)
+			{
+				document.getElementById("mod_index").innerHTML = value + step;
+			}
+        }
+
+        function UpdateModIndex()
+        {
+        	var mod_index = Number(document.getElementById("mod_index").innerHTML);
+        	TriggerEvent("VehicleModShop_UpdateModIndex", g_CurrentModCategory, mod_index)
+        }
+
+        function GotoCustomizeNeons(enabled, r, g, b)
+        {
+            document.getElementById("neon_colorpicker").jscolor.fromRGB(r, g, b);
+            document.getElementById("neons_enabled").checked = enabled;
+            document.getElementById("neons_enabled_div").style.display = enabled ? "block" : "none";
+
+            document.getElementById("mods_select").style.display = "none";
+            document.getElementById("mods_main").style.display = "none";
+            document.getElementById("mods_overview").style.display = "none";
+            document.getElementById("mods_plate_text").style.display = "none";
+            document.getElementById("mods_neons").style.display = "block";
+        }
+
+        function GotoCustomizePlateText(current_text)
+        {
+            document.getElementById("platetext").placeholder = current_text;
+            document.getElementById("platetext").value = current_text;
+
+            document.getElementById("mods_select").style.display = "none";
+            document.getElementById("mods_main").style.display = "none";
+            document.getElementById("mods_overview").style.display = "none";
+            document.getElementById("mods_neons").style.display = "none";
+            document.getElementById("mods_plate_text").style.display = "block";
+        }
+
+        function ResetPlate()
+        {
+            TriggerEvent("VehicleModShop_ResetPlate");
+        }
+
+        function GoBack()
+        {
+        	document.getElementById("mods_select").style.display = "none";
+            document.getElementById("mods_plate_text").style.display = "none";
+            document.getElementById("mods_neons").style.display = "none";
+            document.getElementById("mods_main").style.display = "block";
+            document.getElementById("mods_overview").style.display = "block";
+
+            TriggerEvent("VehicleModShop_UpdatePrice")
+        }
+
+        function GotoSelectMod(mod_category, button)
+        {
+            TriggerEvent("VehicleModShop_ChangeModCategory", mod_category);
+			document.getElementById("mod_title").innerText = button.innerText;     	
+        }
+
+        function SetButtonsEnabled(enabled)
+        {
+            document.getElementById("Button_OnCheckout").enabled = enabled;
+            document.getElementById("Button_OnExit").enabled = enabled;
+        }
+
+        function ShowErrorMessage(text)
+        {
+            SetButtonsEnabled(true);
+            document.getElementById("error_text").innerHTML = `<div class="panel-body">${text}</div>`;
+        }
+
+        function OnExit_Discard()
+        {
+            TriggerEvent("VehicleModShop_OnExit_Discard");
+        }
+
+        function OnCheckout()
+        {
+            TriggerEvent("VehicleModShop_OnCheckout");
+            SetButtonsEnabled(false);
+        }
+
+        function FinalizeGotoSelectMod(mod_category)
+        {
+            document.getElementById("mods_main").style.display = "none";
+            document.getElementById("mods_overview").style.display = "none";
+            document.getElementById("mods_select").style.display = "block";
+            g_CurrentModCategory = mod_category;
+        }
+
+        function OnChangeNeonsColor(picker)
+        {
+            var r = Math.round(picker.rgb[0]);
+            var g = Math.round(picker.rgb[1]);
+            var b = Math.round(picker.rgb[2]);
+            TriggerEvent("VehicleModShop_OnChangeNeonsColor", r, g, b);
+        }
+
+        function StartRotation(direction)
+		{
+			TriggerEvent("VehicleModShop_StartRotation", direction);
+		}
+
+		function StopRotation()
+		{
+			TriggerEvent("VehicleModShop_StopRotation");
+		}
+
+		function ResetCamera()
+		{
+			TriggerEvent("VehicleModShop_ResetCamera");
+		}
+
+		function StartZoom(direction)
+		{
+			TriggerEvent("VehicleModShop_StartZoom", direction);
+		}
+
+		function StopZoom()
+		{
+			TriggerEvent("VehicleModShop_StopZoom");
+		}
+
+        function SetPlateText()
+        {
+            var length = document.getElementById('platetext').value.length;
+            if (length >= 2 && length <= 8)
+            {
+                document.getElementById('platetextvalidity').innerHTML = "<span class='fa fa-thumbs-up' aria-hidden='true'></span>";
+            }
+            else
+            {
+                document.getElementById('platetextvalidity').innerHTML = "<span class='fa fa-thumbs-down' aria-hidden='true'></span>";
+            }
+
+            TriggerEvent("VehicleModShop_SetPlateText", document.getElementById('platetext').value);
+        }
+
+        function ToggleNeonsEnabled(checkbox)
+        {
+            document.getElementById("neons_enabled_div").style.display = checkbox.checked ? "block" : "none";
+            TriggerEvent("VehicleModShop_UpdateNeonState", checkbox.checked);
+        }
+
+        function ResetModOverview()
+        {
+            document.getElementById("mods_overview_list").innerHTML = "<center>No modifications are being carried out</center>";
+        }
+
+        function ResetModOverviewToBlank()
+        {
+            document.getElementById("mods_overview_list").innerHTML = "";
+        }
+
+        function AddModToOverview(name, price)
+        {
+            document.getElementById("mods_overview_list").innerHTML += `<tr><th>${name}</th><td>${price}</td></tr>`;
+        }
+    </script>
+
+    <style type="text/css">
+
+        body {
+            background-color: transparent;
+        }
+
+        #left-box {
+            position: absolute;
+            top: 10%;
+            left: 0%;
+            margin-left: 2%;
+            width: 350px;
+        }
+
+            #left-box > .panel {
+                margin-bottom: 0;
+            }
+
+        #right-box {
+            position: absolute;
+            top: 10%;
+            left: 75%;
+            margin-left: 2%;
+            width: 350px;
+        }
+
+            #right-box > .panel {
+                margin-bottom: 0;
+            }
+
+        .list-group > p {
+            margin: 15px;
+        }
+
+        #modslist {
+            max-height: 540px;
+            overflow: auto;
+            min-height: 540px;
+        }
+
+        .mods-meta,
+        .mods-text {
+            float: left;
+        }
+
+        .margins {
+            padding-left: 15px;
+            padding-top: 15px;
+        }
+
+        .mods {
+            overflow: hidden;
+        }
+
+        .mods-text {
+            padding-left: 15px;
+            width: 207px
+        }
+
+            .mods-text h5 {
+                margin-top: 0;
+            }
+
+            .mods-text h6 {
+                line-height: 1.4em;
+            }
+
+            .mods-text > *:last-child {
+                margin-bottom: 0;
+            }
+
+        .panel-footer h5 {
+            margin: 0;
+        }
+
+        .bottom-center-box-upper {
+			position: fixed;
+			right: 85px;
+			bottom: 100px
+		}
+
+		.bottom-center-box {
+			position: fixed;
+			right: 25px;
+			bottom: 60px
+		}
+
+		.bottom-center-box-lower {
+			position: fixed;
+			right: 80px;
+			bottom: 20px
+		}
+
+        #error_text:empty {
+            display: none;
+        }
+
+        #error_text {
+            color: #FF0000;
+        }
+
+        #box-right {
+            position: fixed;
+            right: 25px;
+            top: 10%;
+            width: 320px;
+        }
+    </style>
+
+</head>
+<body>
+
+    <div id="left-box">
+        <div class="panel panel-default" id="mods_main">
+            <div class="panel-heading">
+                <h4>Vehicle Mods</h4>
+                <h6>Select a category</h6>
+            </div>
+            <ul id="modslist" class="list-group">
+            		
+        
+
+
+
+
+            </ul>
+            <div class="panel-footer">
+                <div class="row modss-number">
+                    <div class="col-xs-6">
+                        <h5>Total Cost ($):</h5>
+                    </div>
+                    <div class="col-xs-6">
+                        <h5><span id="total-cost">0</span></h5>
+                    </div>
+                </div>
+                <div class="row modss-number">
+                    <div class="col-xs-6">
+                        <h5>Total Cost (GC):</h5>
+                    </div>
+                    <div class="col-xs-6">
+                        <h5><span id="total-cost-gc">0</span></h5>
+                    </div>
+                </div>
+                <div class="row modss-number">
+                    <div class="panel panel-default" id="error_text"></div>
+                </div>
+            </div>
+            <div class="btn-group btn-group-justified">
+                <a class='btn btn-success' id="Button_OnCheckout" onclick='OnCheckout();'>Checkout</a>
+            </div>
+            <div class="btn-group btn-group-justified">
+                <a class='btn btn-danger' id="Button_OnExit" onclick='OnExit_Discard();'>Exit & Discard Changes</a>
+            </div>
+        </div>
+
+        <div id="box-right">
+            <div class="panel panel-default" style="margin-top: 20px;" id="mods_overview">
+
+                <div class="panel-heading">
+                    <h5>Modifications Overview</h5>
+                </div>
+
+                <table class="table" id="mods_overview_list">
+                     
+                </table>
+            </div>
+        </div>
+
+
+
+        <div class="panel panel-default" id="mods_select" style="display:none">
+            <div class="panel-heading">
+                <h4><span id="mod_title"></span></h4>
+            </div>
+            <div class="panel-body">
+				<div class="row">
+					<div class="col-sm-6">
+						<h5>Mod Number</h5>
+					</div>
+					<div class="col-sm-6">
+						<div class="btn-group btn-group-justified" role="group" aria-label="...">
+							<a class="btn btn-default" onclick="DecrementModIndex(); UpdateModIndex();">-</a>
+							<a class="btn btn-default"><span id="mod_index">0</span></a>
+							<a class="btn btn-default" onclick="IncrementModIndex(); UpdateModIndex();">+</a>
+						</div>
+					</div>
+				</div>
+
+                <div class="row">
+                    <div class="col-xs-6">
+                        <h5>Mod Cost ($):</h5>
+                    </div>
+                    <div class="col-xs-6">
+                        <h5>$<span id="mod-cost">0</span></h5>
+                    </div>
+                </div>
+                <div class="row modss-number">
+                    <div class="col-xs-6">
+                        <h5>Mod Cost (GC):</h5>
+                    </div>
+                    <div class="col-xs-6">
+                        <h5>$<span id="mod-cost-gc">0</span></h5>
+                    </div>
+                </div>
+			</div>
+            
+            <div class="btn-group btn-group-justified">
+                <a class='btn btn-info' onclick='GoBack();'>Go Back</a>
+            </div>
+        </div>
+
+        <div class="panel panel-default" id="mods_plate_text" style="display:none">
+            <div class="panel-heading">
+                <h4><span id="mod_title"></span></h4>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <h5>Plate Text</h5>
+                    </div>
+                    <div class="col-sm-6">
+                        <input type='text' class='form-control' placeholder='Plate Text' aria-describedby='basic-addon1' max-length='8' id='platetext' onkeydown='setTimeout(SetPlateText, 100, false);' value=''>
+                        <span id="platetextvalidity"><span class='fa fa-thumbs-down' aria-hidden='true'></span></span>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xs-6">
+                        <h5>Mod Cost ($):</h5>
+                    </div>
+                    <div class="col-xs-6">
+                        <h5>$<span id="mod-cost-plate">0</span></h5>
+                    </div>
+                </div>
+                <div class="row modss-number">
+                    <div class="col-xs-6">
+                        <h5>Mod Cost (GC):</h5>
+                    </div>
+                    <div class="col-xs-6">
+                        <h5>$<span id="mod-cost-plate-gc">0</span></h5>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="btn-group btn-group-justified">
+                <a class='btn btn-danger' onclick='ResetPlate();'>Reset To Default</a>
+                <a class='btn btn-info' onclick='GoBack();'>Go Back</a>
+            </div>
+        </div>
+
+        <div class="panel panel-default" id="mods_neons" style="display:none">
+            <div class="panel-heading">
+                <h4><span id="mod_title"></span></h4>
+            </div>
+            <div class="panel-body">
+                 <div class="row">
+
+                    <div class="col-sm-12">
+                        <input type="checkbox" id="neons_enabled" onclick="ToggleNeonsEnabled(this)"> Toggle Neons
+                    </div>
+                </div>
+
+                <div class="row">
+                    &nbsp;
+                </div>
+
+                <div id="neons_enabled_div"  style="display:none">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <h5>Neon Color</h5>
+                        </div>
+                        <div class="col-sm-6">
+                            <input size="3" maxlength="6" value="000000" id="neon_colorpicker" class="jscolor {onFineChange:'OnChangeNeonsColor(this)', position:'right'}">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-6">
+                        <h5>Mod Cost ($):</h5>
+                    </div>
+                    <div class="col-xs-6">
+                        <h5>$<span id="mod-cost-neons">0</span></h5>
+                    </div>
+                </div>
+                <div class="row modss-number">
+                    <div class="col-xs-6">
+                        <h5>Mod Cost (GC):</h5>
+                    </div>
+                    <div class="col-xs-6">
+                        <h5>$<span id="mod-cost-neons-gc">0</span></h5>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="btn-group btn-group-justified">
+                <a class='btn btn-info' onclick='GoBack();'>Go Back</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="bottom-center-box-upper" style="display:block">
+        <div class="btn-group" role="group">
+            <a type='button' class='btn btn-default' onmousedown="StartZoom(1);" onmouseup="StopZoom();">Zoom In</a>
+        </div>
+    </div>
+
+    <div class="bottom-center-box" style="display:block; z-index: 1">
+        <div class="btn-group" role="group">
+            <button class='btn btn-default' style="height: 45px;" onmousedown="StartRotation(1);" onmouseup="StopRotation();"><span class="fa fa-angle-left"></span></button>
+            <button class='btn btn-default' onclick="ResetCamera();">Reset Camera</button>
+            <button class='btn btn-default' style="height: 45px;" onmousedown="StartRotation(2);" onmouseup="StopRotation();"><span class="fa fa-angle-right"></span></button>
+        </div>
+    </div>
+
+    <div class="bottom-center-box-lower" style="display:block; z-index: 0;">
+        <div class="btn-group" role="group">
+            <a type='button' class='btn btn-default' onmousedown="StartZoom(2);" onmouseup="StopZoom();">Zoom Out</a>
+        </div>
+    </div>
+</body>
+</html>

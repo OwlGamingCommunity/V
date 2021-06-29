@@ -1,0 +1,8 @@
+{
+  "Type": "Network_ServerToClient_RemoteOnly",
+  "Parameters": {
+    "bPassed": "bool",
+    "numCorrect": "int",
+    "numIncorrect": "int"
+  }
+}

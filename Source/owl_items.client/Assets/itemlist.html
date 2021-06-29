@@ -1,0 +1,143 @@
+<html>
+<head>
+    <link href="../../owl_client_shared/bootstrap/bootstrap.min.css" rel="stylesheet">
+    <link href="../../owl_client_shared/bootstrap/bootstrap-table.min.css" rel="stylesheet">
+
+    <link href="package://owl_client_shared/bootstrap.min.css" rel="stylesheet">
+    <link href="package://owl_client_shared/bootstrap-table.min.css" rel="stylesheet">
+
+    <style type="text/css">
+
+        body {
+            background-color: transparent;
+        }
+
+        #box-middle {
+            margin: 0;
+            position: absolute;
+            top: 45%;
+            left: 45%;
+            transform: translate(-50%, -50%);
+            width: 900px;
+            height: 600px;
+        }
+
+        .nav-tabs {
+            overflow-x: auto;
+            overflow-y: hidden;
+            flex-wrap: nowrap;
+        }
+
+        .nav-tabs .nav-link {
+            white-space: nowrap;
+        }
+
+        .nav-item {
+            cursor: pointer;
+        }
+
+        ::-webkit-scrollbar {
+            width: 0px;
+            background: transparent; /* make scrollbar transparent */
+        }
+    </style>
+</head>
+<body>
+    <div id="box-middle">
+        <div class="row" id="itemsTable">
+            <div class="col-sm-12">
+                <div class="card" id="panel1">
+                    <div class="card-header" id="header">
+                        <button type="button" class="ml-2 mb-1 close" onclick="Close();" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <center>Items List</center><br />
+                    </div>
+                    <div class="card-body">
+                        <table id="table" data-search="true">
+                            <thead>
+                                <tr>
+                                    <th data-field="itemID" data-sortable="true">Item ID</th>
+                                    <th data-field="itemName">Item Name</th>
+                                    <th data-field="itemDesc">Item Description</th>
+                                    <th data-field="itemWeight">Item Weight</th>
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../owl_client_shared/core/core.js"></script>
+    <script src="../../owl_client_shared/jquery.min.js"></script>
+    <script src="../../owl_client_shared/bootstrap/bootstrap-table.min.js"></script>
+
+    <script src="package://owl_client_shared//core.js"></script>
+    <script src="package://owl_client_shared//jquery.min.js"></script>
+    <script src="package://owl_client_shared//bootstrap-table.min.js"></script>
+
+    <script>
+
+        function loadItemData(itemsList) {
+            var $table = $('#table');
+
+            $(function () {
+                $table.bootstrapTable({ data: JSON.parse(itemsList) })
+            })
+        }
+
+        function Close() {
+            TriggerEvent("CloseItemsListUI");
+            $('#table').bootstrapTable('destroy');
+        }
+
+        function OnLoad() {
+            dragElement(document.getElementById("box-middle"));
+        }
+
+
+        function dragElement(elmnt) {
+            var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+            if (document.getElementById("header")) {
+                document.getElementById("header").onmousedown = dragMouseDown;
+            }
+
+            function dragMouseDown(e) {
+                if (e.target.nodeName == "TEXTAREA" || e.target.nodeName == "A" || e.target.className == "nav-tabs") {
+                    return;
+                }
+
+                e = e || window.event;
+                e.preventDefault();
+                // get the mouse cursor position at startup:
+                pos3 = e.clientX;
+                pos4 = e.clientY;
+                document.onmouseup = closeDragElement;
+                // call a function whenever the cursor moves:
+                document.onmousemove = elementDrag;
+            }
+
+            function elementDrag(e) {
+                e = e || window.event;
+                e.preventDefault();
+                // calculate the new cursor position:
+                pos1 = pos3 - e.clientX;
+                pos2 = pos4 - e.clientY;
+                pos3 = e.clientX;
+                pos4 = e.clientY;
+                // set the element's new position:
+                elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+                elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+            }
+        }
+
+        function closeDragElement() {
+            // stop moving when mouse button is released:
+            document.onmouseup = null;
+            document.onmousemove = null;
+        } 
+    </script>
+</body>
+</html>

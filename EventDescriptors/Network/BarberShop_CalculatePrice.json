@@ -1,0 +1,19 @@
+{
+  "Type": "Network_ClientToServer_RemoteOnly",
+  "Parameters": {
+    "BaseHair": "int",
+    "HairStyle": "int",
+    "HairColor": "int",
+    "HairColorHighlights": "int",
+    "ChestHairStyle": "int",
+    "ChestHairColor": "int",
+    "ChestHairColorHighlights": "int",
+    "ChestHairOpacity": "float",
+    "FacialHairStyle": "int",
+    "FacialHairColor": "int",
+    "FacialHairColorHighlights": "int",
+    "FacialHairOpacity": "float",
+    "FullBeardStyle": "int",
+    "FullBeardColor": "int"
+  }
+}

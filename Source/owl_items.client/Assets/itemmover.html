@@ -1,0 +1,203 @@
+<html>
+<head>
+    <link href="../../owl_client_shared/bootstrap/bootstrap.min.css" rel="stylesheet">
+    <link href="../../owl_client_shared/core/core.css" rel="stylesheet">
+    <link href="../../owl_client_shared/core/menu.css" rel="stylesheet">
+    <link href="../../owl_client_shared/slider.css" rel="stylesheet">
+    <link href="../../owl_client_shared/animate.css" rel="stylesheet">
+    <script src="../../owl_client_shared/core/core.js"></script>
+    <script src="../../owl_client_shared/jquery.min.js"></script>
+    <script src="../../owl_client_shared/jquery-ui.min.js"></script>
+    <script src="../../owl_client_shared/vue.min.js"></script>
+    <script src="../../owl_client_shared/jscolor.min.js"></script>
+    <script src="../../owl_client_shared/popper.min.js"></script>
+    <script src="../../owl_client_shared/bootstrap/bootstrap.min.js"></script>
+
+    <link href="package://owl_client_shared/bootstrap.min.css" rel="stylesheet">
+    <link href="package://owl_client_shared/core.css" rel="stylesheet">
+    <link href="package://owl_client_shared/menu.css" rel="stylesheet">
+    <link href="package://owl_client_shared/slider.css" rel="stylesheet">
+    <link href="package://owl_client_shared/animate.css" rel="stylesheet">
+    <script src="package://owl_client_shared//core.js"></script>
+    <script src="package://owl_client_shared//jquery.min.js"></script>
+    <script src="package://owl_client_shared//jquery-ui.min.js"></script>
+    <script src="package://owl_client_shared//vue.min.js"></script>
+    <script src="package://owl_client_shared//jscolor.min.js"></script>
+    <script src="package://owl_client_shared//popper.min.js"></script>
+    <script src="package://owl_client_shared//bootstrap.min.js"></script>
+
+    <style type="text/css">
+        body {
+            background-color: transparent;
+        }
+
+        #box-bottom-right {
+            right: 25px;
+            vertical-align: bottom;
+            position: fixed;
+        }
+
+        @media screen and (max-width: 1920px) {
+            #box-bottom-right {
+                top: 65%;
+                transform: translateY(-65%);
+            }
+        }
+
+        @media screen and (min-width: 2000px) {
+            #box-bottom-right {
+                top: 80%;
+                transform: translateY(-80%);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="box-bottom-right">
+        <div class="row">
+            <div class="col-12">
+                <div class="card h-80">
+                    <div class="card-header" id="header">
+                        Item Mover
+                        <button type="button" class="ml-2 mb-1 close" onclick="Hide();" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="card-body">
+                        <label class="col-form-label">Position</label>
+
+                        <div class="form-row">
+                            <div class="col">
+                                <input type="number" step="any" class="form-control" id="posX" placeholder="Position X">
+                            </div>
+                            <div class="col">
+                                <input type="number" step="any" class="form-control" id="posY" placeholder="Position Y">
+                            </div>
+                            <div class="col">
+                                <input type="number" step="any" class="form-control" id="posZ" placeholder="Position Z">
+                            </div>
+                        </div>
+
+                        <label class="col-form-label">Rotation</label>
+
+                        <div class="form-row">
+                            <div class="col">
+                                <input type="number" step="any" class="form-control" id="rotX" placeholder="Rotation X">
+                            </div>
+                            <div class="col">
+                                <input type="number" step="any" class="form-control" id="rotY" placeholder="Rotation Y">
+                            </div>
+                            <div class="col">
+                                <input type="number" step="any" class="form-control" id="rotZ" placeholder="Rotation Z">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="btn-group d-flex mt-3">
+                    <button id="submitBtn" type='button' class="btn btn-success" onclick='SavePosition();'>Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+
+        function UpdatePreviewPosition() {
+            $('#posX, #posY, #posZ, #rotX, #rotY, #rotZ').on('input', function () {
+                var posX = $("#posX").val();
+                var posY = $("#posY").val();
+                var posZ = $("#posZ").val();
+                var rotX = $("#rotX").val();
+                var rotY = $("#rotY").val();
+                var rotZ = $("#rotZ").val();
+                if (!isNaN(posX) && !isNaN(posY) && !isNaN(posZ) && !isNaN(rotX) && !isNaN(rotY) && !isNaN(rotZ)) {
+                    TriggerEvent("Generic_UpdateGenericPreviewPosition", posX, posY, posZ, rotX, rotY, rotZ);
+                }
+            });
+        }
+
+        function loadItemData(posX, posY, posZ, rotX, rotY, rotZ) {
+            $("#posX").val(posX);
+            $("#posY").val(posY);
+            $("#posZ").val(posZ);
+            $("#rotX").val(rotX);
+            $("#rotY").val(rotY);
+            $("#rotZ").val(rotZ);
+        }
+
+        function SavePosition() {
+            var posX = $("#posX").val();
+            var posY = $("#posY").val();
+            var posZ = $("#posZ").val();
+            var rotX = $("#rotX").val();
+            var rotY = $("#rotY").val();
+            var rotZ = $("#rotZ").val();
+
+            if (!isNaN(posX) && !isNaN(posY) && !isNaN(posZ) && !isNaN(rotX) && !isNaN(rotY) && !isNaN(rotZ)) {
+                TriggerEvent("Generic_UpdateGenericPosition", posX, posY, posZ, rotX, rotY, rotZ);
+                Hide();
+            }
+        }
+
+        function Reset() {
+            $("#posX").val("");
+            $("#posY").val("");
+            $("#posZ").val("");
+            $("#rotX").val("");
+            $("#rotY").val("");
+            $("#rotZ").val("");
+        }
+
+        function Hide() {
+            TriggerEvent("Generic_CloseItemMoverUI");
+        }
+
+        function OnLoad() {
+            dragElement(document.getElementById("box-bottom-right"));
+            UpdatePreviewPosition();
+        }
+
+
+        function dragElement(elmnt) {
+            var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+            if (document.getElementById("header")) {
+                document.getElementById("header").onmousedown = dragMouseDown;
+            }
+
+            function dragMouseDown(e) {
+                if (e.target.nodeName == "TEXTAREA" || e.target.nodeName == "A") {
+                    return;
+                }
+
+                e = e || window.event;
+                e.preventDefault();
+                // get the mouse cursor position at startup:
+                pos3 = e.clientX;
+                pos4 = e.clientY;
+                document.onmouseup = closeDragElement;
+                // call a function whenever the cursor moves:
+                document.onmousemove = elementDrag;
+            }
+
+            function elementDrag(e) {
+                e = e || window.event;
+                e.preventDefault();
+                // calculate the new cursor position:
+                pos1 = pos3 - e.clientX;
+                pos2 = pos4 - e.clientY;
+                pos3 = e.clientX;
+                pos4 = e.clientY;
+                // set the element's new position:
+                elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+                elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+            }
+        }
+
+        function closeDragElement() {
+            // stop moving when mouse button is released:
+            document.onmouseup = null;
+            document.onmousemove = null;
+        }
+    </script>
+</body>
+</html>

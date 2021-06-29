@@ -1,0 +1,83 @@
+<html>
+<head>
+    <script src="../../owl_client_shared/core.js"></script>
+    <script src="../../owl_client_shared/jquery.min.js"></script>
+    <script src="../../owl_client_shared/popper.min.js"></script>
+    <script src="../../owl_client_shared/bootstrap/bootstrap.min.js"></script>
+    <link href="../../owl_client_shared/bootstrap/bootstrap.min.css" rel="stylesheet">
+    <link href="../../owl_client_shared/fontawesome/all.min.dev.css" rel="stylesheet">
+
+    <script src="package://owl_client_shared//core.js"></script>
+    <script src="package://owl_client_shared//jquery.min.js"></script>
+    <script src="package://owl_client_shared//popper.min.js"></script>
+    <script src="package://owl_client_shared//bootstrap.min.js"></script>
+    <link href="package://owl_client_shared/bootstrap.min.css" rel="stylesheet">
+    <link href="package://owl_client_shared/all.min.css" rel="stylesheet">
+
+    <style>
+
+        body {
+            background-color: transparent;
+            margin: 0;
+            padding: 0;
+            position: absolute;
+            user-select: none;
+        }
+
+        .align-notification {
+            width: 350px;
+            vertical-align: middle;
+            position: fixed;
+            right: 10px;
+            top: 40%;
+            transform: translateY(-40%);
+        }
+
+        .toast-header {
+            color: #ffffff;
+            background-color: dodgerblue;
+            border-color: dodgerblue;
+        }
+
+        .text-muted {
+            color: #ffffff;
+        }
+    </style>
+
+    <script type="text/javascript">
+        var g_NotificationIDCounter = 0;
+        function ShowNotification(a_title, a_text, a_icon) {
+            var element_id = `toast_${g_NotificationIDCounter}`;
+            document.getElementById("notifications").insertAdjacentHTML("afterbegin", `<div id="${element_id}" class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-autohide="false">  <div class="toast-header">
+            <i class="fas fa-${a_icon}"></i>&nbsp;
+            <strong class="mr-auto">${a_title}</strong>
+            <small >just now</small>
+            <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+            </div>
+            <div class="toast-body">
+            ${a_text}
+            </div>
+            </div>`);
+
+            $(`#${element_id}`).toast('show');
+            setTimeout(HideNotification, 5000, element_id);
+            ++g_NotificationIDCounter;
+        }
+
+        function HideNotification(element_id) {
+            $(`#${element_id}`).toast('hide');
+        }
+    </script>
+</head>
+<body>
+	<div class="align-notification">
+    <span id="notifications">
+
+
+    </span>
+  </div>
+
+</body>
+</html>

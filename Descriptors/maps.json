@@ -1,0 +1,110 @@
+{
+	"Files": [
+		// Moved to /disabled for now
+		/*     {
+			"Name": "CountyHallRageMP.ymap.owlmap",
+			"Type": "MapFile_Persistent"
+		},
+		{
+			"Name": "PaletoBayGasstation.ymap.owlmap",
+			"Type": "MapFile_Persistent"
+		},
+		{
+			"Name": "testmap.ymap.owlmap",
+			"Type": "MapFile_Interior"
+		},
+		{
+			"Name": "FIRE_STATION_1ST_FLOOR.ymap.owlmap",
+			"Type": "MapFile_Interior"
+		} */
+		{
+			"Name": "VSPD.ymap.owlmap",
+			"Type": "MapFile_Interior"
+		},
+		{
+			"Name": "ComplexLobby.ymap.owlmap",
+			"Type": "MapFile_Interior"
+		},
+		{
+			"Name": "HospitalHallway.ymap.owlmap",
+			"Type": "MapFile_Interior"
+		},
+		{
+			"Name": "HospitalElevatorLobby.ymap.owlmap",
+			"Type": "MapFile_Interior"
+		},
+		{
+			"Name": "HospitalER.ymap.owlmap",
+			"Type": "MapFile_Interior"
+		},
+		{
+			"Name": "HospitalXRay.ymap.owlmap",
+			"Type": "MapFile_Interior"
+		},
+		{
+			"Name": "PatientRoom.ymap.owlmap",
+			"Type": "MapFile_Interior"
+		},
+		{
+			"Name": "HospitalFix.ymap.owlmap",
+			"Type": "MapFile_Persistent"
+		},
+		{
+			"Name": "GymInterior.ymap.owlmap",
+			"Type": "MapFile_Interior"
+		},
+		{
+			"Name": "CamperInterior.ymap.owlmap",
+			"Type": "MapFile_Interior"
+		},
+		{
+			"Name": "ComedyClubFix.ymap.owlmap",
+			"Type": "MapFile_Persistent"
+		},
+		{
+			"Name": "DavisFireHelipad.ymap.owlmap",
+			"Type": "MapFile_Persistent"
+		},
+		{
+			"Name": "SmallBathroom.ymap.owlmap",
+			"Type": "MapFile_Interior"
+		},
+		{
+			"Name": "LSCTSFences.ymap.owlmap",
+			"Type": "MapFile_Persistent"
+		},
+		{
+			"Name": "SmallWarehouse.ymap.owlmap",
+			"Type": "MapFile_Interior"
+		},
+		{
+			"Name": "VespucciApt.ymap.owlmap",
+			"Type": "MapFile_Interior"
+		},
+		{
+			"Name": "DiveBarSmall.ymap.owlmap",
+			"Type": "MapFile_Interior"
+		},
+		{
+			"Name": "RedsLSGC.ymap.owlmap",
+			"Type": "MapFile_Interior"
+		},
+		{
+			"Name": "SnackShack.ymap.owlmap",
+			"Type": "MapFile_Interior"
+		},
+		{
+			"Name": "Church.ymap.owlmap",
+			"Type": "MapFile_Interior"
+		},
+		{
+			"Name": "SplitSides.ymap.owlmap",
+			"Type": "MapFile_Interior"
+		},
+		{
+			"Name": "NightclubBathroom.ymap.owlmap",
+			"Type": "MapFile_Interior"
+		}
+	],
+	"ExportedFunctions": []
+}

@@ -1,0 +1,251 @@
+{
+	"Files": [
+		
+		{
+			"Name": "Init.Client.cs",
+			"Type": "ClientScript"
+		},
+		{
+			"Name": "CGUIBlackjackOverlay.Client.cs",
+			"Type": "ClientScript"
+		},
+		{
+			"Name": "ActivitySystem.Client.cs",
+			"Type": "ClientScript"
+		},
+		{
+			"Name": "ActivityInstance.Client.cs",
+			"Type": "ClientScript"
+		},
+		{
+			"Name": "ActivityManager.Client.cs",
+			"Type": "ClientScript"
+		},
+		{
+			"Name": "ActivityInstance.Blackjack.Client.cs",
+			"Type": "ClientScript"
+		},
+		{
+			"Name": "ActivityManager.Blackjack.Client.cs",
+			"Type": "ClientScript"
+		},
+		{
+			"Name": "Assets/blackjack_overlay.html",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/images/card_flipped.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/images/heart_ace.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/images/heart_two.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/images/heart_three.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/images/heart_four.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/images/heart_five.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/images/heart_six.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/images/heart_seven.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/images/heart_eight.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/images/heart_nine.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/images/heart_ten.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/images/heart_jack.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/images/heart_queen.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/images/heart_king.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/images/diamond_ace.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/images/diamond_two.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/images/diamond_three.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/images/diamond_four.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/images/diamond_five.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/images/diamond_six.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/images/diamond_seven.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/images/diamond_eight.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/images/diamond_nine.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/images/diamond_ten.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/images/diamond_jack.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/images/diamond_queen.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/images/diamond_king.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/images/club_ace.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/images/club_two.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/images/club_three.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/images/club_four.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/images/club_five.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/images/club_six.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/images/club_seven.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/images/club_eight.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/images/club_nine.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/images/club_ten.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/images/club_jack.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/images/club_queen.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/images/club_king.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/images/spade_ace.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/images/spade_two.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/images/spade_three.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/images/spade_four.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/images/spade_five.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/images/spade_six.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/images/spade_seven.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/images/spade_eight.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/images/spade_nine.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/images/spade_ten.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/images/spade_jack.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/images/spade_queen.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/images/spade_king.png",
+			"Type": "ClientAsset"
+		},
+	],
+  "ExportedFunctions": [
+  ]
+}

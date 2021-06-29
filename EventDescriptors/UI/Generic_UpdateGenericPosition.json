@@ -1,0 +1,11 @@
+{
+  "Type": "UI",
+  "Parameters": {
+    "posX": "string",
+    "posY": "string",
+    "posZ": "string",
+    "rotX": "string",
+    "rotY": "string",
+    "rotZ": "string"
+  }
+}

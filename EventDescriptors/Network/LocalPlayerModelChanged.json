@@ -1,0 +1,7 @@
+{
+  "Type": "ClientLocal",
+  "Parameters": {
+    "oldModel": "uint",
+    "newModel": "uint"
+  }
+}

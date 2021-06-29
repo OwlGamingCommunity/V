@@ -1,0 +1,14 @@
+{
+  "Files": [
+    {
+      "Name": "vehicles.jsbridge.client.js",
+      "Type": "ClientScript"
+    },
+    {
+      "Name": "rageclientstorage.jsbridge.client.js",
+      "Type": "ClientScript"
+    }
+  ],
+  "ExportedFunctions": [
+  ]
+}

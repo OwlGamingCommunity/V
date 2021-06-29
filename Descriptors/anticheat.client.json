@@ -1,0 +1,10 @@
+{
+  "Files": [
+    {
+      "Name": "Init.Client.cs",
+      "Type": "ClientScript"
+    }
+  ],
+  "ExportedFunctions": [
+  ]
+}

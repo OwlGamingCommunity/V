@@ -1,0 +1,8 @@
+{
+  "Type": "Network_ServerToClient_RemoteOnly",
+  "Parameters": {
+  	"vecPos" : "Vector3",
+  	"fRot": "float",
+  	"dimension": "uint"
+  }
+}

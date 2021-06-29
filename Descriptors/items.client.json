@@ -1,0 +1,1657 @@
+{
+	"Files": [
+		{
+			"Name": "InventorySystem.Client.cs",
+			"Type": "ClientScript"
+		},
+		{
+			"Name": "MarijuanaSystem.Client.cs",
+			"Type": "ClientScript"
+		},
+		{
+			"Name": "LocksmithSystem.Client.cs",
+			"Type": "ClientScript"
+		},
+		{
+			"Name": "BinocularSystem.Client.cs",
+			"Type": "ClientScript"
+		},
+		{
+			"Name": "SmokingSystem.Client.cs",
+			"Type": "ClientScript"
+		},
+		{
+			"Name": "NoteSystem.Client.cs",
+			"Type": "ClientScript"
+		},
+		{
+			"Name": "InformationMarkerSystem.Client.cs",
+			"Type": "ClientScript"
+		},
+		{
+			"Name": "FurnitureSystem.Client.cs",
+			"Type": "ClientScript"
+		},
+		{
+			"Name": "DrugEffects.Client.cs",
+			"Type": "ClientScript"
+		},
+		{
+			"Name": "MetalDetector.Client.cs",
+			"Type": "ClientScript"
+		},
+		{
+			"Name": "PlayerInventory.Client.cs",
+			"Type": "ClientScript"
+		},
+		{
+			"Name": "WeaponAttachments.Client.cs",
+			"Type": "ClientScript"
+		},
+		{
+			"Name": "Pets.Client.cs",
+			"Type": "ClientScript"
+		},
+		{
+			"Name": "VehicleInventory.Client.cs",
+			"Type": "ClientScript"
+		},
+		{
+			"Name": "FurnitureInventory.Client.cs",
+			"Type": "ClientScript"
+		},
+		{
+			"Name": "PropertyInventory.Client.cs",
+			"Type": "ClientScript"
+		},
+		{
+			"Name": "CGUIPlayerInventory.Client.cs",
+			"Type": "ClientScript"
+		},
+		{
+			"Name": "CGUISprayCanPrompt.Client.cs",
+			"Type": "ClientScript"
+		},
+		{
+			"Name": "Frisk.Client.cs",
+			"Type": "ClientScript"
+		},
+		{
+			"Name": "CGUIFrisk.Client.cs",
+			"Type": "ClientScript"
+		},
+		{
+			"Name": "CGUIMarijuanaPed.Client.cs",
+			"Type": "ClientScript"
+		},
+		{
+			"Name": "RetuneRadio.Client.cs",
+			"Type": "ClientScript"
+		},
+		{
+			"Name": "WorldItems.Client.cs",
+			"Type": "ClientScript"
+		},
+		{
+			"Name": "Init.Client.cs",
+			"Type": "ClientScript"
+		},
+		{
+			"Name": "Assets/player_inventory.html",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/spraycanprompt.html",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/frisk.html",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/editinterior.html",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "GangTags.Client.cs",
+			"Type": "ClientScript"
+		},
+		{
+			"Name": "GangTagCreator.Client.cs",
+			"Type": "ClientScript"
+		},
+		{
+			"Name": "CGUIGangTagCreator.Client.cs",
+			"Type": "ClientScript"
+		},
+		{
+			"Name": "CGUIEditInterior.Client.cs",
+			"Type": "ClientScript"
+		},
+		{
+			"Name": "GenericSystem.Client.cs",
+			"Type": "ClientScript"
+		},
+		{
+			"Name": "CGUIGenericCreation.Client.cs",
+			"Type": "ClientScript"
+		},
+		{
+			"Name": "Assets/genericcreator.html",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "ItemMoverUI.Client.cs",
+			"Type": "ClientScript"
+		},
+		{
+			"Name": "CGUIItemMover.Client.cs",
+			"Type": "ClientScript"
+		},
+		{
+			"Name": "Assets/itemmover.html",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "ItemsListUI.Client.cs",
+			"Type": "ClientScript"
+		},
+		{
+			"Name": "CGUIItemsList.Client.cs",
+			"Type": "ClientScript"
+		},
+		{
+			"Name": "Assets/itemlist.html",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/gangtagcreator.html",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/marijuana.html",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_slots/empty_slot.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_slots/socketcontainer_2.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_slots/socketcontainer_3.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_slots/socketcontainer_12.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_slots/socketcontainer_13.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_slots/socketcontainer_14.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_slots/socketcontainer_15.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_slots/socketcontainer_19.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/outline.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/-1.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/-2.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/0.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/1.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/2.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/3.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/4.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/5.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/6.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/7.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/8.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/9.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/10.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/11.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/12.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/13.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/14.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/15.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/16.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/17.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/18.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/19.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/20.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/21.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/22.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/23.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/24.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/25.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/26.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/27.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/28.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/29.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/30.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/31.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/32.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/33.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/34.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/35.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/36.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/37.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/38.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/39.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/40.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/41.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/42.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/42_state_1.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/43.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/44.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/45.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/46.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/47.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/48.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/49.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/50.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/51.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/52.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/53.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/54.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/55.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/56.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/57.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/58.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/59.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/60.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/61.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/62.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/63.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/64.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/65.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/66.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/67.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/68.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/69.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/70.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/71.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/72.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/73.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/74.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/75.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/76.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/77.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/78.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/79.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/80.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/81.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/82.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/83.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/84.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/85.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/86.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/87.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/87_state_2.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/88.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/88_state_2.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/89.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/89_state_2.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/90.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/90_state_2.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/91.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/91_state_1.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/92.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/93.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/94.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/94_state_1.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/95.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/95_state_1.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/96.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/96_state_1.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/97.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/97_state_1.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/98.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/98_state_1.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/99.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/99_state_1.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/100.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/100_state_1.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/101.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/102.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/103.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/104.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/105.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/106.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/107.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/108.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/109.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/110.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/111.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/112.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/113.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/114.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/115.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/116.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/117.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/118.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/119.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/119_state_1.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/120.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/120_state_1.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/121.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/121_state_1.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/122.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/122_state_1.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/123.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/124.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/125.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/126.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/127.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/128.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/128_state_2.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/129.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/129_state_2.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/130.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/131.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/132.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/133.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/134.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/135.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/136.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/137.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/137_state_2.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/138.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/139.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/140.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/141.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/141_state_2.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/142.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/143.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/144.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/145.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/146.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/147.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/148.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/149.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/150.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/151.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/152.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/153.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/154.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/155.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/156.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/157.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/158.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/158_state_2.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/159.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/160.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/161.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/162.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/163.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/164.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/165.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/166.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/167.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/168.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/169.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/170.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/171.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/172.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/173.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/174.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/175.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/176.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/176_state_2.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/177.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/178.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/179.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/180.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/181.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/182.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/183.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/184.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/185.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/186.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/187.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/188.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/189.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/190.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/191.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/192.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/193.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/194.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/195.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/196.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/197.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/198.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/199.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/200.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/201.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/202.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/203.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/204.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/205.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/206.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/207.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/208.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/209.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/210.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/211.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/212.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/213.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/214.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/215.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/216.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/217.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/218.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/219.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/220.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/221.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/222.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/223.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/224.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/225.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/226.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/227.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/228.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/229.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/230.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/231.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/232.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/233.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/234.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/234_state_2.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/235.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/236.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/237.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/238.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/239.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/240.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/241.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/6_state_2.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/10_state_2.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/11_state_2.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/12_state_2.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/13_state_2.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/14_state_2.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/15_state_2.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/16_state_2.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/17_state_2.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/18_state_2.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/19_state_2.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/20_state_2.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/21_state_2.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/22_state_2.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/23_state_2.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/24_state_2.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/25_state_2.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/26_state_2.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/27_state_2.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/28_state_2.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/36_state_2.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/37_state_2.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/38_state_2.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/39_state_2.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/43_state_2.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/46_state_2.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/47_state_2.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/48_state_2.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/49_state_2.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/51_state_2.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/52_state_2.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/54_state_2.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/58_state_2.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/62_state_2.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/64_state_2.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/69_state_2.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/70_state_2.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/71_state_2.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/136_state_2.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/142_state_2.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/144_state_2.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/146_state_2.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/147_state_2.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/148_state_2.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/149_state_2.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/150_state_2.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/151_state_2.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/152_state_2.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/154_state_2.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/174_state_2.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/242.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/243.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/243_state_1.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/244.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/245.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/245_state_1.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/246.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/246_state_1.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/247.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/248.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/248_state_1.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/249.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/250.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/251.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/252.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/253.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/254.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/255.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/256.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/256_state_1.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/257.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/258.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/259.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/259_state_1.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/260.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/261.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/262.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/262_state_1.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/263.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/264.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/264_state_1.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/265.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/265_state_1.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/266.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/267.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/268.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/269.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/269_state_1.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/270.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/271.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/272.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/273.png",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/item_images/274.png",
+			"Type": "ClientAsset"
+		}
+	],
+	"ExportedFunctions": []
+}

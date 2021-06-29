@@ -1,0 +1,59 @@
+{
+	"Files": [
+		{
+			"Name": "Assets/icons/hood.png",
+			"Type": "ClientAsset"
+		  },
+		  {
+			"Name": "Assets/icons/trunk.png",
+			"Type": "ClientAsset"
+		  },
+		  {
+			"Name": "Assets/icons/vehlock.png",
+			"Type": "ClientAsset"
+		  },
+		  {
+			"Name": "Assets/icons/windows.png",
+			"Type": "ClientAsset"
+		  },
+		  {
+			"Name": "Assets/icons/handcuff.png",
+			"Type": "ClientAsset"
+		  },
+		  {
+			"Name": "Assets/icons/frisk.png",
+			"Type": "ClientAsset"
+		  },
+		  {
+			"Name": "Assets/icons/interaction.png",
+			"Type": "ClientAsset"
+		  },
+		  {
+			"Name": "Assets/player_radialmenu.css",
+			"Type": "ClientAsset"
+		  },
+		  {
+			"Name": "Assets/player_radialmenu.html",
+			"Type": "ClientAsset"
+		  },
+		  {
+			"Name": "Assets/player_radialmenu_src.js",
+			"Type": "ClientAsset"
+		  },
+		  {
+			"Name": "PlayerRadialMenu.Client.cs",
+			"Type": "ClientScript"
+		  },
+		  {
+			"Name": "CGUIPlayerRadialMenu.Client.cs",
+			"Type": "ClientScript"
+		  },
+		  {
+			"Name": "Init.Client.cs",
+			"Type": "ClientScript"
+		  }
+	],
+	"ExportedFunctions": [
+		
+	]
+}

@@ -1,0 +1,12 @@
+{
+  "Type": "Network_ClientToServer_RemoteOnly",
+  "Parameters": {
+    "positionX": "float",
+    "positionY": "float",
+    "positionZ": "float",
+    "rotationX": "float",
+    "rotationY": "float",
+    "rotationZ": "float",
+    "item": "ObjectType"
+  }
+}

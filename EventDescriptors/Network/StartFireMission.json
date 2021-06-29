@@ -1,0 +1,10 @@
+{
+  "Type": "Network_ServerToClient_RemoteOnly",
+  "Parameters": {
+  	"MissionID" : "EFireMissionID",
+  	"FireType" : "EFireType",
+  	"vecPos" : "Vector3",
+  	"bIsParticipatingInMission" : "bool",
+  	"strTitle" : "string",
+  }
+}

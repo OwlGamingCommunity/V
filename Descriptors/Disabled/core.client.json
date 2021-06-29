@@ -1,0 +1,14 @@
+{
+	"Files": [
+		{
+			"Name": "KeyBinds.cs",
+			"Type": "ClientScript"
+		},
+		{
+			"Name": "Cursor.cs",
+			"Type": "ClientScript"
+		}
+	],
+  "ExportedFunctions": [
+  ]
+}

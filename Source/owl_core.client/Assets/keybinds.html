@@ -1,0 +1,466 @@
+<html>
+<head>
+
+	<link href="../../owl_client_shared/bootstrap/bootstrap.min.legacy.css" rel="stylesheet">
+	<link href="../../owl_client_shared/core/core.css" rel="stylesheet">
+	<link href="../../owl_client_shared/core/menu.css" rel="stylesheet">
+	<link href="../../owl_client_shared/slider.css" rel="stylesheet">
+	<link href="../../owl_client_shared/animate.css" rel="stylesheet">
+	<script src="../../owl_client_shared/core/core.js"></script>
+	<script src="../../owl_client_shared/jquery.min.js"></script>
+	<script src="../../owl_client_shared/jquery-ui.min.js"></script>
+	<script src="../../owl_client_shared/vue.min.js"></script>
+	<script src="../../owl_client_shared/jscolor.min.js"></script>
+
+	<link href="package://owl_client_shared/bootstrap.min.legacy.css" rel="stylesheet">
+	<link href="package://owl_client_shared/core.css" rel="stylesheet">
+	<link href="package://owl_client_shared/menu.css" rel="stylesheet">
+	<link href="package://owl_client_shared/slider.css" rel="stylesheet">
+	<link href="package://owl_client_shared/animate.css" rel="stylesheet">
+	<script src="package://owl_client_shared//core.js"></script>
+	<script src="package://owl_client_shared//jquery.min.js"></script>
+	<script src="package://owl_client_shared//jquery-ui.min.js"></script>
+	<script src="package://owl_client_shared//vue.min.js"></script>
+	<script src="package://owl_client_shared//jscolor.min.js"></script>
+
+	<script type="text/javascript">
+		var keycodes = [];
+
+		let g_Controls = [];
+		let g_CurrentControlBeingEdited = -1;
+		let g_LastKeyCode = -1;
+
+		let g_CurrentBindType = 0;
+		let g_IsCreatingKeybind = false;
+		let g_IsCreatingKeybind_WaitingForKey = false;
+		let g_CustomKeybinds = [];
+
+		function RegisterKeyCode(id, name)
+		{
+			keycodes[id] = name;
+		}
+
+		function GetKeyNameFromID(id)
+		{
+			return keycodes[id];
+		}
+
+		function OnLoad()
+		{
+			//AddControlInfo(0, "Enter Vehicle (Driver)", "Enters a vehicle as driver", 72, 70);
+			//AddControlInfo(1, "Enter Vehicle (Passenger)", "Enters a vehicle as passenger", 73, 71);
+			//CommitControls();
+
+			//GotoChangeControl(0);
+
+			//keycodes[64] = "A";
+			//keycodes[65] = "B";
+
+			//AddKeybind(0, 65, "/me uses a keybind", 0);
+			//AddKeybind(1, 64, "/me uses another keybind", 1);
+			//CommitKeybinds();
+
+			//GotoTab(2);
+		};
+
+		function SetCurrentBindType(type)
+		{
+			g_CurrentBindType = type;
+		}
+
+		function AddKeybind(key, bind, type)
+		{
+			var newItem = [];
+			newItem["key"] = key;
+			newItem["bind"] = bind;
+			newItem["type"] = type;
+			g_CustomKeybinds.push(newItem);
+		}
+
+		function GotoKeybindsTab()
+		{
+			GotoTab(2);
+		}
+
+		function CommitKeybinds()
+		{
+			var htmlString = `<table class="table">
+						<thead>
+							<tr>
+								<th scope="col" width="10%">Key</th>
+								<th scope="col" width="50%">Action</th>
+								<th scope="col" width="20%">Type</th>
+								<th scope="col" width="10%">Actions</th>
+							</tr>
+						</thead>
+						<tbody>`
+
+			for (var i = 0; i < g_CustomKeybinds.length; ++i)
+			{
+				var keybind = g_CustomKeybinds[i];
+				var keyName = GetKeyNameFromID(keybind.key);
+				var typeName = keybind.type == 0 ? "Character" : "Account";
+				htmlString += `<tr><th scope="row">${keyName}</th><td>${keybind.bind}</td><td>${typeName}</td><td><a href='javascript:DeleteKeybind(${i});'>Delete</a></td>`
+			}
+			
+			htmlString += `</tbody ></table>`
+
+			document.getElementById("tab_2_content").innerHTML = htmlString;
+		}
+
+		function AddNewKeybind()
+		{
+			g_CurrentBindType = 0;
+			g_IsCreatingKeybind = true;
+			g_IsCreatingKeybind_WaitingForKey = true;
+			document.getElementById("main-box").style.display = "none";
+			document.getElementById("keygrab-box-keybind").style.display = "block";
+			document.getElementById("change_binding_keypressed_keybind").textContent = "";
+			document.getElementById("bindaction").value = "";
+			document.getElementById("radio_character").checked = true;
+			document.getElementById("radio_account").checked = false;
+		}
+
+		function CancelCreateKeybind()
+		{
+			g_LastKeyCode = -1;
+			g_IsCreatingKeybind = false;
+			g_IsCreatingKeybind_WaitingForKey = false;
+
+			document.getElementById("main-box").style.display = "block";
+			document.getElementById("keygrab-box-keybind").style.display = "none";
+		}
+
+		function CreateKeybind_GoBackToKeySelection()
+		{
+			g_IsCreatingKeybind_WaitingForKey = true;
+			document.getElementById("keygrab-box-keybind").style.display = "block";
+			document.getElementById("keybind-step-2").style.display = "none";
+		}		
+
+		function GotoCreateKeybindStep2()
+		{
+			if (g_LastKeyCode != -1)
+			{
+				g_IsCreatingKeybind_WaitingForKey = false;
+				document.getElementById("keygrab-box-keybind").style.display = "none";
+				document.getElementById("keybind-step-2").style.display = "block";
+			}
+			else
+			{
+				document.getElementById("change_binding_keypressed_keybind").placeholder = "Please press a key to continue!";
+			}
+		}
+
+		function FinalizeCreateKeybind()
+		{
+			var action = document.getElementById("bindaction").value;
+			if (action.length == 0)
+			{
+				document.getElementById("bindaction").value = "Please provide an action! (e.g. /me says hello)";
+			}
+			else
+			{
+				TriggerEvent("CreateKeybind", g_LastKeyCode, g_CurrentBindType, action);
+
+				g_LastKeyCode = -1;
+				g_CurrentBindType = 0;
+				g_IsCreatingKeybind = false;
+				g_IsCreatingKeybind_WaitingForKey = false;
+
+				document.getElementById("keygrab-box-keybind").style.display = "none";
+				document.getElementById("keybind-step-2").style.display = "none";
+				document.getElementById("main-box").style.display = "block";
+			}
+		}
+
+		function DeleteKeybind(index)
+		{
+			TriggerEvent("DeleteKeybind", index);
+		}
+
+		var g_NumTabs = 2;
+		function GotoTab(index)
+		{
+			for (var i = 1; i <= g_NumTabs; ++i)
+			{
+				if (i != index)
+				{
+					document.getElementById(`tab_${i}`).style.display = "none";
+					$(`#tab_${i}_button`).removeClass("active");
+				}
+			}
+
+			document.getElementById(`tab_${index}`).style.display = "block";
+			$(`#tab_${index}_button`).addClass("active");
+		}
+
+		document.addEventListener('keyup', (event) =>
+		{
+			if (g_CurrentControlBeingEdited != -1)
+			{
+				g_LastKeyCode = event.keyCode;
+				var KeyName = GetKeyNameFromID(event.keyCode);
+				document.getElementById("change_binding_keypressed").textContent = KeyName;
+			}
+			else if (g_IsCreatingKeybind && g_IsCreatingKeybind_WaitingForKey)
+			{
+				g_LastKeyCode = event.keyCode;
+				var KeyName = GetKeyNameFromID(event.keyCode);
+				document.getElementById("change_binding_keypressed_keybind").textContent = KeyName;
+			}
+		}, false);
+
+		function AddControlInfo(control_id, name, description, key_current, key_default)
+		{
+			var newItem = [];
+			newItem["control_id"] = control_id;
+			newItem["name"] = name;
+			newItem["description"] = description;
+			newItem["key_current"] = key_current;
+			newItem["key_default"] = key_default;
+			g_Controls.push(newItem);
+		}
+
+		function SaveControl()
+		{
+			var control = g_Controls[g_CurrentControlBeingEdited];
+			TriggerEvent("SaveControl", control.control_id, g_LastKeyCode);
+
+			g_CurrentControlBeingEdited = -1;
+			g_LastKeyCode = -1;
+
+			document.getElementById("main-box").style.display = "block";
+			document.getElementById("keygrab-box").style.display = "none";
+		}
+
+		function SetCurrentControlToDefault()
+		{
+			var control = g_Controls[g_CurrentControlBeingEdited];
+			var KeyName = GetKeyNameFromID(control.key_default);
+			g_LastKeyCode = control.key_default;
+			document.getElementById("change_binding_keypressed").textContent = KeyName;
+		}
+
+		function SetAllControlsToDefault()
+		{
+			TriggerEvent("SetAllControlsToDefault");
+		}
+
+		function CancelSaveControl()
+		{
+			g_CurrentControlBeingEdited = -1;
+			g_LastKeyCode = -1;
+
+			document.getElementById("main-box").style.display = "block";
+			document.getElementById("keygrab-box").style.display = "none";
+		}
+
+		function GotoChangeControl(control_id)
+		{
+			g_CurrentControlBeingEdited = control_id;
+
+			document.getElementById("main-box").style.display = "none";
+			document.getElementById("keygrab-box").style.display = "block";
+
+			var control = g_Controls[control_id];
+			document.getElementById("change_binding_displayname").textContent = control.name;
+
+			var KeyName = GetKeyNameFromID(control.key_current);
+			document.getElementById("change_binding_keypressed").textContent = KeyName;
+		}
+
+		function CommitControls()
+		{
+			var htmlString = `<table class="table">
+						<thead>
+							<tr>
+								<th scope="col" width="20%">Name</th>
+								<th scope="col" width="30%">Description</th>
+								<th scope="col" width="30%">Key (Click to Change)</th>
+							</tr>
+						</thead>
+						<tbody>`
+
+			for (var i = 0; i < g_Controls.length; ++i)
+			{
+				var control = g_Controls[i];
+				var keyName = GetKeyNameFromID(control.key_current);
+				htmlString += `<tr><th scope="row">${control.name}</th><td>${control.description}</td><td><a href='javascript:GotoChangeControl(${i});'>${keyName}</a></td>`
+			}
+			
+			htmlString += `</tbody ></table>`
+
+			document.getElementById("tab_1_content").innerHTML = htmlString;
+		}
+
+		function Reset()
+		{
+			g_Controls = [];
+			g_CurrentControlBeingEdited = -1;
+			g_LastKeyCode = -1;
+			g_CustomKeybinds = [];
+			keycodes = [];
+			g_IsCreatingKeybind = false;
+
+			GotoTab(1);			
+		}
+
+		function ExitControlManager()
+		{
+			TriggerEvent("HideControlManager");
+		}
+	</script>
+
+	<style type="text/css">
+
+		body {
+			background-color: transparent;
+		}
+
+		#main-box {
+			width: 950px;
+			min-height: 50%;
+			margin-left: 2%;
+			vertical-align: middle;
+			position: relative;
+			top: 45%;
+			left: 45%;
+			transform: translate(-50%, -50%);
+		}
+
+		.panel {
+			margin-bottom: 0;
+		}
+
+		.panel-body p {
+			margin-bottom: 0;
+		}
+
+		#keygrab-box {
+			margin: 0 auto;
+			position: absolute;
+			top: 45%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			width: 30%;
+			min-width: 500px;
+		}
+
+		#keygrab-box-keybind {
+			margin: 0 auto;
+			position: absolute;
+			top: 45%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			width: 30%;
+			min-width: 500px;
+		}
+
+		#keybind-step-2 {
+			margin: 0 auto;
+			position: absolute;
+			top: 45%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			width: 30%;
+			min-width: 500px;
+		}
+	</style>
+
+</head>
+<body>
+
+<div id="keygrab-box" class="text-center" style="display:none">
+	<div class="panel panel-default">
+			<div class="panel-heading">
+				<h4>Change Key Binding</h4>
+			</div>
+			<div class="panel-body">
+				<br />
+				<p>Press any key to bind '<span id="change_binding_displayname"></span>' to</p><br>
+				<span id="change_binding_keypressed"></span>
+			</div>
+			<div class="btn-group btn-group-justified">
+				<a type='button' id="cancelsavecontrol_button" class='btn btn-danger' onclick="CancelSaveControl();">Cancel</a>
+				<a type='button' id="defaultsavecontrol_button" class='btn btn-info' onclick="SetCurrentControlToDefault();">Set To Default</a>
+				<a type='button' id="savecontrol_button" class='btn btn-success' onclick="SaveControl();">Save</a>
+			</div>
+		</div>
+</div>
+
+<div id="keygrab-box-keybind" class="text-center" style="display:none">
+	<div class="panel panel-default">
+			<div class="panel-heading">
+				<h4>Choose a Key</h4>
+			</div>
+			<div class="panel-body">
+				<br />
+				<p>Press any key to use for this keybind</p><br>
+				<span id="change_binding_keypressed_keybind"></span>
+			</div>
+			<div class="btn-group btn-group-justified">
+				<a type='button' class='btn btn-danger' onclick="CancelCreateKeybind();">Cancel</a>
+				<a type='button' class='btn btn-success' onclick="GotoCreateKeybindStep2();">Next</a>
+			</div>
+		</div>
+</div>
+
+<div id="keybind-step-2" class="text-center" style="display:none">
+	<div class="panel panel-default">
+			<div class="panel-heading">
+				<h4>KeyBind Details</h4>
+			</div>
+			<div class="panel-body">
+				<br />
+				<h4><p>Action:</p></h4>
+				<input type='text' class='form-control' aria-describedby='basic-addon1' id='bindaction' value=''>
+				<br>
+				<h4><p>Binding Type:</p></h4>
+				<form>
+					<div class="radio">
+						<label><input type="radio" name="radiotype" id="radio_character" checked="true" onclick="SetCurrentBindType(0);">Character</label>
+					</div>
+					<div class="radio">
+						<label><input type="radio" name="radiotype" id="radio_account" onclick="SetCurrentBindType(1);">Account</label>
+					</div>
+				</form>
+			</div>
+			<div class="btn-group btn-group-justified">
+				<a type='button' class='btn btn-danger' onclick="CreateKeybind_GoBackToKeySelection();">Back To Key Selection</a>
+				<a type='button' class='btn btn-success' onclick="FinalizeCreateKeybind();">Finish</a>
+			</div>
+		</div>
+</div>
+
+	<div id="main-box" class="text-center">
+				
+				<ul class="nav nav-tabs nav-dark-tabs">
+  <li id="tab_1_button"><a href="javascript:GotoTab(1);">Script Controls</a></li>
+  <li id="tab_4_button"><a href="javascript:GotoTab(2);">Custom Keybinds</a></li>
+</ul>
+		<div class="panel panel-default" id="content">
+			<div class="panel-heading">
+				<br>
+				<span id="tab_1" style="display:block">
+
+<div id="tab_1_content" style="height:25%;width:100%;border:1px solid #ccc;font:16px/26px Georgia, Garamond, Serif;overflow:auto;">
+
+						</div>
+						<a type='button' id="alldefaultsavecontrol_button" class='btn btn-danger' onclick="SetAllControlsToDefault();">Reset All To Defaults</a>
+				</span>
+
+				<span id="tab_2" style="display:none">
+					<div id="tab_2_content" style="height:25%;width:100%;border:1px solid #ccc;font:16px/26px Georgia, Garamond, Serif;overflow:auto;">
+
+						</div>
+						<a type='button' id="addkeybind_button" class='btn btn-info' onclick="AddNewKeybind();">Add Keybind</a>
+				</span>
+	</div>
+	</div>
+<div class="btn-group btn-group-justified">
+					<a type='button' class='btn btn-danger' onclick="ExitControlManager();">Exit</a>
+				</div>
+		</div>
+</body>
+</html>

@@ -1,0 +1,629 @@
+<html>
+<head>
+
+	<link href="../../owl_client_shared/bootstrap/bootstrap.min.legacy.css" rel="stylesheet">
+	<link href="../../owl_client_shared/core/core.css" rel="stylesheet">
+	<link href="../../owl_client_shared/core/menu.css" rel="stylesheet">
+	<link href="../../owl_client_shared/slider.css" rel="stylesheet">
+	<link href="../../owl_client_shared/animate.css" rel="stylesheet">
+	<link href="../../owl_client_shared/fontawesome/all.min.dev.css" rel="stylesheet">
+	<script src="../../owl_client_shared/core/core.js"></script>
+	<script src="../../owl_client_shared/jquery.min.js"></script>
+	<script src="../../owl_client_shared/jquery-ui.min.js"></script>
+	<script src="../../owl_client_shared/vue.min.js"></script>
+	<script src="../../owl_client_shared/jscolor.min.js"></script>
+
+	<link href="package://owl_client_shared/bootstrap.min.legacy.css" rel="stylesheet">
+	<link href="package://owl_client_shared/core.css" rel="stylesheet">
+	<link href="package://owl_client_shared/menu.css" rel="stylesheet">
+	<link href="package://owl_client_shared/slider.css" rel="stylesheet">
+	<link href="package://owl_client_shared/animate.css" rel="stylesheet">
+	<link href="package://owl_client_shared/all.min.css" rel="stylesheet">
+	<script src="package://owl_client_shared//core.js"></script>
+	<script src="package://owl_client_shared//jquery.min.js"></script>
+	<script src="package://owl_client_shared//jquery-ui.min.js"></script>
+	<script src="package://owl_client_shared//vue.min.js"></script>
+	<script src="package://owl_client_shared//jscolor.min.js"></script>
+
+
+	<script type="text/javascript">
+		function OnChangeClass(value)
+		{
+			TriggerEvent("VehicleStore_OnChangeClass", value);
+		}
+
+		function OnChangeVehicle()
+		{
+			var value = document.getElementById("vehicle_listbox").value;
+			TriggerEvent("VehicleStore_OnChangeVehicle", value);
+        }
+
+        function SetMonthlyDownpayment()
+        {
+            var elem = document.getElementById('monthly_down_payment');
+            var val = elem.value;
+
+            if (!isNaN(val) && val.length > 0)
+            {
+                TriggerEvent("VehicleStore_SetMonthlyDownpayment", val);
+            }
+        }
+
+        function SetNumMonthlyPayments()
+        {
+            var elem = document.getElementById('num_monthly_payments');
+            var val = elem.value;
+
+            if (!isNaN(val) && val.length > 0)
+            {
+                TriggerEvent("VehicleStore_SetNumMonthlyPayments", val);
+            }
+        }
+
+		var vehicles = [];
+		var insert_id = 0;
+
+		function AddVehicle(id, display_name)
+		{
+			vehicles[insert_id] = [];
+			vehicles[insert_id]["id"] = id;
+			vehicles[insert_id]["display_name"] = display_name;
+			insert_id++;
+		}
+
+		function StartRotation(direction)
+		{
+			TriggerEvent("VehicleStore_StartRotation", direction);
+		}
+
+		function StopRotation()
+		{
+			TriggerEvent("VehicleStore_StopRotation", );
+		}
+
+		function ResetCamera()
+		{
+			TriggerEvent("VehicleStore_ResetCamera");
+		}
+
+		function StartZoom(direction)
+		{
+			TriggerEvent("VehicleStore_StartZoom", direction);
+		}
+
+		function StopZoom()
+		{
+			TriggerEvent("VehicleStore_StopZoom");
+		}
+
+		function SortByDisplayName(a, b)
+		{
+			return a["display_name"] > b["display_name"];
+		}
+
+		function CommitVehicles()
+		{
+			vehicles.sort(SortByDisplayName);
+
+			var html = `<select id="vehicle_listbox" class="form-control" multiple onchange="OnChangeVehicle()">`;
+
+            if (vehicles.length > 0)
+            {
+                for (var i = 0; i < vehicles.length; ++i)
+                {
+                    html += `<option value="${vehicles[i]["id"]}">${vehicles[i]["display_name"]}</option>`;
+                    document.getElementById("vehicle_list").innerHTML = html;
+                }
+            }
+            else
+            {
+                document.getElementById("vehicle_list").innerHTML = "No vehicles are available in this category";
+            }
+
+			html += `</select>`;
+
+			vehicles = [];
+			insert_id = 0;
+		}
+
+		function Hide()
+		{
+			TriggerEvent("VehicleStore_Hide");
+		}
+
+		function OnCheckout()
+		{
+			SetButtonsEnabled(false);
+			TriggerEvent("VehicleStore_OnCheckout", g_Purchaser, g_Method);
+        }
+
+        function ToggleDoors()
+        {
+            TriggerEvent("VehicleStore_ToggleDoors");
+        }
+
+        function SetPrimaryColor(color)
+        {
+            document.getElementById('primarycol').jscolor.fromString(color);
+        }
+
+        function SetSecondaryColor(color)
+        {
+            document.getElementById('secondarycol').jscolor.fromString(color);
+        }
+
+		function OnChangePrimaryColor(picker)
+		{
+			var r = Math.round(picker.rgb[0]);
+			var g = Math.round(picker.rgb[1]);
+			var b = Math.round(picker.rgb[2]);
+			TriggerEvent("VehicleStore_OnChangePrimaryColor", r, g, b);
+		}
+
+		function OnChangeSecondaryColor(picker)
+		{
+			var r = Math.round(picker.rgb[0]);
+			var g = Math.round(picker.rgb[1]);
+			var b = Math.round(picker.rgb[2]);
+			TriggerEvent("VehicleStore_OnChangeSecondaryColor", r, g, b);
+		}
+
+		$(function ()
+		{
+
+			$(".dropdown-menu li a").click(function ()
+			{
+
+				$("#dropdownClass").text($(this).text());
+				$("#dropdownClass").val($(this).text());
+
+			});
+
+		});
+
+		function SetVehicleInfo(braking, traction, speed, accel, passengers)
+		{
+			var max_traction = 3.0;
+			var max_braking = 1.1;
+
+			if (traction > max_traction)
+			{
+				traction = max_traction;
+			}
+
+			if (braking > max_braking)
+			{
+				braking = max_braking;
+			}
+
+			var traction_rating = (Math.round((traction / max_traction) * 100.0) * 100 / 100) / 10;
+			var braking_rating = (Math.round((braking / max_braking) * 100.0) * 100 / 100) / 10;
+			speed = Math.round(speed * 100) / 100;
+			accel = Math.round((accel * 30.0) * 100) / 100;
+
+			document.getElementById("braking").innerHTML = `${braking_rating}/10`;
+			document.getElementById("traction").innerHTML = `${traction_rating}/10`;
+			document.getElementById("speed").innerHTML = `${speed} mph`;
+			document.getElementById("acceleration").innerHTML = `${accel} mps`;
+			document.getElementById("passengers").innerHTML = `${passengers}`;
+
+			var time_to_60 = Math.round((60.0 / accel) * 100) / 100;
+			document.getElementById("time_to_60").innerHTML = `${time_to_60} seconds`;
+			//document.getElementById("speed").innerHTML = `<div class="progress"><div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">60%</div></div>`;
+		}
+
+		function ShowErrorMessage(text)
+		{
+			SetButtonsEnabled(true);
+			document.getElementById("error_text").innerHTML = `<div class="panel-body">${text}</div>`;
+		}
+
+		function SetButtonsEnabled(enabled)
+		{
+			document.getElementById("exitbutton").disabled = !enabled;
+			document.getElementById("buybutton").disabled = !enabled;
+			document.getElementById("dropdownClass_Purchaser").disabled = !enabled;
+			document.getElementById("dropdownClass_Method").disabled = !enabled;
+		}
+
+        function SetDownpayment(down_payment, min, max)
+        {
+            document.getElementById("monthly_down_payment").min = min;
+            document.getElementById("monthly_down_payment").max = max;
+
+            document.getElementById("monthly_down_payment").value = `${down_payment}`;
+            document.getElementById("monthly_down_payment").placeholder = `${down_payment}`;
+        }
+
+        function SetPriceInfo(price, interest, monthly_payment_credit_amount, monthly_payment_total_price, monthly_payment)
+		{
+			document.getElementById("price").innerHTML = `$${CurrencyFormat(price)}`;
+            document.getElementById("monthly_interest").innerHTML = `$${CurrencyFormat(interest)}`;
+            document.getElementById("monthly_payment_credit_amount").innerHTML = `$${CurrencyFormat(monthly_payment_credit_amount)}`;
+            document.getElementById("monthly_payment_total_price").innerHTML = `$${CurrencyFormat(monthly_payment_total_price)}`;
+            document.getElementById("monthly_payment").innerHTML = `$${CurrencyFormat(monthly_payment)}`;
+		}
+
+		function CurrencyFormat(number)
+		{
+			return number.toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, "$1,");
+		}
+
+		function AddDebugData()
+		{
+			ResetData();
+
+			AddPurchaser("Self");
+			AddDivider();
+			AddPurchaser("Test 1");
+			AddPurchaser("Test 2");
+
+			AddMethod("Cash");
+			AddMethod("Credit");
+
+			CommitPurchasesAndMethods();
+		}
+
+		var g_Purchasers = [];
+		var g_Methods = [];
+		var g_Purchaser = -1;
+		var g_Method = -1;
+		var g_CurrentIndex_Purchaser = 0;
+		var g_CurrentIndex_Method = 0;
+		function SetPurchaser(index)
+		{
+			g_Purchaser = index;
+			$("#dropdownClass_Purchaser").text(g_Purchasers[index]);
+			$("#dropdownClass_Purchaser").val(g_Purchasers[index]);
+		}
+
+		function SetMethod(index)
+		{
+			g_Method = index;
+			$("#dropdownClass_Method").text(g_Methods[index]);
+			$("#dropdownClass_Method").val(g_Methods[index]);
+		}
+
+		function ResetData()
+        {
+            SetButtonsEnabled(false);
+			document.getElementById("purchasers").innerHTML = "";
+			document.getElementById("methods").innerHTML = "";
+			g_Purchasers = [];
+			g_Methods = [];
+			g_Purchaser = -1;
+			g_Method = -1;
+			g_CurrentIndex_Purchaser = 0;
+			g_CurrentIndex_Method = 0;
+
+			document.getElementById("dropdownClass_Purchaser").innerHTML = "<img class='loading-icon' src='package://owl_client_shared//loadingicon_square.gif' />";
+			document.getElementById("dropdownClass_Method").innerHTML = "<img class='loading-icon' src='package://owl_client_shared//loadingicon_square.gif' />";
+		}
+
+		function CommitPurchasesAndMethods()
+		{
+			document.getElementById("dropdownClass_Purchaser").innerHTML = "Purchaser <span class='caret'>";
+            document.getElementById("dropdownClass_Method").innerHTML = "Purchase Method <span class='caret'>";
+            SetButtonsEnabled(true);
+		}
+
+		function AddPurchaser(purchaserName)
+		{
+			g_Purchasers.push(purchaserName);
+			document.getElementById("purchasers").innerHTML += `<li><a href='#'' onclick='SetPurchaser(${g_CurrentIndex_Purchaser})' id='purchaser_${g_CurrentIndex_Purchaser}'>${purchaserName}</a></li>`;
+			g_CurrentIndex_Purchaser++;
+		}
+
+		function AddDivider()
+		{
+			document.getElementById("purchasers").innerHTML += `<li class="divider"></li>`;
+		}
+
+		function AddMethod(methodName)
+		{
+			g_Methods.push(methodName);
+			document.getElementById("methods").innerHTML += `<li><a href='#'' onclick='SetMethod(${g_CurrentIndex_Method})' id='purchaser_${g_CurrentIndex_Method}'>${methodName}</a></li>`;
+			g_CurrentIndex_Method++;
+		}
+
+		function SetStoreName(name)
+		{
+			document.getElementById("store_name").innerText = name;
+		}
+
+		function SetStoreAsVehicleStore()
+		{
+			document.getElementById("auto_store_classes").style.visibility = "visible";
+			document.getElementById("doorsbutton").style.visibility = "visible";
+			document.getElementById("vehicle_info").style.visibility = "visible";
+			SetStoreName("San Andreas Autos")
+		}
+
+		function SetStoreAsBoatStore()
+		{
+			document.getElementById("auto_store_classes").style.visibility = "hidden";
+			document.getElementById("doorsbutton").style.visibility = "hidden";
+			document.getElementById("vehicle_info").style.visibility = "hidden";
+			SetStoreName("Puerta Del Sol Boats")
+		}
+	</script>
+
+	<style type="text/css">
+		body {
+			background-color: transparent;
+		}
+
+		.bottom-center-box-upper {
+			position: fixed;
+			right: 85px;
+			bottom: 100px
+		}
+
+		.bottom-center-box {
+			position: fixed;
+			right: 25px;
+			bottom: 60px
+		}
+
+		.bottom-center-box-lower {
+			position: fixed;
+			right: 80px;
+			bottom: 20px
+		}
+
+		#box-left {
+			left: 25px;
+			position: fixed;
+			top: 40%;
+			transform: translateY(-40%);
+			width: 320px;
+		}
+
+		#vehicle_listbox {
+			margin-bottom: 15px;
+		}
+
+
+		.dropdown-menu > li > a {
+			padding: 7.5px 15px;
+		}
+
+		#box-right {
+			position: fixed;
+			right: 25px;
+			top: 40%;
+			transform: translateY(-40%);
+			width: 320px;
+		}
+
+		tr {
+			text-align: right;
+		}
+
+
+		#error_text:empty {
+			display: none;
+		}
+
+		#error_text {
+			color: #FF0000;
+		}
+	</style>
+</head>
+<body>
+
+    <div id="box-left">
+
+        <div class="well">
+            <h4><div id="store_name"></div></h4>
+            <br />
+            <div id="auto_store_classes" class="btn-group">
+                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownClass" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Select Class
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                    <li><a onclick='OnChangeClass("tokenvehicles");'>Token Vehicles</a></li>
+                    <li><a onclick='OnChangeClass("cycles");'>Bicycles</a></li>
+                    <li><a onclick='OnChangeClass("commercial");'>Commercial</a></li>
+                    <li><a onclick='OnChangeClass("compacts");'>Compact</a></li>
+                    <li><a onclick='OnChangeClass("coupes");'>Coupes</a></li>
+                    <li><a onclick='OnChangeClass("industrial");'>Industrial</a></li>
+                    <li><a onclick='OnChangeClass("motorcycles");'>Motorcycles</a></li>
+                    <li><a onclick='OnChangeClass("muscle");'>Muscle</a></li>
+                    <li><a onclick='OnChangeClass("off-road");'>Off-Road</a></li>
+                    <li><a onclick='OnChangeClass("sedans");'>Sedans</a></li>
+                    <li><a onclick='OnChangeClass("sports");'>Sports</a></li>
+                    <li><a onclick='OnChangeClass("sports classics");'>Sports Classics</a></li>
+                    <li><a onclick='OnChangeClass("super");'>Super Cars</a></li>
+                    <li><a onclick='OnChangeClass("suvs");'>SUV</a></li>
+                    <li><a onclick='OnChangeClass("utility");'>Utility</a></li>
+                    <li><a onclick='OnChangeClass("vans");'>Vans & Pickups</a></li>
+                </ul>
+            </div>
+            <br />
+            <br />
+            <span id="vehicle_list">
+            </span>
+
+
+        </div>
+
+        <div class="panel panel-default">
+
+            <div class="panel-heading">
+                <h5>Visual Appearance</h5>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label>Primary Color</label>
+                            <input size="3" maxlength="6" value="000000" class="form-control jscolor {onFineChange:'OnChangePrimaryColor(this)', position:'right'}">
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label>Secondary Color</label>
+                            <input size="3" maxlength="6" value="000000" class="form-control jscolor {onFineChange:'OnChangeSecondaryColor(this)', position:'right'}">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+            <!-- VEHICLE INFO -->
+
+            <div id="vehicle_info" class="panel panel-default">
+
+                <div class="panel-heading">
+                    <h5>Vehicle Specifications</h5>
+                </div>
+
+                <table class="table">
+                    <tr>
+                        <th>Speed</th>
+                        <td id="speed"></td>
+                    </tr>
+                    <tr>
+                        <th>Acceleration</th>
+                        <td id="acceleration"></td>
+                    </tr>
+                    <tr>
+                        <th>Time To 60mph</th>
+                        <td id="time_to_60"></td>
+                    </tr>
+                    <tr>
+                        <th>Braking</th>
+                        <td id="braking"></td>
+                    </tr>
+                    <tr>
+                        <th>Traction</th>
+                        <td id="traction"></td>
+                    </tr>
+                    <tr>
+                        <th>Max Passengers</th>
+                        <td id="passengers"></td>
+                    </tr>
+                </table>
+
+            </div>
+
+            <div class="btn-group btn-group-justified" role="group" aria-label="Justified button group">
+                <div class="btn-group">
+                    <button type="button" class="btn btn-success" id="doorsbutton" onclick='ToggleDoors();'>Open / Close Doors</button>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- COST INFO -->
+        <div id="box-right">
+
+            <div class="panel panel-default">
+
+                <div class="panel-heading">
+                    <h5>Payment Information</h5>
+                </div>
+
+                <table class="table">
+                    <tr>
+                        <th>Price</th>
+                        <td id="price"></td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="panel panel-default" style="margin-top: 20px;">
+
+                <div class="panel-heading">
+                    <h5>Credit Information</h5>
+                </div>
+
+                <table class="table">
+                    <tr>
+                        <th>Down Payment</th>
+                        <th><input type='number' class='form-control' aria-describedby='basic-addon1' id='monthly_down_payment' oninput="SetMonthlyDownpayment()" value='0.00'></th>
+                    </tr>
+                    <tr>
+                        <th>Repayment Period (months)</th>
+                        <th><input type='number' class='form-control' aria-describedby='basic-addon1' id='num_monthly_payments' oninput="SetNumMonthlyPayments()" min="1" max="200" value='60'></th>
+                    </tr>
+                    <tr>
+                        <th>Credit Amount</th>
+                        <td id="monthly_payment_credit_amount"></td>
+                    </tr>
+                    <tr>
+                        <th>Interest</th>
+                        <td id="monthly_interest"></td>
+                    </tr>
+                    <tr>
+                        <th>Total Price</th>
+                        <td id="monthly_payment_total_price"></td>
+                    </tr>
+                    <tr class="active">
+                        <th style="border-right: none;"></th>
+                        <td style="border-left: none;"></td>
+                    </tr>
+                    <tr>
+                        <th>Credit Repayment (p/m)</th>
+                        <td id="monthly_payment"></td>
+                    </tr>
+                </table>
+            </div>
+            <div class="btn-group btn-group-justified" role="group" aria-label="Justified button group">
+                <div class="btn-group">
+                    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" id="dropdownClass_Purchaser">
+                        </span>
+                    </button>
+                    <ul class="dropdown-menu" role="menu" id="purchasers"></ul>
+                </div>
+
+
+                <div class="btn-group">
+                    <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" id="dropdownClass_Method">
+                        </span>
+                    </button>
+                    <ul class="dropdown-menu" role="menu" id="methods"></ul>
+                </div>
+            </div>
+
+            <div class="btn-group btn-group-justified" role="group" aria-label="Justified button group">
+                <div class="btn-group">
+                    <button type="button" class="btn btn-success" id="buybutton" onclick='OnCheckout();'>Checkout</button>
+                </div>
+            </div>
+
+            <div class="btn-group btn-group-justified" role="group" aria-label="Justified button group">
+                <div class="btn-group">
+                    <button type="button" class="btn btn-danger" id="exitbutton" onclick='Hide();'>Exit</button>
+                </div>
+            </div>
+
+
+            <div class="panel panel-default" id="error_text"></div>
+
+        </div>
+
+        <div class="bottom-center-box-upper" style="display:block">
+            <div class="btn-group" role="group">
+                <a type='button' class='btn btn-default' onmousedown="StartZoom(1);" onmouseup="StopZoom();">Zoom In</a>
+            </div>
+        </div>
+
+        <div class="bottom-center-box" style="display:block; z-index: 1">
+            <div class="btn-group" role="group">
+				<button class='btn btn-default' style="height: 45px;" onmousedown="StartRotation(1);" onmouseup="StopRotation();"><span class="fa fa-angle-left"></span></button>
+                <button class='btn btn-default' onclick="ResetCamera();">Reset Camera</button>
+                <button class='btn btn-default' style="height: 45px;" onmousedown="StartRotation(2);" onmouseup="StopRotation();"><span class="fa fa-angle-right"></span></button>
+            </div>
+        </div>
+
+        <div class="bottom-center-box-lower" style="display:block; z-index: 0;">
+            <div class="btn-group" role="group">
+                <a type='button' class='btn btn-default' onmousedown="StartZoom(2);" onmouseup="StopZoom();">Zoom Out</a>
+            </div>
+        </div>
+
+</body>
+</html>

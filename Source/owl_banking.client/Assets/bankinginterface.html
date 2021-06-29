@@ -1,0 +1,338 @@
+<html>
+<head>
+	<link href="../../owl_client_shared/bootstrap/bootstrap.min.css" rel="stylesheet">
+	<link href="../../owl_client_shared/core/core.css" rel="stylesheet">
+	<link href="../../owl_client_shared/core/menu.css" rel="stylesheet">
+	<link href="../../owl_client_shared/slider.css" rel="stylesheet">
+	<link href="../../owl_client_shared/animate.css" rel="stylesheet">
+	<script src="../../owl_client_shared/core/core.js"></script>
+	<script src="../../owl_client_shared/jquery.min.js"></script>
+	<script src="../../owl_client_shared/jquery-ui.min.js"></script>
+	<script src="../../owl_client_shared/vue.min.js"></script>
+	<script src="../../owl_client_shared/jscolor.min.js"></script>
+	<script src="../../owl_client_shared/popper.min.js"></script>
+	<script src="../../owl_client_shared/bootstrap/bootstrap.min.js"></script>
+
+	<link href="package://owl_client_shared/bootstrap.min.css" rel="stylesheet">
+	<link href="package://owl_client_shared/core.css" rel="stylesheet">
+	<link href="package://owl_client_shared/menu.css" rel="stylesheet">
+	<link href="package://owl_client_shared/slider.css" rel="stylesheet">
+	<link href="package://owl_client_shared/animate.css" rel="stylesheet">
+	<script src="package://owl_client_shared//core.js"></script>
+	<script src="package://owl_client_shared//jquery.min.js"></script>
+	<script src="package://owl_client_shared//jquery-ui.min.js"></script>
+	<script src="package://owl_client_shared//vue.min.js"></script>
+	<script src="package://owl_client_shared//jscolor.min.js"></script>
+	<script src="package://owl_client_shared//popper.min.js"></script>
+	<script src="package://owl_client_shared//bootstrap.min.js"></script>
+
+	<script type="text/javascript">
+		var g_Accounts = [];
+		var g_Account = -1;
+		var g_CurrentIndex_Account = 0;
+
+		var g_Credits = [];
+		var g_CurrentCredit = -1;
+		var g_CurrentIndex_Credit = 0;
+
+		function Hide() {
+			TriggerEvent("Banking_OnHide");
+		}
+
+		function OnWithdraw() {
+			var amount = document.getElementById("transaction_amount").value.replace(",", "");
+			if (amount.length > 0 && !isNaN(amount) && parseFloat(amount) > 0) {
+				TriggerEvent("Banking_OnWithdraw", amount);
+			}
+		}
+
+		function OnDeposit() {
+			var amount = document.getElementById("transaction_amount").value.replace(",", "");
+			if (amount.length > 0 && !isNaN(amount) && parseFloat(amount) > 0) {
+				TriggerEvent("Banking_OnDeposit", amount);
+			}
+		}
+
+		function OnWireTransfer() {
+			var amount = document.getElementById("transaction_amount").value.replace(",", "");
+			if (amount.length > 0 && !isNaN(amount) && parseFloat(amount) > 0) {
+				TriggerEvent("Banking_OnWireTransfer", amount);
+			}
+		}
+
+		function SetButtonsEnabled(enabled) {
+			document.getElementById("exitbutton").disabled = !enabled;
+			document.getElementById("withdrawbutton").disabled = !enabled;
+			document.getElementById("depositbutton").disabled = !enabled;
+			document.getElementById("wiretransferbutton").disabled = !enabled;
+			document.getElementById("dropdownClass_Account").disabled = !enabled;
+			document.getElementById("transaction_amount").disabled = !enabled;
+		}
+
+		function ResetCredits(resetDropdownSelectedText) {
+			if (resetDropdownSelectedText) {
+				document.getElementById("dropdownClass_Credits").innerHTML = "Select Credit Source";
+			}
+
+			// reset ptrs too
+			g_Credits = [];
+			g_CurrentCredit = -1;
+			g_CurrentIndex_Credit = 0;
+
+			document.getElementById("credits").innerHTML = "";
+
+			document.getElementById("table_credit").innerHTML = "<tr><th>Please select an entry above to view more information.</th></tr>";
+			SetButtonsEnabled(true);
+		}
+
+		function Reset() {
+			SetBalance(0.0);
+			document.getElementById("transaction_amount").value = "";
+			ResetCredits(true);
+
+			document.getElementById("accounts").innerHTML = "";
+			g_Accounts = [];
+			g_Account = -1;
+			g_CurrentIndex_Account = 0;
+
+			document.getElementById("dropdownClass_Account").innerHTML = "<img class='loading-icon' src='package://owl_client_shared//loadingicon_square.gif' />";
+		}
+
+		function SetBalance(balance) {
+			document.getElementById("balance").innerHTML = `$${CurrencyFormat(balance)}`;
+			SetButtonsEnabled(true);
+		}
+
+		function SetCreditInfo(name, payments_remaining, payments_made, remaining_credit_amount, remaining_interest) {
+			document.getElementById("table_credit").innerHTML = `<tr>
+								<th>Name</th>
+								<td id="credit_name">${name}</td>
+							</tr>
+							<tr>
+								<th>Payments Made:</th>
+								<td id="credit_payments_made">${payments_made}</td>
+							</tr>
+							<tr>
+								<th>Payments Remaining</th>
+								<td id="credit_payments_remaining">${payments_remaining}</td>
+							</tr>
+							<tr>
+								<th>Credit Remaining</th>
+								<td id="credit_remaining_amount">$${CurrencyFormat(remaining_credit_amount)} ($${CurrencyFormat(remaining_interest)} interest)</td>
+							</tr>
+								<td colspan="2" class="text-left">
+									Pay down debt (Up to $${CurrencyFormat(remaining_credit_amount)})
+									<div class="input-group mt-1">
+										<div class="input-group-prepend">
+											<span class="input-group-text">$</span>
+										</div>
+										<input id="paydown_amount" maxlength="12" width="12" size="4" type="text" class="form-control" aria-label="Amount" type="number">
+										<div class="input-group-append">
+											<button id="depositbutton" type='button' class='btn btn-success' onclick='OnPayDownDebt();'>Pay</button>
+										</div>
+									</div>
+								</td>
+							</tr>
+						</table>`;
+
+			SetButtonsEnabled(true);
+		}
+
+		function OnPayDownDebt() {
+			SetButtonsEnabled(false);
+			var amount = document.getElementById("paydown_amount").value;
+			TriggerEvent("Banking_PayDownDebt", amount);
+		}
+
+		function CurrencyFormat(number) {
+			return number.toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, "$1,");
+		}
+
+		function SetAccount(index) {
+			if (index != g_Account) {
+				SetButtonsEnabled(false);
+
+				g_Account = index;
+				$("#dropdownClass_Account").text(g_Accounts[index]);
+				$("#dropdownClass_Account").val(g_Accounts[index]);
+
+				TriggerEvent("OnSwitchAccount", index);
+			}
+		}
+
+		function AddDebugData() {
+			Reset();
+
+			SetBalance(8504.3);
+			AddCredit("Vehicle 1");
+			AddCredit("Property 1");
+
+			AddAccount("Self");
+			AddAccount("Other");
+			AddDivider();
+			AddAccount("Test 1");
+			AddAccount("Test 2");
+
+			CommitAccounts();
+			SetCreditInfo("Vehicle 1", 3, 10, 5000, 1230)
+
+			SetAccount(0);
+		}
+
+		function CommitAccounts() {
+			document.getElementById("dropdownClass_Account").innerHTML = "Account <span class='caret'>";
+		}
+
+		function AddAccount(accountName) {
+			g_Accounts.push(accountName);
+			document.getElementById("accounts").innerHTML += `<a class="dropdown-item" href='#' onclick='SetAccount(${g_CurrentIndex_Account})' id='account_${g_CurrentIndex_Account}'>${accountName}</a>`;
+			g_CurrentIndex_Account++;
+		}
+
+		function AddDivider() {
+			document.getElementById("accounts").innerHTML += `<div class="dropdown-divider"></div>`;
+		}
+
+		function AddCredit(creditName) {
+			g_Credits.push(creditName);
+			document.getElementById("credits").innerHTML += `<a class="dropdown-item" href='#'' onclick='SetCurrentCredit(${g_CurrentIndex_Credit})' id='purchaser_${g_CurrentIndex_Credit}'>${creditName}</a>`;
+			g_CurrentIndex_Credit++;
+		}
+
+		function SetCurrentCredit(index) {
+			SetButtonsEnabled(false);
+			g_CurrentCredit = index;
+			$("#dropdownClass_Credits").text(g_Credits[index]);
+			$("#dropdownClass_Credits").val(g_Credits[index]);
+
+			TriggerEvent("Banking_OnSwitchCredit", index);
+		}
+
+        function EnableMobileBanking() {
+            $("#withdrawbutton").hide();
+            $("#depositbutton").hide();
+        }
+
+        function DisableMobileBanking() {
+            $("#withdrawbutton").show();
+            $("#depositbutton").show();
+        }
+	</script>
+
+	<style type="text/css">
+		body {
+			background-color: transparent;
+		}
+
+		#box-middle {
+			margin: 0;
+			position: absolute;
+			top: 45%;
+			left: 45%;
+			transform: translate(-50%, -50%);
+			width: 900px;
+		}
+
+		#vehicle_listbox {
+			margin-bottom: 15px;
+		}
+
+		.table td {
+			text-align: right;
+			padding-left: 0;
+			padding-right: 0;
+		}
+
+		.table th {
+			padding-left: 0;
+			padding-right: 0;
+		}
+	</style>
+</head>
+<body>
+	<div id="box-middle">
+		<div class="btn-group w-100 mb-3">
+			<div class="dropdown w-100">
+				<button class="btn btn-primary dropdown-toggle w-100" data-toggle="dropdown"
+						id="dropdownClass_Account">
+				</button>
+				<div class="dropdown-menu open" role="menu" id="accounts" aria-labelledby="dropdownClass_Account"></div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-6">
+				<div class="card h-100">
+					<div class="card-header">
+						Checking Account
+					</div>
+
+					<div class="card-body">
+						<table class="table">
+							<tr>
+								<th>Balance</th>
+								<td id="balance"></td>
+							</tr>
+							<tr>
+								<th colspan="2">
+									Transactions
+
+									<div class="input-group">
+										<div class="input-group-prepend">
+											<span class="input-group-text">$</span>
+										</div>
+										<input id="transaction_amount" maxlength="12" size="1" type="text"
+											   class="form-control">
+									</div>
+								</th>
+							</tr>
+							<tr>
+								<th id="actions" colspan="2">
+									<div class="btn-group w-100">
+										<button id="wiretransferbutton" type='button' class='btn btn-warning'
+												onclick='OnWireTransfer();'>
+											Wire Transfer
+										</button>
+										<button id="withdrawbutton" type='button' class='btn btn-danger'
+												onclick='OnWithdraw();'>
+											Withdraw
+										</button>
+										<button id="depositbutton" type='button' class='btn btn-success'
+												onclick='OnDeposit();'>
+											Deposit
+										</button>
+									</div>
+								</th>
+							</tr>
+						</table>
+					</div>
+
+
+				</div>
+			</div>
+
+			<div class="col-6">
+				<div class="card h-100">
+					<div class="card-header">
+						Credit Information
+					</div>
+
+					<div class="card-body">
+						<button type="button" class="btn btn-info dropdown-toggle w-100" data-toggle="dropdown"
+								id="dropdownClass_Credits">
+							Select Credit Source
+						</button>
+						<div class="dropdown-menu" role="menu" id="credits"></div>
+
+						<table class="table" id="table_credit"></table>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="btn-group d-flex mt-3">
+			<button id="exitbutton" type='button' class="btn btn-danger w-100" onclick='Hide();'>Exit</button>
+		</div>
+	</div>
+</body>
+</html>

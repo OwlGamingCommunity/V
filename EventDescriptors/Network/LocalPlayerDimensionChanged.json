@@ -1,0 +1,7 @@
+{
+  "Type": "ClientLocal",
+  "Parameters": {
+    "oldDimension": "uint",
+    "newDimension": "uint"
+  }
+}

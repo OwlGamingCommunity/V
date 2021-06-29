@@ -1,0 +1,133 @@
+<html>
+<head>
+	<link href="../../owl_client_shared/bootstrap/bootstrap.min.legacy.css" rel="stylesheet">
+	<link href="../../owl_client_shared/core/core.css" rel="stylesheet">
+	<link href="../../owl_client_shared/core/menu.css" rel="stylesheet">
+	<link href="../../owl_client_shared/slider.css" rel="stylesheet">
+	<link href="../../owl_client_shared/animate.css" rel="stylesheet">
+	<script src="../../owl_client_shared/core/core.js"></script>
+	<script src="../../owl_client_shared/jquery.min.js"></script>
+	<script src="../../owl_client_shared/jquery-ui.min.js"></script>
+	<script src="../../owl_client_shared/vue.min.js"></script>
+	<script src="../../owl_client_shared/jscolor.min.js"></script>
+
+	<link href="package://owl_client_shared/bootstrap.min.legacy.css" rel="stylesheet">
+	<link href="package://owl_client_shared/core.css" rel="stylesheet">
+	<link href="package://owl_client_shared/menu.css" rel="stylesheet">
+	<link href="package://owl_client_shared/slider.css" rel="stylesheet">
+	<link href="package://owl_client_shared/animate.css" rel="stylesheet">
+	<script src="package://owl_client_shared//core.js"></script>
+	<script src="package://owl_client_shared//jquery.min.js"></script>
+	<script src="package://owl_client_shared//jquery-ui.min.js"></script>
+	<script src="package://owl_client_shared//vue.min.js"></script>
+	<script src="package://owl_client_shared//jscolor.min.js"></script>
+
+	<script type="text/javascript">
+		function SetAvailableForHire(bAvailable)
+		{
+			document.getElementById("hire_status").textContent = bAvailable ? "Currently Available for Hire" : "Not available for Hire";
+
+			if (bAvailable)
+			{
+				document.getElementById('available_for_hire_button').classList.remove("btn-danger");
+				document.getElementById('available_for_hire_button').classList.add("btn-success");
+			}
+			else
+			{
+				document.getElementById('available_for_hire_button').classList.remove("btn-success");
+				document.getElementById('available_for_hire_button').classList.add("btn-danger");
+			}
+		}
+
+		function SetIsDriver(isDriver)
+		{
+			if (isDriver)
+			{
+				document.getElementById('driver_actions').style.display = 'block';
+				document.getElementById('change_per_mile_fare').style.display = 'block';
+			}
+			else
+			{
+				document.getElementById('driver_actions').style.display = 'none';
+				document.getElementById('change_per_mile_fare').style.display = 'none';
+			}
+		}
+
+		function SetFarePerMile(amount)
+		{
+			document.getElementById("per_mile_fare").textContent = "$" + amount.toFixed(2);
+		}
+
+		function SetCurrentFare(amount, miles)
+		{
+			document.getElementById("miles").textContent = "Current Fare (" + miles.toFixed(1) + " miles)";
+			document.getElementById("total_price").textContent = "$" + amount.toFixed(2);
+		}
+
+		function ChangeFarePerMile()
+		{
+			TriggerEvent("ChangeFarePerMile");
+		}
+
+		function ToggleAvailableForHire()
+		{
+			TriggerEvent("ToggleAvailableForHire");
+		}
+
+		function ResetFare()
+		{
+			TriggerEvent("ResetFare");
+		}
+	</script>
+
+	<style type="text/css">
+		body {
+			background-color: transparent;
+		}
+
+		.bottom-right-align {
+			margin-left: 2%;
+			width: 300px;
+			vertical-align: middle;
+			position: relative;
+			top: 50%;
+			left: 90%;
+			transform: translate(-50%, -50%);
+		}
+
+		.panel {
+			margin-bottom: 0;
+		}
+
+		.panel-body p {
+			margin-bottom: 0;
+		}
+
+
+		p {
+			font-family: "Lucida Console", Monaco, monospace;
+		}
+	</style>
+
+</head>
+<body>
+
+	<div class="panel panel-default bottom-right-align">
+		<div class="panel-body" style="background-color: #2f3033;">
+			<p style="color:white;"><strong>Fare Per Mile</strong> <a type='button' id='change_per_mile_fare' class='btn btn-success' onclick="ChangeFarePerMile();">Change</a></p>
+			<p style="color:green;" id="per_mile_fare"><strong></strong></p>
+			<br>
+			<p style="color:white;" id="miles"><strong></strong></p>
+			<p style="color:green;" id="total_price"><strong></strong></p>
+		</div>
+	</div>
+	<div id="driver_actions" class="panel panel-default bottom-right-align">
+		<div class="btn-group btn-group-justified">
+			<a type='button' id='available_for_hire_button' class='btn btn-success' onclick="ToggleAvailableForHire();"><p id="hire_status">Currently Available for Hire</p></a>
+		</div>
+		<div class="btn-group btn-group-justified">
+			<a type='button' id='resetfare' class='btn btn-danger' onclick="ResetFare();">Reset Fare</a>
+		</div>
+	</div>
+</body>
+</html>

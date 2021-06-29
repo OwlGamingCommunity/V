@@ -1,0 +1,12 @@
+{
+  "Type": "Network_Bidirectional_RemoteOnly",
+  "Parameters": {
+    "ID": "int",
+    "x": "float",
+    "y": "float",
+    "z": "float",
+    "speed": "float",
+    "tripwireID": "int",
+    "currentSector": "int"
+  }
+}

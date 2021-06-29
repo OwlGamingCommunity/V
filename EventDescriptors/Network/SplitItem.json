@@ -1,0 +1,8 @@
+{
+  "Type": "Network_ClientToServer_RemoteOnly",
+  "Parameters": {
+  	"current_item_dbid": "Int64",
+  	"current_item_new_numstacks": "uint",
+  	"new_item_num_stacks": "uint"
+  }
+}

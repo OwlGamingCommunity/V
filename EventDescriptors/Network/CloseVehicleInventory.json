@@ -1,0 +1,8 @@
+{
+  "Type": "Network_ClientToServer_RemoteOnly",
+  "Parameters": {
+  	"currentVehicle": "VehicleType",
+  	"currentVehicleInventoryType" : "EVehicleInventoryType",
+  	"bIsInvertedTrunk" : "bool"
+  }
+}

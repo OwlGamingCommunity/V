@@ -1,0 +1,8 @@
+{
+    "Type": "Network_Bidirectional_RemoteOnly",
+    "Parameters": {
+    	"a_TransferType": "ELargeDataTransferType",
+    	"a_Identifier": "int",
+    	"dataBytes": "byte[]"
+    }
+}

@@ -1,0 +1,412 @@
+<html>
+<head>
+	<link href="../../owl_client_shared/bootstrap/bootstrap.min.legacy.css" rel="stylesheet">
+	<link href="../../owl_client_shared/core/core.css" rel="stylesheet">
+	<link href="../../owl_client_shared/core/menu.css" rel="stylesheet">
+	<link href="../../owl_client_shared/slider.css" rel="stylesheet">
+	<link href="../../owl_client_shared/animate.css" rel="stylesheet">
+	<script src="../../owl_client_shared/core/core.js"></script>
+	<script src="../../owl_client_shared/jquery.min.js"></script>
+	<script src="../../owl_client_shared/jquery-ui.min.js"></script>
+	<script src="../../owl_client_shared/vue.min.js"></script>
+	<script src="../../owl_client_shared/jscolor.min.js"></script>
+
+	<link href="package://owl_client_shared/bootstrap.min.legacy.css" rel="stylesheet">
+	<link href="package://owl_client_shared/core.css" rel="stylesheet">
+	<link href="package://owl_client_shared/menu.css" rel="stylesheet">
+	<link href="package://owl_client_shared/slider.css" rel="stylesheet">
+	<link href="package://owl_client_shared/animate.css" rel="stylesheet">
+	<script src="package://owl_client_shared//core.js"></script>
+	<script src="package://owl_client_shared//jquery.min.js"></script>
+	<script src="package://owl_client_shared//jquery-ui.min.js"></script>
+	<script src="package://owl_client_shared//vue.min.js"></script>
+	<script src="package://owl_client_shared//jscolor.min.js"></script>
+
+	<script type="text/javascript">
+		var insert_pos = 0;
+		var items = [];
+
+		var cart_insert_pos = 0;
+		var cart_contents = [];
+
+		var state_tax_rate = 0.0;
+
+		function ResetItemDescription()
+		{
+			SetItemDescription("Hover over an item for more information", "");
+		}
+
+		function Reset()
+		{
+			SetButtonsEnabled(true);
+			document.getElementById("error_text").innerHTML = "";
+
+			insert_pos = 0;
+			items = [];
+
+			cart_insert_pos = 0;
+			cart_contents = [];
+
+			state_tax_rate = 0.0;
+
+			ResetItemDescription();
+			document.getElementById("cart_contents").innerHTML = "";
+			document.getElementById("store_items").innerHTML = "";
+			UpdateTotalCost();
+		}
+
+		function SetItemDescription(item_name, desc_text)
+		{
+			document.getElementById("item_desc").innerHTML = `&nbsp;<b>${item_name}</b><br>&nbsp;&nbsp;${desc_text}`;
+		}
+
+		function SetTaxRate(state_tax)
+		{
+			state_tax_rate = state_tax;
+		}
+
+		function AddDebugData()
+		{
+			Reset();
+			SetTaxRate(0.05);
+			for (var i = 0; i < 10; ++i)
+			{
+				AddStoreItem(`Testing ${i + 1}`, (i + 1) * 10.00, Math.floor(Math.random() * (70 - 0 + 1)), `Description ${i + 1}`);
+			}
+		}
+
+		function AddStoreItem(name, cost, item_id, desc)
+		{
+			items[insert_pos] = {};
+			items[insert_pos]["name"] = name;
+			items[insert_pos]["cost"] = cost;
+			items[insert_pos]["id"] = item_id;
+			items[insert_pos]["desc"] = desc;
+
+			// TODO: duplicate files... this is in inventory too, move to shared location
+			document.getElementById("store_items").innerHTML += `<a href="#" onmouseenter="EnterItem(${insert_pos});" onmouseleave="LeaveItem(${insert_pos});" onclick="AddItemToCart(${insert_pos});" class="list-group-item"><div class="image-holder"><img src="package://owl_items.client/${item_id}.png"/></div>${name}<span class="badge">$${cost}</span></a>`;
+
+			++insert_pos;
+		}
+
+		function SetButtonsEnabled(enabled)
+		{
+			document.getElementById("exitbutton").disabled = !enabled;
+			document.getElementById("checkoutbutton").disabled = !enabled;
+		}
+
+		function ShowErrorMessage(text)
+		{
+			SetButtonsEnabled(true);
+			document.getElementById("error_text").innerHTML = text;
+		}
+
+		function Hide()
+		{
+			TriggerEvent("HideStore");
+		}
+
+		function OnCheckout()
+		{
+			SetButtonsEnabled(false);
+
+			var true_cart_contents = [];
+			var insert_pos = 0;
+			for (var i = 0; i < cart_contents.length; ++i)
+			{
+				if (cart_contents[i] != null)
+				{
+					true_cart_contents[insert_pos] = cart_contents[i];
+					insert_pos++;
+				}
+			}
+
+			var json = JSON.stringify(true_cart_contents);
+			TriggerEvent("StoreCheckout", json, true_cart_contents.length);
+		}
+
+		function UpdateTotalCost()
+		{
+			var total_cost_excl_tax = 0.0;
+			var total_cost_state_tax = 0.0;
+			var total_cost_incl_tax = 0.0;
+
+			for (var i = 0; i < cart_contents.length; ++i)
+			{
+				if (cart_contents[i] != null)
+				{
+					var item_id = cart_contents[i]["index"];
+					var num_items = cart_contents[i]["count"];
+
+					var cost_excl_tax = items[item_id]["cost"] * num_items;
+					var state_tax = state_tax_rate * cost_excl_tax;
+
+					var cost_incl_tax = cost_excl_tax + state_tax;
+
+					total_cost_excl_tax += cost_excl_tax;
+					total_cost_state_tax += state_tax;
+					total_cost_incl_tax += cost_incl_tax;
+				}
+			}
+
+			document.getElementById("total_cost_excl_tax").innerHTML = CurrencyFormat(total_cost_excl_tax);
+			document.getElementById("total_cost_state_tax").innerHTML = CurrencyFormat(total_cost_state_tax);
+			document.getElementById("total_cost_incl_tax").innerHTML = CurrencyFormat(total_cost_incl_tax);
+
+		}
+
+		function RemoveItemFromCart(cart_index)
+		{
+			var current_count = cart_contents[cart_index]["count"];
+			var item_index = cart_contents[cart_index]["index"];
+
+			if (current_count == 1) // Remove completely
+			{
+				var old_value = `<li class="list-group-item">${cart_contents[cart_index]["count"]}x ${items[item_index]["name"]}<a href="#"><span class="label label-danger" onclick="RemoveItemFromCart(${cart_index});">Remove</span></a></li>`
+
+				//cart_contents.splice(cart_index, 1);
+				//cart_contents[cart_index] = null;
+				delete cart_contents[cart_index];
+
+				document.getElementById("cart_contents").innerHTML = document.getElementById("cart_contents").innerHTML.replace(old_value, "");
+			}
+			else
+			{
+				var old_value = `${cart_contents[cart_index]["count"]}x ${items[item_index]["name"]}`;
+				var new_value = `${cart_contents[cart_index]["count"] - 1}x ${items[item_index]["name"]}`;
+				document.getElementById("cart_contents").innerHTML = document.getElementById("cart_contents").innerHTML.replace(old_value, new_value);
+
+
+				cart_contents[cart_index]["count"]--;
+			}
+
+			UpdateTotalCost();
+		}
+
+		function EnterItem(index)
+		{
+			SetItemDescription(items[index]["name"], items[index]["desc"]);
+		}
+
+		function LeaveItem(index)
+		{
+			ResetItemDescription();
+		}
+
+		function AddItemToCart(index)
+		{
+			// Do we already have an item of this type? if so just increase the count
+			var found = false;
+			for (var i = 0; i < cart_contents.length; ++i)
+			{
+				if (cart_contents[i] != null)
+				{
+					if (cart_contents[i]["index"] == index)
+					{
+						var old_value = `${cart_contents[i]["count"]}x ${items[index]["name"]}`;
+						var new_value = `${cart_contents[i]["count"] + 1}x ${items[index]["name"]}`;
+
+						cart_contents[i]["count"]++;
+
+						document.getElementById("cart_contents").innerHTML = document.getElementById("cart_contents").innerHTML.replace(old_value, new_value);
+						found = true;
+						break;
+					}
+				}
+			}
+
+			if (!found)
+			{
+				cart_contents[cart_insert_pos] = {};
+				cart_contents[cart_insert_pos]["index"] = index;
+				cart_contents[cart_insert_pos]["count"] = 1;
+
+				document.getElementById("cart_contents").innerHTML += `<li class="list-group-item">1x ${items[index]["name"]}<a href='#'><span class="label label-danger" onclick="RemoveItemFromCart(${cart_insert_pos});">Remove</span></a></li>`;
+
+				++cart_insert_pos;
+			}
+
+			UpdateTotalCost();
+		}
+
+        function CurrencyFormat(number)
+        {
+            return number.toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, "$1,");
+        }
+	</script>
+
+	<style type="text/css">
+
+		body {
+			background-color: transparent;
+		}
+
+		.row.well {
+			padding: 19px 4px;
+		}
+
+		#store_items,
+		#cart_contents {
+			overflow-y: scroll;
+		}
+
+		#store_items {
+			margin-bottom: 0;
+			max-height: 332px;
+		}
+
+			#store_items .list-group-item {
+				padding-left: 115px;
+			}
+
+		.image-holder {
+			background: #fafafa;
+			height: 100%;
+			left: 0;
+			position: absolute;
+			top: 0;
+			width: 100px;
+		}
+
+		a.list-group-item:hover .image-holder,
+		a.list-group-item:focus .image-holder,
+		a.list-group-item:active .image-holder {
+			background: #f5f5f5;
+		}
+
+		.image-holder img {
+			max-width: 100%;
+			max-height: 100%;
+			position: absolute;
+			left: 50%;
+			transform: translateX(-50%);
+		}
+
+		#box-middle {
+			margin: 0;
+			position: absolute;
+			top: 50%;
+			left: 45%;
+			transform: translate(-50%, -50%);
+			width: 900px;
+		}
+
+		#cart_contents {
+			margin: 0;
+			max-height: 186px;
+		}
+
+			#cart_contents .list-group-item a {
+				float: right;
+				margin-top: 3px;
+			}
+
+			#cart_contents a:hover {
+				text-decoration: none;
+			}
+
+				#cart_contents a:hover .label {
+					background: #d32a0e;
+				}
+
+		#sale_info {
+			margin-bottom: 0;
+		}
+
+			#sale_info td {
+				text-align: right;
+			}
+
+		#error_text {
+			color: #FF0000;
+			display: block;
+		}
+
+			#error_text:empty {
+				display: none;
+			}
+
+		.panel {
+			margin-bottom: 0;
+		}
+
+		.btn {
+			border: none;
+		}
+	</style>
+
+</head>
+<body>
+	<div id="box-middle">
+		<div id="store" class="container">
+
+			<div class="row well">
+
+				<div class="col-sm-7">
+
+					<div class="panel panel-default">
+
+						<div class="panel-heading">
+							<h4>Store</h4>
+						</div>
+
+						<ul id="store_items" class="list-group"></ul>
+						<div class="panel-footer"></div>
+
+					</div>
+
+				</div>
+
+				<div class="col-sm-5">
+
+					<div class="panel panel-default">
+
+						<div class="panel-heading">
+							<h5>Shopping Cart</h5>
+						</div>
+
+						<ul id="cart_contents" class="list-group"></ul>
+
+						<table id="sale_info" class="table">
+							<tr>
+								<th>Subtotal</th>
+								<td>$<span id="total_cost_excl_tax">0.00</span></td>
+							</tr>
+							<tr>
+								<th>Sales Tax</th>
+								<td>$<span id="total_cost_state_tax">0.00</span></td>
+							</tr>
+							<tr>
+								<th>Total</th>
+								<td>$<span id="total_cost_incl_tax">0.00</span></td>
+							</tr>
+						</table>
+					</div>
+					<br>
+					<div class="panel panel-default">
+
+						<div class="panel-heading">
+							<h5>Item Information</h5>
+						</div>
+						<div style="min-height: 50px" id="item_desc"></div>
+
+					</div>
+<br>
+					<div class="panel panel-default">
+					<div class="panel-body" id="error_text"></div>
+
+						<div class="btn-group btn-group-justified" role="group" aria-label="Justified button group">
+							<a id="exitbutton" type='button' class='btn btn-danger' onclick='Hide();'>Exit</a>
+							<a id="checkoutbutton" type='button' class='btn btn-success' onclick='OnCheckout();'>Checkout</a>
+						</div>
+					</div>
+
+				</div>
+
+			</div>
+
+		</div>
+	</div>
+
+</body>
+</html>

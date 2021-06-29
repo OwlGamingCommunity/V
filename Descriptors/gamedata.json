@@ -1,0 +1,31 @@
+{
+  "Files": [
+    {
+      "Name": "ItemData.json",
+      "Type": "ServerAsset"
+    },
+    {
+      "Name": "VehicleData.json",
+      "Type": "ServerAsset"
+    },
+    {
+      "Name": "FurnitureData.json",
+      "Type": "ServerAsset"
+    },
+    {
+      "Name": "TattooData.json",
+      "Type": "ServerAsset"
+    },
+    {
+      "Name": "GangtagSprites.json",
+      "Type": "ServerAsset"
+    },
+    {
+      "Name": "HairTattooData.json",
+      "Type": "ServerAsset"
+    }
+  ],
+  "ExportedFunctions":
+  [
+  ]
+}

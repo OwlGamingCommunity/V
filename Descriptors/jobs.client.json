@@ -1,0 +1,66 @@
+{
+	"Files": [
+		{
+			"Name": "BaseJob.Client.cs",
+			"Type": "ClientScript"
+		},
+		{
+			"Name": "CollectionCheckpointBasedJob.Client.cs",
+			"Type": "ClientScript"
+		},
+		{
+			"Name": "PickupDropoffBasedJob.Client.cs",
+			"Type": "ClientScript"
+		},
+		{
+			"Name": "TrashmanJob.Client.cs",
+			"Type": "ClientScript"
+		},
+		{
+			"Name": "MailmanJob.Client.cs",
+			"Type": "ClientScript"
+		},
+		{
+			"Name": "BusDriverJob.Client.cs",
+			"Type": "ClientScript"
+		},
+		{
+			"Name": "TruckerJob.Client.cs",
+			"Type": "ClientScript"
+		},
+		{
+			"Name": "DeliveryDriverJob.Client.cs",
+			"Type": "ClientScript"
+		},
+		{
+			"Name": "CGUITaxiUI.Client.cs",
+			"Type": "ClientScript"
+		},
+		{
+			"Name": "TaxiDriverJob.Client.cs",
+			"Type": "ClientScript"
+		},
+		{
+			"Name": "TagRemoverJob.Client.cs",
+			"Type": "ClientScript"
+		},
+		{
+			"Name": "JobSystem.Client.cs",
+			"Type": "ClientScript"
+		},
+		{
+			"Name": "Init.Client.cs",
+			"Type": "ClientScript"
+		},
+		{
+      		"Name": "Assets/taximeter.html",
+      		"Type": "ClientAsset"
+    	},
+    	{
+			"Name": "Fishing.Client.cs",
+			"Type": "ClientScript"
+		}
+	],
+  "ExportedFunctions": [
+  ]
+}

@@ -1,0 +1,626 @@
+@import "https://use.fontawesome.com/releases/v5.0.13/css/all.css";
+@import "https://fonts.googleapis.com/css?family=Roboto:100,300,400&amp;subset=latin-ext";
+body {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    font-family: "Roboto", sans-serif;
+}
+
+.bottom-right-align {
+    right: 25px;
+    vertical-align: bottom;
+    position: fixed;
+}
+
+@media screen and (max-width: 1920px) {
+    .bottom-right-align {
+        top: 35%;
+        transform: translateY(-35%);
+    }
+}
+
+@media screen and (min-width: 2000px) {
+    .bottom-right-align {
+        top: 80%;
+        transform: translateY(-80%);
+    }
+}
+
+.hidden {
+    display: none;
+}
+
+.app-icon {
+    width: 44px;
+    height: 44px;
+    background: #efefef;
+    box-sizing: border-box;
+    border-radius: 10.5px;
+    background-size: 100%;
+}
+
+.app-image {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.app-icon span {
+    position: relative;
+    top: 48px;
+    left: -8px;
+    width: calc(100% + 16px);
+    color: #fff;
+    text-align: center;
+    display: block;
+    font-size: 10px;
+    word-wrap: nowrap;
+}
+
+.app-icon#app-calendar {
+    background: #fff;
+}
+
+.app-icon#app-empty {
+    cursor: default;
+    background: transparent;
+}
+
+.app-icon#app-calendar .calendar {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.app-icon#app-calendar .calendar .day {
+    color: #FF0800;
+    font-size: 7px;
+    margin-top: 7px;
+}
+
+.app-icon#app-calendar .calendar .day-n {
+    margin-top: -1px;
+    font-size: 25px;
+    font-weight: 200;
+}
+
+.app-icon#app-messages {
+    background: url(package://owl_chat.client/sms.png) no-repeat center;
+    background-size: 100%;
+}
+
+.app-icon#app-contacts {
+    background: url(package://owl_chat.client/contacts.png) no-repeat center;
+    background-size: 100%;
+}
+
+.app-icon#app-camera {
+    background: url(package://owl_chat.client/camera.png) no-repeat center;
+    background-size: 100%;
+}
+
+.app-icon#app-banking {
+    background: url(package://owl_chat.client/banking.png) no-repeat center;
+    background-size: 100%;
+}
+
+.app-icon#app-settings {
+    background: url(package://owl_chat.client/settings.png) no-repeat center;
+    background-size: 100%;
+}
+
+.app-icon#app-phone {
+    background: url(package://owl_chat.client/call.png) no-repeat center;
+    background-size: 100%;
+}
+
+.app-icon#app-safari {
+    background: url(package://owl_chat.client/safari.png) no-repeat center;
+    background-size: 100%;
+}
+
+.app-icon#app-taxi {
+    background: url(package://owl_chat.client/taxi.png) no-repeat center;
+    background-size: 100%;
+}
+
+.app-icon#app-hotlines {
+    background: url(package://owl_chat.client/hotlines.png) no-repeat center;
+    background-size: 100%;
+}
+
+.app-icon:hover {
+    cursor: pointer;
+}
+
+.app-icon.app-icon-hidden {
+    background: transparent;
+}
+
+.app-icon.app-icon-hidden:hover {
+    cursor: auto;
+}
+
+.iphone {
+    border: 2px solid #e5e5e5;
+    width: 264px;
+    height: 544px;
+    border-radius: 30px;
+    background: white;
+}
+
+.iphone .turn-on-off-btn {
+    -webkit-transform: translate(264px, 75px);
+    transform: translate(264px, 75px);
+    height: 6px;
+}
+
+.iphone .turn-on-off-btn #iphone-turn {
+    width: 9px;
+    height: 45px;
+    background: #b5b5b5;
+}
+
+.iphone .turn-on-off-btn #iphone-turn:hover {
+    -webkit-transform: translateX(1px);
+    transform: translateX(1px);
+    cursor: pointer;
+    width: 6px;
+}
+
+.iphone .bottom-bar {
+    height: 55px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.iphone .bottom-bar #home-btn {
+    margin-top: -4px;
+    width: 35px;
+    height: 35px;
+    border: 2px solid #c0c0c0;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.iphone .bottom-bar #home-btn:hover {
+    cursor: pointer;
+    box-shadow: inset 0px 0px 3px rgba(34, 34, 34, 0.3);
+}
+
+.iphone .top-bar {
+    height: 55px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    padding-top: 7px;
+}
+
+.iphone .top-bar .camera {
+    border-radius: 50%;
+    background: #555;
+    width: 7px;
+    margin-left: -21px;
+    height: 7px;
+}
+
+.iphone .top-bar .s-camera {
+    border-radius: 50%;
+    background: #555;
+    width: 6px;
+    height: 6px;
+    -webkit-transform: translate(14px, -13px);
+    transform: translate(14px, -13px);
+}
+
+.iphone .top-bar .stripe {
+    margin-left: 8px;
+    width: 35px;
+    height: 5px;
+    border-radius: 2.5px;
+    background: #555;
+}
+
+.iphone .screen {
+    height: calc(100% - 110px);
+    margin-left: 6px;
+    width: calc(100% - 12.5px);
+    box-sizing: border-box;
+    border: 0.5px solid #000;
+    background: #000;
+    transition: 80ms all ease-in-out;
+}
+
+.iphone .screen.off .wallpaper {
+    background: #000;
+}
+
+.iphone .screen.off .ui {
+    display: none;
+}
+
+.iphone .screen .wallpaper {
+    height: 100%;
+    background: url(package://owl_chat.client/default.jpg);
+    background-size: cover;
+}
+
+.iphone .screen .ui {
+    height: 100%;
+    position: relative;
+    top: -100%;
+}
+
+.iphone .screen .ui .ui-topbar {
+    height: 15px;
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 0 5px;
+    justify-content: space-between;
+}
+
+.iphone .screen .ui .ui-topbar .signal {
+    display: flex;
+    align-items: center;
+}
+
+.iphone .screen .ui .ui-topbar .signal #flight-mode {
+    color: #fff;
+    font-size: 9px;
+}
+
+.iphone .screen .ui .ui-topbar .signal #signal-mode {
+    display: flex;
+    align-items: flex-end;
+}
+
+.iphone .screen .ui .ui-topbar .signal #signal-mode.hidden {
+    display: none;
+}
+
+.iphone .screen .ui .ui-topbar .signal #signal-mode p {
+    color: #fff;
+    font-size: 9.3px;
+    margin: 0 0 0 4px;
+    -webkit-transform: translateY(1px);
+    transform: translateY(1px);
+}
+
+.iphone .screen .ui .ui-topbar .signal #signal-mode span {
+    display: block;
+    width: 2.5px;
+    height: 9px;
+    background: #fff;
+    margin-right: 1px;
+    border-radius: 0.5px;
+}
+
+.iphone .screen .ui .ui-topbar .signal #signal-mode span.signal-darker {
+    background: #444;
+}
+
+.iphone .screen .ui .ui-topbar .signal #signal-mode span:first-child {
+    height: 4px;
+}
+
+.iphone .screen .ui .ui-topbar .signal #signal-mode span:nth-child(2) {
+    height: 6px;
+}
+
+.iphone .screen .ui .ui-topbar .signal #signal-mode span:nth-child(3) {
+    height: 7px;
+}
+
+.iphone .screen .ui .ui-topbar .signal #wifi-mode {
+    color: #fff;
+    margin-left: 6px;
+    margin-top: 1px;
+    font-size: 9px;
+}
+
+.iphone .screen .ui .ui-topbar .signal #wifi-mode.hidden {
+    display: none;
+}
+
+.iphone .screen .ui .ui-topbar .lock--time {
+    position: absolute;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    color: #fff;
+    font-size: 9px;
+}
+
+.iphone .screen .ui .ui-topbar .lock--time .top-clock {
+    display: flex;
+}
+
+.iphone .screen .ui .ui-topbar .lock--time .top-clock.hidden {
+    display: none;
+}
+
+.iphone .screen .ui .ui-topbar .lock--time .top-clock .ampm {
+    margin-left: 3px;
+}
+
+.iphone .screen .ui .ui-topbar .battery-section {
+    font-size: 12px;
+    color: #fff;
+    display: flex;
+    margin-top: 2px;
+}
+
+.iphone .screen .ui .ui-topbar .battery-section .settings {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 9.4px;
+    margin-right: 2px;
+}
+
+.iphone .screen .ui .ui-topbar .battery-section .battery {
+    display: flex;
+}
+
+.iphone .screen .ui .ui-topbar .battery-section .battery span {
+    display: block;
+    font-size: 9.4px;
+}
+
+.iphone .screen .ui .ui-topbar .battery-section .battery i {
+    margin-top: -0.5px;
+    margin-left: 2px;
+}
+
+.iphone .screen .ui .ui-lock-screen {
+    height: calc(100% - 15px);
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    transition: all 120ms ease-in-out;
+}
+
+.iphone .screen .ui .ui-lock-screen.hidden {
+    display: none;
+}
+
+.iphone .screen .ui .ui-lock-screen .dateses {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 30px;
+}
+
+.iphone .screen .ui .ui-lock-screen .dateses h1 {
+    display: flex;
+    color: #fff;
+    font-weight: 300;
+    font-size: 65px;
+    margin: 0;
+}
+
+.iphone .screen .ui .ui-lock-screen .dateses h2 {
+    color: #fff;
+    font-weight: 300;
+    font-size: 16px;
+    margin: 0;
+}
+
+.iphone .screen .ui .ui-lock-screen .bottom-ui {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.iphone .screen .ui .ui-lock-screen .bottom-ui p {
+    margin: 0;
+    margin-bottom: 8px;
+    color: #fff;
+    font-size: 15px;
+    -webkit-animation-name: flashingPressHomeToUnlock;
+    animation-name: flashingPressHomeToUnlock;
+    -webkit-animation-duration: 2s;
+    animation-duration: 2s;
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+    -webkit-animation-direction: alternate;
+    animation-direction: alternate;
+}
+
+.iphone .screen .ui .ui-lock-screen .bottom-ui .dots {
+    display: flex;
+    font-size: 8px;
+    padding-bottom: 6px;
+}
+
+.iphone .screen .ui .ui-lock-screen .bottom-ui .dots i {
+    -webkit-transform: translateY(-1.5px);
+    transform: translateY(-1.5px);
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.iphone .screen .ui .ui-lock-screen .bottom-ui .dots .dot {
+    width: 6px;
+    height: 6px;
+    background: #fff;
+    border-radius: 50%;
+    margin-right: 4px;
+}
+
+.iphone .screen .ui .ui-lock-screen .bottom-ui .dots .dot:first-child {
+    background: rgba(255, 255, 255, 0.5);
+}
+
+.iphone .screen .ui .ui-ios {
+    height: calc(100% - 15px);
+    transition: all 120ms ease-in-out;
+}
+
+.iphone .screen .ui .ui-ios.hidden {
+    display: none;
+}
+
+.iphone .screen .ui .ui-ios .ios-screens {
+    height: calc(100% - 80px);
+    box-sizing: border-box;
+    padding: 0 8px;
+}
+
+.iphone .screen .ui .ui-ios .ios-screens .icons {
+    padding-top: 10px;
+}
+
+.iphone .screen .ui .ui-ios .ios-screens .icons .row {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding-bottom: 10px;
+    margin-top: 12px;
+}
+
+.iphone .screen .ui .ui-ios .ios-screens .icons .row:last-child {
+    padding-bottom: 0px;
+}
+
+.iphone .screen .ui .ui-ios .ios-screens .icons .row .app-icon#app-calendar span {
+    top: 3.5px;
+}
+
+.iphone .screen .ui .ui-ios .ios-screen-linker {
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.iphone .screen .ui .ui-ios .ios-screen-linker .dot {
+    width: 6px;
+    height: 6px;
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 50%;
+    margin-right: 5px;
+}
+
+.iphone .screen .ui .ui-ios .ios-screen-linker .dot:hover {
+    cursor: pointer;
+}
+
+.iphone .screen .ui .ui-ios .ios-screen-linker .dot.active {
+    background: #fff;
+}
+
+.iphone .screen .ui .ui-ios .ios-fixed-icons {
+    height: 60px;
+    overflow: hidden;
+}
+
+.iphone .screen .ui .ui-ios .ios-fixed-icons .blur {
+    position: relative;
+    top: -30px;
+    left: -30px;
+    height: calc(100% + 60px);
+    width: calc(100% + 60px);
+    -webkit-filter: blur(30px);
+    filter: blur(30px);
+    background: url(package://owl_chat.client/default.jpg);
+    background-size: cover;
+    background-position: bottom;
+}
+
+.iphone .screen .ui .ui-ios .ios-fixed-icons .icons {
+    height: 100%;
+    position: relative;
+    top: -200%;
+    box-sizing: border-box;
+    padding: 0 8px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.iphone .screen .ui .ui-ios .ios-fixed-icons .icons .app-icon {
+    margin-bottom: 0px;
+}
+
+@-webkit-keyframes flashingPressHomeToUnlock {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes flashingPressHomeToUnlock {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Header for apps */
+.left {
+    height: 7px;
+    left: 12px;
+    position: absolute;
+    top: 24px;
+    width: 7px;
+}
+
+.right {
+    position: absolute;
+    top: 25px;
+    right: 15px;
+    font-size: 14px;
+}
+
+header {
+    color: #2095FE;
+    background: rgb(242, 242, 242);
+    border: 1px solid #ccc;
+    border-bottom: 1px solid #bbb;
+    box-shadow: 0 1px 2px rgba(1, 1, 1, 0.2);
+    height: 35px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 400;
+    white-space: nowrap;
+}
+
+header .headerText {
+    position: absolute;
+    left: 95px;
+    font-weight: bold;
+    color: #000;
+    top: 24px;
+}
+
+.notification-badge {
+    position: relative;
+}
+
+.notification-badge[data-badge]:after {
+    content: attr(data-badge);
+    position: absolute;
+    top: -0px;
+    right: -0px;
+    font-size: .7em;
+    background: red;
+    color: white;
+    width: 18px;
+    height: 18px;
+    text-align: center;
+    line-height: 18px;
+    border-radius: 50%;
+    box-shadow: 0 0 1px #333;
+}

@@ -1,0 +1,336 @@
+<html>
+<head>
+	<link href="../../owl_client_shared/bootstrap/bootstrap.min.legacy.css" rel="stylesheet">
+	<link href="../../owl_client_shared/core/core.css" rel="stylesheet">
+	<link href="../../owl_client_shared/core/menu.css" rel="stylesheet">
+	<link href="../../owl_client_shared/slider.css" rel="stylesheet">
+	<link href="../../owl_client_shared/animate.css" rel="stylesheet">
+	<script src="../../owl_client_shared/core/core.js"></script>
+	<script src="../../owl_client_shared/jquery.min.js"></script>
+	<script src="../../owl_client_shared/jquery-ui.min.js"></script>
+	<script src="../../owl_client_shared/vue.min.js"></script>
+	<script src="../../owl_client_shared/jscolor.min.js"></script>
+
+	<link href="package://owl_client_shared/bootstrap.min.legacy.css" rel="stylesheet">
+	<link href="package://owl_client_shared/core.css" rel="stylesheet">
+	<link href="package://owl_client_shared/menu.css" rel="stylesheet">
+	<link href="package://owl_client_shared/slider.css" rel="stylesheet">
+	<link href="package://owl_client_shared/animate.css" rel="stylesheet">
+	<script src="package://owl_client_shared//core.js"></script>
+	<script src="package://owl_client_shared//jquery.min.js"></script>
+	<script src="package://owl_client_shared//jquery-ui.min.js"></script>
+	<script src="package://owl_client_shared//vue.min.js"></script>
+	<script src="package://owl_client_shared//jscolor.min.js"></script>
+
+	<script type="text/javascript">
+		function OnLoad()
+		{
+			dragElement(document.getElementById("box-middle"));
+		} 
+
+
+		function dragElement(elmnt)
+		{
+			var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+			if (document.getElementById(elmnt.id + "header"))
+			{
+				document.getElementById(elmnt.id + "header").onmousedown = dragMouseDown;
+			}
+			else
+			{
+				elmnt.onmousedown = dragMouseDown;
+			}
+
+			function dragMouseDown(e)
+			{
+				if (e.target.nodeName == "TEXTAREA" || e.target.nodeName == "BUTTON")
+				{
+					return;
+				}
+
+				e = e || window.event;
+				e.preventDefault();
+			    // get the mouse cursor position at startup:
+			    pos3 = e.clientX;
+			    pos4 = e.clientY;
+			    document.onmouseup = closeDragElement;
+			    // call a function whenever the cursor moves:
+			    document.onmousemove = elementDrag;
+			}
+
+			function elementDrag(e)
+			{
+				e = e || window.event;
+				e.preventDefault();
+			    // calculate the new cursor position:
+			    pos1 = pos3 - e.clientX;
+			    pos2 = pos4 - e.clientY;
+			    pos3 = e.clientX;
+			    pos4 = e.clientY;
+			    // set the element's new position:
+			    elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+			    elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+			}
+	}	
+
+	
+
+	function closeDragElement()
+	{
+	    // stop moving when mouse button is released:
+	    document.onmouseup = null;
+	    document.onmousemove = null;
+	}
+
+	function SaveNotes()
+	{
+		var notes = document.getElementById('adminnotes').value;
+		TriggerEvent("SaveAdminNotes", notes);
+	}
+
+	function Close()
+	{
+		TriggerEvent("CloseCheck");
+	}
+
+	
+	function SetDetails(username, character_name, player_id, ipaddress, staff_rank, ping, gamecoins, money, bank_money, health, armor, factions, current_vehicle, x, y, z, interior, dimension, hours_played_account, hours_played_character, skin, weapon, numpunishmentpointsactive, numpunishmentpointslifetime, location)
+	{
+		document.getElementById("username").textContent = `${username} (ID: ${player_id}) (Character: ${character_name})`;
+		document.getElementById("ipaddress").textContent = ipaddress;
+		document.getElementById("staff_rank").textContent = staff_rank;
+		document.getElementById("ping").textContent = ping;
+		document.getElementById("gamecoins").textContent = gamecoins;
+		document.getElementById("money").textContent = `$${money} (Bank: $${bank_money})`;;
+		document.getElementById("health").textContent = health;
+		document.getElementById("armor").textContent = armor;
+		document.getElementById("factions").textContent = factions;
+		document.getElementById("current_vehicle").textContent = current_vehicle;
+		document.getElementById("x").textContent = x;
+		document.getElementById("y").textContent = y;
+		document.getElementById("z").textContent = z;
+		document.getElementById("interior").textContent = interior;
+		document.getElementById("dimension").textContent = dimension;
+        document.getElementById("hours_played_account").textContent = hours_played_account;
+        document.getElementById("hours_played_character").textContent = hours_played_character;
+		document.getElementById("skin").textContent = skin;
+		document.getElementById("weapon").textContent = weapon;
+		document.getElementById("numpunishmentpoints").textContent = `Active: ${numpunishmentpointsactive} (Lifetime: ${numpunishmentpointslifetime})`;
+		document.getElementById("location").textContent = location;
+	}
+
+	function SetAdminNotes(notes)
+	{
+		document.getElementById("adminnotes").value = notes;
+    }
+
+    function ResetAdminHistory()
+    {
+        document.getElementById("punishmenthistory").value = "";
+    }
+
+    function AddHistoryEntry(entry)
+	{
+		document.getElementById("punishmenthistory").value += `${entry}\n`;
+	}
+</script>
+
+<style type="text/css">
+	body {
+		background-color: transparent;
+	}
+
+	#box-middle {
+		margin: 0;
+		position: absolute;
+		top: 45%;
+		left: 45%;
+		transform: translate(-50%, -50%);
+		width: 900px;
+	}
+
+	#vehicle_listbox {
+		margin-bottom: 15px;
+	}
+
+
+	.dropdown-menu > li > a {
+		padding: 7.5px 15px;
+	}
+
+	tr {
+		text-align: right;
+	}
+</style>
+</head>
+<body>
+    <div id="box-middle">
+
+
+
+        <div class="col-sm-6 ">
+
+
+
+            <div class="panel panel-default" id="panel1">
+                <div class="panel-heading" id="header">Player Details</div>
+                <div class="panel-body">
+                    <table class="table">
+                        <tr>
+                            <th>Username:</th>
+                            <td id="username"></td>
+                        </tr>
+                        <tr>
+                            <th>IP:</th>
+                            <td id="ipaddress"></td>
+                        </tr>
+                        <tr>
+                            <th>Staff Rank</th>
+                            <td id="staff_rank"></td>
+                        </tr>
+                        <tr>
+                            <th>Ping</th>
+                            <td id="ping"></td>
+                        </tr>
+                        <tr>
+                            <th>GameCoins</th>
+                            <td id="gamecoins"></td>
+                        </tr>
+                        <tr>
+                            <th>Money</th>
+                            <td id="money"></td>
+                        </tr>
+                        <tr>
+                            <th>Health</th>
+                            <td id="health"></td>
+                        </tr>
+                        <tr>
+                            <th>Armor</th>
+                            <td id="armor"></td>
+                        </tr>
+                        <tr>
+                            <th>Factions</th>
+                            <td id="factions"></td>
+                        </tr>
+                        <tr>
+                            <th>Vehicle</th>
+                            <td id="current_vehicle"></td>
+                        </tr>
+                        <tr>
+                            <th>Location</th>
+                            <td id="location"></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-6 ">
+            <div class="panel panel-default">
+                <div class="panel-heading">Player Details cont.</div>
+                <div class="panel-body">
+                    <table class="table">
+                        <tr>
+                            <th>X:</th>
+                            <td id="x"></td>
+                        </tr>
+                        <tr>
+                            <th>Y:</th>
+                            <td id="y"></td>
+                        </tr>
+                        <tr>
+                            <th>Z</th>
+                            <td id="z"></td>
+                        </tr>
+                        <tr>
+                            <th>Interior</th>
+                            <td id="interior"></td>
+                        </tr>
+                        <tr>
+                            <th>Dimension</th>
+                            <td id="dimension"></td>
+                        </tr>
+                        <tr>
+                            <th>Hours Played (Account)</th>
+                            <td id="hours_played_account"></td>
+                        </tr>
+                        <tr>
+                            <th>Hours Played (Current Character)</th>
+                            <td id="hours_played_character"></td>
+                        </tr>
+                        <tr>
+                            <th>Skin</th>
+                            <td id="skin"></td>
+                        </tr>
+                        <tr>
+                            <th>Weapon</th>
+                            <td id="weapon"></td>
+                        </tr>
+                        <tr>
+                            <th>Punishment Points</th>
+                            <td id="numpunishmentpoints"></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-sm-12 ">
+            <div class="panel panel-default">
+                <div class="panel-heading">Punishment History (V Only - points apply to both games)</div>
+                <div class="panel-body">
+                    <textarea id="punishmenthistory" rows="3" cols="100" readonly></textarea>
+                </div>
+            </div>
+         </div>
+
+            <div class="col-sm-12 ">
+                <div class="panel panel-default">
+                    <div class="panel-heading">Admin Notes</div>
+                    <div class="panel-body">
+                        <textarea id="adminnotes" rows="3" cols="100" placeholder="Type to enter notes..."></textarea>
+                    </div>
+
+                    <div class="btn-group btn-group-justified" role="group" aria-label="Justified button group">
+                        <div class="btn-group">
+                            <button id="savenotesbutton" type='button' class='btn btn-success' onclick='SaveNotes();'>Save Notes</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="btn-group btn-group-justified" role="group" aria-label="Justified button group">
+                    <div class="btn-group">
+                        <button id="closebutton" type='button' class='btn btn-danger' onclick='Close();'>Close</button>
+                    </div>
+                </div>
+                </div>
+
+
+</body>
+	</html>
+
+<!--
+	col-sm-6 
+<div class="panel panel-default">
+			<div class="panel-heading">
+				<h5>Player Information</h5>
+			</div>
+
+			<div class="panel-heading" class="col-sm-6">
+			a
+		</div>
+<div class="panel-heading" class="col-sm-6">
+			blah
+		</div>
+		
+
+		<div class="btn-group btn-group-justified" role="group" aria-label="Justified button group">
+
+			<div class="btn-group">
+				<button id="exitbutton" type='button' class='btn btn-danger' onclick='Hide();'>Exit</button>
+			</div>
+		</div>
+	</div>
+
+-->

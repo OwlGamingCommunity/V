@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link href="../../owl_client_shared/bootstrap/bootstrap.min.legacy.css" rel="stylesheet">
+	<link href="../../owl_client_shared/core/core.css" rel="stylesheet">
+	<link href="../../owl_client_shared/core/menu.css" rel="stylesheet">
+	<link href="../../owl_client_shared/slider.css" rel="stylesheet">
+	<link href="../../owl_client_shared/animate.css" rel="stylesheet">
+	<script src="../../owl_client_shared/core/core.js"></script>
+	<script src="../../owl_client_shared/jquery.min.js"></script>
+	<script src="../../owl_client_shared/jquery-ui.min.js"></script>
+	<script src="../../owl_client_shared/vue.min.js"></script>
+	<script src="../../owl_client_shared/jscolor.min.js"></script>
+
+	<link href="package://owl_client_shared/bootstrap.min.legacy.css" rel="stylesheet">
+	<link href="package://owl_client_shared/core.css" rel="stylesheet">
+	<link href="package://owl_client_shared/menu.css" rel="stylesheet">
+	<link href="package://owl_client_shared/slider.css" rel="stylesheet">
+	<link href="package://owl_client_shared/animate.css" rel="stylesheet">
+	<script src="package://owl_client_shared//core.js"></script>
+	<script src="package://owl_client_shared//jquery.min.js"></script>
+	<script src="package://owl_client_shared//jquery-ui.min.js"></script>
+	<script src="package://owl_client_shared//vue.min.js"></script>
+	<script src="package://owl_client_shared//jscolor.min.js"></script>
+
+	<script type="text/javascript">
+	var app = null;
+
+	function ShowTerminal(id, owner, owner_name, model, plate_type, plate_text, color1_r, color1_g, color1_b, color2_r, color2_g, color2_b, livery)
+	{
+		app = new Vue({
+			el: '#app',
+			data: {
+				id: id,
+				owner: owner,
+				owner_name: owner_name,
+				model: model,
+				plate_type: plate_type,
+				plate_text: plate_text,
+				color1_r: color1_r,
+				color1_g: color1_g,
+				color1_b: color1_b,
+				color2_r: color2_r,
+				color2_g: color2_g,
+				color2_b: color2_b
+			},
+			methods: {
+				color1: function () {
+					return this.rgbToHex(this.color1_r, this.color1_g, this.color1_b);
+				},
+				color2: function () {
+					return this.rgbToHex(this.color2_r, this.color2_g, this.color2_b);
+				},
+				exit: function() {
+					TriggerEvent("HideMDCUIs");
+				},
+				componentToHex: function (c) {
+					var hex = c.toString(16);
+					return hex.length == 1 ? "0" + hex : hex;
+				},
+				rgbToHex: function (r, g, b) {
+					return "#" + this.componentToHex(r) + this.componentToHex(g) + this.componentToHex(b);
+				},
+                gotoPerson: function () {
+                    TriggerEvent('MdcGotoPerson', this.owner_name);
+				}
+			}
+		});
+	}
+	</script>
+
+	<style type="text/css">
+		body {
+			background: none;
+		}
+
+		 .main-container { 
+			vertical-align: bottom;
+			position: fixed;
+			top: 15%;
+			width: 100%;
+		} 
+
+		.main-body {
+			/* min-height: 300px; */
+		}
+
+		a.header-links {
+			font-size: 18px;
+		}
+		
+		.panel-heading {
+			margin: 0;
+		}
+
+		.column {
+			padding: 0;
+		}
+
+		.inner-nav {
+			margin-bottom: 20px;
+		}
+
+		.navbar {
+			margin-bottom: 0;
+		}
+
+		.navbar-header, .navbar-nav {
+			cursor: pointer;
+		}
+
+		.navbar-right {
+			margin-right: 0;
+		}
+
+		select .form-control {
+			margin-top: -3px;
+		} 
+
+		.search-type-input {
+			padding-left: 0px;
+			padding-right: 0px;
+		}
+	</style>
+
+</head>
+<body>
+
+	<div id="app" class="main-container">
+		<div class="container" style="width: 400px; margin: auto;">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<div class="navbar nav-justified">
+						<div class="navbar-header">
+							<b class="navbar-brand">Mobile Data Terminal</b>
+						</div>
+					</div>
+				</div>
+
+				<div class="panel-body main-body">
+					<h2>Owner Information</h2>
+					<b>Name:</b> <a @click.prevent="gotoPerson()">{{ owner_name }}</a><br>
+					<b>Date of Birth:</b> N/A
+	
+					<h2>Vehicle Information</h2>
+					<b>Vehicle:</b> {{ model }}<br>
+					<b>VIN:</b> {{ id }}<br>
+					<b>Plate: </b> {{ plate_text }}<br>
+					<b>Color:</b> <div :style="'background-color: ' + color1() + '; width: 100px; height: 30px;'"></div>
+					              <div :style="'background-color: ' + color2() + '; width: 100px; height: 30px;'"></div>
+					
+			   </div>
+				<a @click.prevent="exit" class="btn btn-danger btn-block">Exit</a>
+			</div> 
+		</div>
+	</div>
+
+</body>
+</html>

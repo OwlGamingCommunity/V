@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link href="../../owl_client_shared/bootstrap/bootstrap.min.legacy.css" rel="stylesheet">
+	<link href="../../owl_client_shared/core/core.css" rel="stylesheet">
+	<link href="../../owl_client_shared/core/menu.css" rel="stylesheet">
+	<link href="../../owl_client_shared/slider.css" rel="stylesheet">
+	<link href="../../owl_client_shared/animate.css" rel="stylesheet">
+	<script src="../../owl_client_shared/core/core.js"></script>
+	<script src="../../owl_client_shared/jquery.min.js"></script>
+	<script src="../../owl_client_shared/jquery-ui.min.js"></script>
+	<script src="../../owl_client_shared/vue.min.js"></script>
+	<script src="../../owl_client_shared/jscolor.min.js"></script>
+
+	<link href="package://owl_client_shared/bootstrap.min.legacy.css" rel="stylesheet">
+	<link href="package://owl_client_shared/core.css" rel="stylesheet">
+	<link href="package://owl_client_shared/menu.css" rel="stylesheet">
+	<link href="package://owl_client_shared/slider.css" rel="stylesheet">
+	<link href="package://owl_client_shared/animate.css" rel="stylesheet">
+	<script src="package://owl_client_shared//core.js"></script>
+	<script src="package://owl_client_shared//jquery.min.js"></script>
+	<script src="package://owl_client_shared//jquery-ui.min.js"></script>
+	<script src="package://owl_client_shared//vue.min.js"></script>
+	<script src="package://owl_client_shared//jscolor.min.js"></script>
+
+	<script type="text/javascript">
+	var app = null;
+
+	function ShowTerminal(id, name, owner, owner_name, renter, renter_name, entrance_x, entrance_y, entrance_z, entrance_dimension, buy_price, rent_price)
+	{
+		app = new Vue({
+			el: '#app',
+			data: {
+				id: id, 
+				name: name,
+				owner: owner,
+				owner_name: owner_name,
+				renter: renter,
+				renter_name: renter_name,
+				entrance_x: entrance_x,
+				entrance_y: entrance_y,
+				entrance_z: entrance_z,
+				entrance_dimension: entrance_dimension,
+				buy_price: buy_price,
+				rent_price: rent_price
+			},
+			methods: {
+				exit: function() {
+					TriggerEvent("HideMDCUIs");
+				},
+				gotoPerson: function () {
+					TriggerEvent("MdcGotoPerson", this.owner_name);
+				}
+			}
+		});
+	}
+	</script>
+
+	<style type="text/css">
+		body {
+			background: none;
+		}
+
+		 .main-container { 
+			vertical-align: bottom;
+			position: fixed;
+			top: 15%;
+			width: 100%;
+		} 
+
+		.main-body {
+			/* min-height: 300px; */
+		}
+
+		a.header-links {
+			font-size: 18px;
+		}
+		
+		.panel-heading {
+			margin: 0;
+		}
+
+		.column {
+			padding: 0;
+		}
+
+		.inner-nav {
+			margin-bottom: 20px;
+		}
+
+		.navbar {
+			margin-bottom: 0;
+		}
+
+		.navbar-header, .navbar-nav {
+			cursor: pointer;
+		}
+
+		.navbar-right {
+			margin-right: 0;
+		}
+
+		select .form-control {
+			margin-top: -3px;
+		} 
+
+		.search-type-input {
+			padding-left: 0px;
+			padding-right: 0px;
+		}
+	</style>
+
+</head>
+<body>
+
+	<div id="app" class="main-container">
+		<div class="container" style="width: 400px; margin: auto;">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<div class="navbar nav-justified">
+						<div class="navbar-header">
+							<b class="navbar-brand">Mobile Data Terminal</b>
+						</div>
+					</div>
+				</div>
+
+				<div class="panel-body main-body">
+					<div v-show="owner_name.length > 0">
+						<h2>Owner Information</h2>
+						<b>Name:</b> <a @click.prevent="gotoPerson()">{{ owner_name }}</a><br>
+						<b>Date of Birth:</b> N/A
+					</div>
+					<div v-show="renter_name.length > 0">
+							<h2>Renter Information</h2>
+							<b>Name:</b> {{ renter_name }}<br>
+							<b>Date of Birth:</b> N/A
+					</div>
+	
+					<h2>Property Information</h2>
+					<b>Address:</b> {{ name }}<br>
+					<b>Buy Price:</b> {{ buy_price }}<br>
+					<b>Rent Price:</b> {{ rent_price }}
+					
+			   </div>
+				<a @click.prevent="exit" class="btn btn-danger btn-block">Exit</a>
+			</div> 
+		</div>
+	</div>
+
+</body>
+</html>

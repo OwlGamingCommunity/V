@@ -1,0 +1,6 @@
+{
+  "Type": "Network_ServerToClient_RemoteOnly",
+  "Parameters": {
+    "clientsideDebugOption": "EClientsideDebugOption"
+  }
+}

@@ -1,0 +1,327 @@
+/* Pricedown
+@font-face {
+    font-family: 'pricedownregular';
+    src: url('package://owl_client_shared/pricedow.woff2') format('woff2'),
+            url('package://owl_client_shared/pricedow.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+*/
+
+/* Chalet London NineteenSixty */
+
+@font-face {
+    font-family: 'chaletmedium';
+    src: url('package://owl_client_shared/chaletlondonnineteensixty.woff2') format('woff2'), url('package://owl_client_shared/chaletlondonnineteensixty.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Start Sign Painter */
+
+@font-face {
+    font-family: 'signpaintermedium';
+    src: url('package://owl_client_shared/signpainter.woff2') format('woff2'), url('package://owl_client_shared/signpainter.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+/* End Sign Painter */
+
+body {
+    background-color: transparent;
+    color: #FFFFFF;
+    font-family: 'chaletmedium';
+    font-size: 16px;
+    line-height: 1em;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    user-select: none;
+}
+
+body {
+    background-color: transparent;
+    color: #FFFFFF;
+    font-family: 'chaletmedium';
+    font-size: 16px;
+    line-height: 1em;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    user-select: none;
+}
+
+/* Start Elements */
+
+.playerStats>div {
+    margin-bottom: 20px;
+}
+
+#ammo {
+    font-family: 'chaletmedium';
+    background-color: transparent;
+    font-weight: 700;
+    text-shadow: -1px -1px 0 #000000, 1px -1px 0 #000000, -1px 1px 0 #000000, 1px 1px 0 #000000;
+}
+
+.item {}
+
+.item>span {
+    display: block;
+}
+
+#ammo {
+    display: block;
+    font-size: 20px;
+    line-height: 18px;
+    text-align: right;
+}
+
+#ammo>span {
+    display: inline-block;
+}
+
+#clip {
+    color: #888888;
+}
+
+#weapon img {
+    display: block;
+    float: right;
+}
+
+.thumbnail-div {
+    width: 72px;
+    height: 72px;
+}
+
+.buttons {
+    font-family: 'chaletmedium';
+    font-size: 11px;
+    letter-spacing: 1px;
+    opacity: 0.80;
+}
+
+.buttons span {
+    display: block;
+    text-align: right;
+    clear: both;
+    margin-top: 5px;
+}
+
+#location {
+    font-family: 'chaletmedium';
+    font-size: 20px;
+    letter-spacing: 1px;
+    line-height: 30px;
+    text-shadow: 2px 1px 1px #000000;
+    position: fixed;
+    right: 10px;
+    top: 40%;
+}
+
+#vehicle_hud {
+    font-family: 'chaletmedium';
+    font-size: 30px;
+    letter-spacing: 1px;
+    line-height: 30px;
+    text-shadow: 2px 1px 1px #000000;
+    color: #FFFFFF;
+    opacity: 1.0;
+}
+/* End elements */
+
+/* Start Positioning */
+
+[class*="align-"] {
+    position: fixed;
+}
+
+.align-bottom-mid {
+    top: 85%;
+    transform: translateY(-85%);
+}
+
+.align-radio {
+    top: 35%;
+    transform: translateY(-35%);
+    color: rgba(255, 194, 15, 200);
+    text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+}
+
+.align-bottom {
+    bottom: 15px;
+}
+
+.align-left {
+    left: 25px;
+}
+
+.align-right {
+    right: 25px;
+}
+
+.align-right-location {
+    right: 205px;
+}
+
+.align-bottom-location {
+    bottom: 10px;
+}
+
+.align-right-speedo {
+    right: 25px;
+    width: 25%;
+    min-width: 200px;
+    text-align: right;
+}
+
+.align-middle-progress {
+    left: 50%;
+    transform: translate(-50%, 0);
+    width: 200px;
+    text-align: center;
+}
+
+.align-bottom-progress {
+    bottom: 100px;
+}
+
+.align-bottom-speedo {
+    bottom: 130px;
+}
+
+.align-right-speedlimit {
+    right: 25px;
+    width: 25%;
+    min-width: 200px;
+    text-align: right;
+}
+
+.align-bottom-speedlimit {
+    bottom: 230px;
+}
+
+.align-bottom-buttons {
+    bottom: 55px;
+}
+
+.align-bottom-buttons-hud-menu {
+    bottom: 100px;
+}
+
+.align-top {
+    top: 20px;
+}
+
+.align-center-h {
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.align-center-v {
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.align-center-h.align-center-v {
+    transform: translate(-50%, -50%);
+}
+
+.bottom-left-minimap-align-smallmap {
+    position: fixed;
+    left: calc(18% + 15px);
+    bottom: 20px;
+}
+
+.bottom-left-minimap-align-bigmap {
+    position: fixed;
+    left: calc(26% + 15px);
+    bottom: 20px;
+}
+
+.middle-right-align {
+    position: fixed;
+    right: 10px;
+    top: 40%;
+}
+
+.align-content-center {
+    margin-left: 2%;
+    top: 45%;
+    left: 45%;
+    transform: translate(-50%, -50%);
+}
+
+.menu-button button.btn-default>span.glyphicon {
+    font-size: 24px;
+    /* counteract default bootstrap setting */
+    top: 0px;
+    /* counteract button padding */
+    margin: 0 -4px;
+}
+/* End positioning */
+
+/* Start F10 menu */
+div.wrapper {
+    width: 450px;
+}
+a.list-group-item {
+    text-align: center;
+}
+a.list-group-item:hover {
+    color: #fff;
+    background-color: #242424;
+}
+/* End F10 menu */
+
+/* Notifications */
+.notification-bell-container {
+    margin-top: 20px;
+    margin-right: 20px;
+}
+
+.notifications-container {
+    margin-top: 20px;
+    padding-bottom: 20px;
+    max-width: 320px;
+    max-height: 600px;
+    overflow-y: auto;
+}
+
+.notification-count {
+    position: absolute;
+    top: 6px;
+    right: 9px;
+    color: #FFF;
+    font-size: 18px;
+}
+
+.notification {
+    margin: 15px;
+    width: 280px;
+}
+
+.notification:hover {
+    box-shadow:0 10px 15px 0 rgba(0,0,0,0.2), 0 6px 15px 0 rgba(0,0,0,0.19) !important;
+}
+
+::-webkit-scrollbar{
+    width: 10px;
+}
+
+::-webkit-scrollbar-track-piece{
+    background-color: #FFF;
+}
+
+::-webkit-scrollbar-thumb{
+    background-color: #CBCBCB;
+    outline: 2px solid #FFF;
+    outline-offset: -2px;
+    border: .1px solid #B7B7B7;
+}
+
+::-webkit-scrollbar-thumb:hover{
+    background-color: #909090;
+}
+/* End notifications */

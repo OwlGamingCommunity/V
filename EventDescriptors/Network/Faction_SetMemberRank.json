@@ -1,0 +1,8 @@
+{
+  "Type": "Network_ClientToServer_RemoteOnly",
+  "Parameters": {
+  	"faction_id" : "int",
+  	"member_id" : "int",
+  	"rank_id" : "int",
+  }
+}

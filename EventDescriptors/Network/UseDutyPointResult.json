@@ -1,0 +1,8 @@
+{
+  "Type": "Network_ServerToClient_RemoteOnly",
+  "Parameters": {
+  	"bSuccess" : "bool",
+  	"a_Type" : "EDutyType",
+  	"lstOutfits": "List<CItemInstanceDef>"
+  }
+}

@@ -1,0 +1,22 @@
+{
+	"Files": [
+		{
+			"Name": "VehicleSystem.client.cs",
+			"Type": "ClientScript"
+		},
+		{
+			"Name": "..//Shared//Taxation.cs",
+			"Type": "ClientScript"
+		},
+		{
+			"Name": "..//Shared//VehicleData.cs",
+			"Type": "ClientScript"
+		},
+		{
+			"Name": "..//Shared//VehicleDefinitions.cs",
+			"Type": "ClientScript"
+		}
+	],
+  "ExportedFunctions": [
+  ]
+}

@@ -1,0 +1,188 @@
+<html>
+<head>
+	<link href="../../owl_client_shared/bootstrap/bootstrap.min.legacy.css" rel="stylesheet">
+	<link href="../../owl_client_shared/core/core.css" rel="stylesheet">
+	<link href="../../owl_client_shared/core/menu.css" rel="stylesheet">
+	<link href="../../owl_client_shared/slider.css" rel="stylesheet">
+	<link href="../../owl_client_shared/animate.css" rel="stylesheet">
+	<script src="../../owl_client_shared/core/core.js"></script>
+	<script src="../../owl_client_shared/jquery.min.js"></script>
+	<script src="../../owl_client_shared/jquery-ui.min.js"></script>
+	<script src="../../owl_client_shared/vue.min.js"></script>
+	<script src="../../owl_client_shared/jscolor.min.js"></script>
+
+	<link href="package://owl_client_shared/bootstrap.min.legacy.css" rel="stylesheet">
+	<link href="package://owl_client_shared/core.css" rel="stylesheet">
+	<link href="package://owl_client_shared/menu.css" rel="stylesheet">
+	<link href="package://owl_client_shared/slider.css" rel="stylesheet">
+	<link href="package://owl_client_shared/animate.css" rel="stylesheet">
+	<script src="package://owl_client_shared//core.js"></script>
+	<script src="package://owl_client_shared//jquery.min.js"></script>
+	<script src="package://owl_client_shared//jquery-ui.min.js"></script>
+	<script src="package://owl_client_shared//vue.min.js"></script>
+	<script src="package://owl_client_shared//jscolor.min.js"></script>
+	
+	<script type="text/javascript">
+		var g_ConfirmEventName = null;
+		var g_CancelEventName = null;
+		var g_ChangeListboxEventName = null;
+
+		var insert_id = 0;
+		var listbox_entries = [];
+
+		function ClearListbox()
+        {
+        	insert_id = 0;
+        	listbox_entries = [];
+
+            document.getElementById("listbox_area").innerHTML = ``;
+        }
+
+        function Debug()
+        {
+        	ClearListbox();
+AddListboxItem("test", "0");
+AddListboxItem("test 2", "1");
+CommitListboxItems();
+        }
+
+        function GetNameFromValue(value)
+        {
+        	for (var i = 0; i < listbox_entries.length; ++i)
+            {
+            	if (listbox_entries[i]["value"] == value)
+            	{
+            		return listbox_entries[i]["name"];
+            	}
+            }
+
+            return "";
+        }
+
+        function OnChangeListbox()
+		{
+			var value = document.getElementById("listbox").value;
+			var name = GetNameFromValue(value);
+			if (g_ChangeListboxEventName.length > 0)
+			{
+				TriggerEvent(g_ChangeListboxEventName, name, value);
+			}
+		}
+
+        function AddListboxItem(name, value)
+        {
+            listbox_entries[insert_id] = [];
+			listbox_entries[insert_id]["name"] = name;
+			listbox_entries[insert_id]["value"] = value;
+			insert_id++;
+        }
+
+        function CommitListboxItems()
+        {
+        	var html = `<select id="listbox" class="form-control" multiple onchange="OnChangeListbox()">`;
+
+            for (var i = 0; i < listbox_entries.length; ++i)
+            {
+                html += `<option value="${listbox_entries[i]["value"]}">${listbox_entries[i]["name"]}</option>`;
+                document.getElementById("listbox_area").innerHTML = html;
+            }
+        }
+
+		function ShowGenericListbox(title, caption, confirm_text, cancel_text, confirm_event_name, cancel_event_name, change_event_name)
+		{
+			document.getElementById("title").textContent = title;
+			document.getElementById("caption").textContent = caption;
+
+			document.getElementById("yesbutton").textContent = confirm_text;
+			document.getElementById("nobutton").textContent = cancel_text;
+
+			g_ConfirmEventName = confirm_event_name;
+			g_CancelEventName = cancel_event_name;
+			g_ChangeListboxEventName = change_event_name;
+		}
+
+		function NoAnswer()
+		{
+			TriggerEvent("GenericListBox_OnClose");
+
+			if (g_CancelEventName.length > 0)
+			{
+				TriggerEvent(g_CancelEventName);
+			}
+		}
+
+		function YesAnswer()
+		{
+			var value = document.getElementById("listbox").value;
+			var name = GetNameFromValue(value);
+
+			if (name.length > 0 && value.length > 0)
+			{
+				TriggerEvent("GenericListBox_OnClose");
+
+				if (g_ConfirmEventName.length > 0)
+				{
+					TriggerEvent(g_ConfirmEventName, name, value);
+				}
+			}
+			else
+			{
+				var cancel_text = document.getElementById("nobutton").textContent;
+				document.getElementById("error_message").innerText = `Please select an item, or press ${cancel_text}`;
+			}
+		}
+
+	</script>
+
+	<style type="text/css">
+
+		body {
+			background-color: transparent;
+		}
+
+		#input-frame {
+			margin: 0 auto;
+			position: absolute;
+			top: 45%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			width: 30%;
+			min-width: 500px;
+		}
+
+		.panel {
+			margin-bottom: 0;
+		}
+
+		.panel-body p {
+			margin-bottom: 0;
+		}
+	</style>
+
+</head>
+<body>
+
+	<div id="input-frame" class="text-center">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h4><span id="title"></span></h4>
+			</div>
+			<div class="panel-body">
+				<br />
+				<p><span id="caption"></span></p><br>
+			</div>
+			<div class="btn-group">
+                <span id="listbox_area">
+                </span>
+            </div>
+            <br><br>
+            <p><span id="error_message"></span></p><br>
+			<div class="btn-group btn-group-justified">
+				<a type='button' id="yesbutton" class='btn btn-success' onclick="YesAnswer();"></a>
+				<a type='button' id="nobutton" class='btn btn-danger' onclick="NoAnswer();"></a>
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>

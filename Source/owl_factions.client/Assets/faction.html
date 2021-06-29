@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link href="../../owl_client_shared/bootstrap/bootstrap.min.css" rel="stylesheet">
+	<link href="../../owl_client_shared/core/core.css" rel="stylesheet">
+	<link href="../../owl_client_shared/core/menu.css" rel="stylesheet">
+	<link href="../../owl_client_shared/slider.css" rel="stylesheet">
+	<link href="../../owl_client_shared/animate.css" rel="stylesheet">
+	<link href="../../owl_client_shared/fontawesome/all.min.dev.css" rel="stylesheet">
+	<script src="../../owl_client_shared/core/core.js"></script>
+	<script src="../../owl_client_shared/jquery.min.js"></script>
+	<script src="../../owl_client_shared/jquery-ui.min.js"></script>
+	<script src="../../owl_client_shared/vue.min.js"></script>
+	<script src="../../owl_client_shared/jscolor.min.js"></script>
+	<script src="../../owl_client_shared/popper.min.js"></script>
+	<script src="../../owl_client_shared/bootstrap/bootstrap.min.js"></script>
+
+	<link href="package://owl_client_shared/bootstrap.min.css" rel="stylesheet">
+	<link href="package://owl_client_shared/core.css" rel="stylesheet">
+    <link href="package://owl_client_shared/menu.css" rel="stylesheet">
+    <link href="package://owl_client_shared/slider.css" rel="stylesheet">
+    <link href="package://owl_client_shared/animate.css" rel="stylesheet">
+    <link href="package://owl_client_shared/all.min.css" rel="stylesheet">
+    <script src="package://owl_client_shared//core.js"></script>
+    <script src="package://owl_client_shared//jquery.min.js"></script>
+    <script src="package://owl_client_shared//jquery-ui.min.js"></script>
+    <script src="package://owl_client_shared//vue.min.js"></script>
+    <script src="package://owl_client_shared//jscolor.min.js"></script>
+    <script src="package://owl_client_shared//popper.min.js"></script>
+    <script src="package://owl_client_shared//bootstrap.min.js"></script>
+
+	<script type="text/javascript">
+
+		var next_channel_slot = 0;
+
+		function AddDebugData() {
+			AddFaction("LSPD", "Los Santos Police Department", 10021.50, "Welcome to the LSPD!", true);
+			AddFactionTag(0, "Government Faction");
+			AddFactionTag(0, "Law Enforcement");
+
+			AddFactionRank(0, "Cadet", 500);
+			AddFactionRank(0, "State Trooper", 1500);
+			AddFactionRank(0, "State Trooper 2", 2000);
+			AddFactionRank(0, "Rank 4", 0);
+			AddFactionRank(0, "Rank 5", 0);
+			AddFactionRank(0, "Rank 6", 0);
+			AddFactionRank(0, "Rank 7", 0);
+			AddFactionRank(0, "Rank 8", 0);
+			AddFactionRank(0, "Rank 9", 0);
+			AddFactionRank(0, "Rank 10", 0);
+
+			AddFactionMember(0, "Name 1", 0, true, true);
+			AddFactionMember(0, "Name 2", 1, true, false);
+			AddFactionMember(0, "Name 3", 2, false, false);
+			AddFactionMember(0, "Name 4", 2, false, false);
+			AddFactionMember(0, "Name 5", 1, false, false);
+			AddFactionMember(0, "Name 6", 0, true, false);
+			AddFactionMember(0, "Name 7", 1, false, false);
+
+			AddFaction("GOVT", "Los Santos County Government", 234.56, "Welcome to the Los Santos County Government!", false);
+			AddFactionTag(1, "Government Faction");
+			AddFactionRank(1, "Rank 1", 0);
+			AddFactionRank(1, "Rank 2", 0);
+			AddFactionRank(1, "Rank 3", 0);
+			AddFactionRank(1, "Rank 4", 0);
+			AddFactionRank(1, "Rank 5", 0);
+			AddFactionMember(1, "Name K", 2, true, false);
+			AddFactionMember(1, "Name C", 2, true, false);
+			AddFactionMember(1, "Name E", 2, true, false);
+			AddFactionMember(1, "Name A", 1, true, false);
+			AddFactionMember(1, "Name F", 1, false, false);
+			AddFactionMember(1, "Name I", 0, true, false);
+			AddFactionMember(1, "Name J", 4, false, true);
+			AddFactionMember(1, "Name D", 3, true, false);
+			AddFactionMember(1, "Name B", 4, true, true);
+			AddFactionMember(1, "Name H", 0, false, false);
+			AddFactionMember(1, "Name G", 3, false, true);
+
+			AddFaction("VCC", "Vinewood Country Club", 1234567.89, "Faction Three MOTD", true);
+			AddFactionTag(2, "News Faction");
+			AddFactionRank(2, "Rank 1", 500);
+			AddFactionRank(2, "Rank 2", 1000);
+			AddFactionRank(2, "Rank 3", 2000);
+			AddFactionRank(2, "Rank 4", 5000);
+			AddFactionRank(2, "Rank 5", 0);
+			AddFactionRank(2, "Rank 6", 0);
+			AddFactionRank(2, "Rank 7", 0);
+			AddFactionRank(2, "Rank 8", 0);
+			AddFactionRank(2, "Rank 9", 0);
+			AddFactionRank(2, "Rank 10", 0);
+			AddFactionMember(2, "Name 1b", 3, true, true);
+			AddFactionMember(2, "Name 2b", 1, false, false);
+			AddFactionMember(2, "Name 3b", 0, false, true);
+			AddFactionMember(2, "Name 4b", 2, true, false);
+
+			SwitchFaction(0);
+			//GotoEditRanksAndSalaries(0);
+			//GotoInvitePlayer(0);
+		}
+
+		var g_numRanks = 20;
+		var factions = [];
+
+		function AddFactionTag(id, tag) {
+			factions[id]["tags"].push(tag);
+		}
+
+		function AddFactionRank(id, name, salary) {
+			var rank = [];
+			rank["name"] = name;
+			rank["salary"] = salary;
+			factions[id]["ranks"].push(rank);
+		}
+
+		function AddFactionMember(id, name, rank, online, manager, lastSeen) {
+			var member = [];
+			member["name"] = name;
+			member["rank"] = rank;
+			member["online"] = online;
+			member["manager"] = manager;
+			member["last_seen"] = lastSeen;
+			member["id"] = factions[id]["members"].length;
+
+			factions[id]["members"].push(member);
+
+		}
+
+		function AddFaction(short_title, name, money, message, local_player_is_manager) {
+			document.getElementById("channel_list").insertAdjacentHTML('beforeend',`<li class="nav-item"><a class="nav-link" href="#" onclick='SwitchFaction(${next_channel_slot});' id='channel_button_${next_channel_slot}'>${short_title}</a></li>`);
+
+			factions[next_channel_slot] = [];
+			factions[next_channel_slot]["short_title"] = short_title;
+			factions[next_channel_slot]["name"] = name;
+			factions[next_channel_slot]["money"] = money;
+			factions[next_channel_slot]["message"] = message;
+			factions[next_channel_slot]["members"] = [];
+			factions[next_channel_slot]["tags"] = [];
+			factions[next_channel_slot]["ranks"] = [];
+			factions[next_channel_slot]["manager"] = local_player_is_manager;
+
+			next_channel_slot++;
+		}
+
+		function RebuildFactionList() {
+			var index = 0;
+			next_channel_slot = 0;
+			document.getElementById("channel_list").innerHTML = `
+				<li class="new-button mb-3"><a class="nav-link" href="javascript:GotoCreateFaction()"><span class="fa fa-plus mr-2"></span>New</a></li>
+			`;
+
+			for (var i = 0; i < factions.length; ++i) {
+				var short_title = factions[i]["short_title"];
+				document.getElementById("channel_list").insertAdjacentHTML('beforeend', `<li class="nav-item"><a class="nav-link" href="#" onclick='SwitchFaction(${i});' id='channel_button_${i}'>${short_title}</a></li>`);
+				next_channel_slot++;
+			}
+		}
+
+		function SwitchFaction(faction_id) {
+			if (faction_id >= factions.length) {
+				return;
+			}
+
+			HideEditRanksAndSalariesUI();
+			RebuildFactionList();
+			g_CurrentFactionID = faction_id;
+
+			for (var i = 0; i < next_channel_slot; ++i) {
+				if (i !== faction_id) {
+					document.getElementById(`channel_button_${i}`).className = "nav-link";
+				}
+			}
+
+			if (document.getElementById(`channel_button_${faction_id}`) != null) {
+				document.getElementById(`channel_button_${faction_id}`).className = "nav-link active";
+			}
+
+			// SHOW FACTION INFO:
+			ShowMessage(faction_id);
+			document.getElementById(`faction_money`).textContent = CurrencyFormat(factions[faction_id]["money"]);
+
+			document.getElementById(`faction_tags`).innerHTML = "";
+			var arrTags = factions[faction_id]["tags"];
+			for (var i = 0; i < arrTags.length; ++i) {
+				var tag = arrTags[i];
+				document.getElementById(`faction_tags`).innerHTML += `<span class="badge badge-primary mr-1">${tag}</span>`;
+			}
+
+			var num_members = 0;
+			var num_online = 0;
+			var local_player_is_manager = factions[faction_id]["manager"];
+
+			if (local_player_is_manager) {
+				document.getElementById('faction_management').innerHTML = `
+                    <a class="list-group-item list-group-item-action" onclick="GotoInvitePlayer(${faction_id});">Invite Member</a>
+                    <a class="list-group-item list-group-item-action" onclick="ShowEditMessage(${faction_id});">Edit Message</a>
+                    <a class="list-group-item list-group-item-action" onclick="GotoEditRanksAndSalaries(${faction_id});">Edit Ranks & Salaries</a>
+					<a class="list-group-item list-group-item-action list-group-item-primary" onclick="ViewFactionVehicles(${faction_id});">View Vehicles</a>
+                    <a class="list-group-item list-group-item-action list-group-item-primary" onclick="RespawnFactionVehicles(${faction_id});">Respawn Vehicles</a>
+                    <a class="list-group-item list-group-item-action list-group-item-danger" onclick="DisbandFaction(${faction_id});">Disband Faction</a>
+                    <a class="list-group-item list-group-item-action list-group-item-danger" onclick="LeaveFaction(${faction_id});">Leave Faction</a>
+                `;
+			} else {
+				document.getElementById('faction_management').innerHTML = `
+                    <a class="list-group-item list-group-item-action list-group-item-danger" onclick="LeaveFaction(${faction_id});">Leave Faction</a>
+                `;
+			}
+
+			document.getElementById(`faction_members`).innerHTML = "";
+			// TODO_FACTION: Fix state where edit member is open and action / update removes the player. Verify player is still in faction. Also do same for manager UIs/actions incase manager changed.
+			var arrMembers = factions[faction_id]["members"];
+
+			// Member list sorting
+			arrMembers.sort(function (a, b) {
+				//Highest rank first
+				if (a.rank < b.rank) {
+					return 1;
+				} else if (a.rank > b.rank) {
+					return -1;
+				} else {
+					// Alphabetical
+					if (a.name > b.name) {
+						return 1;
+					} else {
+						return -1;
+					}
+				}
+			})
+
+			// console.table(arrMembers);
+
+			for (var i = 0; i < arrMembers.length; ++i) {
+				num_members++;
+
+				var member = arrMembers[i];
+
+				var name = member["name"];
+				var rank = member["rank"];
+				var is_online = member["online"];
+				var is_manager = member["manager"];
+				var last_seen = member["last_seen"];
+				var id = member["id"];
+
+				var rank_string = factions[faction_id]["ranks"][rank]["name"];
+
+				var html_string = "";
+
+				if (local_player_is_manager) {
+					html_string += `<tr id="member_${id}" onclick='EditMember(${faction_id}, ${id});'>`;
+				} else {
+					html_string += `<tr>`;
+				}
+				
+				if (is_manager) {
+					html_string += `<td class="text-muted"><span class="fa fa-star"></span></td>`
+				} else {
+					html_string += `<td></td>`;
+				}
+
+				html_string += `<td>${name}</td>`;
+				if (is_online) {
+					num_online++;
+					html_string += `<td class="text-success">Now</td>`;
+				} else {
+					html_string += `<td>${last_seen}</td>`;
+				}
+
+				html_string += `<td>${rank_string}</td>`;
+				html_string += '</tr>';
+
+				document.getElementById(`faction_members`).innerHTML += html_string;
+
+			}
+
+			// name, member count and num online
+			document.getElementById(`faction_top_info`).innerHTML = `${factions[faction_id]["name"]} <span class="badge badge-default">${num_online}/${num_members} Online</span>`;
+		}
+
+		function Reset() {
+			next_channel_slot = 0;
+			factions = [];
+			HideInvitePlayerUI();
+			HideCreateFactionUI(false);
+			HideEditRanksAndSalariesUI();
+			ShowFactionUI();
+		}
+
+		var currently_editing = null;
+
+		function EditMember(faction_id, member_id) {
+			if (currently_editing !== null) {
+				let element = document.getElementById('member_actions');
+				if (element) {
+					element.remove();
+				} else {
+					currently_editing = null;
+				}
+			}
+			if (currently_editing === member_id) {
+				currently_editing = null;
+				return;
+			}
+			currently_editing = member_id;
+
+			document.getElementById(`member_${member_id}`).insertAdjacentHTML('afterend', `
+                <tr id="member_actions">
+                	<td></td>
+                    <td>
+                        <div class="dropdown">
+                            <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown">Select Rank</button>
+                            <div class="dropdown-menu" id="rank_dropdown" style="max-height: 200px; overflow-y: scroll;"></div>
+                        </div>
+                    </td>
+                    <td>
+                        <button class="btn btn-primary" onclick="ToggleManager(${faction_id}, ${member_id});">Toggle Manager</button>
+                    </td>
+                    <td>
+                        <button class="btn btn-danger" onclick="Kick(${faction_id}, ${member_id});">Kick Player</button>
+                    </td>
+                </tr>
+            `);
+
+			var arrRanks = factions[faction_id]["ranks"];
+			var rankDropdown = document.getElementById('rank_dropdown');
+			for (var i = 0; i < arrRanks.length; ++i) {
+				var rank_name = arrRanks[i]['name'];
+				rankDropdown.innerHTML += `<a class="dropdown-item" onclick='SetMemberRank(${faction_id}, ${member_id}, ${i});'>${rank_name}</a>`
+			}
+		}
+
+		function SetMemberRank(faction_id, member_id, rank_id) {
+			TriggerEvent("SetMemberRank", faction_id, member_id, rank_id);
+		}
+
+		function ToggleManager(faction_id, member_id) {
+			TriggerEvent("ToggleFactionManager", faction_id, member_id);
+		}
+
+		function Kick(faction_id, member_id) {
+			TriggerEvent("KickFactionMember", faction_id, member_id);
+		}
+
+		function InvitePlayer(faction_id) {
+			var player_name = document.getElementById('invite_playername').value;
+			TriggerEvent("InviteFactionPlayer", faction_id, player_name);
+
+			HideInvitePlayerUI();
+			ShowFactionUI();
+		}
+
+		function ShowEditMessage(faction_id) {
+			var current_message = factions[faction_id]["message"];
+			document.getElementById(`faction_message`).innerHTML = `<textarea class="form-control" style="resize:none" id="message-edit" rows="5" maxlength="100" class="form-control">${current_message}</textarea><div class="btn-group btn-group-justified"><a class="btn btn-success" onclick="EditMessage(${faction_id});">Save Message</a></div>`;
+		}
+
+		function ShowMessage(faction_id) {
+			document.getElementById(`faction_message`).innerHTML = factions[faction_id]["message"];
+		}
+
+		function EditMessage(faction_id) {
+			var message = document.getElementById('message-edit').value;
+			TriggerEvent("EditFactionMessage", faction_id, message);
+		}
+
+		function GotoInvitePlayer(faction_id) {
+			document.getElementById('inviteplayer_inputs').innerHTML = `
+                <div class="panel-body">
+                    <p>Enter the name of the player you want to invite.</p>
+                    <div class="form-group">
+                        <input type="text" id="invite_playername" class="form-control" placeholder="Full Character Name">
+                    </div>
+                    <div class="btn-group w-100">
+                        <button class="btn btn-danger" onclick="CancelPlayerInvite();">Cancel</button>
+                        <button class="btn btn-success" onclick="InvitePlayer(${faction_id});">Invite</button>
+                    </div>
+                </div>
+            `;
+
+			HideFactionUI();
+			ShowInvitePlayerUI();
+		}
+
+		function CancelPlayerInvite() {
+			HideInvitePlayerUI();
+			ShowFactionUI();
+		}
+
+		function CancelUpdateRanks() {
+			HideEditRanksAndSalariesUI();
+			ShowFactionUI();
+		}
+
+		function SetCreateFactionButtonsEnabled(enabled) {
+			document.getElementById("createfaction_cancel_button").disabled = !enabled;
+			document.getElementById("createfaction_create_button").disabled = !enabled;
+		}
+
+		function GotoCreateFaction() {
+			HideFactionUI();
+			ShowCreateFactionUI();
+		}
+
+		function GotoEditRanksAndSalaries(faction_id) {
+			// populate it
+			document.getElementById('ranks_inputs').innerHTML = "";
+
+			for (var i = 0; i < g_numRanks; ++i) {
+				var rankObj = factions[faction_id]["ranks"][i];
+				if (!rankObj) {
+					break;
+				}
+				var rank = rankObj["name"];
+				var salary = rankObj["salary"];
+
+				document.getElementById('ranks_inputs').innerHTML += `
+                    <tr>
+                        <td>
+                            <input type="text" id="rank-name-${i}" class="form-control form-control-sm" value="${rank}" maxlength="32">
+                        </td>
+                        <td>
+                            <input type="number" id="rank-salary-${i}" class="form-control form-control-sm" value="${salary}" min="0" max="10000">
+                        </td>
+                    </tr>
+                `;
+			}
+
+			document.getElementById('ranks_buttons').innerHTML = `
+				<div class="btn-group w-100">
+					<button class="btn btn-danger" onclick="CancelUpdateRanks();">Cancel</button>
+					<button class="btn btn-success" onclick="SaveRanksAndSalaries(${faction_id});">Save</button>
+				</div>
+			`;
+
+			HideFactionUI();
+			ShowEditRanksAndSalariesUI();
+		}
+
+		function SaveRanksAndSalaries(faction_id) {
+			var new_ranks_and_salaries = [];
+			for (var i = 0; i < g_numRanks; ++i) {
+				var rank = document.getElementById(`rank-name-${i}`).value;
+				var salary = parseFloat(document.getElementById(`rank-salary-${i}`).value);
+
+				factions[faction_id]["ranks"][i]["name"] = rank;
+				factions[faction_id]["ranks"][i]["salary"] = salary;
+
+				var arrItem = {};
+				arrItem["name"] = rank;
+				arrItem["salary"] = salary;
+				new_ranks_and_salaries.push(arrItem);
+			}
+
+			var json = JSON.stringify(new_ranks_and_salaries);
+			TriggerEvent("SaveRanksAndSalaries", faction_id, json);
+		}
+
+		function DisbandFaction(faction_id) {
+			TriggerEvent("DisbandFaction", faction_id);
+		}
+
+		function RespawnFactionVehicles(faction_id) {
+			TriggerEvent("RespawnFactionVehicles", faction_id);
+		}
+
+		function ViewFactionVehicles(faction_id)
+		{
+			TriggerEvent("ViewFactionVehicles", faction_id);
+		}
+
+		function LeaveFaction(faction_id) {
+			TriggerEvent("LeaveFaction", faction_id);
+		}
+
+		function HideFactionUI() {
+			document.getElementById('faction_ui').style.display = 'none';
+		}
+
+		function ShowFactionUI() {
+			var noFactionElement = document.getElementById('no_factions_content');
+			if (noFactionElement) noFactionElement.remove();
+
+			document.getElementById('faction_ui').style.display = 'block';
+			document.getElementById('faction_ui').classList.remove('no-factions');
+			document.getElementById('faction_ui_content').style.display = 'block';
+			SwitchFaction(0);
+		}
+
+		function HideEditRanksAndSalariesUI() {
+			document.getElementById('ranks_ui').style.display = 'none';
+		}
+
+		function ShowEditRanksAndSalariesUI() {
+			document.getElementById('ranks_ui').style.display = 'block';
+		}
+
+		function HideInvitePlayerUI() {
+			document.getElementById('inviteplayer_ui').style.display = 'none';
+		}
+
+		function ShowInvitePlayerUI() {
+			document.getElementById('inviteplayer_ui').style.display = 'block';
+		}
+
+		function HideCreateFactionUI(sendEvent) {
+			document.getElementById('createfaction_ui').style.display = 'none';
+
+			if (sendEvent) {
+				TriggerEvent("HideCreateFaction");
+			}
+
+			ResetFactionCreationInfo();
+		}
+
+		function ShowCreateFactionUI() {
+			document.getElementById('createfaction_ui').style.display = 'block';
+			SetCreateFactionButtonsEnabled(true);
+		}
+		
+		function GetFactionType()
+		{
+			var elements = document.getElementsByName('faction_type_radio');
+			for (var i = 0; i < elements.length; i++) {
+				if (elements[i].checked) {
+					return elements[i].value;
+				}
+			}
+			return null;
+		}
+
+		function CreateFaction() {
+			SetCreateFactionButtonsEnabled(false);
+			var fullname = document.getElementById('create_faction_fullname').value;
+			var shortname = document.getElementById('create_faction_shortname').value;
+			var type = GetFactionType();
+			TriggerEvent("CreateFaction", fullname, shortname, type);
+		}
+
+		function ShowFactionCreationError(error_code) {
+			var error_string = "";
+			if (error_code === 0) {
+				error_string = "That faction full name is too short.";
+			} else if (error_code === 1) {
+				error_string = "That faction short name is too short.";
+			} else if (error_code === 2) {
+				error_string = "That faction full name is too long.";
+			} else if (error_code === 3) {
+				error_string = "That faction short name is too long.";
+			} else if (error_code === 4) {
+				error_string = "That faction full name is already taken.";
+			} else if (error_code === 5) {
+				error_string = "That faction short name is already taken.";
+			}
+
+			document.getElementById('create_faction_error').textContent = error_string;
+			SetCreateFactionButtonsEnabled(true);
+		}
+
+		function ResetFactionCreationInfo() {
+			document.getElementById('create_faction_error').textContent = "";
+			document.getElementById('create_faction_fullname').value = "";
+			document.getElementById('create_faction_shortname').value = "";
+
+			SetCreateFactionButtonsEnabled(true);
+		}
+
+		function CurrencyFormat(number) {
+			return number.toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, "$1,");
+		}
+
+		var g_CurrentFactionID = 0;
+
+		function OnLoad() {
+			
+			if (IsRunningInRAGECEF()) {
+				return;
+			}
+			// NoFactions();
+			// GotoCreateFaction();
+			AddDebugData();
+		}
+		
+		function NoFactions() {
+			var window = document.getElementById('faction_ui');
+			window.classList.add('no-factions');
+			
+			var title = document.getElementById('faction_top_info');
+			title.innerHTML = 'Factions';
+			
+			var element = document.getElementById('faction_ui_content');
+			element.style.display = 'none';
+			var noFactionsContent = `
+				<div class="card-body text-center" id="no_factions_content">
+					<div class="ml-5">
+						<img src="${IsRunningInRAGECEF() ? '' : 'images/'}nothing_here.svg" width="400px"><br>
+						<button class="btn btn-primary mr-5 mt-3" onclick="GotoCreateFaction()">Create a Faction</button>
+					</div>
+				</div>
+			`
+			element.insertAdjacentHTML('beforebegin', noFactionsContent);
+			
+		}
+		
+		function ShowFactionTypeInfo() {
+			document.getElementById('faction_type_info').style.display = 'block';
+		}
+	</script>
+
+	<style>
+		html, body {
+			height: 100vh;
+		}
+
+		.faction-menu {
+			width: 1000px;
+		}
+		
+		.no-factions {
+			width: 600px !important;
+		}
+
+		.list-group-item-danger {
+			background-color: #E74C3C;
+		}
+
+		.list-group-item-danger.list-group-item-action:hover, .list-group-item-danger.list-group-item-action:focus {
+			color: #fff;
+			background-color: #821300;
+		}
+
+		.list-group-item-primary.list-group-item-action:hover, .list-group-item-primary.list-group-item-action:focus {
+			color: #fff;
+			background-color: #192939;
+		}
+
+		.list-group-item-primary {
+			background-color: #375a7f;
+		}
+		
+		#faction_type_info {
+			width: 500px;
+			display: none;
+			position: absolute;
+			margin-left: auto;
+			margin-right: auto;
+			left: 0;
+			right: 0;
+			text-align: center;
+		}
+		#faction_type_info .card {
+			min-height: 500px;
+		}
+		.new-button {
+			background-color: #00bc8c;
+			border-radius: 0.25rem;
+		}
+		.new-button:hover {
+			background-color: #008764;
+		}
+	</style>
+</head>
+<body>
+<div class="container h-100">
+	<div class="row h-100 justify-content-center align-items-center">
+
+		<div class="card faction-menu align-middle" id="faction_ui">
+			<div class="card-header">
+				<span id="faction_top_info">Factions</span>
+			</div>
+			<div class="card-body" id="faction_ui_content">
+				<div class="row">
+					<div class="col-2">
+						<ul class="nav nav-pills flex-column" id="channel_list">
+							<li class="nav-item"><a class="nav-link" href="javascript:GotoCreateFaction()"><span class="fa fa-plus"></span>New</a></li>
+						</ul>
+					</div>
+					<div class="col-7" id="main_window">
+						<div class="alert alert-info" id="faction_message"></div>
+
+						<div class="w-100" style="height: 310px; overflow-y: scroll; overflow-x: hidden;">
+							<table class="table table-sm table-hover">
+								<thead>
+								<tr>
+									<th style="width: 5%"></th>
+									<th style="width: 30%">Name</th>
+									<th style="width: 30%">Last Seen</th>
+									<th style="width: 35%">Rank</th>
+								</tr>
+								</thead>
+								<tbody id="faction_members"></tbody>
+							</table>
+						</div>
+					</div>
+					<div class="col-3">
+						<div class="list-group">
+							<div class="list-group-item">Balance: $<span id="faction_money"></span></div>
+							<div id="faction_management"></div>
+						</div>
+						<div id="faction_tags"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+		<div id="ranks_ui" style="display:none">
+			<div class="card align-middle">
+				<div class="card-header">Faction Ranks & Salaries</div>
+				<div class="card-body" style="max-height: 600px; overflow-y: scroll">
+					<table class="table">
+						<thead>
+						<tr>
+							<th>Rank</th>
+							<th>Salary</th>
+						</tr>
+						</thead>
+						<tbody id="ranks_inputs"></tbody>
+					</table>
+					<div id="ranks_buttons"></div>
+				</div>
+			</div>
+		</div>
+
+		<div id="inviteplayer_ui" style="display:none">
+			<div class="card align-middle">
+				<div class="card-header">
+					Faction Invite
+				</div>
+				<div class="card-body">
+					<div id="inviteplayer_inputs"></div>
+				</div>
+			</div>
+		</div>
+
+		<div id="createfaction_ui" style="display:none">
+			<div class="card">
+				<div class="card-header">
+					Create Faction
+					<button class="close" onclick="HideCreateFactionUI(true)" id="createfaction_cancel_button">&times;</button>
+				</div>
+				<div class="card-body" id="createfaction_inputs">
+					<p>Enter the full name and a 4 character short name for the new faction.</p>
+					<div class="form-group">
+						<label>Name</label>
+						<input type="text" id="create_faction_fullname" class="form-control" maxlength="64"
+							   placeholder="Faction name (e.g Los Santos Police Department)"/>
+					</div>
+					<div class="form-group">
+						<label>Short Name</label>
+						<input type="text" id="create_faction_shortname" class="form-control" maxlength="4"
+							   placeholder="Short name (e.g LSPD. Max 4 characters)"/>
+					</div>
+					<div class="form-group">
+						<label>
+							Faction Type 
+							<a class="ml-2" href="javascript:ShowFactionTypeInfo()">?</a>
+						</label>
+						<div class="form-check">
+							<input type="radio" class="form-check-input" name="faction_type_radio" id="faction_type_legal" value="legal" checked>
+							<label for="faction_type_legal">Registered Corporation</label>
+						</div>
+						<div class="form-check">
+							<input type="radio" class="form-check-input" name="faction_type_radio" id="faction_type_illegal" value="illegal">
+							<label for="faction_type_illegal">Illegal Organization</label>
+						</div>
+					</div>
+					<p id="create_faction_error"></p>
+
+					<a id="createfaction_create_button" class="btn btn-success" onclick="CreateFaction()">Create</a>
+				</div>
+			</div>
+		</div>
+		
+		<div id="faction_type_info">
+			<div class="card">
+				<div class="card-header">
+					Faction Types
+					<button class="close" onclick="document.getElementById('faction_type_info').style.display = 'none'">&times;</button>
+				</div>
+				<div class="card-body">
+					<h4>Registered Corportations</h4>
+					<p class="text-justify">
+						Creating a faction as a registered corporation allows you to legally run a business sanctioned 
+						by the government. Registered corporations can own properties, vehicles, and have a bank account
+						to pay employee wages.
+					</p>
+
+					<hr>
+					<h4>Illegal Organizations</h4>
+					<p class="text-justify">
+						Illegal organization factions are entirely out of character and simply allow you to keep track
+						of who is in your illegal empire and share that information with staff members when requesting
+						things for your faction. They are not legal entities that exist in character, so cannot own
+						assets and do not have a bank account.
+					</p>
+				</div>
+			</div>
+		</div>
+
+	</div>
+</div>
+</body>
+</html>

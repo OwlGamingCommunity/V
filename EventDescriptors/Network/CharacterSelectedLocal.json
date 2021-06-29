@@ -1,0 +1,7 @@
+{
+  "Type": "ServerLocal",
+  "Parameters": {
+  	"a_Player": "CPlayer",
+  	"characterID": "long"
+  }
+}

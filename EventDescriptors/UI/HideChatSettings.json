@@ -1,0 +1,6 @@
+{
+  "Type": "UI",
+  "Parameters": {
+  	"bSaveToServer": "bool"
+  }
+}

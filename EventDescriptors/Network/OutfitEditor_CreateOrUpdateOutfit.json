@@ -1,0 +1,10 @@
+{
+  "Type": "Network_ClientToServer_RemoteOnly",
+  "Parameters": {
+  	"Name": "string",
+  	"ClothingItemIDs": "Dictionary<int, Int64>",
+  	"PropItemIDs": "Dictionary<int, Int64>",
+  	"outfitID": "Int64",
+  	"bHideHair": "bool"
+  }
+}

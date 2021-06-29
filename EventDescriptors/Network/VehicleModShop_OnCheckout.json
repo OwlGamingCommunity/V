@@ -1,0 +1,11 @@
+{
+  "Type": "Network_ClientToServer_RemoteOnly",
+  "Parameters": {
+  	"dictPurchasesMods": "Dictionary<EModSlot, int>",
+  	"strPlateText": "string",
+  	"neon_r": "int",
+  	"neon_g": "int",
+  	"neon_b": "int",
+  	"neons_enabled": "bool"
+  }
+}

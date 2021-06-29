@@ -1,0 +1,7 @@
+{
+  "Type": "UI",
+  "Parameters": {
+  	"strElementName": "string",
+  	"outfitIndex": "int"
+  }
+}

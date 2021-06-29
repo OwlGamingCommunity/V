@@ -1,0 +1,303 @@
+<html>
+<head>
+	<link href="../../owl_client_shared/bootstrap/bootstrap.min.css" rel="stylesheet">
+	<link href="../../owl_client_shared/core/core.css" rel="stylesheet">
+	<link href="../../owl_client_shared/core/menu.css" rel="stylesheet">
+	<script src="../../owl_client_shared/core/core.js"></script>
+	<script src="../../owl_client_shared/jquery.min.js"></script>
+	<script src="../../owl_client_shared/popper.min.js"></script>
+	<script src="../../owl_client_shared/bootstrap/bootstrap.min.js"></script>
+	<script src="../../owl_client_shared/jquery-ui.min.js"></script>
+
+	<link href="package://owl_client_shared/bootstrap.min.css" rel="stylesheet">
+	<link href="package://owl_client_shared/core.css" rel="stylesheet">
+	<link href="package://owl_client_shared/menu.css" rel="stylesheet">
+	<script src="package://owl_client_shared//core.js"></script>
+	<script src="package://owl_client_shared//jquery.min.js"></script>
+	<script src="package://owl_client_shared//popper.min.js"></script>
+	<script src="package://owl_client_shared//bootstrap.min.js"></script>
+	<script src="package://owl_client_shared//jquery-ui.min.js"></script>
+
+	<script type="text/javascript">
+
+		function Hide()
+		{
+			TriggerEvent("HidePurchasePropertyUI");
+		}
+
+		function OnCheckout()
+		{
+			TriggerEvent("PurchaseProperty_OnCheckout", g_Purchaser, g_Method);
+		}
+
+		function OnPreview()
+		{
+			TriggerEvent("PurchaseProperty_OnPreview");
+		}
+
+		function ShowErrorMessage(text)
+		{
+			SetButtonsEnabled(true);
+			document.getElementById("error_text").innerHTML = `<div class="panel-body">${text}</div>`;
+		}
+		
+		function OnLoad()
+		{
+			if (IsRunningInRAGECEF()) {
+				return;
+			}
+			
+			console.log('here1');
+			SetPriceInfo(40000, 0.04, 400, 795, 754);
+			AddPurchaser("Casey Hughes");
+			AddDivider();
+			AddPurchaser("Vinewood Country Club");
+			AddMethod("Credit");
+			AddMethod("Bank Balance");
+		}
+
+		function SetButtonsEnabled(enabled)
+		{
+			document.getElementById("exitbutton").disabled = !enabled;
+			document.getElementById("previewbutton").disabled = !enabled;
+			document.getElementById("buybutton").disabled = !enabled;
+		}
+
+        function SetDownpayment(down_payment, min, max)
+        {
+            document.getElementById("monthly_down_payment").min = min;
+            document.getElementById("monthly_down_payment").max = max;
+
+            document.getElementById("monthly_down_payment").value = `${down_payment}`;
+            document.getElementById("monthly_down_payment").placeholder = `${down_payment}`;
+        }
+
+        function SetPriceInfo(total_price, interest, monthly_payment_credit_amount, monthly_payment_total_price, monthly_payment)
+		{
+            document.getElementById("total_price").innerHTML = `$${CurrencyFormat(total_price)}`;
+            document.getElementById("monthly_interest").innerHTML = `$${CurrencyFormat(interest)}`;
+            document.getElementById("monthly_payment_credit_amount").innerHTML = `$${CurrencyFormat(monthly_payment_credit_amount)}`;
+            document.getElementById("monthly_payment_total_price").innerHTML = `$${CurrencyFormat(monthly_payment_total_price)}`;
+            document.getElementById("monthly_payment").innerHTML = `$${CurrencyFormat(monthly_payment)}`;
+		}
+
+		function CurrencyFormat(number)
+		{
+			return number.toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, "$1,");
+		}
+
+		var g_Purchasers = [];
+		var g_Methods = [];
+		var g_Purchaser = -1;
+		var g_Method = -1;
+		var g_CurrentIndex_Purchaser = 0;
+		var g_CurrentIndex_Method = 0;
+
+		function SetPurchaser(index)
+		{
+			g_Purchaser = index;
+			$("#dropdownClass_Purchaser").text(g_Purchasers[index]);
+			$("#dropdownClass_Purchaser").val(g_Purchasers[index]);
+		}
+
+		function SetMethod(index)
+		{
+			g_Method = index;
+			$("#dropdownClass_Method").text(g_Methods[index]);
+			$("#dropdownClass_Method").val(g_Methods[index]);
+			
+			if (g_Methods[index] == "Credit") {
+				document.getElementById("credit_table").style.display = "block";
+			} else {
+				document.getElementById("credit_table").style.display = "none";
+			}
+		}
+
+		function ResetData()
+		{
+			document.getElementById("credit_table").style.display = "none";
+			document.getElementById("purchasers").innerHTML = "";
+			document.getElementById("methods").innerHTML = "";
+			g_Purchasers = [];
+			g_Methods = [];
+			g_Purchaser = -1;
+			g_Method = -1;
+			g_CurrentIndex_Purchaser = 0;
+			g_CurrentIndex_Method = 0;
+
+			document.getElementById("dropdownClass_Purchaser").innerHTML = "<img class='loading-icon' src='package://owl_client_shared//loadingicon_square.gif' />";
+			document.getElementById("dropdownClass_Method").innerHTML = "<img class='loading-icon' src='package://owl_client_shared//loadingicon_square.gif' />";
+		}
+
+		function CommitPurchasesAndMethods()
+		{
+			document.getElementById("dropdownClass_Purchaser").innerHTML = "Purchaser <span class='caret'></span>";
+			document.getElementById("dropdownClass_Method").innerHTML = "Method <span class='caret'></span>";
+		}
+
+		function AddPurchaser(purchaserName)
+		{
+			g_Purchasers.push(purchaserName);
+			document.getElementById("purchasers").innerHTML += `<a class="dropdown-item" href='#' onclick='SetPurchaser(${g_CurrentIndex_Purchaser})' id='purchaser_${g_CurrentIndex_Purchaser}'>${purchaserName}</a>`;
+			g_CurrentIndex_Purchaser++;
+		}
+
+		function AddDivider()
+		{
+			document.getElementById("purchasers").innerHTML += `<li class="dropdown-divider"></li>`;
+		}
+
+		function AddMethod(methodName)
+		{
+			g_Methods.push(methodName);
+			document.getElementById("methods").innerHTML += `<a class="dropdown-item" href='#' onclick='SetMethod(${g_CurrentIndex_Method})' id='purchaser_${g_CurrentIndex_Method}'>${methodName}</a>`;
+			g_CurrentIndex_Method++;
+        }
+
+        function SetMonthlyDownpayment()
+        {
+            var elem = document.getElementById('monthly_down_payment');
+            var val = elem.value;
+
+            if (!isNaN(val) && val.length > 0)
+            {
+                TriggerEvent("PurchaseProperty_SetMonthlyDownpayment", val);
+            }
+        }
+
+        function SetNumMonthlyPayments()
+        {
+            var elem = document.getElementById('num_monthly_payments');
+            var val = elem.value;
+
+            if (!isNaN(val) && val.length > 0)
+            {
+                TriggerEvent("PurchaseProperty_SetNumMonthlyPayments", elem.value);
+            }
+        }
+
+	</script>
+
+	<style type="text/css">
+		body {
+			background-color: transparent;
+		}
+
+		tr {
+			text-align: right;
+		}
+		
+		td {
+			width: 50%;
+		}
+
+		#error_text:empty {
+			display: none;
+		}
+
+		#error_text {
+			color: #FF0000;
+		}
+
+		.loading-icon {
+			margin-top: 6px;
+			margin-bottom: 6px;
+		}
+
+		.purchase-menu {
+			width: 350px;
+			position: absolute;
+			vertical-align: middle;
+			top: 50%;
+			right: 20px;
+			transform: translateY(-50%);
+		}
+
+		.form-control {
+			text-align: left;
+			overflow: hidden;
+		}
+
+		.dropdown-toggle::after {
+			text-align: right !important;
+			float: right;
+			margin-top: 10px;
+		}
+	</style>
+</head>
+<body>
+
+	<!-- COST INFO -->
+	<div class="purchase-menu">
+		<div class="card">
+			<div class="card-header">
+				Purchase Property
+				<button id="exitbutton" class="close" onclick="Hide()">&times;</button>
+			</div>
+			<div class="card-body">
+				<h4>Purchase Information</h4>
+				<table class="table table-sm">
+					<tr>
+						<th class="text-left">Price</th>
+						<td id="total_price"></td>
+					</tr>
+				</table>
+				
+				<div class="row">
+					<div class="col-6">
+						<label>Purchaser</label>
+						<div class="dropdown">
+							<button id="dropdownClass_Purchaser" class="dropdown-toggle form-control" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Purchaser</button>
+							<div id="purchasers" class="dropdown-menu"></div>
+						</div>
+					</div>
+					<div class="col-6">
+						<label class="float-right">Payment Method</label>
+						<div class="dropdown">
+							<button id="dropdownClass_Method" class="dropdown-toggle form-control" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Method</button>
+							<div id="methods" class="dropdown-menu"></div>
+						</div>
+					</div>
+				</div>
+				
+				<div id="credit_table" style="display: none;">
+					<h4 class="mt-3">Credit Information</h4>
+					<table class="table table-sm">
+						<tr>
+							<th>Down Payment</th>
+							<th><input type='number' class='form-control' id='monthly_down_payment' oninput="SetMonthlyDownpayment()" value='0.00'></th>
+						</tr>
+						<tr>
+							<th>Repayment Months</th>
+							<th><input type='number' class='form-control' id='num_monthly_payments' oninput="SetNumMonthlyPayments()" min="1" max="200" value='60'></th>
+						</tr>
+						<tr>
+							<th>Credit Amount</th>
+							<td id="monthly_payment_credit_amount"></td>
+						</tr>
+						<tr>
+							<th>Interest</th>
+							<td id="monthly_interest"></td>
+						</tr>
+						<tr>
+							<th>Total Price</th>
+							<td id="monthly_payment_total_price"></td>
+						</tr>
+						<tr>
+							<th>Monthly Payment</th>
+							<td id="monthly_payment"></td>
+						</tr>
+					</table>
+				</div>
+				
+				<div class="btn-group w-100 mt-3">
+					<button id="previewbutton" class="btn btn-warning w-100" onclick="OnPreview()">Preview</button>
+					<button id="buybutton" class="btn btn-success w-100" onclick="OnCheckout()">Purchase</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+</body>
+</html>

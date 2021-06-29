@@ -1,0 +1,122 @@
+{
+	"Files": [
+		{
+			"Name": "AdminHud.Client.cs",
+			"Type": "ClientScript"
+		},
+		{
+			"Name": "Recon.Client.cs",
+			"Type": "ClientScript"
+		},
+		{
+			"Name": "FourthOfJuly.Client.cs",
+			"Type": "ClientScript"
+		},
+		{
+			"Name": "ClientSideDebug.Client.cs",
+			"Type": "ClientScript"
+		},
+		{
+			"Name": "Assets/Audio/countdown-XX.ogg",
+			"Type": "Audio"
+		},
+		{
+			"Name": "AdminEntityDeleteConfirmation.Client.cs",
+			"Type": "ClientScript"
+		},
+		{
+			"Name": "Assets/help_center.html",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/check.html",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/checkveh.html",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/checkint.html",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/reports.html",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "CGUIAdminReports.Client.cs",
+			"Type": "ClientScript"
+		},
+		{
+			"Name": "AdminReports.Client.cs",
+			"Type": "ClientScript"
+		},
+		{
+			"Name": "CGUIHelpCenter.Client.cs",
+			"Type": "ClientScript"
+		},
+		{
+			"Name": "HelpCenter.Client.cs",
+			"Type": "ClientScript"
+		},
+		{
+			"Name": "Assets/view_application.html",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "CGUIViewApplication.Client.cs",
+			"Type": "ClientScript"
+		},
+		{
+			"Name": "ViewApplication.Client.cs",
+			"Type": "ClientScript"
+		},
+		{
+			"Name": "CGUIAdminCheck.Client.cs",
+			"Type": "ClientScript"
+		},
+		{
+			"Name": "AdminCheck.Client.cs",
+			"Type": "ClientScript"
+		},
+		{
+			"Name": "CGUIAdminCheckVeh.Client.cs",
+			"Type": "ClientScript"
+		},
+		{
+			"Name": "AdminCheckVeh.Client.cs",
+			"Type": "ClientScript"
+		},
+		{
+			"Name": "CGUIAdminCheckInt.Client.cs",
+			"Type": "ClientScript"
+		},
+		{
+			"Name": "AdminCheckInt.Client.cs",
+			"Type": "ClientScript"
+		},
+		{
+			"Name": "Assets/admin_resources/checkveh.js",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/admin_resources/checkveh.css",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/admin_resources/checkint.js",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/admin_resources/checkint.css",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Init.Client.cs",
+			"Type": "ClientScript"
+		}
+	],
+	"ExportedFunctions": [
+	]
+}

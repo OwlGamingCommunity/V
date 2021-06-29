@@ -1,0 +1,7 @@
+{
+  "Type": "Network_ServerToClient_RemoteOnly",
+  "Parameters": {
+    "NewsCameraOperator": "PlayerType",
+	"NewsCameraObject": "ObjectType"
+  }
+}

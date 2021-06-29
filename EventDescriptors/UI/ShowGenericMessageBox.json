@@ -1,0 +1,9 @@
+{
+  "Type": "UI",
+  "Parameters": {
+  		"strTitle" : "string",
+  		"strCaption" : "string",
+  		"strButtonText" : "string",
+  		"strButtonEvent" : "string",
+  }
+}

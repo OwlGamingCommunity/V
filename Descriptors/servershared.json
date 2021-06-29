@@ -1,0 +1,10 @@
+{
+	"Files": [
+		{
+			"Name": "owl_servershared.dll",
+			"Type": "ServerScript"
+		}
+	],
+  "ExportedFunctions": [
+  	]
+}

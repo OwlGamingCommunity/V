@@ -1,0 +1,13 @@
+{
+  "Type": "UI",
+  "Parameters": {
+    "commandName": "string",
+    "animDictionary": "string",
+    "animName": "string",
+    "loop": "bool",
+    "stopOnLastFrame": "bool",
+    "onlyAnimateUpperBody": "bool",
+    "allowPlayerMovement": "bool",
+    "durationSeconds": "int"
+  }
+}

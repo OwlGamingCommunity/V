@@ -1,0 +1,7 @@
+{
+  "Type": "Network_ServerToClient_RemoteOnly",
+  "Parameters": {
+    "lstPurchasers": "List<Purchaser>",
+    "lstMethods": "List<string>"
+  }
+}

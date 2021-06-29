@@ -1,0 +1,74 @@
+{
+  "Files": [
+    {
+      "Name": "SerializationDefinitions.cs",
+      "Type": "ClientScript"
+    },
+    {
+      "Name": "ItemData.cs",
+      "Type": "ClientScript"
+    },
+    {
+      "Name": "FurnitureData.cs",
+      "Type": "ClientScript"
+    },
+    {
+      "Name": "ItemShared.cs",
+      "Type": "ClientScript"
+    },
+    {
+      "Name": "MapTypes.cs",
+      "Type": "ClientScript"
+    },
+    {
+      "Name": "Taxation.cs",
+      "Type": "ClientScript"
+    },
+    {
+      "Name": "VehicleData.cs",
+      "Type": "ClientScript"
+    },
+    {
+      "Name": "TattooData.cs",
+      "Type": "ClientScript"
+    },
+    {
+      "Name": "HairTattooData.cs",
+      "Type": "ClientScript"
+    },
+    {
+      "Name": "TattooDefinitions.cs",
+      "Type": "ClientScript"
+    },
+    {
+      "Name": "VehicleDefinitions.cs",
+      "Type": "ClientScript"
+    },
+    {
+      "Name": "GangtagSprites.cs",
+      "Type": "ClientScript"
+    },
+    {
+      "Name": "WeakRef.cs",
+      "Type": "ClientScript"
+    },
+    {
+      "Name": "ZoneNames.cs",
+      "Type": "ClientScript"
+    },
+    {
+      "Name": "MultiFrameWorkQueue.cs",
+      "Type": "ClientScript"
+    },
+        {
+      "Name": "BinaryBuffer.cs",
+      "Type": "ClientScript"
+    },
+    {
+      "Name": "BinarySerializer.cs",
+      "Type": "ClientScript"
+    }
+  ],
+  "ExportedFunctions": [
+  ]
+}

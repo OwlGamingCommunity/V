@@ -1,0 +1,14 @@
+{
+  "Files": [
+    {
+      "Name": "owl_anticheat.dll",
+      "Type": "ServerScript"
+    }
+  ],
+  "ExportedFunctions": [
+    {
+      "Class": "AntiCheatSystem",
+      "Function": "RegisterEntityData"
+    }
+  ]
+}

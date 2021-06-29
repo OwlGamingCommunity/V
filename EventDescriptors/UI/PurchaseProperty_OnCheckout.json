@@ -1,0 +1,7 @@
+{
+  "Type": "UI",
+  "Parameters": {
+    "purchaserIndex": "int",
+    "method": "EPaymentMethod"
+  }
+}

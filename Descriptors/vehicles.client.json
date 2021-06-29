@@ -1,0 +1,98 @@
+{
+	"Files": [
+		{
+			"Name": "VehicleSystem.Client.cs",
+			"Type": "ClientScript"
+		},
+		{
+			"Name": "DirtSystem.Client.cs",
+			"Type": "ClientScript"
+		},
+		{
+			"Name": "FuelStations.Client.cs",
+			"Type": "ClientScript"
+		},
+		{
+			"Name": "VehicleRepair.Client.cs",
+			"Type": "ClientScript"
+		},
+		{
+			"Name": "CarWash.Client.cs",
+			"Type": "ClientScript"
+		},
+		{
+			"Name": "TurnSignals.Client.cs",
+			"Type": "ClientScript"
+		},
+		{
+			"Name": "DrivingTest.Client.cs",
+			"Type": "ClientScript"
+		},
+		{
+			"Name": "TowingSystem.Client.cs",
+			"Type": "ClientScript"
+		},
+		{
+			"Name": "CGUITowGetVehicle.Client.cs",
+			"Type": "ClientScript"
+		},
+		{
+			"Name": "CruiseControl.Client.cs",
+			"Type": "ClientScript"
+		},
+		{
+			"Name": "Assets/towgetvehicle.html",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Assets/vehiclemodshop.html",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "VehicleModShop.Client.cs",
+			"Type": "ClientScript"
+		},
+		{
+			"Name": "VehicleCrusher.Client.cs",
+			"Type": "ClientScript"
+		},
+		{
+			"Name": "CGUIVehicleModShop.Client.cs",
+			"Type": "ClientScript"
+		},
+		{
+			"Name": "Init.Client.cs",
+			"Type": "ClientScript"
+		},
+		{
+			"Name": "Assets/Audio/unbuckle.ogg",
+			"Type": "Audio"
+		},
+		{
+			"Name": "Assets/Audio/buckle-XX.ogg",
+			"Type": "Audio"
+		},
+		{
+			"Name": "Assets/Audio/hb_on.ogg",
+			"Type": "Audio"
+		},
+		{
+			"Name": "Assets/Audio/hb_off.ogg",
+			"Type": "Audio"
+		},
+		{
+			"Name": "VehiclesListUI.Client.cs",
+			"Type": "ClientScript"
+		},
+		{
+			"Name": "CGUIVehiclesList.Client.cs",
+			"Type": "ClientScript"
+		},
+		{
+			"Name": "Assets/vehiclelist.html",
+			"Type": "ClientAsset"
+		}
+	],
+	"ExportedFunctions": [
+	]
+}

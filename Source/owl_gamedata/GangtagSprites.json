@@ -1,0 +1,8360 @@
+[
+  {
+    "ID": 0,
+    "HumanName": "Gradient Background",
+    "Dictionary": "frontend",
+    "SpriteName": "gradient_background",
+    "Enabled": true
+  },
+  {
+    "ID": 1,
+    "HumanName": "Gtav Logo",
+    "Dictionary": "frontend",
+    "SpriteName": "gtav_logo",
+    "Enabled": true
+  },
+  {
+    "ID": 2,
+    "HumanName": "Newsaving",
+    "Dictionary": "frontend",
+    "SpriteName": "newsaving",
+    "Enabled": true
+  },
+  {
+    "ID": 3,
+    "HumanName": "Spinner",
+    "Dictionary": "frontend",
+    "SpriteName": "spinner",
+    "Enabled": true
+  },
+  {
+    "ID": 4,
+    "HumanName": "Mpgroundlogo Bikers",
+    "Dictionary": "3dtextures",
+    "SpriteName": "mpgroundlogo_bikers",
+    "Enabled": true
+  },
+  {
+    "ID": 5,
+    "HumanName": "Mpgroundlogo Cops",
+    "Dictionary": "3dtextures",
+    "SpriteName": "mpgroundlogo_cops",
+    "Enabled": true
+  },
+  {
+    "ID": 6,
+    "HumanName": "Mpgroundlogo Vagos",
+    "Dictionary": "3dtextures",
+    "SpriteName": "mpgroundlogo_vagos",
+    "Enabled": true
+  },
+  {
+    "ID": 7,
+    "HumanName": "Target1",
+    "Dictionary": "assassinations",
+    "SpriteName": "target1",
+    "Enabled": true
+  },
+  {
+    "ID": 8,
+    "HumanName": "Target 3",
+    "Dictionary": "assassinations",
+    "SpriteName": "target 3",
+    "Enabled": true
+  },
+  {
+    "ID": 9,
+    "HumanName": "Targeta",
+    "Dictionary": "assassinations",
+    "SpriteName": "targeta",
+    "Enabled": true
+  },
+  {
+    "ID": 10,
+    "HumanName": "Targetb",
+    "Dictionary": "assassinations",
+    "SpriteName": "targetb",
+    "Enabled": true
+  },
+  {
+    "ID": 11,
+    "HumanName": "Targetquestion",
+    "Dictionary": "assassinations",
+    "SpriteName": "targetquestion",
+    "Enabled": true
+  },
+  {
+    "ID": 12,
+    "HumanName": "Missionscore",
+    "Dictionary": "awards",
+    "SpriteName": "missionscore",
+    "Enabled": true
+  },
+  {
+    "ID": 13,
+    "HumanName": "Arrow Pointer",
+    "Dictionary": "basejumping",
+    "SpriteName": "arrow_pointer",
+    "Enabled": true
+  },
+  {
+    "ID": 14,
+    "HumanName": "Arrowleft",
+    "Dictionary": "commonmenu",
+    "SpriteName": "arrowleft",
+    "Enabled": true
+  },
+  {
+    "ID": 15,
+    "HumanName": "Arrowright",
+    "Dictionary": "commonmenu",
+    "SpriteName": "arrowright",
+    "Enabled": true
+  },
+  {
+    "ID": 16,
+    "HumanName": "Bettingbox Centre",
+    "Dictionary": "commonmenu",
+    "SpriteName": "bettingbox_centre",
+    "Enabled": true
+  },
+  {
+    "ID": 17,
+    "HumanName": "Bettingbox Left",
+    "Dictionary": "commonmenu",
+    "SpriteName": "bettingbox_left",
+    "Enabled": true
+  },
+  {
+    "ID": 18,
+    "HumanName": "Bettingbox Right",
+    "Dictionary": "commonmenu",
+    "SpriteName": "bettingbox_right",
+    "Enabled": true
+  },
+  {
+    "ID": 19,
+    "HumanName": "Common Medal",
+    "Dictionary": "commonmenu",
+    "SpriteName": "common_medal",
+    "Enabled": true
+  },
+  {
+    "ID": 20,
+    "HumanName": "Gradient Bgd",
+    "Dictionary": "commonmenu",
+    "SpriteName": "gradient_bgd",
+    "Enabled": true
+  },
+  {
+    "ID": 21,
+    "HumanName": "Gradient Nav",
+    "Dictionary": "commonmenu",
+    "SpriteName": "gradient_nav",
+    "Enabled": true
+  },
+  {
+    "ID": 22,
+    "HumanName": "Header Gradient Script",
+    "Dictionary": "commonmenu",
+    "SpriteName": "header_gradient_script",
+    "Enabled": true
+  },
+  {
+    "ID": 23,
+    "HumanName": "Interaction Bgd",
+    "Dictionary": "commonmenu",
+    "SpriteName": "interaction_bgd",
+    "Enabled": true
+  },
+  {
+    "ID": 24,
+    "HumanName": "Medal Bronze",
+    "Dictionary": "commonmenu",
+    "SpriteName": "medal_bronze",
+    "Enabled": true
+  },
+  {
+    "ID": 25,
+    "HumanName": "Medal Gold",
+    "Dictionary": "commonmenu",
+    "SpriteName": "medal_gold",
+    "Enabled": true
+  },
+  {
+    "ID": 26,
+    "HumanName": "Medal Silver",
+    "Dictionary": "commonmenu",
+    "SpriteName": "medal_silver",
+    "Enabled": true
+  },
+  {
+    "ID": 27,
+    "HumanName": "Mp Alerttriangle",
+    "Dictionary": "commonmenu",
+    "SpriteName": "mp_alerttriangle",
+    "Enabled": true
+  },
+  {
+    "ID": 28,
+    "HumanName": "Mp Hostcrown",
+    "Dictionary": "commonmenu",
+    "SpriteName": "mp_hostcrown",
+    "Enabled": true
+  },
+  {
+    "ID": 29,
+    "HumanName": "Mp Medal Bronze",
+    "Dictionary": "commonmenu",
+    "SpriteName": "mp_medal_bronze",
+    "Enabled": true
+  },
+  {
+    "ID": 30,
+    "HumanName": "Mp Medal Gold",
+    "Dictionary": "commonmenu",
+    "SpriteName": "mp_medal_gold",
+    "Enabled": true
+  },
+  {
+    "ID": 31,
+    "HumanName": "Mp Medal Silver",
+    "Dictionary": "commonmenu",
+    "SpriteName": "mp_medal_silver",
+    "Enabled": true
+  },
+  {
+    "ID": 32,
+    "HumanName": "Mp Specitem Cash",
+    "Dictionary": "commonmenu",
+    "SpriteName": "mp_specitem_cash",
+    "Enabled": true
+  },
+  {
+    "ID": 33,
+    "HumanName": "Mp Specitem Coke",
+    "Dictionary": "commonmenu",
+    "SpriteName": "mp_specitem_coke",
+    "Enabled": true
+  },
+  {
+    "ID": 34,
+    "HumanName": "Mp Specitem Heroin",
+    "Dictionary": "commonmenu",
+    "SpriteName": "mp_specitem_heroin",
+    "Enabled": true
+  },
+  {
+    "ID": 35,
+    "HumanName": "Mp Specitem Meth",
+    "Dictionary": "commonmenu",
+    "SpriteName": "mp_specitem_meth",
+    "Enabled": true
+  },
+  {
+    "ID": 36,
+    "HumanName": "Mp Specitem Weed",
+    "Dictionary": "commonmenu",
+    "SpriteName": "mp_specitem_weed",
+    "Enabled": true
+  },
+  {
+    "ID": 37,
+    "HumanName": "Shop Ammo Icon A",
+    "Dictionary": "commonmenu",
+    "SpriteName": "shop_ammo_icon_a",
+    "Enabled": true
+  },
+  {
+    "ID": 38,
+    "HumanName": "Shop Ammo Icon B",
+    "Dictionary": "commonmenu",
+    "SpriteName": "shop_ammo_icon_b",
+    "Enabled": true
+  },
+  {
+    "ID": 39,
+    "HumanName": "Shop Armour Icon A",
+    "Dictionary": "commonmenu",
+    "SpriteName": "shop_armour_icon_a",
+    "Enabled": true
+  },
+  {
+    "ID": 40,
+    "HumanName": "Shop Armour Icon B",
+    "Dictionary": "commonmenu",
+    "SpriteName": "shop_armour_icon_b",
+    "Enabled": true
+  },
+  {
+    "ID": 41,
+    "HumanName": "Shop Arrows Upanddown",
+    "Dictionary": "commonmenu",
+    "SpriteName": "shop_arrows_upanddown",
+    "Enabled": true
+  },
+  {
+    "ID": 42,
+    "HumanName": "Shop Barber Icon A",
+    "Dictionary": "commonmenu",
+    "SpriteName": "shop_barber_icon_a",
+    "Enabled": true
+  },
+  {
+    "ID": 43,
+    "HumanName": "Shop Barber Icon B",
+    "Dictionary": "commonmenu",
+    "SpriteName": "shop_barber_icon_b",
+    "Enabled": true
+  },
+  {
+    "ID": 44,
+    "HumanName": "Shop Box Blank",
+    "Dictionary": "commonmenu",
+    "SpriteName": "shop_box_blank",
+    "Enabled": true
+  },
+  {
+    "ID": 45,
+    "HumanName": "Shop Box Blankb",
+    "Dictionary": "commonmenu",
+    "SpriteName": "shop_box_blankb",
+    "Enabled": true
+  },
+  {
+    "ID": 46,
+    "HumanName": "Shop Box Cross",
+    "Dictionary": "commonmenu",
+    "SpriteName": "shop_box_cross",
+    "Enabled": true
+  },
+  {
+    "ID": 47,
+    "HumanName": "Shop Box Crossb",
+    "Dictionary": "commonmenu",
+    "SpriteName": "shop_box_crossb",
+    "Enabled": true
+  },
+  {
+    "ID": 48,
+    "HumanName": "Shop Box Tick",
+    "Dictionary": "commonmenu",
+    "SpriteName": "shop_box_tick",
+    "Enabled": true
+  },
+  {
+    "ID": 49,
+    "HumanName": "Shop Box Tickb",
+    "Dictionary": "commonmenu",
+    "SpriteName": "shop_box_tickb",
+    "Enabled": true
+  },
+  {
+    "ID": 50,
+    "HumanName": "Shop Clothing Icon A",
+    "Dictionary": "commonmenu",
+    "SpriteName": "shop_clothing_icon_a",
+    "Enabled": true
+  },
+  {
+    "ID": 51,
+    "HumanName": "Shop Clothing Icon B",
+    "Dictionary": "commonmenu",
+    "SpriteName": "shop_clothing_icon_b",
+    "Enabled": true
+  },
+  {
+    "ID": 52,
+    "HumanName": "Shop Franklin Icon A",
+    "Dictionary": "commonmenu",
+    "SpriteName": "shop_franklin_icon_a",
+    "Enabled": true
+  },
+  {
+    "ID": 53,
+    "HumanName": "Shop Franklin Icon B",
+    "Dictionary": "commonmenu",
+    "SpriteName": "shop_franklin_icon_b",
+    "Enabled": true
+  },
+  {
+    "ID": 54,
+    "HumanName": "Shop Garage Bike Icon A",
+    "Dictionary": "commonmenu",
+    "SpriteName": "shop_garage_bike_icon_a",
+    "Enabled": true
+  },
+  {
+    "ID": 55,
+    "HumanName": "Shop Garage Bike Icon B",
+    "Dictionary": "commonmenu",
+    "SpriteName": "shop_garage_bike_icon_b",
+    "Enabled": true
+  },
+  {
+    "ID": 56,
+    "HumanName": "Shop Garage Icon A",
+    "Dictionary": "commonmenu",
+    "SpriteName": "shop_garage_icon_a",
+    "Enabled": true
+  },
+  {
+    "ID": 57,
+    "HumanName": "Shop Garage Icon B",
+    "Dictionary": "commonmenu",
+    "SpriteName": "shop_garage_icon_b",
+    "Enabled": true
+  },
+  {
+    "ID": 58,
+    "HumanName": "Shop Gunclub Icon A",
+    "Dictionary": "commonmenu",
+    "SpriteName": "shop_gunclub_icon_a",
+    "Enabled": true
+  },
+  {
+    "ID": 59,
+    "HumanName": "Shop Gunclub Icon B",
+    "Dictionary": "commonmenu",
+    "SpriteName": "shop_gunclub_icon_b",
+    "Enabled": true
+  },
+  {
+    "ID": 60,
+    "HumanName": "Shop Health Icon A",
+    "Dictionary": "commonmenu",
+    "SpriteName": "shop_health_icon_a",
+    "Enabled": true
+  },
+  {
+    "ID": 61,
+    "HumanName": "Shop Health Icon B",
+    "Dictionary": "commonmenu",
+    "SpriteName": "shop_health_icon_b",
+    "Enabled": true
+  },
+  {
+    "ID": 62,
+    "HumanName": "Shop Lock",
+    "Dictionary": "commonmenu",
+    "SpriteName": "shop_lock",
+    "Enabled": true
+  },
+  {
+    "ID": 63,
+    "HumanName": "Shop Makeup Icon A",
+    "Dictionary": "commonmenu",
+    "SpriteName": "shop_makeup_icon_a",
+    "Enabled": true
+  },
+  {
+    "ID": 64,
+    "HumanName": "Shop Makeup Icon B",
+    "Dictionary": "commonmenu",
+    "SpriteName": "shop_makeup_icon_b",
+    "Enabled": true
+  },
+  {
+    "ID": 65,
+    "HumanName": "Shop Mask Icon A",
+    "Dictionary": "commonmenu",
+    "SpriteName": "shop_mask_icon_a",
+    "Enabled": true
+  },
+  {
+    "ID": 66,
+    "HumanName": "Shop Mask Icon B",
+    "Dictionary": "commonmenu",
+    "SpriteName": "shop_mask_icon_b",
+    "Enabled": true
+  },
+  {
+    "ID": 67,
+    "HumanName": "Shop Michael Icon A",
+    "Dictionary": "commonmenu",
+    "SpriteName": "shop_michael_icon_a",
+    "Enabled": true
+  },
+  {
+    "ID": 68,
+    "HumanName": "Shop Michael Icon B",
+    "Dictionary": "commonmenu",
+    "SpriteName": "shop_michael_icon_b",
+    "Enabled": true
+  },
+  {
+    "ID": 69,
+    "HumanName": "Shop New Star",
+    "Dictionary": "commonmenu",
+    "SpriteName": "shop_new_star",
+    "Enabled": true
+  },
+  {
+    "ID": 70,
+    "HumanName": "Shop Tattoos Icon A",
+    "Dictionary": "commonmenu",
+    "SpriteName": "shop_tattoos_icon_a",
+    "Enabled": true
+  },
+  {
+    "ID": 71,
+    "HumanName": "Shop Tattoos Icon B",
+    "Dictionary": "commonmenu",
+    "SpriteName": "shop_tattoos_icon_b",
+    "Enabled": true
+  },
+  {
+    "ID": 72,
+    "HumanName": "Shop Tick Icon",
+    "Dictionary": "commonmenu",
+    "SpriteName": "shop_tick_icon",
+    "Enabled": true
+  },
+  {
+    "ID": 73,
+    "HumanName": "Shop Trevor Icon A",
+    "Dictionary": "commonmenu",
+    "SpriteName": "shop_trevor_icon_a",
+    "Enabled": true
+  },
+  {
+    "ID": 74,
+    "HumanName": "Shop Trevor Icon B",
+    "Dictionary": "commonmenu",
+    "SpriteName": "shop_trevor_icon_b",
+    "Enabled": true
+  },
+  {
+    "ID": 75,
+    "HumanName": "Arrowleft",
+    "Dictionary": "commonmenutu",
+    "SpriteName": "arrowleft",
+    "Enabled": true
+  },
+  {
+    "ID": 76,
+    "HumanName": "Arrowright",
+    "Dictionary": "commonmenutu",
+    "SpriteName": "arrowright",
+    "Enabled": true
+  },
+  {
+    "ID": 77,
+    "HumanName": "Base Jumping",
+    "Dictionary": "commonmenutu",
+    "SpriteName": "base_jumping",
+    "Enabled": true
+  },
+  {
+    "ID": 78,
+    "HumanName": "Capture The Flag",
+    "Dictionary": "commonmenutu",
+    "SpriteName": "capture_the_flag",
+    "Enabled": true
+  },
+  {
+    "ID": 79,
+    "HumanName": "Custom Mission",
+    "Dictionary": "commonmenutu",
+    "SpriteName": "custom_mission",
+    "Enabled": true
+  },
+  {
+    "ID": 80,
+    "HumanName": "Deathmatch",
+    "Dictionary": "commonmenutu",
+    "SpriteName": "deathmatch",
+    "Enabled": true
+  },
+  {
+    "ID": 81,
+    "HumanName": "Gang Attack",
+    "Dictionary": "commonmenutu",
+    "SpriteName": "gang_attack",
+    "Enabled": true
+  },
+  {
+    "ID": 82,
+    "HumanName": "Last Team Standing",
+    "Dictionary": "commonmenutu",
+    "SpriteName": "last_team_standing",
+    "Enabled": true
+  },
+  {
+    "ID": 83,
+    "HumanName": "Race",
+    "Dictionary": "commonmenutu",
+    "SpriteName": "race",
+    "Enabled": true
+  },
+  {
+    "ID": 84,
+    "HumanName": "Race Air",
+    "Dictionary": "commonmenutu",
+    "SpriteName": "race_air",
+    "Enabled": true
+  },
+  {
+    "ID": 85,
+    "HumanName": "Race Bicycle",
+    "Dictionary": "commonmenutu",
+    "SpriteName": "race_bicycle",
+    "Enabled": true
+  },
+  {
+    "ID": 86,
+    "HumanName": "Race Foot",
+    "Dictionary": "commonmenutu",
+    "SpriteName": "race_foot",
+    "Enabled": true
+  },
+  {
+    "ID": 87,
+    "HumanName": "Race Land",
+    "Dictionary": "commonmenutu",
+    "SpriteName": "race_land",
+    "Enabled": true
+  },
+  {
+    "ID": 88,
+    "HumanName": "Race Water",
+    "Dictionary": "commonmenutu",
+    "SpriteName": "race_water",
+    "Enabled": true
+  },
+  {
+    "ID": 89,
+    "HumanName": "Rockstar",
+    "Dictionary": "commonmenutu",
+    "SpriteName": "rockstar",
+    "Enabled": true
+  },
+  {
+    "ID": 90,
+    "HumanName": "Survival",
+    "Dictionary": "commonmenutu",
+    "SpriteName": "survival",
+    "Enabled": true
+  },
+  {
+    "ID": 91,
+    "HumanName": "Team Deathmatch",
+    "Dictionary": "commonmenutu",
+    "SpriteName": "team_deathmatch",
+    "Enabled": true
+  },
+  {
+    "ID": 92,
+    "HumanName": "Vehicle Deathmatch",
+    "Dictionary": "commonmenutu",
+    "SpriteName": "vehicle_deathmatch",
+    "Enabled": true
+  },
+  {
+    "ID": 93,
+    "HumanName": "Circle Checkpoints Cross",
+    "Dictionary": "cross",
+    "SpriteName": "circle_checkpoints_cross",
+    "Enabled": true
+  },
+  {
+    "ID": 94,
+    "HumanName": "Dance",
+    "Dictionary": "dancingmg",
+    "SpriteName": "dance",
+    "Enabled": true
+  },
+  {
+    "ID": 95,
+    "HumanName": "Great",
+    "Dictionary": "dancingmg",
+    "SpriteName": "great",
+    "Enabled": true
+  },
+  {
+    "ID": 96,
+    "HumanName": "Leveld",
+    "Dictionary": "dancingmg",
+    "SpriteName": "leveld",
+    "Enabled": true
+  },
+  {
+    "ID": 97,
+    "HumanName": "Levelu",
+    "Dictionary": "dancingmg",
+    "SpriteName": "levelu",
+    "Enabled": true
+  },
+  {
+    "ID": 98,
+    "HumanName": "Missed",
+    "Dictionary": "dancingmg",
+    "SpriteName": "missed",
+    "Enabled": true
+  },
+  {
+    "ID": 99,
+    "HumanName": "Perfect",
+    "Dictionary": "dancingmg",
+    "SpriteName": "perfect",
+    "Enabled": true
+  },
+  {
+    "ID": 100,
+    "HumanName": "Ready",
+    "Dictionary": "dancingmg",
+    "SpriteName": "ready",
+    "Enabled": true
+  },
+  {
+    "ID": 101,
+    "HumanName": "Weak",
+    "Dictionary": "dancingmg",
+    "SpriteName": "weak",
+    "Enabled": true
+  },
+  {
+    "ID": 102,
+    "HumanName": "Dart Reticules",
+    "Dictionary": "darts",
+    "SpriteName": "dart_reticules",
+    "Enabled": true
+  },
+  {
+    "ID": 103,
+    "HumanName": "Dart Reticules Zoomed",
+    "Dictionary": "darts",
+    "SpriteName": "dart_reticules_zoomed",
+    "Enabled": true
+  },
+  {
+    "ID": 104,
+    "HumanName": "Xj V Blackboard01",
+    "Dictionary": "darts",
+    "SpriteName": "xj_v_blackboard01",
+    "Enabled": true
+  },
+  {
+    "ID": 105,
+    "HumanName": "Nscanline1",
+    "Dictionary": "digitaloverlay",
+    "SpriteName": "nscanline1",
+    "Enabled": true
+  },
+  {
+    "ID": 106,
+    "HumanName": "Nscuzz1",
+    "Dictionary": "digitaloverlay",
+    "SpriteName": "nscuzz1",
+    "Enabled": true
+  },
+  {
+    "ID": 107,
+    "HumanName": "Nscuzz2",
+    "Dictionary": "digitaloverlay",
+    "SpriteName": "nscuzz2",
+    "Enabled": true
+  },
+  {
+    "ID": 108,
+    "HumanName": "Nscuzz3",
+    "Dictionary": "digitaloverlay",
+    "SpriteName": "nscuzz3",
+    "Enabled": true
+  },
+  {
+    "ID": 109,
+    "HumanName": "Signal1",
+    "Dictionary": "digitaloverlay",
+    "SpriteName": "signal1",
+    "Enabled": true
+  },
+  {
+    "ID": 110,
+    "HumanName": "Signal2",
+    "Dictionary": "digitaloverlay",
+    "SpriteName": "signal2",
+    "Enabled": true
+  },
+  {
+    "ID": 111,
+    "HumanName": "Signal3",
+    "Dictionary": "digitaloverlay",
+    "SpriteName": "signal3",
+    "Enabled": true
+  },
+  {
+    "ID": 112,
+    "HumanName": "Signal4",
+    "Dictionary": "digitaloverlay",
+    "SpriteName": "signal4",
+    "Enabled": true
+  },
+  {
+    "ID": 113,
+    "HumanName": "Static1",
+    "Dictionary": "digitaloverlay",
+    "SpriteName": "static1",
+    "Enabled": true
+  },
+  {
+    "ID": 114,
+    "HumanName": "Static2",
+    "Dictionary": "digitaloverlay",
+    "SpriteName": "static2",
+    "Enabled": true
+  },
+  {
+    "ID": 115,
+    "HumanName": "Static3",
+    "Dictionary": "digitaloverlay",
+    "SpriteName": "static3",
+    "Enabled": true
+  },
+  {
+    "ID": 116,
+    "HumanName": "Static4",
+    "Dictionary": "digitaloverlay",
+    "SpriteName": "static4",
+    "Enabled": true
+  },
+  {
+    "ID": 117,
+    "HumanName": "Static5",
+    "Dictionary": "digitaloverlay",
+    "SpriteName": "static5",
+    "Enabled": true
+  },
+  {
+    "ID": 118,
+    "HumanName": "Zipbig",
+    "Dictionary": "fbi1",
+    "SpriteName": "zipbig",
+    "Enabled": true
+  },
+  {
+    "ID": 119,
+    "HumanName": "Puttingmarker",
+    "Dictionary": "golfputting",
+    "SpriteName": "puttingmarker",
+    "Enabled": true
+  },
+  {
+    "ID": 120,
+    "HumanName": "Hc Franklin",
+    "Dictionary": "heisthud",
+    "SpriteName": "hc_franklin",
+    "Enabled": true
+  },
+  {
+    "ID": 121,
+    "HumanName": "Hc Lester",
+    "Dictionary": "heisthud",
+    "SpriteName": "hc_lester",
+    "Enabled": true
+  },
+  {
+    "ID": 122,
+    "HumanName": "Hc Micheal",
+    "Dictionary": "heisthud",
+    "SpriteName": "hc_micheal",
+    "Enabled": true
+  },
+  {
+    "ID": 123,
+    "HumanName": "Hc N Che",
+    "Dictionary": "heisthud",
+    "SpriteName": "hc_n_che",
+    "Enabled": true
+  },
+  {
+    "ID": 124,
+    "HumanName": "Hc N Chr",
+    "Dictionary": "heisthud",
+    "SpriteName": "hc_n_chr",
+    "Enabled": true
+  },
+  {
+    "ID": 125,
+    "HumanName": "Hc N Dar",
+    "Dictionary": "heisthud",
+    "SpriteName": "hc_n_dar",
+    "Enabled": true
+  },
+  {
+    "ID": 126,
+    "HumanName": "Hc N Edd",
+    "Dictionary": "heisthud",
+    "SpriteName": "hc_n_edd",
+    "Enabled": true
+  },
+  {
+    "ID": 127,
+    "HumanName": "Hc N Gus",
+    "Dictionary": "heisthud",
+    "SpriteName": "hc_n_gus",
+    "Enabled": true
+  },
+  {
+    "ID": 128,
+    "HumanName": "Hc N Hug",
+    "Dictionary": "heisthud",
+    "SpriteName": "hc_n_hug",
+    "Enabled": true
+  },
+  {
+    "ID": 129,
+    "HumanName": "Hc N Kar",
+    "Dictionary": "heisthud",
+    "SpriteName": "hc_n_kar",
+    "Enabled": true
+  },
+  {
+    "ID": 130,
+    "HumanName": "Hc N Nor",
+    "Dictionary": "heisthud",
+    "SpriteName": "hc_n_nor",
+    "Enabled": true
+  },
+  {
+    "ID": 131,
+    "HumanName": "Hc N Pac",
+    "Dictionary": "heisthud",
+    "SpriteName": "hc_n_pac",
+    "Enabled": true
+  },
+  {
+    "ID": 132,
+    "HumanName": "Hc N Pai",
+    "Dictionary": "heisthud",
+    "SpriteName": "hc_n_pai",
+    "Enabled": true
+  },
+  {
+    "ID": 133,
+    "HumanName": "Hc N Ric",
+    "Dictionary": "heisthud",
+    "SpriteName": "hc_n_ric",
+    "Enabled": true
+  },
+  {
+    "ID": 134,
+    "HumanName": "Hc N Tal",
+    "Dictionary": "heisthud",
+    "SpriteName": "hc_n_tal",
+    "Enabled": true
+  },
+  {
+    "ID": 135,
+    "HumanName": "Hc Trevor",
+    "Dictionary": "heisthud",
+    "SpriteName": "hc_trevor",
+    "Enabled": true
+  },
+  {
+    "ID": 136,
+    "HumanName": "Kiaoverlay",
+    "Dictionary": "heisthud",
+    "SpriteName": "kiaoverlay",
+    "Enabled": true
+  },
+  {
+    "ID": 137,
+    "HumanName": "Main Gradient",
+    "Dictionary": "heisthud",
+    "SpriteName": "main_gradient",
+    "Enabled": true
+  },
+  {
+    "ID": 138,
+    "HumanName": "Hudarrow",
+    "Dictionary": "helicopterhud",
+    "SpriteName": "hudarrow",
+    "Enabled": true
+  },
+  {
+    "ID": 139,
+    "HumanName": "Hud Block",
+    "Dictionary": "helicopterhud",
+    "SpriteName": "hud_block",
+    "Enabled": true
+  },
+  {
+    "ID": 140,
+    "HumanName": "Hud Corner",
+    "Dictionary": "helicopterhud",
+    "SpriteName": "hud_corner",
+    "Enabled": true
+  },
+  {
+    "ID": 141,
+    "HumanName": "Hud Dest",
+    "Dictionary": "helicopterhud",
+    "SpriteName": "hud_dest",
+    "Enabled": true
+  },
+  {
+    "ID": 142,
+    "HumanName": "Hud Horiz",
+    "Dictionary": "helicopterhud",
+    "SpriteName": "hud_horiz",
+    "Enabled": true
+  },
+  {
+    "ID": 143,
+    "HumanName": "Hud Line",
+    "Dictionary": "helicopterhud",
+    "SpriteName": "hud_line",
+    "Enabled": true
+  },
+  {
+    "ID": 144,
+    "HumanName": "Hud Lock",
+    "Dictionary": "helicopterhud",
+    "SpriteName": "hud_lock",
+    "Enabled": true
+  },
+  {
+    "ID": 145,
+    "HumanName": "Hud Outline",
+    "Dictionary": "helicopterhud",
+    "SpriteName": "hud_outline",
+    "Enabled": true
+  },
+  {
+    "ID": 146,
+    "HumanName": "Hud Outline Thin",
+    "Dictionary": "helicopterhud",
+    "SpriteName": "hud_outline_thin",
+    "Enabled": true
+  },
+  {
+    "ID": 147,
+    "HumanName": "Hud Target",
+    "Dictionary": "helicopterhud",
+    "SpriteName": "hud_target",
+    "Enabled": true
+  },
+  {
+    "ID": 148,
+    "HumanName": "Hud Vert",
+    "Dictionary": "helicopterhud",
+    "SpriteName": "hud_vert",
+    "Enabled": true
+  },
+  {
+    "ID": 149,
+    "HumanName": "Targetlost",
+    "Dictionary": "helicopterhud",
+    "SpriteName": "targetlost",
+    "Enabled": true
+  },
+  {
+    "ID": 150,
+    "HumanName": "Huntingwindarrow 32",
+    "Dictionary": "hunting",
+    "SpriteName": "huntingwindarrow_32",
+    "Enabled": true
+  },
+  {
+    "ID": 151,
+    "HumanName": "Hunting Bronze 128",
+    "Dictionary": "hunting",
+    "SpriteName": "hunting_bronze_128",
+    "Enabled": true
+  },
+  {
+    "ID": 152,
+    "HumanName": "Hunting Gold 128",
+    "Dictionary": "hunting",
+    "SpriteName": "hunting_gold_128",
+    "Enabled": true
+  },
+  {
+    "ID": 153,
+    "HumanName": "Hunting Silver 128",
+    "Dictionary": "hunting",
+    "SpriteName": "hunting_silver_128",
+    "Enabled": true
+  },
+  {
+    "ID": 154,
+    "HumanName": "Mp Arrowlarge",
+    "Dictionary": "mparrow",
+    "SpriteName": "mp_arrowlarge",
+    "Enabled": true
+  },
+  {
+    "ID": 155,
+    "HumanName": "Mp Arrowxlarge",
+    "Dictionary": "mparrow",
+    "SpriteName": "mp_arrowxlarge",
+    "Enabled": true
+  },
+  {
+    "ID": 156,
+    "HumanName": "Asshole",
+    "Dictionary": "mpawardheists",
+    "SpriteName": "asshole",
+    "Enabled": true
+  },
+  {
+    "ID": 157,
+    "HumanName": "Beprepared",
+    "Dictionary": "mpawardheists",
+    "SpriteName": "beprepared",
+    "Enabled": true
+  },
+  {
+    "ID": 158,
+    "HumanName": "Calmdown",
+    "Dictionary": "mpawardheists",
+    "SpriteName": "calmdown",
+    "Enabled": true
+  },
+  {
+    "ID": 159,
+    "HumanName": "Canttouchthis",
+    "Dictionary": "mpawardheists",
+    "SpriteName": "canttouchthis",
+    "Enabled": true
+  },
+  {
+    "ID": 160,
+    "HumanName": "Captured",
+    "Dictionary": "mpawardheists",
+    "SpriteName": "captured",
+    "Enabled": true
+  },
+  {
+    "ID": 161,
+    "HumanName": "Deathdefying",
+    "Dictionary": "mpawardheists",
+    "SpriteName": "deathdefying",
+    "Enabled": true
+  },
+  {
+    "ID": 162,
+    "HumanName": "Decorated",
+    "Dictionary": "mpawardheists",
+    "SpriteName": "decorated",
+    "Enabled": true
+  },
+  {
+    "ID": 163,
+    "HumanName": "Dressedtoimpress",
+    "Dictionary": "mpawardheists",
+    "SpriteName": "dressedtoimpress",
+    "Enabled": true
+  },
+  {
+    "ID": 164,
+    "HumanName": "Fairplay",
+    "Dictionary": "mpawardheists",
+    "SpriteName": "fairplay",
+    "Enabled": true
+  },
+  {
+    "ID": 165,
+    "HumanName": "Forhire",
+    "Dictionary": "mpawardheists",
+    "SpriteName": "forhire",
+    "Enabled": true
+  },
+  {
+    "ID": 166,
+    "HumanName": "Gimmethat",
+    "Dictionary": "mpawardheists",
+    "SpriteName": "gimmethat",
+    "Enabled": true
+  },
+  {
+    "ID": 167,
+    "HumanName": "Incontrol",
+    "Dictionary": "mpawardheists",
+    "SpriteName": "incontrol",
+    "Enabled": true
+  },
+  {
+    "ID": 168,
+    "HumanName": "Ittakestwo",
+    "Dictionary": "mpawardheists",
+    "SpriteName": "ittakestwo",
+    "Enabled": true
+  },
+  {
+    "ID": 169,
+    "HumanName": "Jackofalltrades",
+    "Dictionary": "mpawardheists",
+    "SpriteName": "jackofalltrades",
+    "Enabled": true
+  },
+  {
+    "ID": 170,
+    "HumanName": "Lightsout",
+    "Dictionary": "mpawardheists",
+    "SpriteName": "lightsout",
+    "Enabled": true
+  },
+  {
+    "ID": 171,
+    "HumanName": "Livealittle",
+    "Dictionary": "mpawardheists",
+    "SpriteName": "livealittle",
+    "Enabled": true
+  },
+  {
+    "ID": 172,
+    "HumanName": "Movingday",
+    "Dictionary": "mpawardheists",
+    "SpriteName": "movingday",
+    "Enabled": true
+  },
+  {
+    "ID": 173,
+    "HumanName": "Noyoudont",
+    "Dictionary": "mpawardheists",
+    "SpriteName": "noyoudont",
+    "Enabled": true
+  },
+  {
+    "ID": 174,
+    "HumanName": "Oneandonly",
+    "Dictionary": "mpawardheists",
+    "SpriteName": "oneandonly",
+    "Enabled": true
+  },
+  {
+    "ID": 175,
+    "HumanName": "Onemanarmy",
+    "Dictionary": "mpawardheists",
+    "SpriteName": "onemanarmy",
+    "Enabled": true
+  },
+  {
+    "ID": 176,
+    "HumanName": "Pscychokiller",
+    "Dictionary": "mpawardheists",
+    "SpriteName": "pscychokiller",
+    "Enabled": true
+  },
+  {
+    "ID": 177,
+    "HumanName": "Shotcaller",
+    "Dictionary": "mpawardheists",
+    "SpriteName": "shotcaller",
+    "Enabled": true
+  },
+  {
+    "ID": 178,
+    "HumanName": "Showroom",
+    "Dictionary": "mpawardheists",
+    "SpriteName": "showroom",
+    "Enabled": true
+  },
+  {
+    "ID": 179,
+    "HumanName": "Stillstanding",
+    "Dictionary": "mpawardheists",
+    "SpriteName": "stillstanding",
+    "Enabled": true
+  },
+  {
+    "ID": 180,
+    "HumanName": "Thebigtime",
+    "Dictionary": "mpawardheists",
+    "SpriteName": "thebigtime",
+    "Enabled": true
+  },
+  {
+    "ID": 181,
+    "HumanName": "Thepostman",
+    "Dictionary": "mpawardheists",
+    "SpriteName": "thepostman",
+    "Enabled": true
+  },
+  {
+    "ID": 182,
+    "HumanName": "Armwrestlingvictories",
+    "Dictionary": "mpawards1",
+    "SpriteName": "armwrestlingvictories",
+    "Enabled": true
+  },
+  {
+    "ID": 183,
+    "HumanName": "Blowupenemiesusingcarbombs",
+    "Dictionary": "mpawards1",
+    "SpriteName": "blowupenemiesusingcarbombs",
+    "Enabled": true
+  },
+  {
+    "ID": 184,
+    "HumanName": "Gethaircuts",
+    "Dictionary": "mpawards1",
+    "SpriteName": "gethaircuts",
+    "Enabled": true
+  },
+  {
+    "ID": 185,
+    "HumanName": "Hangingoutincars",
+    "Dictionary": "mpawards1",
+    "SpriteName": "hangingoutincars",
+    "Enabled": true
+  },
+  {
+    "ID": 186,
+    "HumanName": "Killedpeoplewithamachinegune",
+    "Dictionary": "mpawards1",
+    "SpriteName": "killedpeoplewithamachinegune",
+    "Enabled": true
+  },
+  {
+    "ID": 187,
+    "HumanName": "Killedpeoplewithanassaultrifle",
+    "Dictionary": "mpawards1",
+    "SpriteName": "killedpeoplewithanassaultrifle",
+    "Enabled": true
+  },
+  {
+    "ID": 188,
+    "HumanName": "Parachute1min",
+    "Dictionary": "mpawards1",
+    "SpriteName": "parachute1min",
+    "Enabled": true
+  },
+  {
+    "ID": 189,
+    "HumanName": "Winatdarts",
+    "Dictionary": "mpawards1",
+    "SpriteName": "winatdarts",
+    "Enabled": true
+  },
+  {
+    "ID": 190,
+    "HumanName": "Blowupvehicles",
+    "Dictionary": "mpawards2",
+    "SpriteName": "blowupvehicles",
+    "Enabled": true
+  },
+  {
+    "ID": 191,
+    "HumanName": "Buyeverygun",
+    "Dictionary": "mpawards2",
+    "SpriteName": "buyeverygun",
+    "Enabled": true
+  },
+  {
+    "ID": 192,
+    "HumanName": "Delivercars",
+    "Dictionary": "mpawards2",
+    "SpriteName": "delivercars",
+    "Enabled": true
+  },
+  {
+    "ID": 193,
+    "HumanName": "Raceswon Generic",
+    "Dictionary": "mpawards2",
+    "SpriteName": "raceswon_generic",
+    "Enabled": true
+  },
+  {
+    "ID": 194,
+    "HumanName": "Securityvansrobbed",
+    "Dictionary": "mpawards2",
+    "SpriteName": "securityvansrobbed",
+    "Enabled": true
+  },
+  {
+    "ID": 195,
+    "HumanName": "Timeinheli",
+    "Dictionary": "mpawards2",
+    "SpriteName": "timeinheli",
+    "Enabled": true
+  },
+  {
+    "ID": 196,
+    "HumanName": "Timesavoiding5stars",
+    "Dictionary": "mpawards2",
+    "SpriteName": "timesavoiding5stars",
+    "Enabled": true
+  },
+  {
+    "ID": 197,
+    "HumanName": "Killenemiesindriveby",
+    "Dictionary": "mpawards3",
+    "SpriteName": "killenemiesindriveby",
+    "Enabled": true
+  },
+  {
+    "ID": 198,
+    "HumanName": "Getlapdances",
+    "Dictionary": "mpawards4",
+    "SpriteName": "getlapdances",
+    "Enabled": true
+  },
+  {
+    "ID": 199,
+    "HumanName": "Headshots",
+    "Dictionary": "mpawards4",
+    "SpriteName": "headshots",
+    "Enabled": true
+  },
+  {
+    "ID": 200,
+    "HumanName": "Holdupshops",
+    "Dictionary": "mpawards4",
+    "SpriteName": "holdupshops",
+    "Enabled": true
+  },
+  {
+    "ID": 201,
+    "HumanName": "Jackvehicles",
+    "Dictionary": "mpawards4",
+    "SpriteName": "jackvehicles",
+    "Enabled": true
+  },
+  {
+    "ID": 202,
+    "HumanName": "Killsmg",
+    "Dictionary": "mpawards4",
+    "SpriteName": "killsmg",
+    "Enabled": true
+  },
+  {
+    "ID": 203,
+    "HumanName": "Killstickybombs",
+    "Dictionary": "mpawards4",
+    "SpriteName": "killstickybombs",
+    "Enabled": true
+  },
+  {
+    "ID": 204,
+    "HumanName": "Noclaimsbonus",
+    "Dictionary": "mpawards4",
+    "SpriteName": "noclaimsbonus",
+    "Enabled": true
+  },
+  {
+    "ID": 205,
+    "HumanName": "Spinderella",
+    "Dictionary": "mpawards4",
+    "SpriteName": "spinderella",
+    "Enabled": true
+  },
+  {
+    "ID": 206,
+    "HumanName": "Swallow",
+    "Dictionary": "mpawards4",
+    "SpriteName": "swallow",
+    "Enabled": true
+  },
+  {
+    "ID": 207,
+    "HumanName": "Thefugitive",
+    "Dictionary": "mpawards4",
+    "SpriteName": "thefugitive",
+    "Enabled": true
+  },
+  {
+    "ID": 208,
+    "HumanName": "Unirider",
+    "Dictionary": "mpawards4",
+    "SpriteName": "unirider",
+    "Enabled": true
+  },
+  {
+    "ID": 209,
+    "HumanName": "10Killstreakdeathmatch",
+    "Dictionary": "mpawards5",
+    "SpriteName": "10killstreakdeathmatch",
+    "Enabled": true
+  },
+  {
+    "ID": 210,
+    "HumanName": "Birdie",
+    "Dictionary": "mpawards5",
+    "SpriteName": "birdie",
+    "Enabled": true
+  },
+  {
+    "ID": 211,
+    "HumanName": "Bountyhunter",
+    "Dictionary": "mpawards5",
+    "SpriteName": "bountyhunter",
+    "Enabled": true
+  },
+  {
+    "ID": 212,
+    "HumanName": "Clearallganghideouts",
+    "Dictionary": "mpawards5",
+    "SpriteName": "clearallganghideouts",
+    "Enabled": true
+  },
+  {
+    "ID": 213,
+    "HumanName": "Collectedcrates",
+    "Dictionary": "mpawards5",
+    "SpriteName": "collectedcrates",
+    "Enabled": true
+  },
+  {
+    "ID": 214,
+    "HumanName": "Comefrombehind",
+    "Dictionary": "mpawards5",
+    "SpriteName": "comefrombehind",
+    "Enabled": true
+  },
+  {
+    "ID": 215,
+    "HumanName": "Coveredtargetswin",
+    "Dictionary": "mpawards5",
+    "SpriteName": "coveredtargetswin",
+    "Enabled": true
+  },
+  {
+    "ID": 216,
+    "HumanName": "Deathmatchcreator",
+    "Dictionary": "mpawards5",
+    "SpriteName": "deathmatchcreator",
+    "Enabled": true
+  },
+  {
+    "ID": 217,
+    "HumanName": "Deathmatchwin",
+    "Dictionary": "mpawards5",
+    "SpriteName": "deathmatchwin",
+    "Enabled": true
+  },
+  {
+    "ID": 218,
+    "HumanName": "Earncashfrombetting",
+    "Dictionary": "mpawards5",
+    "SpriteName": "earncashfrombetting",
+    "Enabled": true
+  },
+  {
+    "ID": 219,
+    "HumanName": "Fastestlap",
+    "Dictionary": "mpawards5",
+    "SpriteName": "fastestlap",
+    "Enabled": true
+  },
+  {
+    "ID": 220,
+    "HumanName": "Fullymodacar",
+    "Dictionary": "mpawards5",
+    "SpriteName": "fullymodacar",
+    "Enabled": true
+  },
+  {
+    "ID": 221,
+    "HumanName": "Getatattoooneachbodypart",
+    "Dictionary": "mpawards5",
+    "SpriteName": "getatattoooneachbodypart",
+    "Enabled": true
+  },
+  {
+    "ID": 222,
+    "HumanName": "Getrevengekilldeathmatch",
+    "Dictionary": "mpawards5",
+    "SpriteName": "getrevengekilldeathmatch",
+    "Enabled": true
+  },
+  {
+    "ID": 223,
+    "HumanName": "Golfwin",
+    "Dictionary": "mpawards5",
+    "SpriteName": "golfwin",
+    "Enabled": true
+  },
+  {
+    "ID": 224,
+    "HumanName": "Gtaraceswon",
+    "Dictionary": "mpawards5",
+    "SpriteName": "gtaraceswon",
+    "Enabled": true
+  },
+  {
+    "ID": 225,
+    "HumanName": "Hattrickkiller",
+    "Dictionary": "mpawards5",
+    "SpriteName": "hattrickkiller",
+    "Enabled": true
+  },
+  {
+    "ID": 226,
+    "HumanName": "Holdaraceworldrecord",
+    "Dictionary": "mpawards5",
+    "SpriteName": "holdaraceworldrecord",
+    "Enabled": true
+  },
+  {
+    "ID": 227,
+    "HumanName": "Holeinone",
+    "Dictionary": "mpawards5",
+    "SpriteName": "holeinone",
+    "Enabled": true
+  },
+  {
+    "ID": 228,
+    "HumanName": "Jump40m",
+    "Dictionary": "mpawards5",
+    "SpriteName": "jump40m",
+    "Enabled": true
+  },
+  {
+    "ID": 229,
+    "HumanName": "Kill3inaraceandwin",
+    "Dictionary": "mpawards5",
+    "SpriteName": "kill3inaraceandwin",
+    "Enabled": true
+  },
+  {
+    "ID": 230,
+    "HumanName": "Killgrenades",
+    "Dictionary": "mpawards5",
+    "SpriteName": "killgrenades",
+    "Enabled": true
+  },
+  {
+    "ID": 231,
+    "HumanName": "Killmeleeweapons",
+    "Dictionary": "mpawards5",
+    "SpriteName": "killmeleeweapons",
+    "Enabled": true
+  },
+  {
+    "ID": 232,
+    "HumanName": "Killpistol",
+    "Dictionary": "mpawards5",
+    "SpriteName": "killpistol",
+    "Enabled": true
+  },
+  {
+    "ID": 233,
+    "HumanName": "Killrocketlauncher",
+    "Dictionary": "mpawards5",
+    "SpriteName": "killrocketlauncher",
+    "Enabled": true
+  },
+  {
+    "ID": 234,
+    "HumanName": "Killshotgun",
+    "Dictionary": "mpawards5",
+    "SpriteName": "killshotgun",
+    "Enabled": true
+  },
+  {
+    "ID": 235,
+    "HumanName": "Killsniperrifle",
+    "Dictionary": "mpawards5",
+    "SpriteName": "killsniperrifle",
+    "Enabled": true
+  },
+  {
+    "ID": 236,
+    "HumanName": "Killstreak",
+    "Dictionary": "mpawards5",
+    "SpriteName": "killstreak",
+    "Enabled": true
+  },
+  {
+    "ID": 237,
+    "HumanName": "Land2mfromtarget",
+    "Dictionary": "mpawards5",
+    "SpriteName": "land2mfromtarget",
+    "Enabled": true
+  },
+  {
+    "ID": 238,
+    "HumanName": "Missionscore",
+    "Dictionary": "mpawards5",
+    "SpriteName": "missionscore",
+    "Enabled": true
+  },
+  {
+    "ID": 239,
+    "HumanName": "Mostkillsingangattack",
+    "Dictionary": "mpawards5",
+    "SpriteName": "mostkillsingangattack",
+    "Enabled": true
+  },
+  {
+    "ID": 240,
+    "HumanName": "Mostkillsinsurvival",
+    "Dictionary": "mpawards5",
+    "SpriteName": "mostkillsinsurvival",
+    "Enabled": true
+  },
+  {
+    "ID": 241,
+    "HumanName": "Overallkills",
+    "Dictionary": "mpawards5",
+    "SpriteName": "overallkills",
+    "Enabled": true
+  },
+  {
+    "ID": 242,
+    "HumanName": "Parachutejumps20m",
+    "Dictionary": "mpawards5",
+    "SpriteName": "parachutejumps20m",
+    "Enabled": true
+  },
+  {
+    "ID": 243,
+    "HumanName": "Pickupcratefirst",
+    "Dictionary": "mpawards5",
+    "SpriteName": "pickupcratefirst",
+    "Enabled": true
+  },
+  {
+    "ID": 244,
+    "HumanName": "Play25differentdeathmatches",
+    "Dictionary": "mpawards5",
+    "SpriteName": "play25differentdeathmatches",
+    "Enabled": true
+  },
+  {
+    "ID": 245,
+    "HumanName": "Play25differentraces",
+    "Dictionary": "mpawards5",
+    "SpriteName": "play25differentraces",
+    "Enabled": true
+  },
+  {
+    "ID": 246,
+    "HumanName": "Playedcreation",
+    "Dictionary": "mpawards5",
+    "SpriteName": "playedcreation",
+    "Enabled": true
+  },
+  {
+    "ID": 247,
+    "HumanName": "Racecreator",
+    "Dictionary": "mpawards5",
+    "SpriteName": "racecreator",
+    "Enabled": true
+  },
+  {
+    "ID": 248,
+    "HumanName": "Racetopointwinner",
+    "Dictionary": "mpawards5",
+    "SpriteName": "racetopointwinner",
+    "Enabled": true
+  },
+  {
+    "ID": 249,
+    "HumanName": "Randomtargetswin",
+    "Dictionary": "mpawards5",
+    "SpriteName": "randomtargetswin",
+    "Enabled": true
+  },
+  {
+    "ID": 250,
+    "HumanName": "Reachhordemodewave",
+    "Dictionary": "mpawards5",
+    "SpriteName": "reachhordemodewave",
+    "Enabled": true
+  },
+  {
+    "ID": 251,
+    "HumanName": "Shootdownpoliceheli",
+    "Dictionary": "mpawards5",
+    "SpriteName": "shootdownpoliceheli",
+    "Enabled": true
+  },
+  {
+    "ID": 252,
+    "HumanName": "Sixdartcheckout",
+    "Dictionary": "mpawards5",
+    "SpriteName": "sixdartcheckout",
+    "Enabled": true
+  },
+  {
+    "ID": 253,
+    "HumanName": "Stolenkill",
+    "Dictionary": "mpawards5",
+    "SpriteName": "stolenkill",
+    "Enabled": true
+  },
+  {
+    "ID": 254,
+    "HumanName": "Targetgridgranny",
+    "Dictionary": "mpawards5",
+    "SpriteName": "targetgridgranny",
+    "Enabled": true
+  },
+  {
+    "ID": 255,
+    "HumanName": "Targetgridwin",
+    "Dictionary": "mpawards5",
+    "SpriteName": "targetgridwin",
+    "Enabled": true
+  },
+  {
+    "ID": 256,
+    "HumanName": "Teamdeathmatchmvp",
+    "Dictionary": "mpawards5",
+    "SpriteName": "teamdeathmatchmvp",
+    "Enabled": true
+  },
+  {
+    "ID": 257,
+    "HumanName": "Teamdeathmatchwin",
+    "Dictionary": "mpawards5",
+    "SpriteName": "teamdeathmatchwin",
+    "Enabled": true
+  },
+  {
+    "ID": 258,
+    "HumanName": "Tennisfivesets",
+    "Dictionary": "mpawards5",
+    "SpriteName": "tennisfivesets",
+    "Enabled": true
+  },
+  {
+    "ID": 259,
+    "HumanName": "Tennismatcheswon",
+    "Dictionary": "mpawards5",
+    "SpriteName": "tennismatcheswon",
+    "Enabled": true
+  },
+  {
+    "ID": 260,
+    "HumanName": "Tennisserviceace",
+    "Dictionary": "mpawards5",
+    "SpriteName": "tennisserviceace",
+    "Enabled": true
+  },
+  {
+    "ID": 261,
+    "HumanName": "Tennisstraightsets",
+    "Dictionary": "mpawards5",
+    "SpriteName": "tennisstraightsets",
+    "Enabled": true
+  },
+  {
+    "ID": 262,
+    "HumanName": "Totalkills",
+    "Dictionary": "mpawards5",
+    "SpriteName": "totalkills",
+    "Enabled": true
+  },
+  {
+    "ID": 263,
+    "HumanName": "Wear25differentitemsofclothing",
+    "Dictionary": "mpawards5",
+    "SpriteName": "wear25differentitemsofclothing",
+    "Enabled": true
+  },
+  {
+    "ID": 264,
+    "HumanName": "Winacustomclassrace",
+    "Dictionary": "mpawards5",
+    "SpriteName": "winacustomclassrace",
+    "Enabled": true
+  },
+  {
+    "ID": 265,
+    "HumanName": "Winaplanerace",
+    "Dictionary": "mpawards5",
+    "SpriteName": "winaplanerace",
+    "Enabled": true
+  },
+  {
+    "ID": 266,
+    "HumanName": "Winasearace",
+    "Dictionary": "mpawards5",
+    "SpriteName": "winasearace",
+    "Enabled": true
+  },
+  {
+    "ID": 267,
+    "HumanName": "Wineverygamemodeonce",
+    "Dictionary": "mpawards5",
+    "SpriteName": "wineverygamemodeonce",
+    "Enabled": true
+  },
+  {
+    "ID": 268,
+    "HumanName": "Wineverytypeofrace",
+    "Dictionary": "mpawards5",
+    "SpriteName": "wineverytypeofrace",
+    "Enabled": true
+  },
+  {
+    "ID": 269,
+    "HumanName": "Winrallyasdriver",
+    "Dictionary": "mpawards5",
+    "SpriteName": "winrallyasdriver",
+    "Enabled": true
+  },
+  {
+    "ID": 270,
+    "HumanName": "Winrallyasnavigator",
+    "Dictionary": "mpawards5",
+    "SpriteName": "winrallyasnavigator",
+    "Enabled": true
+  },
+  {
+    "ID": 271,
+    "HumanName": "Autogo",
+    "Dictionary": "mpawards6",
+    "SpriteName": "autogo",
+    "Enabled": true
+  },
+  {
+    "ID": 272,
+    "HumanName": "Creatorsscore",
+    "Dictionary": "mpawards6",
+    "SpriteName": "creatorsscore",
+    "Enabled": true
+  },
+  {
+    "ID": 273,
+    "HumanName": "Dailyduty",
+    "Dictionary": "mpawards6",
+    "SpriteName": "dailyduty",
+    "Enabled": true
+  },
+  {
+    "ID": 274,
+    "HumanName": "Flybye",
+    "Dictionary": "mpawards6",
+    "SpriteName": "flybye",
+    "Enabled": true
+  },
+  {
+    "ID": 275,
+    "HumanName": "Goaloriented",
+    "Dictionary": "mpawards6",
+    "SpriteName": "goaloriented",
+    "Enabled": true
+  },
+  {
+    "ID": 276,
+    "HumanName": "Joyrider",
+    "Dictionary": "mpawards6",
+    "SpriteName": "joyrider",
+    "Enabled": true
+  },
+  {
+    "ID": 277,
+    "HumanName": "Overachiever",
+    "Dictionary": "mpawards6",
+    "SpriteName": "overachiever",
+    "Enabled": true
+  },
+  {
+    "ID": 278,
+    "HumanName": "Overhere",
+    "Dictionary": "mpawards6",
+    "SpriteName": "overhere",
+    "Enabled": true
+  },
+  {
+    "ID": 279,
+    "HumanName": "Albany",
+    "Dictionary": "mpcarhud",
+    "SpriteName": "albany",
+    "Enabled": true
+  },
+  {
+    "ID": 280,
+    "HumanName": "Annis",
+    "Dictionary": "mpcarhud",
+    "SpriteName": "annis",
+    "Enabled": true
+  },
+  {
+    "ID": 281,
+    "HumanName": "Banshee",
+    "Dictionary": "mpcarhud",
+    "SpriteName": "banshee",
+    "Enabled": true
+  },
+  {
+    "ID": 282,
+    "HumanName": "Benefactor",
+    "Dictionary": "mpcarhud",
+    "SpriteName": "benefactor",
+    "Enabled": true
+  },
+  {
+    "ID": 283,
+    "HumanName": "Bf",
+    "Dictionary": "mpcarhud",
+    "SpriteName": "bf",
+    "Enabled": true
+  },
+  {
+    "ID": 284,
+    "HumanName": "Bollokan",
+    "Dictionary": "mpcarhud",
+    "SpriteName": "bollokan",
+    "Enabled": true
+  },
+  {
+    "ID": 285,
+    "HumanName": "Bravado",
+    "Dictionary": "mpcarhud",
+    "SpriteName": "bravado",
+    "Enabled": true
+  },
+  {
+    "ID": 286,
+    "HumanName": "Brute",
+    "Dictionary": "mpcarhud",
+    "SpriteName": "brute",
+    "Enabled": true
+  },
+  {
+    "ID": 287,
+    "HumanName": "Buckingham",
+    "Dictionary": "mpcarhud",
+    "SpriteName": "buckingham",
+    "Enabled": true
+  },
+  {
+    "ID": 288,
+    "HumanName": "Canis",
+    "Dictionary": "mpcarhud",
+    "SpriteName": "canis",
+    "Enabled": true
+  },
+  {
+    "ID": 289,
+    "HumanName": "Chariot",
+    "Dictionary": "mpcarhud",
+    "SpriteName": "chariot",
+    "Enabled": true
+  },
+  {
+    "ID": 290,
+    "HumanName": "Cheval",
+    "Dictionary": "mpcarhud",
+    "SpriteName": "cheval",
+    "Enabled": true
+  },
+  {
+    "ID": 291,
+    "HumanName": "City",
+    "Dictionary": "mpcarhud",
+    "SpriteName": "city",
+    "Enabled": true
+  },
+  {
+    "ID": 292,
+    "HumanName": "Classique",
+    "Dictionary": "mpcarhud",
+    "SpriteName": "classique",
+    "Enabled": true
+  },
+  {
+    "ID": 293,
+    "HumanName": "Coil",
+    "Dictionary": "mpcarhud",
+    "SpriteName": "coil",
+    "Enabled": true
+  },
+  {
+    "ID": 294,
+    "HumanName": "Country Side",
+    "Dictionary": "mpcarhud",
+    "SpriteName": "country_side",
+    "Enabled": true
+  },
+  {
+    "ID": 295,
+    "HumanName": "Declasse",
+    "Dictionary": "mpcarhud",
+    "SpriteName": "declasse",
+    "Enabled": true
+  },
+  {
+    "ID": 296,
+    "HumanName": "Dewbauchee",
+    "Dictionary": "mpcarhud",
+    "SpriteName": "dewbauchee",
+    "Enabled": true
+  },
+  {
+    "ID": 297,
+    "HumanName": "Dilettante",
+    "Dictionary": "mpcarhud",
+    "SpriteName": "dilettante",
+    "Enabled": true
+  },
+  {
+    "ID": 298,
+    "HumanName": "Dinka",
+    "Dictionary": "mpcarhud",
+    "SpriteName": "dinka",
+    "Enabled": true
+  },
+  {
+    "ID": 299,
+    "HumanName": "Dundreary",
+    "Dictionary": "mpcarhud",
+    "SpriteName": "dundreary",
+    "Enabled": true
+  },
+  {
+    "ID": 300,
+    "HumanName": "Emporer",
+    "Dictionary": "mpcarhud",
+    "SpriteName": "emporer",
+    "Enabled": true
+  },
+  {
+    "ID": 301,
+    "HumanName": "Enus",
+    "Dictionary": "mpcarhud",
+    "SpriteName": "enus",
+    "Enabled": true
+  },
+  {
+    "ID": 302,
+    "HumanName": "Fathom",
+    "Dictionary": "mpcarhud",
+    "SpriteName": "fathom",
+    "Enabled": true
+  },
+  {
+    "ID": 303,
+    "HumanName": "Galivanter",
+    "Dictionary": "mpcarhud",
+    "SpriteName": "galivanter",
+    "Enabled": true
+  },
+  {
+    "ID": 304,
+    "HumanName": "Grotti",
+    "Dictionary": "mpcarhud",
+    "SpriteName": "grotti",
+    "Enabled": true
+  },
+  {
+    "ID": 305,
+    "HumanName": "Hijak",
+    "Dictionary": "mpcarhud",
+    "SpriteName": "hijak",
+    "Enabled": true
+  },
+  {
+    "ID": 306,
+    "HumanName": "Hvy",
+    "Dictionary": "mpcarhud",
+    "SpriteName": "hvy",
+    "Enabled": true
+  },
+  {
+    "ID": 307,
+    "HumanName": "Imponte",
+    "Dictionary": "mpcarhud",
+    "SpriteName": "imponte",
+    "Enabled": true
+  },
+  {
+    "ID": 308,
+    "HumanName": "Invetero",
+    "Dictionary": "mpcarhud",
+    "SpriteName": "invetero",
+    "Enabled": true
+  },
+  {
+    "ID": 309,
+    "HumanName": "Jacksheepe",
+    "Dictionary": "mpcarhud",
+    "SpriteName": "jacksheepe",
+    "Enabled": true
+  },
+  {
+    "ID": 310,
+    "HumanName": "Jobuilt",
+    "Dictionary": "mpcarhud",
+    "SpriteName": "jobuilt",
+    "Enabled": true
+  },
+  {
+    "ID": 311,
+    "HumanName": "Karin",
+    "Dictionary": "mpcarhud",
+    "SpriteName": "karin",
+    "Enabled": true
+  },
+  {
+    "ID": 312,
+    "HumanName": "Lampadati",
+    "Dictionary": "mpcarhud",
+    "SpriteName": "lampadati",
+    "Enabled": true
+  },
+  {
+    "ID": 313,
+    "HumanName": "Leaderboard Car Colour Icon",
+    "Dictionary": "mpcarhud",
+    "SpriteName": "leaderboard_car_colour_icon",
+    "Enabled": true
+  },
+  {
+    "ID": 314,
+    "HumanName": "Leaderboard Car Colour Icon 2Ndaryhalf.D",
+    "Dictionary": "mpcarhud",
+    "SpriteName": "leaderboard_car_colour_icon_2ndaryhalf.d",
+    "Enabled": true
+  },
+  {
+    "ID": 315,
+    "HumanName": "Leaderboard Car Colour Icon Primaryhalf.",
+    "Dictionary": "mpcarhud",
+    "SpriteName": "leaderboard_car_colour_icon_primaryhalf.",
+    "Enabled": true
+  },
+  {
+    "ID": 316,
+    "HumanName": "Leaderboard Car Colour Icon Singlecolour",
+    "Dictionary": "mpcarhud",
+    "SpriteName": "leaderboard_car_colour_icon_singlecolour",
+    "Enabled": true
+  },
+  {
+    "ID": 317,
+    "HumanName": "Maibatsu",
+    "Dictionary": "mpcarhud",
+    "SpriteName": "maibatsu",
+    "Enabled": true
+  },
+  {
+    "ID": 318,
+    "HumanName": "Mammoth",
+    "Dictionary": "mpcarhud",
+    "SpriteName": "mammoth",
+    "Enabled": true
+  },
+  {
+    "ID": 319,
+    "HumanName": "Mp Rankbarfill",
+    "Dictionary": "mpcarhud",
+    "SpriteName": "mp_rankbarfill",
+    "Enabled": true
+  },
+  {
+    "ID": 320,
+    "HumanName": "Mtl",
+    "Dictionary": "mpcarhud",
+    "SpriteName": "mtl",
+    "Enabled": true
+  },
+  {
+    "ID": 321,
+    "HumanName": "Nagasaki",
+    "Dictionary": "mpcarhud",
+    "SpriteName": "nagasaki",
+    "Enabled": true
+  },
+  {
+    "ID": 322,
+    "HumanName": "Obey",
+    "Dictionary": "mpcarhud",
+    "SpriteName": "obey",
+    "Enabled": true
+  },
+  {
+    "ID": 323,
+    "HumanName": "Ocelot",
+    "Dictionary": "mpcarhud",
+    "SpriteName": "ocelot",
+    "Enabled": true
+  },
+  {
+    "ID": 324,
+    "HumanName": "Overflod",
+    "Dictionary": "mpcarhud",
+    "SpriteName": "overflod",
+    "Enabled": true
+  },
+  {
+    "ID": 325,
+    "HumanName": "Ped",
+    "Dictionary": "mpcarhud",
+    "SpriteName": "ped",
+    "Enabled": true
+  },
+  {
+    "ID": 326,
+    "HumanName": "Pegassi",
+    "Dictionary": "mpcarhud",
+    "SpriteName": "pegassi",
+    "Enabled": true
+  },
+  {
+    "ID": 327,
+    "HumanName": "Pfister",
+    "Dictionary": "mpcarhud",
+    "SpriteName": "pfister",
+    "Enabled": true
+  },
+  {
+    "ID": 328,
+    "HumanName": "Principe",
+    "Dictionary": "mpcarhud",
+    "SpriteName": "principe",
+    "Enabled": true
+  },
+  {
+    "ID": 329,
+    "HumanName": "Progen",
+    "Dictionary": "mpcarhud",
+    "SpriteName": "progen",
+    "Enabled": true
+  },
+  {
+    "ID": 330,
+    "HumanName": "Schyster",
+    "Dictionary": "mpcarhud",
+    "SpriteName": "schyster",
+    "Enabled": true
+  },
+  {
+    "ID": 331,
+    "HumanName": "Shitzu",
+    "Dictionary": "mpcarhud",
+    "SpriteName": "shitzu",
+    "Enabled": true
+  },
+  {
+    "ID": 332,
+    "HumanName": "Speedophile",
+    "Dictionary": "mpcarhud",
+    "SpriteName": "speedophile",
+    "Enabled": true
+  },
+  {
+    "ID": 333,
+    "HumanName": "Stanley",
+    "Dictionary": "mpcarhud",
+    "SpriteName": "stanley",
+    "Enabled": true
+  },
+  {
+    "ID": 334,
+    "HumanName": "Transport Bicycle Icon",
+    "Dictionary": "mpcarhud",
+    "SpriteName": "transport_bicycle_icon",
+    "Enabled": true
+  },
+  {
+    "ID": 335,
+    "HumanName": "Transport Bike Icon",
+    "Dictionary": "mpcarhud",
+    "SpriteName": "transport_bike_icon",
+    "Enabled": true
+  },
+  {
+    "ID": 336,
+    "HumanName": "Transport Boat Icon",
+    "Dictionary": "mpcarhud",
+    "SpriteName": "transport_boat_icon",
+    "Enabled": true
+  },
+  {
+    "ID": 337,
+    "HumanName": "Transport Car Icon",
+    "Dictionary": "mpcarhud",
+    "SpriteName": "transport_car_icon",
+    "Enabled": true
+  },
+  {
+    "ID": 338,
+    "HumanName": "Transport Heli Icon",
+    "Dictionary": "mpcarhud",
+    "SpriteName": "transport_heli_icon",
+    "Enabled": true
+  },
+  {
+    "ID": 339,
+    "HumanName": "Transport Plane Icon",
+    "Dictionary": "mpcarhud",
+    "SpriteName": "transport_plane_icon",
+    "Enabled": true
+  },
+  {
+    "ID": 340,
+    "HumanName": "Tricycles",
+    "Dictionary": "mpcarhud",
+    "SpriteName": "tricycles",
+    "Enabled": true
+  },
+  {
+    "ID": 341,
+    "HumanName": "Truffade",
+    "Dictionary": "mpcarhud",
+    "SpriteName": "truffade",
+    "Enabled": true
+  },
+  {
+    "ID": 342,
+    "HumanName": "Ubermacht",
+    "Dictionary": "mpcarhud",
+    "SpriteName": "ubermacht",
+    "Enabled": true
+  },
+  {
+    "ID": 343,
+    "HumanName": "Vapid",
+    "Dictionary": "mpcarhud",
+    "SpriteName": "vapid",
+    "Enabled": true
+  },
+  {
+    "ID": 344,
+    "HumanName": "Vehicle Card Icons Acceleration",
+    "Dictionary": "mpcarhud",
+    "SpriteName": "vehicle_card_icons_acceleration",
+    "Enabled": true
+  },
+  {
+    "ID": 345,
+    "HumanName": "Vehicle Card Icons Braking",
+    "Dictionary": "mpcarhud",
+    "SpriteName": "vehicle_card_icons_braking",
+    "Enabled": true
+  },
+  {
+    "ID": 346,
+    "HumanName": "Vehicle Card Icons Flag Default",
+    "Dictionary": "mpcarhud",
+    "SpriteName": "vehicle_card_icons_flag_default",
+    "Enabled": true
+  },
+  {
+    "ID": 347,
+    "HumanName": "Vehicle Card Icons Flag France",
+    "Dictionary": "mpcarhud",
+    "SpriteName": "vehicle_card_icons_flag_france",
+    "Enabled": true
+  },
+  {
+    "ID": 348,
+    "HumanName": "Vehicle Card Icons Flag Germany",
+    "Dictionary": "mpcarhud",
+    "SpriteName": "vehicle_card_icons_flag_germany",
+    "Enabled": true
+  },
+  {
+    "ID": 349,
+    "HumanName": "Vehicle Card Icons Flag Italy",
+    "Dictionary": "mpcarhud",
+    "SpriteName": "vehicle_card_icons_flag_italy",
+    "Enabled": true
+  },
+  {
+    "ID": 350,
+    "HumanName": "Vehicle Card Icons Flag Japan",
+    "Dictionary": "mpcarhud",
+    "SpriteName": "vehicle_card_icons_flag_japan",
+    "Enabled": true
+  },
+  {
+    "ID": 351,
+    "HumanName": "Vehicle Card Icons Flag Korea",
+    "Dictionary": "mpcarhud",
+    "SpriteName": "vehicle_card_icons_flag_korea",
+    "Enabled": true
+  },
+  {
+    "ID": 352,
+    "HumanName": "Vehicle Card Icons Flag Sweden",
+    "Dictionary": "mpcarhud",
+    "SpriteName": "vehicle_card_icons_flag_sweden",
+    "Enabled": true
+  },
+  {
+    "ID": 353,
+    "HumanName": "Vehicle Card Icons Flag Uk",
+    "Dictionary": "mpcarhud",
+    "SpriteName": "vehicle_card_icons_flag_uk",
+    "Enabled": true
+  },
+  {
+    "ID": 354,
+    "HumanName": "Vehicle Card Icons Flag Usa",
+    "Dictionary": "mpcarhud",
+    "SpriteName": "vehicle_card_icons_flag_usa",
+    "Enabled": true
+  },
+  {
+    "ID": 355,
+    "HumanName": "Vehicle Card Icons Handling",
+    "Dictionary": "mpcarhud",
+    "SpriteName": "vehicle_card_icons_handling",
+    "Enabled": true
+  },
+  {
+    "ID": 356,
+    "HumanName": "Vehicle Card Icons Speed",
+    "Dictionary": "mpcarhud",
+    "SpriteName": "vehicle_card_icons_speed",
+    "Enabled": true
+  },
+  {
+    "ID": 357,
+    "HumanName": "Vehicle Card Icons Winratio",
+    "Dictionary": "mpcarhud",
+    "SpriteName": "vehicle_card_icons_winratio",
+    "Enabled": true
+  },
+  {
+    "ID": 358,
+    "HumanName": "Vulcar",
+    "Dictionary": "mpcarhud",
+    "SpriteName": "vulcar",
+    "Enabled": true
+  },
+  {
+    "ID": 359,
+    "HumanName": "Weeny",
+    "Dictionary": "mpcarhud",
+    "SpriteName": "weeny",
+    "Enabled": true
+  },
+  {
+    "ID": 360,
+    "HumanName": "Western",
+    "Dictionary": "mpcarhud",
+    "SpriteName": "western",
+    "Enabled": true
+  },
+  {
+    "ID": 361,
+    "HumanName": "Westernmotorcycle",
+    "Dictionary": "mpcarhud",
+    "SpriteName": "westernmotorcycle",
+    "Enabled": true
+  },
+  {
+    "ID": 362,
+    "HumanName": "Willard",
+    "Dictionary": "mpcarhud",
+    "SpriteName": "willard",
+    "Enabled": true
+  },
+  {
+    "ID": 363,
+    "HumanName": "Zirconium",
+    "Dictionary": "mpcarhud",
+    "SpriteName": "zirconium",
+    "Enabled": true
+  },
+  {
+    "ID": 364,
+    "HumanName": "Grotti 2",
+    "Dictionary": "mpcarhud2",
+    "SpriteName": "grotti_2",
+    "Enabled": true
+  },
+  {
+    "ID": 365,
+    "HumanName": "Lcc",
+    "Dictionary": "mpcarhud2",
+    "SpriteName": "lcc",
+    "Enabled": true
+  },
+  {
+    "ID": 366,
+    "HumanName": "Progen",
+    "Dictionary": "mpcarhud2",
+    "SpriteName": "progen",
+    "Enabled": true
+  },
+  {
+    "ID": 367,
+    "HumanName": "Mp Generic Avatar",
+    "Dictionary": "mpcharselect",
+    "SpriteName": "mp_generic_avatar",
+    "Enabled": true
+  },
+  {
+    "ID": 368,
+    "HumanName": "Debugmap",
+    "Dictionary": "mpdebugmap",
+    "SpriteName": "debugmap",
+    "Enabled": true
+  },
+  {
+    "ID": 369,
+    "HumanName": "Birdsandbees Flat",
+    "Dictionary": "mpentry",
+    "SpriteName": "birdsandbees_flat",
+    "Enabled": true
+  },
+  {
+    "ID": 370,
+    "HumanName": "Mp Main Gradient",
+    "Dictionary": "mpentry",
+    "SpriteName": "mp_main_gradient",
+    "Enabled": true
+  },
+  {
+    "ID": 371,
+    "HumanName": "Mp Modenotselected Gradient",
+    "Dictionary": "mpentry",
+    "SpriteName": "mp_modenotselected_gradient",
+    "Enabled": true
+  },
+  {
+    "ID": 372,
+    "HumanName": "Mp Modeselected Gradient",
+    "Dictionary": "mpentry",
+    "SpriteName": "mp_modeselected_gradient",
+    "Enabled": true
+  },
+  {
+    "ID": 373,
+    "HumanName": "Ammo Pickup",
+    "Dictionary": "mphud",
+    "SpriteName": "ammo_pickup",
+    "Enabled": true
+  },
+  {
+    "ID": 374,
+    "HumanName": "Light",
+    "Dictionary": "mphud",
+    "SpriteName": "light",
+    "Enabled": true
+  },
+  {
+    "ID": 375,
+    "HumanName": "Machine1",
+    "Dictionary": "mphud",
+    "SpriteName": "machine1",
+    "Enabled": true
+  },
+  {
+    "ID": 376,
+    "HumanName": "Machine3",
+    "Dictionary": "mphud",
+    "SpriteName": "machine3",
+    "Enabled": true
+  },
+  {
+    "ID": 377,
+    "HumanName": "Machine5",
+    "Dictionary": "mphud",
+    "SpriteName": "machine5",
+    "Enabled": true
+  },
+  {
+    "ID": 378,
+    "HumanName": "Machine6",
+    "Dictionary": "mphud",
+    "SpriteName": "machine6",
+    "Enabled": true
+  },
+  {
+    "ID": 379,
+    "HumanName": "Missionpassedbox",
+    "Dictionary": "mphud",
+    "SpriteName": "missionpassedbox",
+    "Enabled": true
+  },
+  {
+    "ID": 380,
+    "HumanName": "Missionpassedgradien",
+    "Dictionary": "mphud",
+    "SpriteName": "missionpassedgradien",
+    "Enabled": true
+  },
+  {
+    "ID": 381,
+    "HumanName": "Missionpassedmedal",
+    "Dictionary": "mphud",
+    "SpriteName": "missionpassedmedal",
+    "Enabled": true
+  },
+  {
+    "ID": 382,
+    "HumanName": "Mp Anim Ammo",
+    "Dictionary": "mphud",
+    "SpriteName": "mp_anim_ammo",
+    "Enabled": true
+  },
+  {
+    "ID": 383,
+    "HumanName": "Mp Anim Cash",
+    "Dictionary": "mphud",
+    "SpriteName": "mp_anim_cash",
+    "Enabled": true
+  },
+  {
+    "ID": 384,
+    "HumanName": "Mp Anim Rp",
+    "Dictionary": "mphud",
+    "SpriteName": "mp_anim_rp",
+    "Enabled": true
+  },
+  {
+    "ID": 385,
+    "HumanName": "Mp Crew Icon Default",
+    "Dictionary": "mphud",
+    "SpriteName": "mp_crew_icon_default",
+    "Enabled": true
+  },
+  {
+    "ID": 386,
+    "HumanName": "Mp No Crew",
+    "Dictionary": "mphud",
+    "SpriteName": "mp_no_crew",
+    "Enabled": true
+  },
+  {
+    "ID": 387,
+    "HumanName": "Mp Player Betting",
+    "Dictionary": "mphud",
+    "SpriteName": "mp_player_betting",
+    "Enabled": true
+  },
+  {
+    "ID": 388,
+    "HumanName": "Mp Player Ready",
+    "Dictionary": "mphud",
+    "SpriteName": "mp_player_ready",
+    "Enabled": true
+  },
+  {
+    "ID": 389,
+    "HumanName": "Mp Player Spanner",
+    "Dictionary": "mphud",
+    "SpriteName": "mp_player_spanner",
+    "Enabled": true
+  },
+  {
+    "ID": 390,
+    "HumanName": "R North",
+    "Dictionary": "mphud",
+    "SpriteName": "r_north",
+    "Enabled": true
+  },
+  {
+    "ID": 391,
+    "HumanName": "R Ny",
+    "Dictionary": "mphud",
+    "SpriteName": "r_ny",
+    "Enabled": true
+  },
+  {
+    "ID": 392,
+    "HumanName": "R Tartan",
+    "Dictionary": "mphud",
+    "SpriteName": "r_tartan",
+    "Enabled": true
+  },
+  {
+    "ID": 393,
+    "HumanName": "Spectating",
+    "Dictionary": "mphud",
+    "SpriteName": "spectating",
+    "Enabled": true
+  },
+  {
+    "ID": 394,
+    "HumanName": "Thumb Down",
+    "Dictionary": "mphud",
+    "SpriteName": "thumb_down",
+    "Enabled": true
+  },
+  {
+    "ID": 395,
+    "HumanName": "Thumb Down Gradient",
+    "Dictionary": "mphud",
+    "SpriteName": "thumb_down_gradient",
+    "Enabled": true
+  },
+  {
+    "ID": 396,
+    "HumanName": "Thumb Down White",
+    "Dictionary": "mphud",
+    "SpriteName": "thumb_down_white",
+    "Enabled": true
+  },
+  {
+    "ID": 397,
+    "HumanName": "Thumb Up",
+    "Dictionary": "mphud",
+    "SpriteName": "thumb_up",
+    "Enabled": true
+  },
+  {
+    "ID": 398,
+    "HumanName": "Thumb Up Gradient",
+    "Dictionary": "mphud",
+    "SpriteName": "thumb_up_gradient",
+    "Enabled": true
+  },
+  {
+    "ID": 399,
+    "HumanName": "Thumb Up White",
+    "Dictionary": "mphud",
+    "SpriteName": "thumb_up_white",
+    "Enabled": true
+  },
+  {
+    "ID": 400,
+    "HumanName": "Menubar",
+    "Dictionary": "mpinteraction",
+    "SpriteName": "menubar",
+    "Enabled": true
+  },
+  {
+    "ID": 401,
+    "HumanName": "Arm Wrestling",
+    "Dictionary": "mpinventory",
+    "SpriteName": "arm_wrestling",
+    "Enabled": true
+  },
+  {
+    "ID": 402,
+    "HumanName": "Basejump",
+    "Dictionary": "mpinventory",
+    "SpriteName": "basejump",
+    "Enabled": true
+  },
+  {
+    "ID": 403,
+    "HumanName": "Custom Mission",
+    "Dictionary": "mpinventory",
+    "SpriteName": "custom_mission",
+    "Enabled": true
+  },
+  {
+    "ID": 404,
+    "HumanName": "Darts",
+    "Dictionary": "mpinventory",
+    "SpriteName": "darts",
+    "Enabled": true
+  },
+  {
+    "ID": 405,
+    "HumanName": "Deathmatch",
+    "Dictionary": "mpinventory",
+    "SpriteName": "deathmatch",
+    "Enabled": true
+  },
+  {
+    "ID": 406,
+    "HumanName": "Drug Trafficking",
+    "Dictionary": "mpinventory",
+    "SpriteName": "drug_trafficking",
+    "Enabled": true
+  },
+  {
+    "ID": 407,
+    "HumanName": "Gang Attack",
+    "Dictionary": "mpinventory",
+    "SpriteName": "gang_attack",
+    "Enabled": true
+  },
+  {
+    "ID": 408,
+    "HumanName": "Golf",
+    "Dictionary": "mpinventory",
+    "SpriteName": "golf",
+    "Enabled": true
+  },
+  {
+    "ID": 409,
+    "HumanName": "Inworld Ringpointer",
+    "Dictionary": "mpinventory",
+    "SpriteName": "inworld_ringpointer",
+    "Enabled": true
+  },
+  {
+    "ID": 410,
+    "HumanName": "Inworld Ringpointer Blue",
+    "Dictionary": "mpinventory",
+    "SpriteName": "inworld_ringpointer_blue",
+    "Enabled": true
+  },
+  {
+    "ID": 411,
+    "HumanName": "In World Circle",
+    "Dictionary": "mpinventory",
+    "SpriteName": "in_world_circle",
+    "Enabled": true
+  },
+  {
+    "ID": 412,
+    "HumanName": "Mp Arrow",
+    "Dictionary": "mpinventory",
+    "SpriteName": "mp_arrow",
+    "Enabled": true
+  },
+  {
+    "ID": 413,
+    "HumanName": "Mp Specitem Bike",
+    "Dictionary": "mpinventory",
+    "SpriteName": "mp_specitem_bike",
+    "Enabled": true
+  },
+  {
+    "ID": 414,
+    "HumanName": "Mp Specitem Bike Black",
+    "Dictionary": "mpinventory",
+    "SpriteName": "mp_specitem_bike_black",
+    "Enabled": true
+  },
+  {
+    "ID": 415,
+    "HumanName": "Mp Specitem Black",
+    "Dictionary": "mpinventory",
+    "SpriteName": "mp_specitem_black",
+    "Enabled": true
+  },
+  {
+    "ID": 416,
+    "HumanName": "Mp Specitem Boat",
+    "Dictionary": "mpinventory",
+    "SpriteName": "mp_specitem_boat",
+    "Enabled": true
+  },
+  {
+    "ID": 417,
+    "HumanName": "Mp Specitem Boatpickup",
+    "Dictionary": "mpinventory",
+    "SpriteName": "mp_specitem_boatpickup",
+    "Enabled": true
+  },
+  {
+    "ID": 418,
+    "HumanName": "Mp Specitem Boatpickup Black",
+    "Dictionary": "mpinventory",
+    "SpriteName": "mp_specitem_boatpickup_black",
+    "Enabled": true
+  },
+  {
+    "ID": 419,
+    "HumanName": "Mp Specitem Boat Black",
+    "Dictionary": "mpinventory",
+    "SpriteName": "mp_specitem_boat_black",
+    "Enabled": true
+  },
+  {
+    "ID": 420,
+    "HumanName": "Mp Specitem Car",
+    "Dictionary": "mpinventory",
+    "SpriteName": "mp_specitem_car",
+    "Enabled": true
+  },
+  {
+    "ID": 421,
+    "HumanName": "Mp Specitem Car Black",
+    "Dictionary": "mpinventory",
+    "SpriteName": "mp_specitem_car_black",
+    "Enabled": true
+  },
+  {
+    "ID": 422,
+    "HumanName": "Mp Specitem Cash",
+    "Dictionary": "mpinventory",
+    "SpriteName": "mp_specitem_cash",
+    "Enabled": true
+  },
+  {
+    "ID": 423,
+    "HumanName": "Mp Specitem Cash Black",
+    "Dictionary": "mpinventory",
+    "SpriteName": "mp_specitem_cash_black",
+    "Enabled": true
+  },
+  {
+    "ID": 424,
+    "HumanName": "Mp Specitem Coke",
+    "Dictionary": "mpinventory",
+    "SpriteName": "mp_specitem_coke",
+    "Enabled": true
+  },
+  {
+    "ID": 425,
+    "HumanName": "Mp Specitem Coke Black",
+    "Dictionary": "mpinventory",
+    "SpriteName": "mp_specitem_coke_black",
+    "Enabled": true
+  },
+  {
+    "ID": 426,
+    "HumanName": "Mp Specitem Cuffkeys",
+    "Dictionary": "mpinventory",
+    "SpriteName": "mp_specitem_cuffkeys",
+    "Enabled": true
+  },
+  {
+    "ID": 427,
+    "HumanName": "Mp Specitem Cuffkeys Black",
+    "Dictionary": "mpinventory",
+    "SpriteName": "mp_specitem_cuffkeys_black",
+    "Enabled": true
+  },
+  {
+    "ID": 428,
+    "HumanName": "Mp Specitem Data",
+    "Dictionary": "mpinventory",
+    "SpriteName": "mp_specitem_data",
+    "Enabled": true
+  },
+  {
+    "ID": 429,
+    "HumanName": "Mp Specitem Heli",
+    "Dictionary": "mpinventory",
+    "SpriteName": "mp_specitem_heli",
+    "Enabled": true
+  },
+  {
+    "ID": 430,
+    "HumanName": "Mp Specitem Heli Black",
+    "Dictionary": "mpinventory",
+    "SpriteName": "mp_specitem_heli_black",
+    "Enabled": true
+  },
+  {
+    "ID": 431,
+    "HumanName": "Mp Specitem Heroin",
+    "Dictionary": "mpinventory",
+    "SpriteName": "mp_specitem_heroin",
+    "Enabled": true
+  },
+  {
+    "ID": 432,
+    "HumanName": "Mp Specitem Heroin Black",
+    "Dictionary": "mpinventory",
+    "SpriteName": "mp_specitem_heroin_black",
+    "Enabled": true
+  },
+  {
+    "ID": 433,
+    "HumanName": "Mp Specitem Keycard",
+    "Dictionary": "mpinventory",
+    "SpriteName": "mp_specitem_keycard",
+    "Enabled": true
+  },
+  {
+    "ID": 434,
+    "HumanName": "Mp Specitem Keycard Black",
+    "Dictionary": "mpinventory",
+    "SpriteName": "mp_specitem_keycard_black",
+    "Enabled": true
+  },
+  {
+    "ID": 435,
+    "HumanName": "Mp Specitem Meth",
+    "Dictionary": "mpinventory",
+    "SpriteName": "mp_specitem_meth",
+    "Enabled": true
+  },
+  {
+    "ID": 436,
+    "HumanName": "Mp Specitem Meth Black",
+    "Dictionary": "mpinventory",
+    "SpriteName": "mp_specitem_meth_black",
+    "Enabled": true
+  },
+  {
+    "ID": 437,
+    "HumanName": "Mp Specitem Package",
+    "Dictionary": "mpinventory",
+    "SpriteName": "mp_specitem_package",
+    "Enabled": true
+  },
+  {
+    "ID": 438,
+    "HumanName": "Mp Specitem Package Black",
+    "Dictionary": "mpinventory",
+    "SpriteName": "mp_specitem_package_black",
+    "Enabled": true
+  },
+  {
+    "ID": 439,
+    "HumanName": "Mp Specitem Partnericon",
+    "Dictionary": "mpinventory",
+    "SpriteName": "mp_specitem_partnericon",
+    "Enabled": true
+  },
+  {
+    "ID": 440,
+    "HumanName": "Mp Specitem Ped",
+    "Dictionary": "mpinventory",
+    "SpriteName": "mp_specitem_ped",
+    "Enabled": true
+  },
+  {
+    "ID": 441,
+    "HumanName": "Mp Specitem Ped Black",
+    "Dictionary": "mpinventory",
+    "SpriteName": "mp_specitem_ped_black",
+    "Enabled": true
+  },
+  {
+    "ID": 442,
+    "HumanName": "Mp Specitem Plane",
+    "Dictionary": "mpinventory",
+    "SpriteName": "mp_specitem_plane",
+    "Enabled": true
+  },
+  {
+    "ID": 443,
+    "HumanName": "Mp Specitem Plane2",
+    "Dictionary": "mpinventory",
+    "SpriteName": "mp_specitem_plane2",
+    "Enabled": true
+  },
+  {
+    "ID": 444,
+    "HumanName": "Mp Specitem Plane Black",
+    "Dictionary": "mpinventory",
+    "SpriteName": "mp_specitem_plane_black",
+    "Enabled": true
+  },
+  {
+    "ID": 445,
+    "HumanName": "Mp Specitem Randomobject",
+    "Dictionary": "mpinventory",
+    "SpriteName": "mp_specitem_randomobject",
+    "Enabled": true
+  },
+  {
+    "ID": 446,
+    "HumanName": "Mp Specitem Randomobject Black",
+    "Dictionary": "mpinventory",
+    "SpriteName": "mp_specitem_randomobject_black",
+    "Enabled": true
+  },
+  {
+    "ID": 447,
+    "HumanName": "Mp Specitem Remote",
+    "Dictionary": "mpinventory",
+    "SpriteName": "mp_specitem_remote",
+    "Enabled": true
+  },
+  {
+    "ID": 448,
+    "HumanName": "Mp Specitem Remote Black",
+    "Dictionary": "mpinventory",
+    "SpriteName": "mp_specitem_remote_black",
+    "Enabled": true
+  },
+  {
+    "ID": 449,
+    "HumanName": "Mp Specitem Safe",
+    "Dictionary": "mpinventory",
+    "SpriteName": "mp_specitem_safe",
+    "Enabled": true
+  },
+  {
+    "ID": 450,
+    "HumanName": "Mp Specitem Steer Wheel",
+    "Dictionary": "mpinventory",
+    "SpriteName": "mp_specitem_steer_wheel",
+    "Enabled": true
+  },
+  {
+    "ID": 451,
+    "HumanName": "Mp Specitem Weapons",
+    "Dictionary": "mpinventory",
+    "SpriteName": "mp_specitem_weapons",
+    "Enabled": true
+  },
+  {
+    "ID": 452,
+    "HumanName": "Mp Specitem Weapons Black",
+    "Dictionary": "mpinventory",
+    "SpriteName": "mp_specitem_weapons_black",
+    "Enabled": true
+  },
+  {
+    "ID": 453,
+    "HumanName": "Mp Specitem Weed",
+    "Dictionary": "mpinventory",
+    "SpriteName": "mp_specitem_weed",
+    "Enabled": true
+  },
+  {
+    "ID": 454,
+    "HumanName": "Mp Specitem Weed Black",
+    "Dictionary": "mpinventory",
+    "SpriteName": "mp_specitem_weed_black",
+    "Enabled": true
+  },
+  {
+    "ID": 455,
+    "HumanName": "Race Air",
+    "Dictionary": "mpinventory",
+    "SpriteName": "race_air",
+    "Enabled": true
+  },
+  {
+    "ID": 456,
+    "HumanName": "Race Bike",
+    "Dictionary": "mpinventory",
+    "SpriteName": "race_bike",
+    "Enabled": true
+  },
+  {
+    "ID": 457,
+    "HumanName": "Race Boat",
+    "Dictionary": "mpinventory",
+    "SpriteName": "race_boat",
+    "Enabled": true
+  },
+  {
+    "ID": 458,
+    "HumanName": "Race Foot",
+    "Dictionary": "mpinventory",
+    "SpriteName": "race_foot",
+    "Enabled": true
+  },
+  {
+    "ID": 459,
+    "HumanName": "Race Land",
+    "Dictionary": "mpinventory",
+    "SpriteName": "race_land",
+    "Enabled": true
+  },
+  {
+    "ID": 460,
+    "HumanName": "Race Offroad",
+    "Dictionary": "mpinventory",
+    "SpriteName": "race_offroad",
+    "Enabled": true
+  },
+  {
+    "ID": 461,
+    "HumanName": "Shooting Range",
+    "Dictionary": "mpinventory",
+    "SpriteName": "shooting_range",
+    "Enabled": true
+  },
+  {
+    "ID": 462,
+    "HumanName": "Survival",
+    "Dictionary": "mpinventory",
+    "SpriteName": "survival",
+    "Enabled": true
+  },
+  {
+    "ID": 463,
+    "HumanName": "Team Deathmatch",
+    "Dictionary": "mpinventory",
+    "SpriteName": "team_deathmatch",
+    "Enabled": true
+  },
+  {
+    "ID": 464,
+    "HumanName": "Tennis",
+    "Dictionary": "mpinventory",
+    "SpriteName": "tennis",
+    "Enabled": true
+  },
+  {
+    "ID": 465,
+    "HumanName": "Vehicle Deathmatch",
+    "Dictionary": "mpinventory",
+    "SpriteName": "vehicle_deathmatch",
+    "Enabled": true
+  },
+  {
+    "ID": 466,
+    "HumanName": "Gradient Template",
+    "Dictionary": "mpleaderboard",
+    "SpriteName": "gradient_template",
+    "Enabled": true
+  },
+  {
+    "ID": 467,
+    "HumanName": "Leaderboard Audio 1",
+    "Dictionary": "mpleaderboard",
+    "SpriteName": "leaderboard_audio_1",
+    "Enabled": true
+  },
+  {
+    "ID": 468,
+    "HumanName": "Leaderboard Audio 2",
+    "Dictionary": "mpleaderboard",
+    "SpriteName": "leaderboard_audio_2",
+    "Enabled": true
+  },
+  {
+    "ID": 469,
+    "HumanName": "Leaderboard Audio 3",
+    "Dictionary": "mpleaderboard",
+    "SpriteName": "leaderboard_audio_3",
+    "Enabled": true
+  },
+  {
+    "ID": 470,
+    "HumanName": "Leaderboard Audio Inactive",
+    "Dictionary": "mpleaderboard",
+    "SpriteName": "leaderboard_audio_inactive",
+    "Enabled": true
+  },
+  {
+    "ID": 471,
+    "HumanName": "Leaderboard Audio Mute",
+    "Dictionary": "mpleaderboard",
+    "SpriteName": "leaderboard_audio_mute",
+    "Enabled": true
+  },
+  {
+    "ID": 472,
+    "HumanName": "Leaderboard Betting Icon",
+    "Dictionary": "mpleaderboard",
+    "SpriteName": "leaderboard_betting_icon",
+    "Enabled": true
+  },
+  {
+    "ID": 473,
+    "HumanName": "Leaderboard Bikers Icon",
+    "Dictionary": "mpleaderboard",
+    "SpriteName": "leaderboard_bikers_icon",
+    "Enabled": true
+  },
+  {
+    "ID": 474,
+    "HumanName": "Leaderboard Car Colour Bg",
+    "Dictionary": "mpleaderboard",
+    "SpriteName": "leaderboard_car_colour_bg",
+    "Enabled": true
+  },
+  {
+    "ID": 475,
+    "HumanName": "Leaderboard Car Colour Icon",
+    "Dictionary": "mpleaderboard",
+    "SpriteName": "leaderboard_car_colour_icon",
+    "Enabled": true
+  },
+  {
+    "ID": 476,
+    "HumanName": "Leaderboard Car Icon",
+    "Dictionary": "mpleaderboard",
+    "SpriteName": "leaderboard_car_icon",
+    "Enabled": true
+  },
+  {
+    "ID": 477,
+    "HumanName": "Leaderboard Cash Icon",
+    "Dictionary": "mpleaderboard",
+    "SpriteName": "leaderboard_cash_icon",
+    "Enabled": true
+  },
+  {
+    "ID": 478,
+    "HumanName": "Leaderboard Cops Icon",
+    "Dictionary": "mpleaderboard",
+    "SpriteName": "leaderboard_cops_icon",
+    "Enabled": true
+  },
+  {
+    "ID": 479,
+    "HumanName": "Leaderboard Cup Icon",
+    "Dictionary": "mpleaderboard",
+    "SpriteName": "leaderboard_cup_icon",
+    "Enabled": true
+  },
+  {
+    "ID": 480,
+    "HumanName": "Leaderboard Deaths Icon",
+    "Dictionary": "mpleaderboard",
+    "SpriteName": "leaderboard_deaths_icon",
+    "Enabled": true
+  },
+  {
+    "ID": 481,
+    "HumanName": "Leaderboard Female Icon",
+    "Dictionary": "mpleaderboard",
+    "SpriteName": "leaderboard_female_icon",
+    "Enabled": true
+  },
+  {
+    "ID": 482,
+    "HumanName": "Leaderboard Freemoderank Icon",
+    "Dictionary": "mpleaderboard",
+    "SpriteName": "leaderboard_freemoderank_icon",
+    "Enabled": true
+  },
+  {
+    "ID": 483,
+    "HumanName": "Leaderboard Friends Icon",
+    "Dictionary": "mpleaderboard",
+    "SpriteName": "leaderboard_friends_icon",
+    "Enabled": true
+  },
+  {
+    "ID": 484,
+    "HumanName": "Leaderboard Globe Icon",
+    "Dictionary": "mpleaderboard",
+    "SpriteName": "leaderboard_globe_icon",
+    "Enabled": true
+  },
+  {
+    "ID": 485,
+    "HumanName": "Leaderboard Kd Icon",
+    "Dictionary": "mpleaderboard",
+    "SpriteName": "leaderboard_kd_icon",
+    "Enabled": true
+  },
+  {
+    "ID": 486,
+    "HumanName": "Leaderboard Kick Icon",
+    "Dictionary": "mpleaderboard",
+    "SpriteName": "leaderboard_kick_icon",
+    "Enabled": true
+  },
+  {
+    "ID": 487,
+    "HumanName": "Leaderboard Kills Icon",
+    "Dictionary": "mpleaderboard",
+    "SpriteName": "leaderboard_kills_icon",
+    "Enabled": true
+  },
+  {
+    "ID": 488,
+    "HumanName": "Leaderboard Lap Icon",
+    "Dictionary": "mpleaderboard",
+    "SpriteName": "leaderboard_lap_icon",
+    "Enabled": true
+  },
+  {
+    "ID": 489,
+    "HumanName": "Leaderboard Loss Icon",
+    "Dictionary": "mpleaderboard",
+    "SpriteName": "leaderboard_loss_icon",
+    "Enabled": true
+  },
+  {
+    "ID": 490,
+    "HumanName": "Leaderboard Male Icon",
+    "Dictionary": "mpleaderboard",
+    "SpriteName": "leaderboard_male_icon",
+    "Enabled": true
+  },
+  {
+    "ID": 491,
+    "HumanName": "Leaderboard Minus Icon",
+    "Dictionary": "mpleaderboard",
+    "SpriteName": "leaderboard_minus_icon",
+    "Enabled": true
+  },
+  {
+    "ID": 492,
+    "HumanName": "Leaderboard Parachute Colour Icon",
+    "Dictionary": "mpleaderboard",
+    "SpriteName": "leaderboard_parachute_colour_icon",
+    "Enabled": true
+  },
+  {
+    "ID": 493,
+    "HumanName": "Leaderboard Players Icon",
+    "Dictionary": "mpleaderboard",
+    "SpriteName": "leaderboard_players_icon",
+    "Enabled": true
+  },
+  {
+    "ID": 494,
+    "HumanName": "Leaderboard Plus Icon",
+    "Dictionary": "mpleaderboard",
+    "SpriteName": "leaderboard_plus_icon",
+    "Enabled": true
+  },
+  {
+    "ID": 495,
+    "HumanName": "Leaderboard Points Icon",
+    "Dictionary": "mpleaderboard",
+    "SpriteName": "leaderboard_points_icon",
+    "Enabled": true
+  },
+  {
+    "ID": 496,
+    "HumanName": "Leaderboard Position Icon",
+    "Dictionary": "mpleaderboard",
+    "SpriteName": "leaderboard_position_icon",
+    "Enabled": true
+  },
+  {
+    "ID": 497,
+    "HumanName": "Leaderboard Rankshield Icon",
+    "Dictionary": "mpleaderboard",
+    "SpriteName": "leaderboard_rankshield_icon",
+    "Enabled": true
+  },
+  {
+    "ID": 498,
+    "HumanName": "Leaderboard Ratio Icon",
+    "Dictionary": "mpleaderboard",
+    "SpriteName": "leaderboard_ratio_icon",
+    "Enabled": true
+  },
+  {
+    "ID": 499,
+    "HumanName": "Leaderboard Socialclub Icon",
+    "Dictionary": "mpleaderboard",
+    "SpriteName": "leaderboard_socialclub_icon",
+    "Enabled": true
+  },
+  {
+    "ID": 500,
+    "HumanName": "Leaderboard Star Icon",
+    "Dictionary": "mpleaderboard",
+    "SpriteName": "leaderboard_star_icon",
+    "Enabled": true
+  },
+  {
+    "ID": 501,
+    "HumanName": "Leaderboard Steeringwheel Icon",
+    "Dictionary": "mpleaderboard",
+    "SpriteName": "leaderboard_steeringwheel_icon",
+    "Enabled": true
+  },
+  {
+    "ID": 502,
+    "HumanName": "Leaderboard Thumb",
+    "Dictionary": "mpleaderboard",
+    "SpriteName": "leaderboard_thumb",
+    "Enabled": true
+  },
+  {
+    "ID": 503,
+    "HumanName": "Leaderboard Time Icon",
+    "Dictionary": "mpleaderboard",
+    "SpriteName": "leaderboard_time_icon",
+    "Enabled": true
+  },
+  {
+    "ID": 504,
+    "HumanName": "Leaderboard Transport Bicycle Icon",
+    "Dictionary": "mpleaderboard",
+    "SpriteName": "leaderboard_transport_bicycle_icon",
+    "Enabled": true
+  },
+  {
+    "ID": 505,
+    "HumanName": "Leaderboard Transport Bike Icon",
+    "Dictionary": "mpleaderboard",
+    "SpriteName": "leaderboard_transport_bike_icon",
+    "Enabled": true
+  },
+  {
+    "ID": 506,
+    "HumanName": "Leaderboard Transport Boat Icon",
+    "Dictionary": "mpleaderboard",
+    "SpriteName": "leaderboard_transport_boat_icon",
+    "Enabled": true
+  },
+  {
+    "ID": 507,
+    "HumanName": "Leaderboard Transport Car Icon",
+    "Dictionary": "mpleaderboard",
+    "SpriteName": "leaderboard_transport_car_icon",
+    "Enabled": true
+  },
+  {
+    "ID": 508,
+    "HumanName": "Leaderboard Transport Heli Icon",
+    "Dictionary": "mpleaderboard",
+    "SpriteName": "leaderboard_transport_heli_icon",
+    "Enabled": true
+  },
+  {
+    "ID": 509,
+    "HumanName": "Leaderboard Transport Plane Icon",
+    "Dictionary": "mpleaderboard",
+    "SpriteName": "leaderboard_transport_plane_icon",
+    "Enabled": true
+  },
+  {
+    "ID": 510,
+    "HumanName": "Leaderboard Voteblank Icon",
+    "Dictionary": "mpleaderboard",
+    "SpriteName": "leaderboard_voteblank_icon",
+    "Enabled": true
+  },
+  {
+    "ID": 511,
+    "HumanName": "Leaderboard Votecross Icon",
+    "Dictionary": "mpleaderboard",
+    "SpriteName": "leaderboard_votecross_icon",
+    "Enabled": true
+  },
+  {
+    "ID": 512,
+    "HumanName": "Leaderboard Votetick Icon",
+    "Dictionary": "mpleaderboard",
+    "SpriteName": "leaderboard_votetick_icon",
+    "Enabled": true
+  },
+  {
+    "ID": 513,
+    "HumanName": "Leaderboard Xp Icon",
+    "Dictionary": "mpleaderboard",
+    "SpriteName": "leaderboard_xp_icon",
+    "Enabled": true
+  },
+  {
+    "ID": 514,
+    "HumanName": "Mparrowsmall",
+    "Dictionary": "mplobby",
+    "SpriteName": "mparrowsmall",
+    "Enabled": true
+  },
+  {
+    "ID": 515,
+    "HumanName": "Mp Charcard Stats Icons7",
+    "Dictionary": "mplobby",
+    "SpriteName": "mp_charcard_stats_icons7",
+    "Enabled": true
+  },
+  {
+    "ID": 516,
+    "HumanName": "Mp Charcard Stats Icons8",
+    "Dictionary": "mplobby",
+    "SpriteName": "mp_charcard_stats_icons8",
+    "Enabled": true
+  },
+  {
+    "ID": 517,
+    "HumanName": "Mp Charcard Stats Icons9",
+    "Dictionary": "mplobby",
+    "SpriteName": "mp_charcard_stats_icons9",
+    "Enabled": true
+  },
+  {
+    "ID": 518,
+    "HumanName": "Mp Charcard Stats Icons10",
+    "Dictionary": "mplobby",
+    "SpriteName": "mp_charcard_stats_icons10",
+    "Enabled": true
+  },
+  {
+    "ID": 519,
+    "HumanName": "Mp Minimap1",
+    "Dictionary": "mplobby",
+    "SpriteName": "mp_minimap1",
+    "Enabled": true
+  },
+  {
+    "ID": 520,
+    "HumanName": "Feed Medal Flightschool",
+    "Dictionary": "mpmedals_feed",
+    "SpriteName": "feed_medal_flightschool",
+    "Enabled": true
+  },
+  {
+    "ID": 521,
+    "HumanName": "Feed Medal Shootingrange",
+    "Dictionary": "mpmedals_feed",
+    "SpriteName": "feed_medal_shootingrange",
+    "Enabled": true
+  },
+  {
+    "ID": 522,
+    "HumanName": "Feed Medal Triathlon",
+    "Dictionary": "mpmedals_feed",
+    "SpriteName": "feed_medal_triathlon",
+    "Enabled": true
+  },
+  {
+    "ID": 523,
+    "HumanName": "Bronzemedal",
+    "Dictionary": "mpmissionend",
+    "SpriteName": "bronzemedal",
+    "Enabled": true
+  },
+  {
+    "ID": 524,
+    "HumanName": "Emptytickbox",
+    "Dictionary": "mpmissionend",
+    "SpriteName": "emptytickbox",
+    "Enabled": true
+  },
+  {
+    "ID": 525,
+    "HumanName": "Goldmedal",
+    "Dictionary": "mpmissionend",
+    "SpriteName": "goldmedal",
+    "Enabled": true
+  },
+  {
+    "ID": 526,
+    "HumanName": "Silvermedal",
+    "Dictionary": "mpmissionend",
+    "SpriteName": "silvermedal",
+    "Enabled": true
+  },
+  {
+    "ID": 527,
+    "HumanName": "Tickedtickbox",
+    "Dictionary": "mpmissionend",
+    "SpriteName": "tickedtickbox",
+    "Enabled": true
+  },
+  {
+    "ID": 528,
+    "HumanName": "Air Race Icon",
+    "Dictionary": "mpmissmarkers128",
+    "SpriteName": "air_race_icon",
+    "Enabled": true
+  },
+  {
+    "ID": 529,
+    "HumanName": "Arm Wrestling Icon",
+    "Dictionary": "mpmissmarkers128",
+    "SpriteName": "arm_wrestling_icon",
+    "Enabled": true
+  },
+  {
+    "ID": 530,
+    "HumanName": "Basejump Icon",
+    "Dictionary": "mpmissmarkers128",
+    "SpriteName": "basejump_icon",
+    "Enabled": true
+  },
+  {
+    "ID": 531,
+    "HumanName": "Bike Race Icon",
+    "Dictionary": "mpmissmarkers128",
+    "SpriteName": "bike_race_icon",
+    "Enabled": true
+  },
+  {
+    "ID": 532,
+    "HumanName": "Corona Marker",
+    "Dictionary": "mpmissmarkers128",
+    "SpriteName": "corona_marker",
+    "Enabled": true
+  },
+  {
+    "ID": 533,
+    "HumanName": "Corona Point",
+    "Dictionary": "mpmissmarkers128",
+    "SpriteName": "corona_point",
+    "Enabled": true
+  },
+  {
+    "ID": 534,
+    "HumanName": "Corona Shade",
+    "Dictionary": "mpmissmarkers128",
+    "SpriteName": "corona_shade",
+    "Enabled": true
+  },
+  {
+    "ID": 535,
+    "HumanName": "Custom Icon",
+    "Dictionary": "mpmissmarkers128",
+    "SpriteName": "custom_icon",
+    "Enabled": true
+  },
+  {
+    "ID": 536,
+    "HumanName": "Darts",
+    "Dictionary": "mpmissmarkers128",
+    "SpriteName": "darts",
+    "Enabled": true
+  },
+  {
+    "ID": 537,
+    "HumanName": "Deathmatch Marker 128",
+    "Dictionary": "mpmissmarkers128",
+    "SpriteName": "deathmatch_marker_128",
+    "Enabled": true
+  },
+  {
+    "ID": 538,
+    "HumanName": "Foot Race Icon",
+    "Dictionary": "mpmissmarkers128",
+    "SpriteName": "foot_race_icon",
+    "Enabled": true
+  },
+  {
+    "ID": 539,
+    "HumanName": "Gangattack Icon",
+    "Dictionary": "mpmissmarkers128",
+    "SpriteName": "gangattack_icon",
+    "Enabled": true
+  },
+  {
+    "ID": 540,
+    "HumanName": "Golf Icon",
+    "Dictionary": "mpmissmarkers128",
+    "SpriteName": "golf_icon",
+    "Enabled": true
+  },
+  {
+    "ID": 541,
+    "HumanName": "Land Race Icon",
+    "Dictionary": "mpmissmarkers128",
+    "SpriteName": "land_race_icon",
+    "Enabled": true
+  },
+  {
+    "ID": 542,
+    "HumanName": "Off Road Race Icon",
+    "Dictionary": "mpmissmarkers128",
+    "SpriteName": "off_road_race_icon",
+    "Enabled": true
+  },
+  {
+    "ID": 543,
+    "HumanName": "Sea Race Icon",
+    "Dictionary": "mpmissmarkers128",
+    "SpriteName": "sea_race_icon",
+    "Enabled": true
+  },
+  {
+    "ID": 544,
+    "HumanName": "Shooting Range Icon",
+    "Dictionary": "mpmissmarkers128",
+    "SpriteName": "shooting_range_icon",
+    "Enabled": true
+  },
+  {
+    "ID": 545,
+    "HumanName": "Survival Icon",
+    "Dictionary": "mpmissmarkers128",
+    "SpriteName": "survival_icon",
+    "Enabled": true
+  },
+  {
+    "ID": 546,
+    "HumanName": "Teamdeathmatch Icon",
+    "Dictionary": "mpmissmarkers128",
+    "SpriteName": "teamdeathmatch_icon",
+    "Enabled": true
+  },
+  {
+    "ID": 547,
+    "HumanName": "Tennis Icon",
+    "Dictionary": "mpmissmarkers128",
+    "SpriteName": "tennis_icon",
+    "Enabled": true
+  },
+  {
+    "ID": 548,
+    "HumanName": "Vehicledeathmatch Icon",
+    "Dictionary": "mpmissmarkers128",
+    "SpriteName": "vehicledeathmatch_icon",
+    "Enabled": true
+  },
+  {
+    "ID": 549,
+    "HumanName": "Air Race Icon",
+    "Dictionary": "mpmissmarkers256 ",
+    "SpriteName": "air_race_icon",
+    "Enabled": true
+  },
+  {
+    "ID": 550,
+    "HumanName": "Arm Wrestling Icon",
+    "Dictionary": "mpmissmarkers256 ",
+    "SpriteName": "arm_wrestling_icon",
+    "Enabled": true
+  },
+  {
+    "ID": 551,
+    "HumanName": "Basejump Icon",
+    "Dictionary": "mpmissmarkers256 ",
+    "SpriteName": "basejump_icon",
+    "Enabled": true
+  },
+  {
+    "ID": 552,
+    "HumanName": "Bike Race Icon",
+    "Dictionary": "mpmissmarkers256 ",
+    "SpriteName": "bike_race_icon",
+    "Enabled": true
+  },
+  {
+    "ID": 553,
+    "HumanName": "Capture The Flag Icon",
+    "Dictionary": "mpmissmarkers256 ",
+    "SpriteName": "capture_the_flag_icon",
+    "Enabled": true
+  },
+  {
+    "ID": 554,
+    "HumanName": "Corona Marker",
+    "Dictionary": "mpmissmarkers256 ",
+    "SpriteName": "corona_marker",
+    "Enabled": true
+  },
+  {
+    "ID": 555,
+    "HumanName": "Corona Point",
+    "Dictionary": "mpmissmarkers256 ",
+    "SpriteName": "corona_point",
+    "Enabled": true
+  },
+  {
+    "ID": 556,
+    "HumanName": "Corona Shade",
+    "Dictionary": "mpmissmarkers256 ",
+    "SpriteName": "corona_shade",
+    "Enabled": true
+  },
+  {
+    "ID": 557,
+    "HumanName": "Custom Icon",
+    "Dictionary": "mpmissmarkers256 ",
+    "SpriteName": "custom_icon",
+    "Enabled": true
+  },
+  {
+    "ID": 558,
+    "HumanName": "Darts Icon",
+    "Dictionary": "mpmissmarkers256 ",
+    "SpriteName": "darts_icon",
+    "Enabled": true
+  },
+  {
+    "ID": 559,
+    "HumanName": "Deathmatch Marker 256",
+    "Dictionary": "mpmissmarkers256 ",
+    "SpriteName": "deathmatch_marker_256",
+    "Enabled": true
+  },
+  {
+    "ID": 560,
+    "HumanName": "Foot Race Icon",
+    "Dictionary": "mpmissmarkers256 ",
+    "SpriteName": "foot_race_icon",
+    "Enabled": true
+  },
+  {
+    "ID": 561,
+    "HumanName": "Gangattack Icon",
+    "Dictionary": "mpmissmarkers256 ",
+    "SpriteName": "gangattack_icon",
+    "Enabled": true
+  },
+  {
+    "ID": 562,
+    "HumanName": "Golf Icon",
+    "Dictionary": "mpmissmarkers256 ",
+    "SpriteName": "golf_icon",
+    "Enabled": true
+  },
+  {
+    "ID": 563,
+    "HumanName": "Land Race Icon",
+    "Dictionary": "mpmissmarkers256 ",
+    "SpriteName": "land_race_icon",
+    "Enabled": true
+  },
+  {
+    "ID": 564,
+    "HumanName": "Last Team Standing Icon",
+    "Dictionary": "mpmissmarkers256 ",
+    "SpriteName": "last_team_standing_icon",
+    "Enabled": true
+  },
+  {
+    "ID": 565,
+    "HumanName": "Off Road Race Icon",
+    "Dictionary": "mpmissmarkers256 ",
+    "SpriteName": "off_road_race_icon",
+    "Enabled": true
+  },
+  {
+    "ID": 566,
+    "HumanName": "Pilot School Icon",
+    "Dictionary": "mpmissmarkers256 ",
+    "SpriteName": "pilot_school_icon",
+    "Enabled": true
+  },
+  {
+    "ID": 567,
+    "HumanName": "Sea Race Icon",
+    "Dictionary": "mpmissmarkers256 ",
+    "SpriteName": "sea_race_icon",
+    "Enabled": true
+  },
+  {
+    "ID": 568,
+    "HumanName": "Shooting Range Icon",
+    "Dictionary": "mpmissmarkers256 ",
+    "SpriteName": "shooting_range_icon",
+    "Enabled": true
+  },
+  {
+    "ID": 569,
+    "HumanName": "Survival Icon",
+    "Dictionary": "mpmissmarkers256 ",
+    "SpriteName": "survival_icon",
+    "Enabled": true
+  },
+  {
+    "ID": 570,
+    "HumanName": "Teamdeathmatch Icon",
+    "Dictionary": "mpmissmarkers256 ",
+    "SpriteName": "teamdeathmatch_icon",
+    "Enabled": true
+  },
+  {
+    "ID": 571,
+    "HumanName": "Tennis Icon",
+    "Dictionary": "mpmissmarkers256 ",
+    "SpriteName": "tennis_icon",
+    "Enabled": true
+  },
+  {
+    "ID": 572,
+    "HumanName": "Vehicledeathmatch Icon",
+    "Dictionary": "mpmissmarkers256 ",
+    "SpriteName": "vehicledeathmatch_icon",
+    "Enabled": true
+  },
+  {
+    "ID": 573,
+    "HumanName": "Capture The Flag Base Icon",
+    "Dictionary": "mponmissmarkers",
+    "SpriteName": "capture_the_flag_base_icon",
+    "Enabled": true
+  },
+  {
+    "ID": 574,
+    "HumanName": "Mp Rankbarfill",
+    "Dictionary": "mpoverview",
+    "SpriteName": "mp_rankbarfill",
+    "Enabled": true
+  },
+  {
+    "ID": 575,
+    "HumanName": "Mp Rankbarfill Full",
+    "Dictionary": "mpoverview",
+    "SpriteName": "mp_rankbarfill_full",
+    "Enabled": true
+  },
+  {
+    "ID": 576,
+    "HumanName": "Mp Rankbarsstrokethick",
+    "Dictionary": "mpoverview",
+    "SpriteName": "mp_rankbarsstrokethick",
+    "Enabled": true
+  },
+  {
+    "ID": 577,
+    "HumanName": "Mp Rankbarsstrokethin",
+    "Dictionary": "mpoverview",
+    "SpriteName": "mp_rankbarsstrokethin",
+    "Enabled": true
+  },
+  {
+    "ID": 578,
+    "HumanName": "Globe",
+    "Dictionary": "mprankbadge",
+    "SpriteName": "globe",
+    "Enabled": true
+  },
+  {
+    "ID": 579,
+    "HumanName": "Globe Bg",
+    "Dictionary": "mprankbadge",
+    "SpriteName": "globe_bg",
+    "Enabled": true
+  },
+  {
+    "ID": 580,
+    "HumanName": "Rankglobe 21X21 Colour",
+    "Dictionary": "mprankbadge",
+    "SpriteName": "rankglobe_21x21_colour",
+    "Enabled": true
+  },
+  {
+    "ID": 581,
+    "HumanName": "Rp",
+    "Dictionary": "mprpsymbol",
+    "SpriteName": "rp",
+    "Enabled": true
+  },
+  {
+    "ID": 582,
+    "HumanName": "Dail",
+    "Dictionary": "mpsafecracking",
+    "SpriteName": "dail",
+    "Enabled": true
+  },
+  {
+    "ID": 583,
+    "HumanName": "Dail Bg",
+    "Dictionary": "mpsafecracking",
+    "SpriteName": "dail_bg",
+    "Enabled": true
+  },
+  {
+    "ID": 584,
+    "HumanName": "Lock Closed",
+    "Dictionary": "mpsafecracking",
+    "SpriteName": "lock_closed",
+    "Enabled": true
+  },
+  {
+    "ID": 585,
+    "HumanName": "Lock Closed Dark",
+    "Dictionary": "mpsafecracking",
+    "SpriteName": "lock_closed_dark",
+    "Enabled": true
+  },
+  {
+    "ID": 586,
+    "HumanName": "Lock Open",
+    "Dictionary": "mpsafecracking",
+    "SpriteName": "lock_open",
+    "Enabled": true
+  },
+  {
+    "ID": 587,
+    "HumanName": "Lock Open Dark",
+    "Dictionary": "mpsafecracking",
+    "SpriteName": "lock_open_dark",
+    "Enabled": true
+  },
+  {
+    "ID": 588,
+    "HumanName": "Shopui Title Graphics Sale",
+    "Dictionary": "mpshops",
+    "SpriteName": "shopui_title_graphics_sale",
+    "Enabled": true
+  },
+  {
+    "ID": 589,
+    "HumanName": "Panelback",
+    "Dictionary": "mpsrange",
+    "SpriteName": "panelback",
+    "Enabled": true
+  },
+  {
+    "ID": 590,
+    "HumanName": "Weap Ar 5",
+    "Dictionary": "mpsrange",
+    "SpriteName": "weap_ar_5",
+    "Enabled": true
+  },
+  {
+    "ID": 591,
+    "HumanName": "Weap Ar 6",
+    "Dictionary": "mpsrange",
+    "SpriteName": "weap_ar_6",
+    "Enabled": true
+  },
+  {
+    "ID": 592,
+    "HumanName": "Weap Hg 5",
+    "Dictionary": "mpsrange",
+    "SpriteName": "weap_hg_5",
+    "Enabled": true
+  },
+  {
+    "ID": 593,
+    "HumanName": "Weap Hg 6",
+    "Dictionary": "mpsrange",
+    "SpriteName": "weap_hg_6",
+    "Enabled": true
+  },
+  {
+    "ID": 594,
+    "HumanName": "Weap Hg 7",
+    "Dictionary": "mpsrange",
+    "SpriteName": "weap_hg_7",
+    "Enabled": true
+  },
+  {
+    "ID": 595,
+    "HumanName": "Weap Lmg 4",
+    "Dictionary": "mpsrange",
+    "SpriteName": "weap_lmg_4",
+    "Enabled": true
+  },
+  {
+    "ID": 596,
+    "HumanName": "Armoredvantakedowns",
+    "Dictionary": "mptattoos",
+    "SpriteName": "armoredvantakedowns",
+    "Enabled": true
+  },
+  {
+    "ID": 597,
+    "HumanName": "Clearout",
+    "Dictionary": "mptattoos",
+    "SpriteName": "clearout",
+    "Enabled": true
+  },
+  {
+    "ID": 598,
+    "HumanName": "Getrevengekills",
+    "Dictionary": "mptattoos",
+    "SpriteName": "getrevengekills",
+    "Enabled": true
+  },
+  {
+    "ID": 599,
+    "HumanName": "Holdwoldrecord",
+    "Dictionary": "mptattoos",
+    "SpriteName": "holdwoldrecord",
+    "Enabled": true
+  },
+  {
+    "ID": 600,
+    "HumanName": "Kill3others",
+    "Dictionary": "mptattoos",
+    "SpriteName": "kill3others",
+    "Enabled": true
+  },
+  {
+    "ID": 601,
+    "HumanName": "Killplayerbountyhead",
+    "Dictionary": "mptattoos",
+    "SpriteName": "killplayerbountyhead",
+    "Enabled": true
+  },
+  {
+    "ID": 602,
+    "HumanName": "Reachrank1",
+    "Dictionary": "mptattoos",
+    "SpriteName": "reachrank1",
+    "Enabled": true
+  },
+  {
+    "ID": 603,
+    "HumanName": "Reachrank2",
+    "Dictionary": "mptattoos",
+    "SpriteName": "reachrank2",
+    "Enabled": true
+  },
+  {
+    "ID": 604,
+    "HumanName": "Reachrank3",
+    "Dictionary": "mptattoos",
+    "SpriteName": "reachrank3",
+    "Enabled": true
+  },
+  {
+    "ID": 605,
+    "HumanName": "Thehustler",
+    "Dictionary": "mptattoos",
+    "SpriteName": "thehustler",
+    "Enabled": true
+  },
+  {
+    "ID": 606,
+    "HumanName": "Theslayer",
+    "Dictionary": "mptattoos",
+    "SpriteName": "theslayer",
+    "Enabled": true
+  },
+  {
+    "ID": 607,
+    "HumanName": "Wineverymodeonce",
+    "Dictionary": "mptattoos",
+    "SpriteName": "wineverymodeonce",
+    "Enabled": true
+  },
+  {
+    "ID": 608,
+    "HumanName": "Tattoo Policestbust",
+    "Dictionary": "mptattoos1",
+    "SpriteName": "tattoo_policestbust",
+    "Enabled": true
+  },
+  {
+    "ID": 609,
+    "HumanName": "Tattoo Avoid Arrest",
+    "Dictionary": "mptattoos1",
+    "SpriteName": "tattoo_avoid_arrest",
+    "Enabled": true
+  },
+  {
+    "ID": 610,
+    "HumanName": "Tattoo Defend Safehouse",
+    "Dictionary": "mptattoos1",
+    "SpriteName": "tattoo_defend_safehouse",
+    "Enabled": true
+  },
+  {
+    "ID": 611,
+    "HumanName": "Tattoo Drugdeal",
+    "Dictionary": "mptattoos1",
+    "SpriteName": "tattoo_drugdeal",
+    "Enabled": true
+  },
+  {
+    "ID": 612,
+    "HumanName": "Tattoo Escort Crookboss",
+    "Dictionary": "mptattoos1",
+    "SpriteName": "tattoo_escort_crookboss",
+    "Enabled": true
+  },
+  {
+    "ID": 613,
+    "HumanName": "Tattoo Every Upgrade Vagos Car",
+    "Dictionary": "mptattoos1",
+    "SpriteName": "tattoo_every_upgrade_vagos_car",
+    "Enabled": true
+  },
+  {
+    "ID": 614,
+    "HumanName": "Tattoo Funeral Defending",
+    "Dictionary": "mptattoos1",
+    "SpriteName": "tattoo_funeral_defending",
+    "Enabled": true
+  },
+  {
+    "ID": 615,
+    "HumanName": "Tattoo No Kill All Gang",
+    "Dictionary": "mptattoos1",
+    "SpriteName": "tattoo_no_kill_all_gang",
+    "Enabled": true
+  },
+  {
+    "ID": 616,
+    "HumanName": "Tattoo Hold Up Shops 10",
+    "Dictionary": "mptattoos2",
+    "SpriteName": "tattoo_hold_up_shops_10",
+    "Enabled": true
+  },
+  {
+    "ID": 617,
+    "HumanName": "Tattoo Hold Up Shops 25",
+    "Dictionary": "mptattoos2",
+    "SpriteName": "tattoo_hold_up_shops_25",
+    "Enabled": true
+  },
+  {
+    "ID": 618,
+    "HumanName": "Tattoo Hold Up Shops 50",
+    "Dictionary": "mptattoos2",
+    "SpriteName": "tattoo_hold_up_shops_50",
+    "Enabled": true
+  },
+  {
+    "ID": 619,
+    "HumanName": "Tattoo Hold Up Shops 100",
+    "Dictionary": "mptattoos2",
+    "SpriteName": "tattoo_hold_up_shops_100",
+    "Enabled": true
+  },
+  {
+    "ID": 620,
+    "HumanName": "Tattoo Kill A Snitch",
+    "Dictionary": "mptattoos2",
+    "SpriteName": "tattoo_kill_a_snitch",
+    "Enabled": true
+  },
+  {
+    "ID": 621,
+    "HumanName": "Tattoo Kill Gang Memberr 10",
+    "Dictionary": "mptattoos2",
+    "SpriteName": "tattoo_kill_gang_memberr_10",
+    "Enabled": true
+  },
+  {
+    "ID": 622,
+    "HumanName": "Tattoo Kill Gang Memberr 500",
+    "Dictionary": "mptattoos2",
+    "SpriteName": "tattoo_kill_gang_memberr_500",
+    "Enabled": true
+  },
+  {
+    "ID": 623,
+    "HumanName": "Tattoo Kill Rival",
+    "Dictionary": "mptattoos2",
+    "SpriteName": "tattoo_kill_rival",
+    "Enabled": true
+  },
+  {
+    "ID": 624,
+    "HumanName": "Mp Fm Tat 002",
+    "Dictionary": "mptattoos3",
+    "SpriteName": "mp_fm_tat_002",
+    "Enabled": true
+  },
+  {
+    "ID": 625,
+    "HumanName": "Mp Fm Tat 019",
+    "Dictionary": "mptattoos3",
+    "SpriteName": "mp_fm_tat_019",
+    "Enabled": true
+  },
+  {
+    "ID": 626,
+    "HumanName": "Mp Fm Tat 023",
+    "Dictionary": "mptattoos3",
+    "SpriteName": "mp_fm_tat_023",
+    "Enabled": true
+  },
+  {
+    "ID": 627,
+    "HumanName": "Mp Fm Tat 036",
+    "Dictionary": "mptattoos3",
+    "SpriteName": "mp_fm_tat_036",
+    "Enabled": true
+  },
+  {
+    "ID": 628,
+    "HumanName": "Mp Fm Tat 037",
+    "Dictionary": "mptattoos3",
+    "SpriteName": "mp_fm_tat_037",
+    "Enabled": true
+  },
+  {
+    "ID": 629,
+    "HumanName": "Mp Fm Tat 039",
+    "Dictionary": "mptattoos3",
+    "SpriteName": "mp_fm_tat_039",
+    "Enabled": true
+  },
+  {
+    "ID": 630,
+    "HumanName": "Mp Fm Tat 040",
+    "Dictionary": "mptattoos3",
+    "SpriteName": "mp_fm_tat_040",
+    "Enabled": true
+  },
+  {
+    "ID": 631,
+    "HumanName": "Mp Fm Tat Award 008",
+    "Dictionary": "mptattoos3",
+    "SpriteName": "mp_fm_tat_award_008",
+    "Enabled": true
+  },
+  {
+    "ID": 632,
+    "HumanName": "Mp Fm Tat Award 014",
+    "Dictionary": "mptattoos3",
+    "SpriteName": "mp_fm_tat_award_014",
+    "Enabled": true
+  },
+  {
+    "ID": 633,
+    "HumanName": "Tattoo Pass Boss Meet",
+    "Dictionary": "mptattoos3",
+    "SpriteName": "tattoo_pass_boss_meet",
+    "Enabled": true
+  },
+  {
+    "ID": 634,
+    "HumanName": "Tattoo Pass Prisonbreak",
+    "Dictionary": "mptattoos3",
+    "SpriteName": "tattoo_pass_prisonbreak",
+    "Enabled": true
+  },
+  {
+    "ID": 635,
+    "HumanName": "Tattoo Races Won",
+    "Dictionary": "mptattoos3",
+    "SpriteName": "tattoo_races_won",
+    "Enabled": true
+  },
+  {
+    "ID": 636,
+    "HumanName": "Tattoo Reach Rank R 10",
+    "Dictionary": "mptattoos3",
+    "SpriteName": "tattoo_reach_rank_r_10",
+    "Enabled": true
+  },
+  {
+    "ID": 637,
+    "HumanName": "Tattoo Reach Rank R 25",
+    "Dictionary": "mptattoos3",
+    "SpriteName": "tattoo_reach_rank_r_25",
+    "Enabled": true
+  },
+  {
+    "ID": 638,
+    "HumanName": "Tattoo Reach Rank R 50",
+    "Dictionary": "mptattoos3",
+    "SpriteName": "tattoo_reach_rank_r_50",
+    "Enabled": true
+  },
+  {
+    "ID": 639,
+    "HumanName": "Tattoo Reach Rank R 100",
+    "Dictionary": "mptattoos3",
+    "SpriteName": "tattoo_reach_rank_r_100",
+    "Enabled": true
+  },
+  {
+    "ID": 640,
+    "HumanName": "Tattoo Uncuff Gang Member",
+    "Dictionary": "mptattoos3",
+    "SpriteName": "tattoo_uncuff_gang_member",
+    "Enabled": true
+  },
+  {
+    "ID": 641,
+    "HumanName": "Tattoo Win Parley",
+    "Dictionary": "mptattoos3",
+    "SpriteName": "tattoo_win_parley",
+    "Enabled": true
+  },
+  {
+    "ID": 642,
+    "HumanName": "Feed Tattoo 01",
+    "Dictionary": "mptattoostshirts_feed",
+    "SpriteName": "feed_tattoo_01",
+    "Enabled": true
+  },
+  {
+    "ID": 643,
+    "HumanName": "Feed Tattoo 02",
+    "Dictionary": "mptattoostshirts_feed",
+    "SpriteName": "feed_tattoo_02",
+    "Enabled": true
+  },
+  {
+    "ID": 644,
+    "HumanName": "Feed Tattoo 03",
+    "Dictionary": "mptattoostshirts_feed",
+    "SpriteName": "feed_tattoo_03",
+    "Enabled": true
+  },
+  {
+    "ID": 645,
+    "HumanName": "Feed Tattoo 04",
+    "Dictionary": "mptattoostshirts_feed",
+    "SpriteName": "feed_tattoo_04",
+    "Enabled": true
+  },
+  {
+    "ID": 646,
+    "HumanName": "Feed Tattoo 05",
+    "Dictionary": "mptattoostshirts_feed",
+    "SpriteName": "feed_tattoo_05",
+    "Enabled": true
+  },
+  {
+    "ID": 647,
+    "HumanName": "Feed Tattoo 06",
+    "Dictionary": "mptattoostshirts_feed",
+    "SpriteName": "feed_tattoo_06",
+    "Enabled": true
+  },
+  {
+    "ID": 648,
+    "HumanName": "Feed Tattoo 07",
+    "Dictionary": "mptattoostshirts_feed",
+    "SpriteName": "feed_tattoo_07",
+    "Enabled": true
+  },
+  {
+    "ID": 649,
+    "HumanName": "Feed Tattoo 08",
+    "Dictionary": "mptattoostshirts_feed",
+    "SpriteName": "feed_tattoo_08",
+    "Enabled": true
+  },
+  {
+    "ID": 650,
+    "HumanName": "Feed Tattoo 09",
+    "Dictionary": "mptattoostshirts_feed",
+    "SpriteName": "feed_tattoo_09",
+    "Enabled": true
+  },
+  {
+    "ID": 651,
+    "HumanName": "Feed Tattoo 10",
+    "Dictionary": "mptattoostshirts_feed",
+    "SpriteName": "feed_tattoo_10",
+    "Enabled": true
+  },
+  {
+    "ID": 652,
+    "HumanName": "Feed Tattoo 11",
+    "Dictionary": "mptattoostshirts_feed",
+    "SpriteName": "feed_tattoo_11",
+    "Enabled": true
+  },
+  {
+    "ID": 653,
+    "HumanName": "Feed Tattoo 12",
+    "Dictionary": "mptattoostshirts_feed",
+    "SpriteName": "feed_tattoo_12",
+    "Enabled": true
+  },
+  {
+    "ID": 654,
+    "HumanName": "Feed Tattoo 13",
+    "Dictionary": "mptattoostshirts_feed",
+    "SpriteName": "feed_tattoo_13",
+    "Enabled": true
+  },
+  {
+    "ID": 655,
+    "HumanName": "Feed Tattoo 14",
+    "Dictionary": "mptattoostshirts_feed",
+    "SpriteName": "feed_tattoo_14",
+    "Enabled": true
+  },
+  {
+    "ID": 656,
+    "HumanName": "Feed Tattoo 15",
+    "Dictionary": "mptattoostshirts_feed",
+    "SpriteName": "feed_tattoo_15",
+    "Enabled": true
+  },
+  {
+    "ID": 657,
+    "HumanName": "Feed Tattoo 16",
+    "Dictionary": "mptattoostshirts_feed",
+    "SpriteName": "feed_tattoo_16",
+    "Enabled": true
+  },
+  {
+    "ID": 658,
+    "HumanName": "Feed Tattoo 17",
+    "Dictionary": "mptattoostshirts_feed",
+    "SpriteName": "feed_tattoo_17",
+    "Enabled": true
+  },
+  {
+    "ID": 659,
+    "HumanName": "Feed Tattoo 18",
+    "Dictionary": "mptattoostshirts_feed",
+    "SpriteName": "feed_tattoo_18",
+    "Enabled": true
+  },
+  {
+    "ID": 660,
+    "HumanName": "Feed Tattoo 19",
+    "Dictionary": "mptattoostshirts_feed",
+    "SpriteName": "feed_tattoo_19",
+    "Enabled": true
+  },
+  {
+    "ID": 661,
+    "HumanName": "Feed Tattoo 20",
+    "Dictionary": "mptattoostshirts_feed",
+    "SpriteName": "feed_tattoo_20",
+    "Enabled": true
+  },
+  {
+    "ID": 662,
+    "HumanName": "Feed Tattoo 21",
+    "Dictionary": "mptattoostshirts_feed",
+    "SpriteName": "feed_tattoo_21",
+    "Enabled": true
+  },
+  {
+    "ID": 663,
+    "HumanName": "Feed Tattoo 22",
+    "Dictionary": "mptattoostshirts_feed",
+    "SpriteName": "feed_tattoo_22",
+    "Enabled": true
+  },
+  {
+    "ID": 664,
+    "HumanName": "Feed Tattoo 23",
+    "Dictionary": "mptattoostshirts_feed",
+    "SpriteName": "feed_tattoo_23",
+    "Enabled": true
+  },
+  {
+    "ID": 665,
+    "HumanName": "Feed Tattoo 24",
+    "Dictionary": "mptattoostshirts_feed",
+    "SpriteName": "feed_tattoo_24",
+    "Enabled": true
+  },
+  {
+    "ID": 666,
+    "HumanName": "Feed Tattoo 25",
+    "Dictionary": "mptattoostshirts_feed",
+    "SpriteName": "feed_tattoo_25",
+    "Enabled": true
+  },
+  {
+    "ID": 667,
+    "HumanName": "Feed Tattoo 26",
+    "Dictionary": "mptattoostshirts_feed",
+    "SpriteName": "feed_tattoo_26",
+    "Enabled": true
+  },
+  {
+    "ID": 668,
+    "HumanName": "Feed Tattoo 27",
+    "Dictionary": "mptattoostshirts_feed",
+    "SpriteName": "feed_tattoo_27",
+    "Enabled": true
+  },
+  {
+    "ID": 669,
+    "HumanName": "Feed Tshirt 01",
+    "Dictionary": "mptattoostshirts_feed",
+    "SpriteName": "feed_tshirt_01",
+    "Enabled": true
+  },
+  {
+    "ID": 670,
+    "HumanName": "Feed Tshirt 02",
+    "Dictionary": "mptattoostshirts_feed",
+    "SpriteName": "feed_tshirt_02",
+    "Enabled": true
+  },
+  {
+    "ID": 671,
+    "HumanName": "Feed Tshirt 03",
+    "Dictionary": "mptattoostshirts_feed",
+    "SpriteName": "feed_tshirt_03",
+    "Enabled": true
+  },
+  {
+    "ID": 672,
+    "HumanName": "Elitas Tshirt",
+    "Dictionary": "mptshirtawardlts",
+    "SpriteName": "elitas_tshirt",
+    "Enabled": true
+  },
+  {
+    "ID": 673,
+    "HumanName": "Pickupcratefirst",
+    "Dictionary": "mptshirtawards",
+    "SpriteName": "pickupcratefirst",
+    "Enabled": true
+  },
+  {
+    "ID": 674,
+    "HumanName": "Reachhordemodewave",
+    "Dictionary": "mptshirtawards",
+    "SpriteName": "reachhordemodewave",
+    "Enabled": true
+  },
+  {
+    "ID": 675,
+    "HumanName": "Rockstarverifiied",
+    "Dictionary": "mptshirtawards",
+    "SpriteName": "rockstarverifiied",
+    "Enabled": true
+  },
+  {
+    "ID": 676,
+    "HumanName": "Canttouchthis",
+    "Dictionary": "mptshirtawards2",
+    "SpriteName": "canttouchthis",
+    "Enabled": true
+  },
+  {
+    "ID": 677,
+    "HumanName": "Deathdefying",
+    "Dictionary": "mptshirtawards2",
+    "SpriteName": "deathdefying",
+    "Enabled": true
+  },
+  {
+    "ID": 678,
+    "HumanName": "Decorated",
+    "Dictionary": "mptshirtawards2",
+    "SpriteName": "decorated",
+    "Enabled": true
+  },
+  {
+    "ID": 679,
+    "HumanName": "Forhire",
+    "Dictionary": "mptshirtawards2",
+    "SpriteName": "forhire",
+    "Enabled": true
+  },
+  {
+    "ID": 680,
+    "HumanName": "Livealittle",
+    "Dictionary": "mptshirtawards2",
+    "SpriteName": "livealittle",
+    "Enabled": true
+  },
+  {
+    "ID": 681,
+    "HumanName": "Onemanarmy",
+    "Dictionary": "mptshirtawards2",
+    "SpriteName": "onemanarmy",
+    "Enabled": true
+  },
+  {
+    "ID": 682,
+    "HumanName": "Psychokiller",
+    "Dictionary": "mptshirtawards2",
+    "SpriteName": "psychokiller",
+    "Enabled": true
+  },
+  {
+    "ID": 683,
+    "HumanName": "Shotcaller",
+    "Dictionary": "mptshirtawards2",
+    "SpriteName": "shotcaller",
+    "Enabled": true
+  },
+  {
+    "ID": 684,
+    "HumanName": "Showroom",
+    "Dictionary": "mptshirtawards2",
+    "SpriteName": "showroom",
+    "Enabled": true
+  },
+  {
+    "ID": 685,
+    "HumanName": "Feedhiptshirt01",
+    "Dictionary": "mptshirtawards3",
+    "SpriteName": "feedhiptshirt01",
+    "Enabled": true
+  },
+  {
+    "ID": 686,
+    "HumanName": "Feedhiptshirt02",
+    "Dictionary": "mptshirtawards3",
+    "SpriteName": "feedhiptshirt02",
+    "Enabled": true
+  },
+  {
+    "ID": 687,
+    "HumanName": "Feedhiptshirt03",
+    "Dictionary": "mptshirtawards3",
+    "SpriteName": "feedhiptshirt03",
+    "Enabled": true
+  },
+  {
+    "ID": 688,
+    "HumanName": "Feedhiptshirt04",
+    "Dictionary": "mptshirtawards3",
+    "SpriteName": "feedhiptshirt04",
+    "Enabled": true
+  },
+  {
+    "ID": 689,
+    "HumanName": "Feedhiptshirt05",
+    "Dictionary": "mptshirtawards3",
+    "SpriteName": "feedhiptshirt05",
+    "Enabled": true
+  },
+  {
+    "ID": 690,
+    "HumanName": "Feedhiptshirt06",
+    "Dictionary": "mptshirtawards3",
+    "SpriteName": "feedhiptshirt06",
+    "Enabled": true
+  },
+  {
+    "ID": 691,
+    "HumanName": "Feedhiptshirt07",
+    "Dictionary": "mptshirtawards3",
+    "SpriteName": "feedhiptshirt07",
+    "Enabled": true
+  },
+  {
+    "ID": 692,
+    "HumanName": "Feedhiptshirt08",
+    "Dictionary": "mptshirtawards3",
+    "SpriteName": "feedhiptshirt08",
+    "Enabled": true
+  },
+  {
+    "ID": 693,
+    "HumanName": "Feedhiptshirt09",
+    "Dictionary": "mptshirtawards3",
+    "SpriteName": "feedhiptshirt09",
+    "Enabled": true
+  },
+  {
+    "ID": 694,
+    "HumanName": "Feedhiptshirt10",
+    "Dictionary": "mptshirtawards3",
+    "SpriteName": "feedhiptshirt10",
+    "Enabled": true
+  },
+  {
+    "ID": 695,
+    "HumanName": "Feedhiptshirt11",
+    "Dictionary": "mptshirtawards3",
+    "SpriteName": "feedhiptshirt11",
+    "Enabled": true
+  },
+  {
+    "ID": 696,
+    "HumanName": "Feedhiptshirt12",
+    "Dictionary": "mptshirtawards3",
+    "SpriteName": "feedhiptshirt12",
+    "Enabled": true
+  },
+  {
+    "ID": 697,
+    "HumanName": "Feedhiptshirt13",
+    "Dictionary": "mptshirtawards3",
+    "SpriteName": "feedhiptshirt13",
+    "Enabled": true
+  },
+  {
+    "ID": 698,
+    "HumanName": "Feedhiptshirt14",
+    "Dictionary": "mptshirtawards3",
+    "SpriteName": "feedhiptshirt14",
+    "Enabled": true
+  },
+  {
+    "ID": 699,
+    "HumanName": "W Ex Grenadesmoke",
+    "Dictionary": "mpweaponscommon",
+    "SpriteName": "w_ex_grenadesmoke",
+    "Enabled": true
+  },
+  {
+    "ID": 700,
+    "HumanName": "W Ex Grenadesmoke Silhouette",
+    "Dictionary": "mpweaponscommon",
+    "SpriteName": "w_ex_grenadesmoke_silhouette",
+    "Enabled": true
+  },
+  {
+    "ID": 701,
+    "HumanName": "W Ex Pe",
+    "Dictionary": "mpweaponscommon",
+    "SpriteName": "w_ex_pe",
+    "Enabled": true
+  },
+  {
+    "ID": 702,
+    "HumanName": "W Ex Pe Silhouette",
+    "Dictionary": "mpweaponscommon",
+    "SpriteName": "w_ex_pe_silhouette",
+    "Enabled": true
+  },
+  {
+    "ID": 703,
+    "HumanName": "W Lr Rpg",
+    "Dictionary": "mpweaponscommon",
+    "SpriteName": "w_lr_rpg",
+    "Enabled": true
+  },
+  {
+    "ID": 704,
+    "HumanName": "W Lr Rpg Silhouette",
+    "Dictionary": "mpweaponscommon",
+    "SpriteName": "w_lr_rpg_silhouette",
+    "Enabled": true
+  },
+  {
+    "ID": 705,
+    "HumanName": "W Pi Combatpistol",
+    "Dictionary": "mpweaponscommon",
+    "SpriteName": "w_pi_combatpistol",
+    "Enabled": true
+  },
+  {
+    "ID": 706,
+    "HumanName": "W Pi Combatpistol Flash",
+    "Dictionary": "mpweaponscommon",
+    "SpriteName": "w_pi_combatpistol_flash",
+    "Enabled": true
+  },
+  {
+    "ID": 707,
+    "HumanName": "W Pi Combatpistol Flash Silhouette",
+    "Dictionary": "mpweaponscommon",
+    "SpriteName": "w_pi_combatpistol_flash_silhouette",
+    "Enabled": true
+  },
+  {
+    "ID": 708,
+    "HumanName": "W Pi Combatpistol Mag1",
+    "Dictionary": "mpweaponscommon",
+    "SpriteName": "w_pi_combatpistol_mag1",
+    "Enabled": true
+  },
+  {
+    "ID": 709,
+    "HumanName": "W Pi Combatpistol Mag1 Silhouette",
+    "Dictionary": "mpweaponscommon",
+    "SpriteName": "w_pi_combatpistol_mag1_silhouette",
+    "Enabled": true
+  },
+  {
+    "ID": 710,
+    "HumanName": "W Pi Combatpistol Mag2",
+    "Dictionary": "mpweaponscommon",
+    "SpriteName": "w_pi_combatpistol_mag2",
+    "Enabled": true
+  },
+  {
+    "ID": 711,
+    "HumanName": "W Pi Combatpistol Mag2 Silhouette",
+    "Dictionary": "mpweaponscommon",
+    "SpriteName": "w_pi_combatpistol_mag2_silhouette",
+    "Enabled": true
+  },
+  {
+    "ID": 712,
+    "HumanName": "W Pi Combatpistol Silhouette",
+    "Dictionary": "mpweaponscommon",
+    "SpriteName": "w_pi_combatpistol_silhouette",
+    "Enabled": true
+  },
+  {
+    "ID": 713,
+    "HumanName": "W Pi Combatpistol Silhouette Final",
+    "Dictionary": "mpweaponscommon",
+    "SpriteName": "w_pi_combatpistol_silhouette_final",
+    "Enabled": true
+  },
+  {
+    "ID": 714,
+    "HumanName": "W Pi Combatpistol Silhouette Overlay",
+    "Dictionary": "mpweaponscommon",
+    "SpriteName": "w_pi_combatpistol_silhouette_overlay",
+    "Enabled": true
+  },
+  {
+    "ID": 715,
+    "HumanName": "W Pi Combatpistol Supp",
+    "Dictionary": "mpweaponscommon",
+    "SpriteName": "w_pi_combatpistol_supp",
+    "Enabled": true
+  },
+  {
+    "ID": 716,
+    "HumanName": "W Pi Combatpistol Supp Silhouette",
+    "Dictionary": "mpweaponscommon",
+    "SpriteName": "w_pi_combatpistol_supp_silhouette",
+    "Enabled": true
+  },
+  {
+    "ID": 717,
+    "HumanName": "W R Grenadelauncher",
+    "Dictionary": "mpweaponscommon",
+    "SpriteName": "w_r_grenadelauncher",
+    "Enabled": true
+  },
+  {
+    "ID": 718,
+    "HumanName": "W R Grenadelauncher Flash Silhouette",
+    "Dictionary": "mpweaponscommon",
+    "SpriteName": "w_r_grenadelauncher_flash_silhouette",
+    "Enabled": true
+  },
+  {
+    "ID": 719,
+    "HumanName": "W R Grenadelauncher Grip",
+    "Dictionary": "mpweaponscommon",
+    "SpriteName": "w_r_grenadelauncher_grip",
+    "Enabled": true
+  },
+  {
+    "ID": 720,
+    "HumanName": "W R Grenadelauncher Grip Silhouette",
+    "Dictionary": "mpweaponscommon",
+    "SpriteName": "w_r_grenadelauncher_grip_silhouette",
+    "Enabled": true
+  },
+  {
+    "ID": 721,
+    "HumanName": "W R Grenadelauncher Laser",
+    "Dictionary": "mpweaponscommon",
+    "SpriteName": "w_r_grenadelauncher_laser",
+    "Enabled": true
+  },
+  {
+    "ID": 722,
+    "HumanName": "W R Grenadelauncher Scope",
+    "Dictionary": "mpweaponscommon",
+    "SpriteName": "w_r_grenadelauncher_scope",
+    "Enabled": true
+  },
+  {
+    "ID": 723,
+    "HumanName": "W R Grenadelauncher Scope Silhouette",
+    "Dictionary": "mpweaponscommon",
+    "SpriteName": "w_r_grenadelauncher_scope_silhouette",
+    "Enabled": true
+  },
+  {
+    "ID": 724,
+    "HumanName": "W R Grenadelauncher Silhouette",
+    "Dictionary": "mpweaponscommon",
+    "SpriteName": "w_r_grenadelauncher_silhouette",
+    "Enabled": true
+  },
+  {
+    "ID": 725,
+    "HumanName": "W R Grenadelauncher Silhouette Overlay",
+    "Dictionary": "mpweaponscommon",
+    "SpriteName": "w_r_grenadelauncher_silhouette_overlay",
+    "Enabled": true
+  },
+  {
+    "ID": 726,
+    "HumanName": "W Sb Microsmg",
+    "Dictionary": "mpweaponscommon",
+    "SpriteName": "w_sb_microsmg",
+    "Enabled": true
+  },
+  {
+    "ID": 727,
+    "HumanName": "W Sb Microsmg Flash",
+    "Dictionary": "mpweaponscommon",
+    "SpriteName": "w_sb_microsmg_flash",
+    "Enabled": true
+  },
+  {
+    "ID": 728,
+    "HumanName": "W Sb Microsmg Flash Silhouette",
+    "Dictionary": "mpweaponscommon",
+    "SpriteName": "w_sb_microsmg_flash_silhouette",
+    "Enabled": true
+  },
+  {
+    "ID": 729,
+    "HumanName": "W Sb Microsmg Mag1",
+    "Dictionary": "mpweaponscommon",
+    "SpriteName": "w_sb_microsmg_mag1",
+    "Enabled": true
+  },
+  {
+    "ID": 730,
+    "HumanName": "W Sb Microsmg Mag1 Silhouette",
+    "Dictionary": "mpweaponscommon",
+    "SpriteName": "w_sb_microsmg_mag1_silhouette",
+    "Enabled": true
+  },
+  {
+    "ID": 731,
+    "HumanName": "W Sb Microsmg Mag2",
+    "Dictionary": "mpweaponscommon",
+    "SpriteName": "w_sb_microsmg_mag2",
+    "Enabled": true
+  },
+  {
+    "ID": 732,
+    "HumanName": "W Sb Microsmg Mag2 Silhouette",
+    "Dictionary": "mpweaponscommon",
+    "SpriteName": "w_sb_microsmg_mag2_silhouette",
+    "Enabled": true
+  },
+  {
+    "ID": 733,
+    "HumanName": "W Sb Microsmg Scope",
+    "Dictionary": "mpweaponscommon",
+    "SpriteName": "w_sb_microsmg_scope",
+    "Enabled": true
+  },
+  {
+    "ID": 734,
+    "HumanName": "W Sb Microsmg Scope Silhouette",
+    "Dictionary": "mpweaponscommon",
+    "SpriteName": "w_sb_microsmg_scope_silhouette",
+    "Enabled": true
+  },
+  {
+    "ID": 735,
+    "HumanName": "W Sb Microsmg Silhouette",
+    "Dictionary": "mpweaponscommon",
+    "SpriteName": "w_sb_microsmg_silhouette",
+    "Enabled": true
+  },
+  {
+    "ID": 736,
+    "HumanName": "W Sb Microsmg Silhouette Overlay",
+    "Dictionary": "mpweaponscommon",
+    "SpriteName": "w_sb_microsmg_silhouette_overlay",
+    "Enabled": true
+  },
+  {
+    "ID": 737,
+    "HumanName": "W Sb Microsmg Supp",
+    "Dictionary": "mpweaponscommon",
+    "SpriteName": "w_sb_microsmg_supp",
+    "Enabled": true
+  },
+  {
+    "ID": 738,
+    "HumanName": "W Sb Microsmg Supp Silhouette",
+    "Dictionary": "mpweaponscommon",
+    "SpriteName": "w_sb_microsmg_supp_silhouette",
+    "Enabled": true
+  },
+  {
+    "ID": 739,
+    "HumanName": "W Sg Assaultshotgun",
+    "Dictionary": "mpweaponscommon",
+    "SpriteName": "w_sg_assaultshotgun",
+    "Enabled": true
+  },
+  {
+    "ID": 740,
+    "HumanName": "W Sg Assaultshotgun Flsh",
+    "Dictionary": "mpweaponscommon",
+    "SpriteName": "w_sg_assaultshotgun_flsh",
+    "Enabled": true
+  },
+  {
+    "ID": 741,
+    "HumanName": "W Sg Assaultshotgun Flsh Silhouette",
+    "Dictionary": "mpweaponscommon",
+    "SpriteName": "w_sg_assaultshotgun_flsh_silhouette",
+    "Enabled": true
+  },
+  {
+    "ID": 742,
+    "HumanName": "W Sg Assaultshotgun Grip",
+    "Dictionary": "mpweaponscommon",
+    "SpriteName": "w_sg_assaultshotgun_grip",
+    "Enabled": true
+  },
+  {
+    "ID": 743,
+    "HumanName": "W Sg Assaultshotgun Grip Silhouette",
+    "Dictionary": "mpweaponscommon",
+    "SpriteName": "w_sg_assaultshotgun_grip_silhouette",
+    "Enabled": true
+  },
+  {
+    "ID": 744,
+    "HumanName": "W Sg Assaultshotgun Mag1",
+    "Dictionary": "mpweaponscommon",
+    "SpriteName": "w_sg_assaultshotgun_mag1",
+    "Enabled": true
+  },
+  {
+    "ID": 745,
+    "HumanName": "W Sg Assaultshotgun Mag1 Silhouette",
+    "Dictionary": "mpweaponscommon",
+    "SpriteName": "w_sg_assaultshotgun_mag1_silhouette",
+    "Enabled": true
+  },
+  {
+    "ID": 746,
+    "HumanName": "W Sg Assaultshotgun Mag2",
+    "Dictionary": "mpweaponscommon",
+    "SpriteName": "w_sg_assaultshotgun_mag2",
+    "Enabled": true
+  },
+  {
+    "ID": 747,
+    "HumanName": "W Sg Assaultshotgun Mag2 Silhouette",
+    "Dictionary": "mpweaponscommon",
+    "SpriteName": "w_sg_assaultshotgun_mag2_silhouette",
+    "Enabled": true
+  },
+  {
+    "ID": 748,
+    "HumanName": "W Sg Assaultshotgun Silhouette  Overlay",
+    "Dictionary": "mpweaponscommon",
+    "SpriteName": "w_sg_assaultshotgun_silhouette _overlay",
+    "Enabled": true
+  },
+  {
+    "ID": 749,
+    "HumanName": "W Sg Assaultshotgun Silhouette",
+    "Dictionary": "mpweaponscommon",
+    "SpriteName": "w_sg_assaultshotgun_silhouette",
+    "Enabled": true
+  },
+  {
+    "ID": 750,
+    "HumanName": "W Sg Assaultshotgun Silhouette Final",
+    "Dictionary": "mpweaponscommon",
+    "SpriteName": "w_sg_assaultshotgun_silhouette_final",
+    "Enabled": true
+  },
+  {
+    "ID": 751,
+    "HumanName": "W Sg Assaultshotgun Supp",
+    "Dictionary": "mpweaponscommon",
+    "SpriteName": "w_sg_assaultshotgun_supp",
+    "Enabled": true
+  },
+  {
+    "ID": 752,
+    "HumanName": "W Sg Assaultshotgun Supp Silhouette",
+    "Dictionary": "mpweaponscommon",
+    "SpriteName": "w_sg_assaultshotgun_supp_silhouette",
+    "Enabled": true
+  },
+  {
+    "ID": 753,
+    "HumanName": "W Sg Pumpshotgun",
+    "Dictionary": "mpweaponscommon",
+    "SpriteName": "w_sg_pumpshotgun",
+    "Enabled": true
+  },
+  {
+    "ID": 754,
+    "HumanName": "W Sg Pumpshotgun Flash",
+    "Dictionary": "mpweaponscommon",
+    "SpriteName": "w_sg_pumpshotgun_flash",
+    "Enabled": true
+  },
+  {
+    "ID": 755,
+    "HumanName": "W Sg Pumpshotgun Flash Silhouette",
+    "Dictionary": "mpweaponscommon",
+    "SpriteName": "w_sg_pumpshotgun_flash_silhouette",
+    "Enabled": true
+  },
+  {
+    "ID": 756,
+    "HumanName": "W Sg Pumpshotgun Silhouette  Overlay",
+    "Dictionary": "mpweaponscommon",
+    "SpriteName": "w_sg_pumpshotgun_silhouette _overlay",
+    "Enabled": true
+  },
+  {
+    "ID": 757,
+    "HumanName": "W Sg Pumpshotgun Silhouette",
+    "Dictionary": "mpweaponscommon",
+    "SpriteName": "w_sg_pumpshotgun_silhouette",
+    "Enabled": true
+  },
+  {
+    "ID": 758,
+    "HumanName": "W Sg Pumpshotgun Supp",
+    "Dictionary": "mpweaponscommon",
+    "SpriteName": "w_sg_pumpshotgun_supp",
+    "Enabled": true
+  },
+  {
+    "ID": 759,
+    "HumanName": "W Sg Pumpshotgun Supp Silhouette",
+    "Dictionary": "mpweaponscommon",
+    "SpriteName": "w_sg_pumpshotgun_supp_silhouette",
+    "Enabled": true
+  },
+  {
+    "ID": 760,
+    "HumanName": "Rocket",
+    "Dictionary": "mpweaponscommon_small",
+    "SpriteName": "rocket",
+    "Enabled": true
+  },
+  {
+    "ID": 761,
+    "HumanName": "W Ex Grenadesmoke",
+    "Dictionary": "mpweaponscommon_small",
+    "SpriteName": "w_ex_grenadesmoke",
+    "Enabled": true
+  },
+  {
+    "ID": 762,
+    "HumanName": "W Ex Pe",
+    "Dictionary": "mpweaponscommon_small",
+    "SpriteName": "w_ex_pe",
+    "Enabled": true
+  },
+  {
+    "ID": 763,
+    "HumanName": "W Lr Rpg",
+    "Dictionary": "mpweaponscommon_small",
+    "SpriteName": "w_lr_rpg",
+    "Enabled": true
+  },
+  {
+    "ID": 764,
+    "HumanName": "W Pi Combatpistol",
+    "Dictionary": "mpweaponscommon_small",
+    "SpriteName": "w_pi_combatpistol",
+    "Enabled": true
+  },
+  {
+    "ID": 765,
+    "HumanName": "W R Grenadelauncher",
+    "Dictionary": "mpweaponscommon_small",
+    "SpriteName": "w_r_grenadelauncher",
+    "Enabled": true
+  },
+  {
+    "ID": 766,
+    "HumanName": "W Sb Assaultsmg",
+    "Dictionary": "mpweaponscommon_small",
+    "SpriteName": "w_sb_assaultsmg",
+    "Enabled": true
+  },
+  {
+    "ID": 767,
+    "HumanName": "W Sb Microsmg",
+    "Dictionary": "mpweaponscommon_small",
+    "SpriteName": "w_sb_microsmg",
+    "Enabled": true
+  },
+  {
+    "ID": 768,
+    "HumanName": "W Sg Assaultshotgun",
+    "Dictionary": "mpweaponscommon_small",
+    "SpriteName": "w_sg_assaultshotgun",
+    "Enabled": true
+  },
+  {
+    "ID": 769,
+    "HumanName": "W Sg Pumpshotgun",
+    "Dictionary": "mpweaponscommon_small",
+    "SpriteName": "w_sg_pumpshotgun",
+    "Enabled": true
+  },
+  {
+    "ID": 770,
+    "HumanName": "W Ar Advancedrifle",
+    "Dictionary": "mpweaponsgang0",
+    "SpriteName": "w_ar_advancedrifle",
+    "Enabled": true
+  },
+  {
+    "ID": 771,
+    "HumanName": "W Ar Advancedrifle Flash",
+    "Dictionary": "mpweaponsgang0",
+    "SpriteName": "w_ar_advancedrifle_flash",
+    "Enabled": true
+  },
+  {
+    "ID": 772,
+    "HumanName": "W Ar Advancedrifle Flash Silhouette",
+    "Dictionary": "mpweaponsgang0",
+    "SpriteName": "w_ar_advancedrifle_flash_silhouette",
+    "Enabled": true
+  },
+  {
+    "ID": 773,
+    "HumanName": "W Ar Advancedrifle Mag1",
+    "Dictionary": "mpweaponsgang0",
+    "SpriteName": "w_ar_advancedrifle_mag1",
+    "Enabled": true
+  },
+  {
+    "ID": 774,
+    "HumanName": "W Ar Advancedrifle Mag1 Silhouette",
+    "Dictionary": "mpweaponsgang0",
+    "SpriteName": "w_ar_advancedrifle_mag1_silhouette",
+    "Enabled": true
+  },
+  {
+    "ID": 775,
+    "HumanName": "W Ar Advancedrifle Mag2",
+    "Dictionary": "mpweaponsgang0",
+    "SpriteName": "w_ar_advancedrifle_mag2",
+    "Enabled": true
+  },
+  {
+    "ID": 776,
+    "HumanName": "W Ar Advancedrifle Mag2 Silhouette",
+    "Dictionary": "mpweaponsgang0",
+    "SpriteName": "w_ar_advancedrifle_mag2_silhouette",
+    "Enabled": true
+  },
+  {
+    "ID": 777,
+    "HumanName": "W Ar Advancedrifle Scopemedium",
+    "Dictionary": "mpweaponsgang0",
+    "SpriteName": "w_ar_advancedrifle_scopemedium",
+    "Enabled": true
+  },
+  {
+    "ID": 778,
+    "HumanName": "W Ar Advancedrifle Scopemedium Silhouette",
+    "Dictionary": "mpweaponsgang0",
+    "SpriteName": "w_ar_advancedrifle_scopemedium_silhouette",
+    "Enabled": true
+  },
+  {
+    "ID": 779,
+    "HumanName": "W Ar Advancedrifle Silhouette",
+    "Dictionary": "mpweaponsgang0",
+    "SpriteName": "w_ar_advancedrifle_silhouette",
+    "Enabled": true
+  },
+  {
+    "ID": 780,
+    "HumanName": "W Ar Advancedrifle Silhouette Overlay",
+    "Dictionary": "mpweaponsgang0",
+    "SpriteName": "w_ar_advancedrifle_silhouette_overlay",
+    "Enabled": true
+  },
+  {
+    "ID": 781,
+    "HumanName": "W Ar Advancedrifle Supp",
+    "Dictionary": "mpweaponsgang0",
+    "SpriteName": "w_ar_advancedrifle_supp",
+    "Enabled": true
+  },
+  {
+    "ID": 782,
+    "HumanName": "W Ar Advancedrifle Supp Silhouette",
+    "Dictionary": "mpweaponsgang0",
+    "SpriteName": "w_ar_advancedrifle_supp_silhouette",
+    "Enabled": true
+  },
+  {
+    "ID": 783,
+    "HumanName": "W Ar Carbinerifle",
+    "Dictionary": "mpweaponsgang0",
+    "SpriteName": "w_ar_carbinerifle",
+    "Enabled": true
+  },
+  {
+    "ID": 784,
+    "HumanName": "W Ar Carbinerifle Flash",
+    "Dictionary": "mpweaponsgang0",
+    "SpriteName": "w_ar_carbinerifle_flash",
+    "Enabled": true
+  },
+  {
+    "ID": 785,
+    "HumanName": "W Ar Carbinerifle Flash Silhouette",
+    "Dictionary": "mpweaponsgang0",
+    "SpriteName": "w_ar_carbinerifle_flash_silhouette",
+    "Enabled": true
+  },
+  {
+    "ID": 786,
+    "HumanName": "W Ar Carbinerifle Grip",
+    "Dictionary": "mpweaponsgang0",
+    "SpriteName": "w_ar_carbinerifle_grip",
+    "Enabled": true
+  },
+  {
+    "ID": 787,
+    "HumanName": "W Ar Carbinerifle Grip Silhouette",
+    "Dictionary": "mpweaponsgang0",
+    "SpriteName": "w_ar_carbinerifle_grip_silhouette",
+    "Enabled": true
+  },
+  {
+    "ID": 788,
+    "HumanName": "W Ar Carbinerifle Mag1",
+    "Dictionary": "mpweaponsgang0",
+    "SpriteName": "w_ar_carbinerifle_mag1",
+    "Enabled": true
+  },
+  {
+    "ID": 789,
+    "HumanName": "W Ar Carbinerifle Mag1 Silhouette",
+    "Dictionary": "mpweaponsgang0",
+    "SpriteName": "w_ar_carbinerifle_mag1_silhouette",
+    "Enabled": true
+  },
+  {
+    "ID": 790,
+    "HumanName": "W Ar Carbinerifle Mag2",
+    "Dictionary": "mpweaponsgang0",
+    "SpriteName": "w_ar_carbinerifle_mag2",
+    "Enabled": true
+  },
+  {
+    "ID": 791,
+    "HumanName": "W Ar Carbinerifle Mag2 Silhouette",
+    "Dictionary": "mpweaponsgang0",
+    "SpriteName": "w_ar_carbinerifle_mag2_silhouette",
+    "Enabled": true
+  },
+  {
+    "ID": 792,
+    "HumanName": "W Ar Carbinerifle Railcover",
+    "Dictionary": "mpweaponsgang0",
+    "SpriteName": "w_ar_carbinerifle_railcover",
+    "Enabled": true
+  },
+  {
+    "ID": 793,
+    "HumanName": "W Ar Carbinerifle Railcover Silhouette",
+    "Dictionary": "mpweaponsgang0",
+    "SpriteName": "w_ar_carbinerifle_railcover_silhouette",
+    "Enabled": true
+  },
+  {
+    "ID": 794,
+    "HumanName": "W Ar Carbinerifle Scope",
+    "Dictionary": "mpweaponsgang0",
+    "SpriteName": "w_ar_carbinerifle_scope",
+    "Enabled": true
+  },
+  {
+    "ID": 795,
+    "HumanName": "W Ar Carbinerifle Scope Silhouette",
+    "Dictionary": "mpweaponsgang0",
+    "SpriteName": "w_ar_carbinerifle_scope_silhouette",
+    "Enabled": true
+  },
+  {
+    "ID": 796,
+    "HumanName": "W Ar Carbinerifle Silhouette",
+    "Dictionary": "mpweaponsgang0",
+    "SpriteName": "w_ar_carbinerifle_silhouette",
+    "Enabled": true
+  },
+  {
+    "ID": 797,
+    "HumanName": "W Ar Carbinerifle Silhouette Overlay",
+    "Dictionary": "mpweaponsgang0",
+    "SpriteName": "w_ar_carbinerifle_silhouette_overlay",
+    "Enabled": true
+  },
+  {
+    "ID": 798,
+    "HumanName": "W Ar Carbinerifle Supp",
+    "Dictionary": "mpweaponsgang0",
+    "SpriteName": "w_ar_carbinerifle_supp",
+    "Enabled": true
+  },
+  {
+    "ID": 799,
+    "HumanName": "W Ar Carbinerifle Supp Silhouette",
+    "Dictionary": "mpweaponsgang0",
+    "SpriteName": "w_ar_carbinerifle_supp_silhouette",
+    "Enabled": true
+  },
+  {
+    "ID": 800,
+    "HumanName": "W Ex Grenadefrag",
+    "Dictionary": "mpweaponsgang0",
+    "SpriteName": "w_ex_grenadefrag",
+    "Enabled": true
+  },
+  {
+    "ID": 801,
+    "HumanName": "W Ex Grenadefrag Silhouette",
+    "Dictionary": "mpweaponsgang0",
+    "SpriteName": "w_ex_grenadefrag_silhouette",
+    "Enabled": true
+  },
+  {
+    "ID": 802,
+    "HumanName": "W Mg Combatmg",
+    "Dictionary": "mpweaponsgang0",
+    "SpriteName": "w_mg_combatmg",
+    "Enabled": true
+  },
+  {
+    "ID": 803,
+    "HumanName": "W Mg Combatmg Grip",
+    "Dictionary": "mpweaponsgang0",
+    "SpriteName": "w_mg_combatmg_grip",
+    "Enabled": true
+  },
+  {
+    "ID": 804,
+    "HumanName": "W Mg Combatmg Grip Silhouette",
+    "Dictionary": "mpweaponsgang0",
+    "SpriteName": "w_mg_combatmg_grip_silhouette",
+    "Enabled": true
+  },
+  {
+    "ID": 805,
+    "HumanName": "W Mg Combatmg Mag1",
+    "Dictionary": "mpweaponsgang0",
+    "SpriteName": "w_mg_combatmg_mag1",
+    "Enabled": true
+  },
+  {
+    "ID": 806,
+    "HumanName": "W Mg Combatmg Mag1 Silhouette",
+    "Dictionary": "mpweaponsgang0",
+    "SpriteName": "w_mg_combatmg_mag1_silhouette",
+    "Enabled": true
+  },
+  {
+    "ID": 807,
+    "HumanName": "W Mg Combatmg Mag2",
+    "Dictionary": "mpweaponsgang0",
+    "SpriteName": "w_mg_combatmg_mag2",
+    "Enabled": true
+  },
+  {
+    "ID": 808,
+    "HumanName": "W Mg Combatmg Mag2 Silhouette",
+    "Dictionary": "mpweaponsgang0",
+    "SpriteName": "w_mg_combatmg_mag2_silhouette",
+    "Enabled": true
+  },
+  {
+    "ID": 809,
+    "HumanName": "W Mg Combatmg Scope",
+    "Dictionary": "mpweaponsgang0",
+    "SpriteName": "w_mg_combatmg_scope",
+    "Enabled": true
+  },
+  {
+    "ID": 810,
+    "HumanName": "W Mg Combatmg Scope Silhouette",
+    "Dictionary": "mpweaponsgang0",
+    "SpriteName": "w_mg_combatmg_scope_silhouette",
+    "Enabled": true
+  },
+  {
+    "ID": 811,
+    "HumanName": "W Mg Combatmg Silhouette",
+    "Dictionary": "mpweaponsgang0",
+    "SpriteName": "w_mg_combatmg_silhouette",
+    "Enabled": true
+  },
+  {
+    "ID": 812,
+    "HumanName": "W Mg Combatmg Silhouette Overlay",
+    "Dictionary": "mpweaponsgang0",
+    "SpriteName": "w_mg_combatmg_silhouette_overlay",
+    "Enabled": true
+  },
+  {
+    "ID": 813,
+    "HumanName": "W Pi Stungun",
+    "Dictionary": "mpweaponsgang0",
+    "SpriteName": "w_pi_stungun",
+    "Enabled": true
+  },
+  {
+    "ID": 814,
+    "HumanName": "W Pi Stungun Silhouette",
+    "Dictionary": "mpweaponsgang0",
+    "SpriteName": "w_pi_stungun_silhouette",
+    "Enabled": true
+  },
+  {
+    "ID": 815,
+    "HumanName": "W Sb Smg",
+    "Dictionary": "mpweaponsgang0",
+    "SpriteName": "w_sb_smg",
+    "Enabled": true
+  },
+  {
+    "ID": 816,
+    "HumanName": "W Sb Smg Flash",
+    "Dictionary": "mpweaponsgang0",
+    "SpriteName": "w_sb_smg_flash",
+    "Enabled": true
+  },
+  {
+    "ID": 817,
+    "HumanName": "W Sb Smg Flash Silhouette",
+    "Dictionary": "mpweaponsgang0",
+    "SpriteName": "w_sb_smg_flash_silhouette",
+    "Enabled": true
+  },
+  {
+    "ID": 818,
+    "HumanName": "W Sb Smg Mag1",
+    "Dictionary": "mpweaponsgang0",
+    "SpriteName": "w_sb_smg_mag1",
+    "Enabled": true
+  },
+  {
+    "ID": 819,
+    "HumanName": "W Sb Smg Mag1 Silhouette",
+    "Dictionary": "mpweaponsgang0",
+    "SpriteName": "w_sb_smg_mag1_silhouette",
+    "Enabled": true
+  },
+  {
+    "ID": 820,
+    "HumanName": "W Sb Smg Mag2",
+    "Dictionary": "mpweaponsgang0",
+    "SpriteName": "w_sb_smg_mag2",
+    "Enabled": true
+  },
+  {
+    "ID": 821,
+    "HumanName": "W Sb Smg Mag2 Silhouette",
+    "Dictionary": "mpweaponsgang0",
+    "SpriteName": "w_sb_smg_mag2_silhouette",
+    "Enabled": true
+  },
+  {
+    "ID": 822,
+    "HumanName": "W Sb Smg Scope",
+    "Dictionary": "mpweaponsgang0",
+    "SpriteName": "w_sb_smg_scope",
+    "Enabled": true
+  },
+  {
+    "ID": 823,
+    "HumanName": "W Sb Smg Scope Silhouette",
+    "Dictionary": "mpweaponsgang0",
+    "SpriteName": "w_sb_smg_scope_silhouette",
+    "Enabled": true
+  },
+  {
+    "ID": 824,
+    "HumanName": "W Sb Smg Silhouette",
+    "Dictionary": "mpweaponsgang0",
+    "SpriteName": "w_sb_smg_silhouette",
+    "Enabled": true
+  },
+  {
+    "ID": 825,
+    "HumanName": "W Sb Smg Silhouette Overlay",
+    "Dictionary": "mpweaponsgang0",
+    "SpriteName": "w_sb_smg_silhouette_overlay",
+    "Enabled": true
+  },
+  {
+    "ID": 826,
+    "HumanName": "W Sb Smg Supp",
+    "Dictionary": "mpweaponsgang0",
+    "SpriteName": "w_sb_smg_supp",
+    "Enabled": true
+  },
+  {
+    "ID": 827,
+    "HumanName": "W Sb Smg Supp Silhouette",
+    "Dictionary": "mpweaponsgang0",
+    "SpriteName": "w_sb_smg_supp_silhouette",
+    "Enabled": true
+  },
+  {
+    "ID": 828,
+    "HumanName": "W Sr Heavysniper",
+    "Dictionary": "mpweaponsgang0",
+    "SpriteName": "w_sr_heavysniper",
+    "Enabled": true
+  },
+  {
+    "ID": 829,
+    "HumanName": "W Sr Heavysniper Scope",
+    "Dictionary": "mpweaponsgang0",
+    "SpriteName": "w_sr_heavysniper_scope",
+    "Enabled": true
+  },
+  {
+    "ID": 830,
+    "HumanName": "W Sr Heavysniper Scope Silhouette",
+    "Dictionary": "mpweaponsgang0",
+    "SpriteName": "w_sr_heavysniper_scope_silhouette",
+    "Enabled": true
+  },
+  {
+    "ID": 831,
+    "HumanName": "W Sr Heavysniper Scope Small",
+    "Dictionary": "mpweaponsgang0",
+    "SpriteName": "w_sr_heavysniper_scope_small",
+    "Enabled": true
+  },
+  {
+    "ID": 832,
+    "HumanName": "W Sr Heavysniper Scope Small Silhouette",
+    "Dictionary": "mpweaponsgang0",
+    "SpriteName": "w_sr_heavysniper_scope_small_silhouette",
+    "Enabled": true
+  },
+  {
+    "ID": 833,
+    "HumanName": "W Sr Heavysniper Silhouette",
+    "Dictionary": "mpweaponsgang0",
+    "SpriteName": "w_sr_heavysniper_silhouette",
+    "Enabled": true
+  },
+  {
+    "ID": 834,
+    "HumanName": "W Sr Heavysniper Silhouette Final",
+    "Dictionary": "mpweaponsgang0",
+    "SpriteName": "w_sr_heavysniper_silhouette_final",
+    "Enabled": true
+  },
+  {
+    "ID": 835,
+    "HumanName": "W Sr Heavysniper Silhouette Overlay",
+    "Dictionary": "mpweaponsgang0",
+    "SpriteName": "w_sr_heavysniper_silhouette_overlay",
+    "Enabled": true
+  },
+  {
+    "ID": 836,
+    "HumanName": "W Sr Sniperrifle",
+    "Dictionary": "mpweaponsgang0",
+    "SpriteName": "w_sr_sniperrifle",
+    "Enabled": true
+  },
+  {
+    "ID": 837,
+    "HumanName": "W Sr Sniperrifle Scope",
+    "Dictionary": "mpweaponsgang0",
+    "SpriteName": "w_sr_sniperrifle_scope",
+    "Enabled": true
+  },
+  {
+    "ID": 838,
+    "HumanName": "W Sr Sniperrifle Scope Large",
+    "Dictionary": "mpweaponsgang0",
+    "SpriteName": "w_sr_sniperrifle_scope_large",
+    "Enabled": true
+  },
+  {
+    "ID": 839,
+    "HumanName": "W Sr Sniperrifle Scope Large Silhouette",
+    "Dictionary": "mpweaponsgang0",
+    "SpriteName": "w_sr_sniperrifle_scope_large_silhouette",
+    "Enabled": true
+  },
+  {
+    "ID": 840,
+    "HumanName": "W Sr Sniperrifle Scope Silhouette",
+    "Dictionary": "mpweaponsgang0",
+    "SpriteName": "w_sr_sniperrifle_scope_silhouette",
+    "Enabled": true
+  },
+  {
+    "ID": 841,
+    "HumanName": "W Sr Sniperrifle Silhouette",
+    "Dictionary": "mpweaponsgang0",
+    "SpriteName": "w_sr_sniperrifle_silhouette",
+    "Enabled": true
+  },
+  {
+    "ID": 842,
+    "HumanName": "W Sr Sniperrifle Silhouette Final",
+    "Dictionary": "mpweaponsgang0",
+    "SpriteName": "w_sr_sniperrifle_silhouette_final",
+    "Enabled": true
+  },
+  {
+    "ID": 843,
+    "HumanName": "W Sr Sniperrifle Silhouette Overlay",
+    "Dictionary": "mpweaponsgang0",
+    "SpriteName": "w_sr_sniperrifle_silhouette_overlay",
+    "Enabled": true
+  },
+  {
+    "ID": 844,
+    "HumanName": "W Sr Sniperrifle Supp",
+    "Dictionary": "mpweaponsgang0",
+    "SpriteName": "w_sr_sniperrifle_supp",
+    "Enabled": true
+  },
+  {
+    "ID": 845,
+    "HumanName": "W Sr Sniperrifle Supp Silhouette",
+    "Dictionary": "mpweaponsgang0",
+    "SpriteName": "w_sr_sniperrifle_supp_silhouette",
+    "Enabled": true
+  },
+  {
+    "ID": 846,
+    "HumanName": "W Ar Addvancedrifle",
+    "Dictionary": "mpweaponsgang0_small",
+    "SpriteName": "w_ar_addvancedrifle",
+    "Enabled": true
+  },
+  {
+    "ID": 847,
+    "HumanName": "W Ar Carbinerifle",
+    "Dictionary": "mpweaponsgang0_small",
+    "SpriteName": "w_ar_carbinerifle",
+    "Enabled": true
+  },
+  {
+    "ID": 848,
+    "HumanName": "W Ex Grenadefrag",
+    "Dictionary": "mpweaponsgang0_small",
+    "SpriteName": "w_ex_grenadefrag",
+    "Enabled": true
+  },
+  {
+    "ID": 849,
+    "HumanName": "W Mg Combatmg",
+    "Dictionary": "mpweaponsgang0_small",
+    "SpriteName": "w_mg_combatmg",
+    "Enabled": true
+  },
+  {
+    "ID": 850,
+    "HumanName": "W Pi Stungun",
+    "Dictionary": "mpweaponsgang0_small",
+    "SpriteName": "w_pi_stungun",
+    "Enabled": true
+  },
+  {
+    "ID": 851,
+    "HumanName": "W Sb Rubber",
+    "Dictionary": "mpweaponsgang0_small",
+    "SpriteName": "w_sb_rubber",
+    "Enabled": true
+  },
+  {
+    "ID": 852,
+    "HumanName": "W Sb Mg",
+    "Dictionary": "mpweaponsgang0_small",
+    "SpriteName": "w_sb_mg",
+    "Enabled": true
+  },
+  {
+    "ID": 853,
+    "HumanName": "W Sr Heavysniper",
+    "Dictionary": "mpweaponsgang0_small",
+    "SpriteName": "w_sr_heavysniper",
+    "Enabled": true
+  },
+  {
+    "ID": 854,
+    "HumanName": "W Sr Sniperrifle",
+    "Dictionary": "mpweaponsgang0_small",
+    "SpriteName": "w_sr_sniperrifle",
+    "Enabled": true
+  },
+  {
+    "ID": 855,
+    "HumanName": "W Ar Assaultrifle",
+    "Dictionary": "mpweaponsgang1",
+    "SpriteName": "w_ar_assaultrifle",
+    "Enabled": true
+  },
+  {
+    "ID": 856,
+    "HumanName": "W Ar Assaultrifle Flash",
+    "Dictionary": "mpweaponsgang1",
+    "SpriteName": "w_ar_assaultrifle_flash",
+    "Enabled": true
+  },
+  {
+    "ID": 857,
+    "HumanName": "W Ar Assaultrifle Flash Silhouette",
+    "Dictionary": "mpweaponsgang1",
+    "SpriteName": "w_ar_assaultrifle_flash_silhouette",
+    "Enabled": true
+  },
+  {
+    "ID": 858,
+    "HumanName": "W Ar Assaultrifle Grip",
+    "Dictionary": "mpweaponsgang1",
+    "SpriteName": "w_ar_assaultrifle_grip",
+    "Enabled": true
+  },
+  {
+    "ID": 859,
+    "HumanName": "W Ar Assaultrifle Grip Silhouette",
+    "Dictionary": "mpweaponsgang1",
+    "SpriteName": "w_ar_assaultrifle_grip_silhouette",
+    "Enabled": true
+  },
+  {
+    "ID": 860,
+    "HumanName": "W Ar Assaultrifle Mag1",
+    "Dictionary": "mpweaponsgang1",
+    "SpriteName": "w_ar_assaultrifle_mag1",
+    "Enabled": true
+  },
+  {
+    "ID": 861,
+    "HumanName": "W Ar Assaultrifle Mag1 Silhouette",
+    "Dictionary": "mpweaponsgang1",
+    "SpriteName": "w_ar_assaultrifle_mag1_silhouette",
+    "Enabled": true
+  },
+  {
+    "ID": 862,
+    "HumanName": "W Ar Assaultrifle Mag2",
+    "Dictionary": "mpweaponsgang1",
+    "SpriteName": "w_ar_assaultrifle_mag2",
+    "Enabled": true
+  },
+  {
+    "ID": 863,
+    "HumanName": "W Ar Assaultrifle Mag2 Silhouette",
+    "Dictionary": "mpweaponsgang1",
+    "SpriteName": "w_ar_assaultrifle_mag2_silhouette",
+    "Enabled": true
+  },
+  {
+    "ID": 864,
+    "HumanName": "W Ar Assaultrifle Scope",
+    "Dictionary": "mpweaponsgang1",
+    "SpriteName": "w_ar_assaultrifle_scope",
+    "Enabled": true
+  },
+  {
+    "ID": 865,
+    "HumanName": "]W Ar Assaultrifle Scope Silhouette",
+    "Dictionary": "mpweaponsgang1",
+    "SpriteName": "]w_ar_assaultrifle_scope_silhouette",
+    "Enabled": true
+  },
+  {
+    "ID": 866,
+    "HumanName": "W Ar Assaultrifle Silhouette",
+    "Dictionary": "mpweaponsgang1",
+    "SpriteName": "w_ar_assaultrifle_silhouette",
+    "Enabled": true
+  },
+  {
+    "ID": 867,
+    "HumanName": "W Ar Assaultrifle Silhouette Overlay",
+    "Dictionary": "mpweaponsgang1",
+    "SpriteName": "w_ar_assaultrifle_silhouette_overlay",
+    "Enabled": true
+  },
+  {
+    "ID": 868,
+    "HumanName": "W Ar Assaultrifle Supp",
+    "Dictionary": "mpweaponsgang1",
+    "SpriteName": "w_ar_assaultrifle_supp",
+    "Enabled": true
+  },
+  {
+    "ID": 869,
+    "HumanName": "W Ar Assaultrifle Supp Silhouette",
+    "Dictionary": "mpweaponsgang1",
+    "SpriteName": "w_ar_assaultrifle_supp_silhouette",
+    "Enabled": true
+  },
+  {
+    "ID": 870,
+    "HumanName": "W Mg Mg",
+    "Dictionary": "mpweaponsgang1",
+    "SpriteName": "w_mg_mg",
+    "Enabled": true
+  },
+  {
+    "ID": 871,
+    "HumanName": "W Mg Mg Mag1",
+    "Dictionary": "mpweaponsgang1",
+    "SpriteName": "w_mg_mg_mag1",
+    "Enabled": true
+  },
+  {
+    "ID": 872,
+    "HumanName": "W Mg Mg Mag1 Silhouette",
+    "Dictionary": "mpweaponsgang1",
+    "SpriteName": "w_mg_mg_mag1_silhouette",
+    "Enabled": true
+  },
+  {
+    "ID": 873,
+    "HumanName": "W Mg Mg Mag2",
+    "Dictionary": "mpweaponsgang1",
+    "SpriteName": "w_mg_mg_mag2",
+    "Enabled": true
+  },
+  {
+    "ID": 874,
+    "HumanName": "W Mg Mg Mag2 Silhouette",
+    "Dictionary": "mpweaponsgang1",
+    "SpriteName": "w_mg_mg_mag2_silhouette",
+    "Enabled": true
+  },
+  {
+    "ID": 875,
+    "HumanName": "W Mg Mg Scope",
+    "Dictionary": "mpweaponsgang1",
+    "SpriteName": "w_mg_mg_scope",
+    "Enabled": true
+  },
+  {
+    "ID": 876,
+    "HumanName": "W Mg Mg Scope Silhouette",
+    "Dictionary": "mpweaponsgang1",
+    "SpriteName": "w_mg_mg_scope_silhouette",
+    "Enabled": true
+  },
+  {
+    "ID": 877,
+    "HumanName": "W Mg Mg Silhouette",
+    "Dictionary": "mpweaponsgang1",
+    "SpriteName": "w_mg_mg_silhouette",
+    "Enabled": true
+  },
+  {
+    "ID": 878,
+    "HumanName": "W Mg Mg Silhouette Final",
+    "Dictionary": "mpweaponsgang1",
+    "SpriteName": "w_mg_mg_silhouette_final",
+    "Enabled": true
+  },
+  {
+    "ID": 879,
+    "HumanName": "W Mg Mg Silhouette Overlay",
+    "Dictionary": "mpweaponsgang1",
+    "SpriteName": "w_mg_mg_silhouette_overlay",
+    "Enabled": true
+  },
+  {
+    "ID": 880,
+    "HumanName": "W Mg Minigun",
+    "Dictionary": "mpweaponsgang1",
+    "SpriteName": "w_mg_minigun",
+    "Enabled": true
+  },
+  {
+    "ID": 881,
+    "HumanName": "W Mg Minigun Silhouette",
+    "Dictionary": "mpweaponsgang1",
+    "SpriteName": "w_mg_minigun_silhouette",
+    "Enabled": true
+  },
+  {
+    "ID": 882,
+    "HumanName": "W Pi Apppistol",
+    "Dictionary": "mpweaponsgang1",
+    "SpriteName": "w_pi_apppistol",
+    "Enabled": true
+  },
+  {
+    "ID": 883,
+    "HumanName": "W Pi Apppistol Flsh",
+    "Dictionary": "mpweaponsgang1",
+    "SpriteName": "w_pi_apppistol_flsh",
+    "Enabled": true
+  },
+  {
+    "ID": 884,
+    "HumanName": "W Pi Apppistol Flsh Silhouette",
+    "Dictionary": "mpweaponsgang1",
+    "SpriteName": "w_pi_apppistol_flsh_silhouette",
+    "Enabled": true
+  },
+  {
+    "ID": 885,
+    "HumanName": "W Pi Apppistol Mag1",
+    "Dictionary": "mpweaponsgang1",
+    "SpriteName": "w_pi_apppistol_mag1",
+    "Enabled": true
+  },
+  {
+    "ID": 886,
+    "HumanName": "W Pi Apppistol Mag1 Silhouette",
+    "Dictionary": "mpweaponsgang1",
+    "SpriteName": "w_pi_apppistol_mag1_silhouette",
+    "Enabled": true
+  },
+  {
+    "ID": 887,
+    "HumanName": "W Pi Apppistol Mag2",
+    "Dictionary": "mpweaponsgang1",
+    "SpriteName": "w_pi_apppistol_mag2",
+    "Enabled": true
+  },
+  {
+    "ID": 888,
+    "HumanName": "W Pi Apppistol Mag2 Silhouette",
+    "Dictionary": "mpweaponsgang1",
+    "SpriteName": "w_pi_apppistol_mag2_silhouette",
+    "Enabled": true
+  },
+  {
+    "ID": 889,
+    "HumanName": "W Pi Apppistol Silhouette",
+    "Dictionary": "mpweaponsgang1",
+    "SpriteName": "w_pi_apppistol_silhouette",
+    "Enabled": true
+  },
+  {
+    "ID": 890,
+    "HumanName": "W Pi Apppistol Silhouette Final",
+    "Dictionary": "mpweaponsgang1",
+    "SpriteName": "w_pi_apppistol_silhouette_final",
+    "Enabled": true
+  },
+  {
+    "ID": 891,
+    "HumanName": "W Pi Apppistol Silhouette Overlay",
+    "Dictionary": "mpweaponsgang1",
+    "SpriteName": "w_pi_apppistol_silhouette_overlay",
+    "Enabled": true
+  },
+  {
+    "ID": 892,
+    "HumanName": "W Pi Apppistol Supp",
+    "Dictionary": "mpweaponsgang1",
+    "SpriteName": "w_pi_apppistol_supp",
+    "Enabled": true
+  },
+  {
+    "ID": 893,
+    "HumanName": "W Pi Apppistol Supp Silhouette",
+    "Dictionary": "mpweaponsgang1",
+    "SpriteName": "w_pi_apppistol_supp_silhouette",
+    "Enabled": true
+  },
+  {
+    "ID": 894,
+    "HumanName": "W Pi Pistol",
+    "Dictionary": "mpweaponsgang1",
+    "SpriteName": "w_pi_pistol",
+    "Enabled": true
+  },
+  {
+    "ID": 895,
+    "HumanName": "W Pi Pistol Flash",
+    "Dictionary": "mpweaponsgang1",
+    "SpriteName": "w_pi_pistol_flash",
+    "Enabled": true
+  },
+  {
+    "ID": 896,
+    "HumanName": "W Pi Pistol Flash Silhouette",
+    "Dictionary": "mpweaponsgang1",
+    "SpriteName": "w_pi_pistol_flash_silhouette",
+    "Enabled": true
+  },
+  {
+    "ID": 897,
+    "HumanName": "W Pi Pistol Mag1",
+    "Dictionary": "mpweaponsgang1",
+    "SpriteName": "w_pi_pistol_mag1",
+    "Enabled": true
+  },
+  {
+    "ID": 898,
+    "HumanName": "W Pi Pistol Mag1 Silhouette",
+    "Dictionary": "mpweaponsgang1",
+    "SpriteName": "w_pi_pistol_mag1_silhouette",
+    "Enabled": true
+  },
+  {
+    "ID": 899,
+    "HumanName": "W Pi Pistol Mag2",
+    "Dictionary": "mpweaponsgang1",
+    "SpriteName": "w_pi_pistol_mag2",
+    "Enabled": true
+  },
+  {
+    "ID": 900,
+    "HumanName": "W Pi Pistol Mag2 Silhouette",
+    "Dictionary": "mpweaponsgang1",
+    "SpriteName": "w_pi_pistol_mag2_silhouette",
+    "Enabled": true
+  },
+  {
+    "ID": 901,
+    "HumanName": "W Pi Pistol Silhouette",
+    "Dictionary": "mpweaponsgang1",
+    "SpriteName": "w_pi_pistol_silhouette",
+    "Enabled": true
+  },
+  {
+    "ID": 902,
+    "HumanName": "W Pi Pistol Silhouette Final",
+    "Dictionary": "mpweaponsgang1",
+    "SpriteName": "w_pi_pistol_silhouette_final",
+    "Enabled": true
+  },
+  {
+    "ID": 903,
+    "HumanName": "W Pi Pistol Silhouette Overlay",
+    "Dictionary": "mpweaponsgang1",
+    "SpriteName": "w_pi_pistol_silhouette_overlay",
+    "Enabled": true
+  },
+  {
+    "ID": 904,
+    "HumanName": "W Pi Pistol Supp",
+    "Dictionary": "mpweaponsgang1",
+    "SpriteName": "w_pi_pistol_supp",
+    "Enabled": true
+  },
+  {
+    "ID": 905,
+    "HumanName": "W Pi Pistol Supp Silhouette",
+    "Dictionary": "mpweaponsgang1",
+    "SpriteName": "w_pi_pistol_supp_silhouette",
+    "Enabled": true
+  },
+  {
+    "ID": 906,
+    "HumanName": "W Sg Sawnoff",
+    "Dictionary": "mpweaponsgang1",
+    "SpriteName": "w_sg_sawnoff",
+    "Enabled": true
+  },
+  {
+    "ID": 907,
+    "HumanName": "W Sg Sawnoff Silhouette",
+    "Dictionary": "mpweaponsgang1",
+    "SpriteName": "w_sg_sawnoff_silhouette",
+    "Enabled": true
+  },
+  {
+    "ID": 908,
+    "HumanName": "W Ar Assaultrifle",
+    "Dictionary": "mpweaponsgang1_small",
+    "SpriteName": "w_ar_assaultrifle",
+    "Enabled": true
+  },
+  {
+    "ID": 909,
+    "HumanName": "W Mgassaultmg",
+    "Dictionary": "mpweaponsgang1_small",
+    "SpriteName": "w_mgassaultmg",
+    "Enabled": true
+  },
+  {
+    "ID": 910,
+    "HumanName": "W Mg Mg",
+    "Dictionary": "mpweaponsgang1_small",
+    "SpriteName": "w_mg_mg",
+    "Enabled": true
+  },
+  {
+    "ID": 911,
+    "HumanName": "W Mg Minigun",
+    "Dictionary": "mpweaponsgang1_small",
+    "SpriteName": "w_mg_minigun",
+    "Enabled": true
+  },
+  {
+    "ID": 912,
+    "HumanName": "W Pi Apppistol",
+    "Dictionary": "mpweaponsgang1_small",
+    "SpriteName": "w_pi_apppistol",
+    "Enabled": true
+  },
+  {
+    "ID": 913,
+    "HumanName": "W Pi Pistol",
+    "Dictionary": "mpweaponsgang1_small",
+    "SpriteName": "w_pi_pistol",
+    "Enabled": true
+  },
+  {
+    "ID": 914,
+    "HumanName": "W Sg Sawnoff",
+    "Dictionary": "mpweaponsgang1_small",
+    "SpriteName": "w_sg_sawnoff",
+    "Enabled": true
+  },
+  {
+    "ID": 915,
+    "HumanName": "W Am Digiscanner",
+    "Dictionary": "mpweaponsunusedfornow",
+    "SpriteName": "w_am_digiscanner",
+    "Enabled": true
+  },
+  {
+    "ID": 916,
+    "HumanName": "W Am Digiscanner Silhouette",
+    "Dictionary": "mpweaponsunusedfornow",
+    "SpriteName": "w_am_digiscanner_silhouette",
+    "Enabled": true
+  },
+  {
+    "ID": 917,
+    "HumanName": "W Am Fire Exting",
+    "Dictionary": "mpweaponsunusedfornow",
+    "SpriteName": "w_am_fire_exting",
+    "Enabled": true
+  },
+  {
+    "ID": 918,
+    "HumanName": "W Am Fire Exting Silhouette",
+    "Dictionary": "mpweaponsunusedfornow",
+    "SpriteName": "w_am_fire_exting_silhouette",
+    "Enabled": true
+  },
+  {
+    "ID": 919,
+    "HumanName": "W Am Jerrycan",
+    "Dictionary": "mpweaponsunusedfornow",
+    "SpriteName": "w_am_jerrycan",
+    "Enabled": true
+  },
+  {
+    "ID": 920,
+    "HumanName": "W Am Jerrycan Silhouette",
+    "Dictionary": "mpweaponsunusedfornow",
+    "SpriteName": "w_am_jerrycan_silhouette",
+    "Enabled": true
+  },
+  {
+    "ID": 921,
+    "HumanName": "W Am Loudhailer",
+    "Dictionary": "mpweaponsunusedfornow",
+    "SpriteName": "w_am_loudhailer",
+    "Enabled": true
+  },
+  {
+    "ID": 922,
+    "HumanName": "W Am Loudhailer Silhouette",
+    "Dictionary": "mpweaponsunusedfornow",
+    "SpriteName": "w_am_loudhailer_silhouette",
+    "Enabled": true
+  },
+  {
+    "ID": 923,
+    "HumanName": "W Am Parachute",
+    "Dictionary": "mpweaponsunusedfornow",
+    "SpriteName": "w_am_parachute",
+    "Enabled": true
+  },
+  {
+    "ID": 924,
+    "HumanName": "W Am Parachute Silhouette",
+    "Dictionary": "mpweaponsunusedfornow",
+    "SpriteName": "w_am_parachute_silhouette",
+    "Enabled": true
+  },
+  {
+    "ID": 925,
+    "HumanName": "W Ex Molotov",
+    "Dictionary": "mpweaponsunusedfornow",
+    "SpriteName": "w_ex_molotov",
+    "Enabled": true
+  },
+  {
+    "ID": 926,
+    "HumanName": "W Ex Molotov Silhouette",
+    "Dictionary": "mpweaponsunusedfornow",
+    "SpriteName": "w_ex_molotov_silhouette",
+    "Enabled": true
+  },
+  {
+    "ID": 927,
+    "HumanName": "W Meleelasso 01",
+    "Dictionary": "mpweaponsunusedfornow",
+    "SpriteName": "w_meleelasso_01",
+    "Enabled": true
+  },
+  {
+    "ID": 928,
+    "HumanName": "W Meleelasso Silhouette",
+    "Dictionary": "mpweaponsunusedfornow",
+    "SpriteName": "w_meleelasso_silhouette",
+    "Enabled": true
+  },
+  {
+    "ID": 929,
+    "HumanName": "W Me Bat",
+    "Dictionary": "mpweaponsunusedfornow",
+    "SpriteName": "w_me_bat",
+    "Enabled": true
+  },
+  {
+    "ID": 930,
+    "HumanName": "W Me Bat Silhouette",
+    "Dictionary": "mpweaponsunusedfornow",
+    "SpriteName": "w_me_bat_silhouette",
+    "Enabled": true
+  },
+  {
+    "ID": 931,
+    "HumanName": "W Me Crowbar",
+    "Dictionary": "mpweaponsunusedfornow",
+    "SpriteName": "w_me_crowbar",
+    "Enabled": true
+  },
+  {
+    "ID": 932,
+    "HumanName": "W Me Crowbar Silhouette",
+    "Dictionary": "mpweaponsunusedfornow",
+    "SpriteName": "w_me_crowbar_silhouette",
+    "Enabled": true
+  },
+  {
+    "ID": 933,
+    "HumanName": "W Me Fireaxe",
+    "Dictionary": "mpweaponsunusedfornow",
+    "SpriteName": "w_me_fireaxe",
+    "Enabled": true
+  },
+  {
+    "ID": 934,
+    "HumanName": "W Me Fireaxe Silhouette",
+    "Dictionary": "mpweaponsunusedfornow",
+    "SpriteName": "w_me_fireaxe_silhouette",
+    "Enabled": true
+  },
+  {
+    "ID": 935,
+    "HumanName": "W Me Fist",
+    "Dictionary": "mpweaponsunusedfornow",
+    "SpriteName": "w_me_fist",
+    "Enabled": true
+  },
+  {
+    "ID": 936,
+    "HumanName": "W Me Fist Silhouette",
+    "Dictionary": "mpweaponsunusedfornow",
+    "SpriteName": "w_me_fist_silhouette",
+    "Enabled": true
+  },
+  {
+    "ID": 937,
+    "HumanName": "W Me Gclub",
+    "Dictionary": "mpweaponsunusedfornow",
+    "SpriteName": "w_me_gclub",
+    "Enabled": true
+  },
+  {
+    "ID": 938,
+    "HumanName": "W Me Gclub Silhouette",
+    "Dictionary": "mpweaponsunusedfornow",
+    "SpriteName": "w_me_gclub_silhouette",
+    "Enabled": true
+  },
+  {
+    "ID": 939,
+    "HumanName": "W Me Hammer",
+    "Dictionary": "mpweaponsunusedfornow",
+    "SpriteName": "w_me_hammer",
+    "Enabled": true
+  },
+  {
+    "ID": 940,
+    "HumanName": "W Me Hammer Silhouette",
+    "Dictionary": "mpweaponsunusedfornow",
+    "SpriteName": "w_me_hammer_silhouette",
+    "Enabled": true
+  },
+  {
+    "ID": 941,
+    "HumanName": "W Me Knife 01",
+    "Dictionary": "mpweaponsunusedfornow",
+    "SpriteName": "w_me_knife_01",
+    "Enabled": true
+  },
+  {
+    "ID": 942,
+    "HumanName": "W Me Knife Silhouette",
+    "Dictionary": "mpweaponsunusedfornow",
+    "SpriteName": "w_me_knife_silhouette",
+    "Enabled": true
+  },
+  {
+    "ID": 943,
+    "HumanName": "W Me Nightstick",
+    "Dictionary": "mpweaponsunusedfornow",
+    "SpriteName": "w_me_nightstick",
+    "Enabled": true
+  },
+  {
+    "ID": 944,
+    "HumanName": "W Me Nightstick Silhouette",
+    "Dictionary": "mpweaponsunusedfornow",
+    "SpriteName": "w_me_nightstick_silhouette",
+    "Enabled": true
+  },
+  {
+    "ID": 945,
+    "HumanName": "W Me Shovel",
+    "Dictionary": "mpweaponsunusedfornow",
+    "SpriteName": "w_me_shovel",
+    "Enabled": true
+  },
+  {
+    "ID": 946,
+    "HumanName": "W Me Shovel Silhouette",
+    "Dictionary": "mpweaponsunusedfornow",
+    "SpriteName": "w_me_shovel_silhouette",
+    "Enabled": true
+  },
+  {
+    "ID": 947,
+    "HumanName": "W Me Wrench",
+    "Dictionary": "mpweaponsunusedfornow",
+    "SpriteName": "w_me_wrench",
+    "Enabled": true
+  },
+  {
+    "ID": 948,
+    "HumanName": "W Me Wrench Silhouette",
+    "Dictionary": "mpweaponsunusedfornow",
+    "SpriteName": "w_me_wrench_silhouette",
+    "Enabled": true
+  },
+  {
+    "ID": 949,
+    "HumanName": "Debugmap",
+    "Dictionary": "mp_freemode_mc",
+    "SpriteName": "debugmap",
+    "Enabled": true
+  },
+  {
+    "ID": 950,
+    "HumanName": "Mouse",
+    "Dictionary": "mp_freemode_mc",
+    "SpriteName": "mouse",
+    "Enabled": true
+  },
+  {
+    "ID": 951,
+    "HumanName": "Mug01",
+    "Dictionary": "mugshots",
+    "SpriteName": "mug01",
+    "Enabled": true
+  },
+  {
+    "ID": 952,
+    "HumanName": "Mug02",
+    "Dictionary": "mugshots",
+    "SpriteName": "mug02",
+    "Enabled": true
+  },
+  {
+    "ID": 953,
+    "HumanName": "Mug03",
+    "Dictionary": "mugshots",
+    "SpriteName": "mug03",
+    "Enabled": true
+  },
+  {
+    "ID": 954,
+    "HumanName": "Empty 128",
+    "Dictionary": "pilotschool",
+    "SpriteName": "empty_128",
+    "Enabled": true
+  },
+  {
+    "ID": 955,
+    "HumanName": "Flightschool Bronze 128",
+    "Dictionary": "pilotschool",
+    "SpriteName": "flightschool_bronze_128",
+    "Enabled": true
+  },
+  {
+    "ID": 956,
+    "HumanName": "Flightschool Gold 128",
+    "Dictionary": "pilotschool",
+    "SpriteName": "flightschool_gold_128",
+    "Enabled": true
+  },
+  {
+    "ID": 957,
+    "HumanName": "Flightschool Logo 256",
+    "Dictionary": "pilotschool",
+    "SpriteName": "flightschool_logo_256",
+    "Enabled": true
+  },
+  {
+    "ID": 958,
+    "HumanName": "Flightschool Silver 128",
+    "Dictionary": "pilotschool",
+    "SpriteName": "flightschool_silver_128",
+    "Enabled": true
+  },
+  {
+    "ID": 959,
+    "HumanName": "Hudarrow",
+    "Dictionary": "pilotschool",
+    "SpriteName": "hudarrow",
+    "Enabled": true
+  },
+  {
+    "ID": 960,
+    "HumanName": "Locked Icon",
+    "Dictionary": "pilotschool",
+    "SpriteName": "locked_icon",
+    "Enabled": true
+  },
+  {
+    "ID": 961,
+    "HumanName": "Medaldot 32",
+    "Dictionary": "pilotschool",
+    "SpriteName": "medaldot_32",
+    "Enabled": true
+  },
+  {
+    "ID": 962,
+    "HumanName": "Planeradarover",
+    "Dictionary": "pilotschool",
+    "SpriteName": "planeradarover",
+    "Enabled": true
+  },
+  {
+    "ID": 963,
+    "HumanName": "Boy1s",
+    "Dictionary": "procreate",
+    "SpriteName": "boy1s",
+    "Enabled": true
+  },
+  {
+    "ID": 964,
+    "HumanName": "Boy2s",
+    "Dictionary": "procreate",
+    "SpriteName": "boy2s",
+    "Enabled": true
+  },
+  {
+    "ID": 965,
+    "HumanName": "Boy3s",
+    "Dictionary": "procreate",
+    "SpriteName": "boy3s",
+    "Enabled": true
+  },
+  {
+    "ID": 966,
+    "HumanName": "Dad1s",
+    "Dictionary": "procreate",
+    "SpriteName": "dad1s",
+    "Enabled": true
+  },
+  {
+    "ID": 967,
+    "HumanName": "Dad2s",
+    "Dictionary": "procreate",
+    "SpriteName": "dad2s",
+    "Enabled": true
+  },
+  {
+    "ID": 968,
+    "HumanName": "Dad3s",
+    "Dictionary": "procreate",
+    "SpriteName": "dad3s",
+    "Enabled": true
+  },
+  {
+    "ID": 969,
+    "HumanName": "Girl1s",
+    "Dictionary": "procreate",
+    "SpriteName": "girl1s",
+    "Enabled": true
+  },
+  {
+    "ID": 970,
+    "HumanName": "Girl2s",
+    "Dictionary": "procreate",
+    "SpriteName": "girl2s",
+    "Enabled": true
+  },
+  {
+    "ID": 971,
+    "HumanName": "Girl3s",
+    "Dictionary": "procreate",
+    "SpriteName": "girl3s",
+    "Enabled": true
+  },
+  {
+    "ID": 972,
+    "HumanName": "Mum1s",
+    "Dictionary": "procreate",
+    "SpriteName": "mum1s",
+    "Enabled": true
+  },
+  {
+    "ID": 973,
+    "HumanName": "Mum2s",
+    "Dictionary": "procreate",
+    "SpriteName": "mum2s",
+    "Enabled": true
+  },
+  {
+    "ID": 974,
+    "HumanName": "Mum3s",
+    "Dictionary": "procreate",
+    "SpriteName": "mum3s",
+    "Enabled": true
+  },
+  {
+    "ID": 975,
+    "HumanName": "Common Medal",
+    "Dictionary": "ps_menu",
+    "SpriteName": "common_medal",
+    "Enabled": true
+  },
+  {
+    "ID": 976,
+    "HumanName": "Flightschool 1A Runwaytakeoff",
+    "Dictionary": "ps_menu",
+    "SpriteName": "flightschool_1a_runwaytakeoff",
+    "Enabled": true
+  },
+  {
+    "ID": 977,
+    "HumanName": "Flightschool 1 Invert",
+    "Dictionary": "ps_menu",
+    "SpriteName": "flightschool_1_invert",
+    "Enabled": true
+  },
+  {
+    "ID": 978,
+    "HumanName": "Flightschool 2A Runwaylanding",
+    "Dictionary": "ps_menu",
+    "SpriteName": "flightschool_2a_runwaylanding",
+    "Enabled": true
+  },
+  {
+    "ID": 979,
+    "HumanName": "Flightschool 2 Knife",
+    "Dictionary": "ps_menu",
+    "SpriteName": "flightschool_2_knife",
+    "Enabled": true
+  },
+  {
+    "ID": 980,
+    "HumanName": "Flightschool 3 Loop",
+    "Dictionary": "ps_menu",
+    "SpriteName": "flightschool_3_loop",
+    "Enabled": true
+  },
+  {
+    "ID": 981,
+    "HumanName": "Flightschool 4 Lowfly",
+    "Dictionary": "ps_menu",
+    "SpriteName": "flightschool_4_lowfly",
+    "Enabled": true
+  },
+  {
+    "ID": 982,
+    "HumanName": "Flightschool 5 Land",
+    "Dictionary": "ps_menu",
+    "SpriteName": "flightschool_5_land",
+    "Enabled": true
+  },
+  {
+    "ID": 983,
+    "HumanName": "Flightschool 6 Obstacle",
+    "Dictionary": "ps_menu",
+    "SpriteName": "flightschool_6_obstacle",
+    "Enabled": true
+  },
+  {
+    "ID": 984,
+    "HumanName": "Flightschool 7 Heliobstacle",
+    "Dictionary": "ps_menu",
+    "SpriteName": "flightschool_7_heliobstacle",
+    "Enabled": true
+  },
+  {
+    "ID": 985,
+    "HumanName": "Flightschool 8 Helispeed",
+    "Dictionary": "ps_menu",
+    "SpriteName": "flightschool_8_helispeed",
+    "Enabled": true
+  },
+  {
+    "ID": 986,
+    "HumanName": "Flightschool 9 Skydive",
+    "Dictionary": "ps_menu",
+    "SpriteName": "flightschool_9_skydive",
+    "Enabled": true
+  },
+  {
+    "ID": 987,
+    "HumanName": "Flightschool 10 Skydivemoving",
+    "Dictionary": "ps_menu",
+    "SpriteName": "flightschool_10_skydivemoving",
+    "Enabled": true
+  },
+  {
+    "ID": 988,
+    "HumanName": "Flightschool 11 Formation",
+    "Dictionary": "ps_menu",
+    "SpriteName": "flightschool_11_formation",
+    "Enabled": true
+  },
+  {
+    "ID": 989,
+    "HumanName": "Locked Icon",
+    "Dictionary": "ps_menu",
+    "SpriteName": "locked_icon",
+    "Enabled": true
+  },
+  {
+    "ID": 990,
+    "HumanName": "Mp Lock Icon",
+    "Dictionary": "ps_menu",
+    "SpriteName": "mp_lock_icon",
+    "Enabled": true
+  },
+  {
+    "ID": 991,
+    "HumanName": "Mp Main Gradient",
+    "Dictionary": "ps_menu",
+    "SpriteName": "mp_main_gradient",
+    "Enabled": true
+  },
+  {
+    "ID": 992,
+    "HumanName": "Securitycam Box",
+    "Dictionary": "securitycam",
+    "SpriteName": "securitycam_box",
+    "Enabled": true
+  },
+  {
+    "ID": 993,
+    "HumanName": "Securitycam Scanlines",
+    "Dictionary": "securitycam",
+    "SpriteName": "securitycam_scanlines",
+    "Enabled": true
+  },
+  {
+    "ID": 994,
+    "HumanName": "Bggradient 16X512",
+    "Dictionary": "shared",
+    "SpriteName": "bggradient_16x512",
+    "Enabled": true
+  },
+  {
+    "ID": 995,
+    "HumanName": "Bggradient 32X1024",
+    "Dictionary": "shared",
+    "SpriteName": "bggradient_32x1024",
+    "Enabled": true
+  },
+  {
+    "ID": 996,
+    "HumanName": "Crown 32",
+    "Dictionary": "shared",
+    "SpriteName": "crown_32",
+    "Enabled": true
+  },
+  {
+    "ID": 997,
+    "HumanName": "Emptydot 32",
+    "Dictionary": "shared",
+    "SpriteName": "emptydot_32",
+    "Enabled": true
+  },
+  {
+    "ID": 998,
+    "HumanName": "Info Icon 32",
+    "Dictionary": "shared",
+    "SpriteName": "info_icon_32",
+    "Enabled": true
+  },
+  {
+    "ID": 999,
+    "HumanName": "Locked Icon 32",
+    "Dictionary": "shared",
+    "SpriteName": "locked_icon_32",
+    "Enabled": true
+  },
+  {
+    "ID": 1000,
+    "HumanName": "Medaldot 32",
+    "Dictionary": "shared",
+    "SpriteName": "medaldot_32",
+    "Enabled": true
+  },
+  {
+    "ID": 1001,
+    "HumanName": "Medal Bronze 128",
+    "Dictionary": "shared",
+    "SpriteName": "medal_bronze_128",
+    "Enabled": true
+  },
+  {
+    "ID": 1002,
+    "HumanName": "Medal Empty 128",
+    "Dictionary": "shared",
+    "SpriteName": "medal_empty_128",
+    "Enabled": true
+  },
+  {
+    "ID": 1003,
+    "HumanName": "Medal Gold 128",
+    "Dictionary": "shared",
+    "SpriteName": "medal_gold_128",
+    "Enabled": true
+  },
+  {
+    "ID": 1004,
+    "HumanName": "Medal Silver 128",
+    "Dictionary": "shared",
+    "SpriteName": "medal_silver_128",
+    "Enabled": true
+  },
+  {
+    "ID": 1005,
+    "HumanName": "Menuarrow 32",
+    "Dictionary": "shared",
+    "SpriteName": "menuarrow_32",
+    "Enabled": true
+  },
+  {
+    "ID": 1006,
+    "HumanName": "Menuplus 32",
+    "Dictionary": "shared",
+    "SpriteName": "menuplus_32",
+    "Enabled": true
+  },
+  {
+    "ID": 1007,
+    "HumanName": "Newstar 32",
+    "Dictionary": "shared",
+    "SpriteName": "newstar_32",
+    "Enabled": true
+  },
+  {
+    "ID": 1008,
+    "HumanName": "Tempscorecard",
+    "Dictionary": "shared",
+    "SpriteName": "tempscorecard",
+    "Enabled": true
+  },
+  {
+    "ID": 1009,
+    "HumanName": "Tempscorecard 256",
+    "Dictionary": "shared",
+    "SpriteName": "tempscorecard_256",
+    "Enabled": true
+  },
+  {
+    "ID": 1010,
+    "HumanName": "Shopui Title Barber",
+    "Dictionary": "shopui_title_barber",
+    "SpriteName": "shopui_title_barber",
+    "Enabled": true
+  },
+  {
+    "ID": 1011,
+    "HumanName": "Shopui Title Barber2",
+    "Dictionary": "shopui_title_barber2",
+    "SpriteName": "shopui_title_barber2",
+    "Enabled": true
+  },
+  {
+    "ID": 1012,
+    "HumanName": "Shopui Title Barber3",
+    "Dictionary": "shopui_title_barber3",
+    "SpriteName": "shopui_title_barber3",
+    "Enabled": true
+  },
+  {
+    "ID": 1013,
+    "HumanName": "Shopui Title Barber4",
+    "Dictionary": "shopui_title_barber4",
+    "SpriteName": "shopui_title_barber4",
+    "Enabled": true
+  },
+  {
+    "ID": 1014,
+    "HumanName": "Shopui Title Carmod",
+    "Dictionary": "shopui_title_carmod",
+    "SpriteName": "shopui_title_carmod",
+    "Enabled": true
+  },
+  {
+    "ID": 1015,
+    "HumanName": "Shopui Title Carmod2",
+    "Dictionary": "shopui_title_carmod2",
+    "SpriteName": "shopui_title_carmod2",
+    "Enabled": true
+  },
+  {
+    "ID": 1016,
+    "HumanName": "Shopui Title Tennisstore",
+    "Dictionary": "shopui_title_conveniencestore",
+    "SpriteName": "shopui_title_tennisstore",
+    "Enabled": true
+  },
+  {
+    "ID": 1017,
+    "HumanName": "Shopui Title Conveniencestore",
+    "Dictionary": "shopui_title_conveniencestore",
+    "SpriteName": "shopui_title_conveniencestore",
+    "Enabled": true
+  },
+  {
+    "ID": 1018,
+    "HumanName": "Shopui Title Darts",
+    "Dictionary": "shopui_title_darts",
+    "SpriteName": "shopui_title_darts",
+    "Enabled": true
+  },
+  {
+    "ID": 1019,
+    "HumanName": "Shopui Title Gasstation",
+    "Dictionary": "shopui_title_gasstation",
+    "SpriteName": "shopui_title_gasstation",
+    "Enabled": true
+  },
+  {
+    "ID": 1020,
+    "HumanName": "Shopui Title Golfshop",
+    "Dictionary": "shopui_title_golfshop",
+    "SpriteName": "shopui_title_golfshop",
+    "Enabled": true
+  },
+  {
+    "ID": 1021,
+    "HumanName": "Shopui Title Graphics Franklin",
+    "Dictionary": "shopui_title_graphics_franklin",
+    "SpriteName": "shopui_title_graphics_franklin",
+    "Enabled": true
+  },
+  {
+    "ID": 1022,
+    "HumanName": "Shopui Title Graphics Micheal",
+    "Dictionary": "shopui_title_graphics_micheal",
+    "SpriteName": "shopui_title_graphics_micheal",
+    "Enabled": true
+  },
+  {
+    "ID": 1023,
+    "HumanName": "Shopui Title Graphics Trevor",
+    "Dictionary": "shopui_title_graphics_trevor",
+    "SpriteName": "shopui_title_graphics_trevor",
+    "Enabled": true
+  },
+  {
+    "ID": 1024,
+    "HumanName": "Shopui Title Gunclub",
+    "Dictionary": "shopui_title_gunclub",
+    "SpriteName": "shopui_title_gunclub",
+    "Enabled": true
+  },
+  {
+    "ID": 1025,
+    "HumanName": "Shopui Title Highendfashion",
+    "Dictionary": "shopui_title_highendfashion",
+    "SpriteName": "shopui_title_highendfashion",
+    "Enabled": true
+  },
+  {
+    "ID": 1026,
+    "HumanName": "Shopui Title Highendsalon",
+    "Dictionary": "shopui_title_highendsalon",
+    "SpriteName": "shopui_title_highendsalon",
+    "Enabled": true
+  },
+  {
+    "ID": 1027,
+    "HumanName": "Shopui Title Liqourstore",
+    "Dictionary": "shopui_title_liqourstore",
+    "SpriteName": "shopui_title_liqourstore",
+    "Enabled": true
+  },
+  {
+    "ID": 1028,
+    "HumanName": "Shopui Title Liqourstore2",
+    "Dictionary": "shopui_title_liqourstore2",
+    "SpriteName": "shopui_title_liqourstore2",
+    "Enabled": true
+  },
+  {
+    "ID": 1029,
+    "HumanName": "Shopui Title Liqourstore3",
+    "Dictionary": "shopui_title_liqourstore3",
+    "SpriteName": "shopui_title_liqourstore3",
+    "Enabled": true
+  },
+  {
+    "ID": 1030,
+    "HumanName": "Shopui Title Lowendfashion",
+    "Dictionary": "shopui_title_lowendfashion",
+    "SpriteName": "shopui_title_lowendfashion",
+    "Enabled": true
+  },
+  {
+    "ID": 1031,
+    "HumanName": "Shopui Title Lowendfashion2",
+    "Dictionary": "shopui_title_lowendfashion2",
+    "SpriteName": "shopui_title_lowendfashion2",
+    "Enabled": true
+  },
+  {
+    "ID": 1032,
+    "HumanName": "Shopui Title Midfashion",
+    "Dictionary": "shopui_title_midfashion",
+    "SpriteName": "shopui_title_midfashion",
+    "Enabled": true
+  },
+  {
+    "ID": 1033,
+    "HumanName": "Shopui Title Movie Masks",
+    "Dictionary": "shopui_title_movie_masks",
+    "SpriteName": "shopui_title_movie_masks",
+    "Enabled": true
+  },
+  {
+    "ID": 1034,
+    "HumanName": "Shopui Title Tattoos",
+    "Dictionary": "shopui_title_tattoos",
+    "SpriteName": "shopui_title_tattoos",
+    "Enabled": true
+  },
+  {
+    "ID": 1035,
+    "HumanName": "Shopui Title Tattoos2",
+    "Dictionary": "shopui_title_tattoos2",
+    "SpriteName": "shopui_title_tattoos2",
+    "Enabled": true
+  },
+  {
+    "ID": 1036,
+    "HumanName": "Shopui Title Tattoos3",
+    "Dictionary": "shopui_title_tattoos3",
+    "SpriteName": "shopui_title_tattoos3",
+    "Enabled": true
+  },
+  {
+    "ID": 1037,
+    "HumanName": "Shopui Title Tattoos4",
+    "Dictionary": "shopui_title_tattoos4",
+    "SpriteName": "shopui_title_tattoos4",
+    "Enabled": true
+  },
+  {
+    "ID": 1038,
+    "HumanName": "Shopui Title Tattoos5",
+    "Dictionary": "shopui_title_tattoos5",
+    "SpriteName": "shopui_title_tattoos5",
+    "Enabled": true
+  },
+  {
+    "ID": 1039,
+    "HumanName": "Shopui Title Tennis",
+    "Dictionary": "shopui_title_tennis",
+    "SpriteName": "shopui_title_tennis",
+    "Enabled": true
+  },
+  {
+    "ID": 1040,
+    "HumanName": "Airport",
+    "Dictionary": "spcityraces",
+    "SpriteName": "airport",
+    "Enabled": true
+  },
+  {
+    "ID": 1041,
+    "HumanName": "Citycircuit",
+    "Dictionary": "spcityraces",
+    "SpriteName": "citycircuit",
+    "Enabled": true
+  },
+  {
+    "ID": 1042,
+    "HumanName": "Soutlossantos",
+    "Dictionary": "spcityraces",
+    "SpriteName": "soutlossantos",
+    "Enabled": true
+  },
+  {
+    "ID": 1043,
+    "HumanName": "Terminal",
+    "Dictionary": "spcityraces",
+    "SpriteName": "terminal",
+    "Enabled": true
+  },
+  {
+    "ID": 1044,
+    "HumanName": "Vespuccicanal",
+    "Dictionary": "spcityraces",
+    "SpriteName": "vespuccicanal",
+    "Enabled": true
+  },
+  {
+    "ID": 1045,
+    "HumanName": "Gtav Playerintronames Franklin",
+    "Dictionary": "splashscreens",
+    "SpriteName": "gtav_playerintronames_franklin",
+    "Enabled": true
+  },
+  {
+    "ID": 1046,
+    "HumanName": "Gtav Playerintronames Michaeld",
+    "Dictionary": "splashscreens",
+    "SpriteName": "gtav_playerintronames_michaeld",
+    "Enabled": true
+  },
+  {
+    "ID": 1047,
+    "HumanName": "Gtav Playerintronames Michaelt",
+    "Dictionary": "splashscreens",
+    "SpriteName": "gtav_playerintronames_michaelt",
+    "Enabled": true
+  },
+  {
+    "ID": 1048,
+    "HumanName": "Gtav Playerintronames Trevor",
+    "Dictionary": "splashscreens",
+    "SpriteName": "gtav_playerintronames_trevor",
+    "Enabled": true
+  },
+  {
+    "ID": 1049,
+    "HumanName": "Offroad Bronze 128",
+    "Dictionary": "sproffroad",
+    "SpriteName": "offroad_bronze_128",
+    "Enabled": true
+  },
+  {
+    "ID": 1050,
+    "HumanName": "Offroad Gold 128",
+    "Dictionary": "sproffroad",
+    "SpriteName": "offroad_gold_128",
+    "Enabled": true
+  },
+  {
+    "ID": 1051,
+    "HumanName": "Offroad Silver 128",
+    "Dictionary": "sproffroad",
+    "SpriteName": "offroad_silver_128",
+    "Enabled": true
+  },
+  {
+    "ID": 1052,
+    "HumanName": "Spr Offroad 1",
+    "Dictionary": "sproffroad",
+    "SpriteName": "spr_offroad_1",
+    "Enabled": true
+  },
+  {
+    "ID": 1053,
+    "HumanName": "Spr Offroad 2",
+    "Dictionary": "sproffroad",
+    "SpriteName": "spr_offroad_2",
+    "Enabled": true
+  },
+  {
+    "ID": 1054,
+    "HumanName": "Spr Offroad 3",
+    "Dictionary": "sproffroad",
+    "SpriteName": "spr_offroad_3",
+    "Enabled": true
+  },
+  {
+    "ID": 1055,
+    "HumanName": "Spr Offroad 4",
+    "Dictionary": "sproffroad",
+    "SpriteName": "spr_offroad_4",
+    "Enabled": true
+  },
+  {
+    "ID": 1056,
+    "HumanName": "Spr Offroad 5",
+    "Dictionary": "sproffroad",
+    "SpriteName": "spr_offroad_5",
+    "Enabled": true
+  },
+  {
+    "ID": 1057,
+    "HumanName": "Spr Offroad 6",
+    "Dictionary": "sproffroad",
+    "SpriteName": "spr_offroad_6",
+    "Enabled": true
+  },
+  {
+    "ID": 1058,
+    "HumanName": "Empty 128",
+    "Dictionary": "sprraces",
+    "SpriteName": "empty_128",
+    "Enabled": true
+  },
+  {
+    "ID": 1059,
+    "HumanName": "Flightstunt Bronze 128",
+    "Dictionary": "sprraces",
+    "SpriteName": "flightstunt_bronze_128",
+    "Enabled": true
+  },
+  {
+    "ID": 1060,
+    "HumanName": "Flightstunt Gold 128",
+    "Dictionary": "sprraces",
+    "SpriteName": "flightstunt_gold_128",
+    "Enabled": true
+  },
+  {
+    "ID": 1061,
+    "HumanName": "Flightstunt Silver 128",
+    "Dictionary": "sprraces",
+    "SpriteName": "flightstunt_silver_128",
+    "Enabled": true
+  },
+  {
+    "ID": 1062,
+    "HumanName": "Medaldot 32",
+    "Dictionary": "sprraces",
+    "SpriteName": "medaldot_32",
+    "Enabled": true
+  },
+  {
+    "ID": 1063,
+    "HumanName": "Mp Lock Icon",
+    "Dictionary": "sprraces",
+    "SpriteName": "mp_lock_icon",
+    "Enabled": true
+  },
+  {
+    "ID": 1064,
+    "HumanName": "Spr Desc 1",
+    "Dictionary": "sprraces",
+    "SpriteName": "spr_desc_1",
+    "Enabled": true
+  },
+  {
+    "ID": 1065,
+    "HumanName": "Spr Desc 2",
+    "Dictionary": "sprraces",
+    "SpriteName": "spr_desc_2",
+    "Enabled": true
+  },
+  {
+    "ID": 1066,
+    "HumanName": "Spr Desc 3",
+    "Dictionary": "sprraces",
+    "SpriteName": "spr_desc_3",
+    "Enabled": true
+  },
+  {
+    "ID": 1067,
+    "HumanName": "Spr Desc 4",
+    "Dictionary": "sprraces",
+    "SpriteName": "spr_desc_4",
+    "Enabled": true
+  },
+  {
+    "ID": 1068,
+    "HumanName": "Spr Desc 5",
+    "Dictionary": "sprraces",
+    "SpriteName": "spr_desc_5",
+    "Enabled": true
+  },
+  {
+    "ID": 1069,
+    "HumanName": "Spr Desc Desert",
+    "Dictionary": "sprraces",
+    "SpriteName": "spr_desc_desert",
+    "Enabled": true
+  },
+  {
+    "ID": 1070,
+    "HumanName": "Spr Desc Lakeloop",
+    "Dictionary": "sprraces",
+    "SpriteName": "spr_desc_lakeloop",
+    "Enabled": true
+  },
+  {
+    "ID": 1071,
+    "HumanName": "Spr Desc Sky",
+    "Dictionary": "sprraces",
+    "SpriteName": "spr_desc_sky",
+    "Enabled": true
+  },
+  {
+    "ID": 1072,
+    "HumanName": "Canyon",
+    "Dictionary": "spsearaces",
+    "SpriteName": "canyon",
+    "Enabled": true
+  },
+  {
+    "ID": 1073,
+    "HumanName": "Lossantos",
+    "Dictionary": "spsearaces",
+    "SpriteName": "lossantos",
+    "Enabled": true
+  },
+  {
+    "ID": 1074,
+    "HumanName": "Northcoast",
+    "Dictionary": "spsearaces",
+    "SpriteName": "northcoast",
+    "Enabled": true
+  },
+  {
+    "ID": 1075,
+    "HumanName": "Southcoast",
+    "Dictionary": "spsearaces",
+    "SpriteName": "southcoast",
+    "Enabled": true
+  },
+  {
+    "ID": 1076,
+    "HumanName": "Chal Ar1",
+    "Dictionary": "srange_chal",
+    "SpriteName": "chal_ar1",
+    "Enabled": true
+  },
+  {
+    "ID": 1077,
+    "HumanName": "Chal Ar2",
+    "Dictionary": "srange_chal",
+    "SpriteName": "chal_ar2",
+    "Enabled": true
+  },
+  {
+    "ID": 1078,
+    "HumanName": "Chal Ar3",
+    "Dictionary": "srange_chal",
+    "SpriteName": "chal_ar3",
+    "Enabled": true
+  },
+  {
+    "ID": 1079,
+    "HumanName": "Chal Blank",
+    "Dictionary": "srange_chal",
+    "SpriteName": "chal_blank",
+    "Enabled": true
+  },
+  {
+    "ID": 1080,
+    "HumanName": "Chal Covered",
+    "Dictionary": "srange_chal",
+    "SpriteName": "chal_covered",
+    "Enabled": true
+  },
+  {
+    "ID": 1081,
+    "HumanName": "Chal Covered Active",
+    "Dictionary": "srange_chal",
+    "SpriteName": "chal_covered_active",
+    "Enabled": true
+  },
+  {
+    "ID": 1082,
+    "HumanName": "Chal Grid",
+    "Dictionary": "srange_chal",
+    "SpriteName": "chal_grid",
+    "Enabled": true
+  },
+  {
+    "ID": 1083,
+    "HumanName": "Chal Grid Empty",
+    "Dictionary": "srange_chal",
+    "SpriteName": "chal_grid_empty",
+    "Enabled": true
+  },
+  {
+    "ID": 1084,
+    "HumanName": "Chal Hg1",
+    "Dictionary": "srange_chal",
+    "SpriteName": "chal_hg1",
+    "Enabled": true
+  },
+  {
+    "ID": 1085,
+    "HumanName": "Chal Hg2",
+    "Dictionary": "srange_chal",
+    "SpriteName": "chal_hg2",
+    "Enabled": true
+  },
+  {
+    "ID": 1086,
+    "HumanName": "Chal Hg3",
+    "Dictionary": "srange_chal",
+    "SpriteName": "chal_hg3",
+    "Enabled": true
+  },
+  {
+    "ID": 1087,
+    "HumanName": "Chal Hvy1",
+    "Dictionary": "srange_chal",
+    "SpriteName": "chal_hvy1",
+    "Enabled": true
+  },
+  {
+    "ID": 1088,
+    "HumanName": "Chal Hvy2",
+    "Dictionary": "srange_chal",
+    "SpriteName": "chal_hvy2",
+    "Enabled": true
+  },
+  {
+    "ID": 1089,
+    "HumanName": "Chal Hvy3",
+    "Dictionary": "srange_chal",
+    "SpriteName": "chal_hvy3",
+    "Enabled": true
+  },
+  {
+    "ID": 1090,
+    "HumanName": "Chal Mini Target 64",
+    "Dictionary": "srange_chal",
+    "SpriteName": "chal_mini_target_64",
+    "Enabled": true
+  },
+  {
+    "ID": 1091,
+    "HumanName": "Chal Random",
+    "Dictionary": "srange_chal",
+    "SpriteName": "chal_random",
+    "Enabled": true
+  },
+  {
+    "ID": 1092,
+    "HumanName": "Chal Lmg1",
+    "Dictionary": "srange_chal2",
+    "SpriteName": "chal_lmg1",
+    "Enabled": true
+  },
+  {
+    "ID": 1093,
+    "HumanName": "Chal Lmg2",
+    "Dictionary": "srange_chal2",
+    "SpriteName": "chal_lmg2",
+    "Enabled": true
+  },
+  {
+    "ID": 1094,
+    "HumanName": "Chal Lmg3",
+    "Dictionary": "srange_chal2",
+    "SpriteName": "chal_lmg3",
+    "Enabled": true
+  },
+  {
+    "ID": 1095,
+    "HumanName": "Chal Rg1",
+    "Dictionary": "srange_chal2",
+    "SpriteName": "chal_rg1",
+    "Enabled": true
+  },
+  {
+    "ID": 1096,
+    "HumanName": "Chal Rg2",
+    "Dictionary": "srange_chal2",
+    "SpriteName": "chal_rg2",
+    "Enabled": true
+  },
+  {
+    "ID": 1097,
+    "HumanName": "Chal Rg3",
+    "Dictionary": "srange_chal2",
+    "SpriteName": "chal_rg3",
+    "Enabled": true
+  },
+  {
+    "ID": 1098,
+    "HumanName": "Chal Rg4",
+    "Dictionary": "srange_chal2",
+    "SpriteName": "chal_rg4",
+    "Enabled": true
+  },
+  {
+    "ID": 1099,
+    "HumanName": "Chal Sg1",
+    "Dictionary": "srange_chal2",
+    "SpriteName": "chal_sg1",
+    "Enabled": true
+  },
+  {
+    "ID": 1100,
+    "HumanName": "Chal Sg2",
+    "Dictionary": "srange_chal2",
+    "SpriteName": "chal_sg2",
+    "Enabled": true
+  },
+  {
+    "ID": 1101,
+    "HumanName": "Chal Sg3",
+    "Dictionary": "srange_chal2",
+    "SpriteName": "chal_sg3",
+    "Enabled": true
+  },
+  {
+    "ID": 1102,
+    "HumanName": "Chal Smg1",
+    "Dictionary": "srange_chal2",
+    "SpriteName": "chal_smg1",
+    "Enabled": true
+  },
+  {
+    "ID": 1103,
+    "HumanName": "Chal Smg2",
+    "Dictionary": "srange_chal2",
+    "SpriteName": "chal_smg2",
+    "Enabled": true
+  },
+  {
+    "ID": 1104,
+    "HumanName": "Chal Smg3",
+    "Dictionary": "srange_chal2",
+    "SpriteName": "chal_smg3",
+    "Enabled": true
+  },
+  {
+    "ID": 1105,
+    "HumanName": "Blanktrophy Bronze",
+    "Dictionary": "srange_gen",
+    "SpriteName": "blanktrophy_bronze",
+    "Enabled": true
+  },
+  {
+    "ID": 1106,
+    "HumanName": "Blanktrophy Gold",
+    "Dictionary": "srange_gen",
+    "SpriteName": "blanktrophy_gold",
+    "Enabled": true
+  },
+  {
+    "ID": 1107,
+    "HumanName": "Blanktrophy Silver",
+    "Dictionary": "srange_gen",
+    "SpriteName": "blanktrophy_silver",
+    "Enabled": true
+  },
+  {
+    "ID": 1108,
+    "HumanName": "Empty 128",
+    "Dictionary": "srange_gen",
+    "SpriteName": "empty_128",
+    "Enabled": true
+  },
+  {
+    "ID": 1109,
+    "HumanName": "Hits Dot",
+    "Dictionary": "srange_gen",
+    "SpriteName": "hits_dot",
+    "Enabled": true
+  },
+  {
+    "ID": 1110,
+    "HumanName": "Hits Target",
+    "Dictionary": "srange_gen",
+    "SpriteName": "hits_target",
+    "Enabled": true
+  },
+  {
+    "ID": 1111,
+    "HumanName": "Hit Cross",
+    "Dictionary": "srange_gen",
+    "SpriteName": "hit_cross",
+    "Enabled": true
+  },
+  {
+    "ID": 1112,
+    "HumanName": "Icon Target 32",
+    "Dictionary": "srange_gen",
+    "SpriteName": "icon_target_32",
+    "Enabled": true
+  },
+  {
+    "ID": 1113,
+    "HumanName": "Locked Icon",
+    "Dictionary": "srange_gen",
+    "SpriteName": "locked_icon",
+    "Enabled": true
+  },
+  {
+    "ID": 1114,
+    "HumanName": "Lsgc Logo",
+    "Dictionary": "srange_gen",
+    "SpriteName": "lsgc_logo",
+    "Enabled": true
+  },
+  {
+    "ID": 1115,
+    "HumanName": "Medaldot 32",
+    "Dictionary": "srange_gen",
+    "SpriteName": "medaldot_32",
+    "Enabled": true
+  },
+  {
+    "ID": 1116,
+    "HumanName": "Shooting Bronze 128",
+    "Dictionary": "srange_gen",
+    "SpriteName": "shooting_bronze_128",
+    "Enabled": true
+  },
+  {
+    "ID": 1117,
+    "HumanName": "Shooting Gold 128",
+    "Dictionary": "srange_gen",
+    "SpriteName": "shooting_gold_128",
+    "Enabled": true
+  },
+  {
+    "ID": 1118,
+    "HumanName": "Shooting Silver 128",
+    "Dictionary": "srange_gen",
+    "SpriteName": "shooting_silver_128",
+    "Enabled": true
+  },
+  {
+    "ID": 1119,
+    "HumanName": "Unlocked Icon",
+    "Dictionary": "srange_gen",
+    "SpriteName": "unlocked_icon",
+    "Enabled": true
+  },
+  {
+    "ID": 1120,
+    "HumanName": "Weapcat Ar",
+    "Dictionary": "srange_gen",
+    "SpriteName": "weapcat_ar",
+    "Enabled": true
+  },
+  {
+    "ID": 1121,
+    "HumanName": "Weapcat Ar 2",
+    "Dictionary": "srange_gen",
+    "SpriteName": "weapcat_ar_2",
+    "Enabled": true
+  },
+  {
+    "ID": 1122,
+    "HumanName": "Weapcat Hg",
+    "Dictionary": "srange_gen",
+    "SpriteName": "weapcat_hg",
+    "Enabled": true
+  },
+  {
+    "ID": 1123,
+    "HumanName": "Weapcat Hg 2",
+    "Dictionary": "srange_gen",
+    "SpriteName": "weapcat_hg_2",
+    "Enabled": true
+  },
+  {
+    "ID": 1124,
+    "HumanName": "Weapcat Hvy",
+    "Dictionary": "srange_gen",
+    "SpriteName": "weapcat_hvy",
+    "Enabled": true
+  },
+  {
+    "ID": 1125,
+    "HumanName": "Weapcat Lmg",
+    "Dictionary": "srange_gen",
+    "SpriteName": "weapcat_lmg",
+    "Enabled": true
+  },
+  {
+    "ID": 1126,
+    "HumanName": "Weapcat Lmg 2",
+    "Dictionary": "srange_gen",
+    "SpriteName": "weapcat_lmg_2",
+    "Enabled": true
+  },
+  {
+    "ID": 1127,
+    "HumanName": "Weapcat Sg",
+    "Dictionary": "srange_gen",
+    "SpriteName": "weapcat_sg",
+    "Enabled": true
+  },
+  {
+    "ID": 1128,
+    "HumanName": "Weapcat Sg 2",
+    "Dictionary": "srange_gen",
+    "SpriteName": "weapcat_sg_2",
+    "Enabled": true
+  },
+  {
+    "ID": 1129,
+    "HumanName": "Weapcat Smg",
+    "Dictionary": "srange_gen",
+    "SpriteName": "weapcat_smg",
+    "Enabled": true
+  },
+  {
+    "ID": 1130,
+    "HumanName": "Weapcat Smg 2",
+    "Dictionary": "srange_gen",
+    "SpriteName": "weapcat_smg_2",
+    "Enabled": true
+  },
+  {
+    "ID": 1131,
+    "HumanName": "Weap Ar 1",
+    "Dictionary": "srange_weap",
+    "SpriteName": "weap_ar_1",
+    "Enabled": true
+  },
+  {
+    "ID": 1132,
+    "HumanName": "Weap Ar 2",
+    "Dictionary": "srange_weap",
+    "SpriteName": "weap_ar_2",
+    "Enabled": true
+  },
+  {
+    "ID": 1133,
+    "HumanName": "Weap Ar 3",
+    "Dictionary": "srange_weap",
+    "SpriteName": "weap_ar_3",
+    "Enabled": true
+  },
+  {
+    "ID": 1134,
+    "HumanName": "Weap Ar 4",
+    "Dictionary": "srange_weap",
+    "SpriteName": "weap_ar_4",
+    "Enabled": true
+  },
+  {
+    "ID": 1135,
+    "HumanName": "Weap Ar 5",
+    "Dictionary": "srange_weap",
+    "SpriteName": "weap_ar_5",
+    "Enabled": true
+  },
+  {
+    "ID": 1136,
+    "HumanName": "Weap Ar 6",
+    "Dictionary": "srange_weap",
+    "SpriteName": "weap_ar_6",
+    "Enabled": true
+  },
+  {
+    "ID": 1137,
+    "HumanName": "Weap Hg 1",
+    "Dictionary": "srange_weap",
+    "SpriteName": "weap_hg_1",
+    "Enabled": true
+  },
+  {
+    "ID": 1138,
+    "HumanName": "Weap Hg 2",
+    "Dictionary": "srange_weap",
+    "SpriteName": "weap_hg_2",
+    "Enabled": true
+  },
+  {
+    "ID": 1139,
+    "HumanName": "Weap Hg 3",
+    "Dictionary": "srange_weap",
+    "SpriteName": "weap_hg_3",
+    "Enabled": true
+  },
+  {
+    "ID": 1140,
+    "HumanName": "Weap Hg 4",
+    "Dictionary": "srange_weap",
+    "SpriteName": "weap_hg_4",
+    "Enabled": true
+  },
+  {
+    "ID": 1141,
+    "HumanName": "Weap Hg 5",
+    "Dictionary": "srange_weap",
+    "SpriteName": "weap_hg_5",
+    "Enabled": true
+  },
+  {
+    "ID": 1142,
+    "HumanName": "Weap Hg 6",
+    "Dictionary": "srange_weap",
+    "SpriteName": "weap_hg_6",
+    "Enabled": true
+  },
+  {
+    "ID": 1143,
+    "HumanName": "Weap Hg 7",
+    "Dictionary": "srange_weap",
+    "SpriteName": "weap_hg_7",
+    "Enabled": true
+  },
+  {
+    "ID": 1144,
+    "HumanName": "Weap Hvy 1",
+    "Dictionary": "srange_weap",
+    "SpriteName": "weap_hvy_1",
+    "Enabled": true
+  },
+  {
+    "ID": 1145,
+    "HumanName": "Weap Rg 1",
+    "Dictionary": "srange_weap",
+    "SpriteName": "weap_rg_1",
+    "Enabled": true
+  },
+  {
+    "ID": 1146,
+    "HumanName": "Weap Lmg 1",
+    "Dictionary": "srange_weap2",
+    "SpriteName": "weap_lmg_1",
+    "Enabled": true
+  },
+  {
+    "ID": 1147,
+    "HumanName": "Weap Lmg 2",
+    "Dictionary": "srange_weap2",
+    "SpriteName": "weap_lmg_2",
+    "Enabled": true
+  },
+  {
+    "ID": 1148,
+    "HumanName": "Weap Lmg 3",
+    "Dictionary": "srange_weap2",
+    "SpriteName": "weap_lmg_3",
+    "Enabled": true
+  },
+  {
+    "ID": 1149,
+    "HumanName": "Weap Lmg 4",
+    "Dictionary": "srange_weap2",
+    "SpriteName": "weap_lmg_4",
+    "Enabled": true
+  },
+  {
+    "ID": 1150,
+    "HumanName": "Weap Sg 1",
+    "Dictionary": "srange_weap2",
+    "SpriteName": "weap_sg_1",
+    "Enabled": true
+  },
+  {
+    "ID": 1151,
+    "HumanName": "Weap Sg 2",
+    "Dictionary": "srange_weap2",
+    "SpriteName": "weap_sg_2",
+    "Enabled": true
+  },
+  {
+    "ID": 1152,
+    "HumanName": "Weap Sg 3",
+    "Dictionary": "srange_weap2",
+    "SpriteName": "weap_sg_3",
+    "Enabled": true
+  },
+  {
+    "ID": 1153,
+    "HumanName": "Weap Sg 4",
+    "Dictionary": "srange_weap2",
+    "SpriteName": "weap_sg_4",
+    "Enabled": true
+  },
+  {
+    "ID": 1154,
+    "HumanName": "Weap Smg 1",
+    "Dictionary": "srange_weap2",
+    "SpriteName": "weap_smg_1",
+    "Enabled": true
+  },
+  {
+    "ID": 1155,
+    "HumanName": "Weap Smg 2",
+    "Dictionary": "srange_weap2",
+    "SpriteName": "weap_smg_2",
+    "Enabled": true
+  },
+  {
+    "ID": 1156,
+    "HumanName": "Weap Smg 3",
+    "Dictionary": "srange_weap2",
+    "SpriteName": "weap_smg_3",
+    "Enabled": true
+  },
+  {
+    "ID": 1157,
+    "HumanName": "All Black Bg",
+    "Dictionary": "timerbars",
+    "SpriteName": "all_black_bg",
+    "Enabled": true
+  },
+  {
+    "ID": 1158,
+    "HumanName": "All Red Bg",
+    "Dictionary": "timerbars",
+    "SpriteName": "all_red_bg",
+    "Enabled": true
+  },
+  {
+    "ID": 1159,
+    "HumanName": "All White Bg",
+    "Dictionary": "timerbars",
+    "SpriteName": "all_white_bg",
+    "Enabled": true
+  },
+  {
+    "ID": 1160,
+    "HumanName": "Boost",
+    "Dictionary": "timerbars",
+    "SpriteName": "boost",
+    "Enabled": true
+  },
+  {
+    "ID": 1161,
+    "HumanName": "Circle Checkpoints",
+    "Dictionary": "timerbars",
+    "SpriteName": "circle_checkpoints",
+    "Enabled": true
+  },
+  {
+    "ID": 1162,
+    "HumanName": "Circle Checkpoints Big",
+    "Dictionary": "timerbars",
+    "SpriteName": "circle_checkpoints_big",
+    "Enabled": true
+  },
+  {
+    "ID": 1163,
+    "HumanName": "Circle Checkpoints Outline",
+    "Dictionary": "timerbars",
+    "SpriteName": "circle_checkpoints_outline",
+    "Enabled": true
+  },
+  {
+    "ID": 1164,
+    "HumanName": "Damagebarfill 128",
+    "Dictionary": "timerbars",
+    "SpriteName": "damagebarfill_128",
+    "Enabled": true
+  },
+  {
+    "ID": 1165,
+    "HumanName": "Damagebarfill 64",
+    "Dictionary": "timerbars",
+    "SpriteName": "damagebarfill_64",
+    "Enabled": true
+  },
+  {
+    "ID": 1166,
+    "HumanName": "Damagebar 128",
+    "Dictionary": "timerbars",
+    "SpriteName": "damagebar_128",
+    "Enabled": true
+  },
+  {
+    "ID": 1167,
+    "HumanName": "Damagebar 64",
+    "Dictionary": "timerbars",
+    "SpriteName": "damagebar_64",
+    "Enabled": true
+  },
+  {
+    "ID": 1168,
+    "HumanName": "Lhs Bg",
+    "Dictionary": "timerbars",
+    "SpriteName": "lhs_bg",
+    "Enabled": true
+  },
+  {
+    "ID": 1169,
+    "HumanName": "Rhs Bg",
+    "Dictionary": "timerbars",
+    "SpriteName": "rhs_bg",
+    "Enabled": true
+  },
+  {
+    "ID": 1170,
+    "HumanName": "Rockets",
+    "Dictionary": "timerbars",
+    "SpriteName": "rockets",
+    "Enabled": true
+  },
+  {
+    "ID": 1171,
+    "HumanName": "Spikes",
+    "Dictionary": "timerbars",
+    "SpriteName": "spikes",
+    "Enabled": true
+  },
+  {
+    "ID": 1172,
+    "HumanName": "Cursor",
+    "Dictionary": "trafficcam",
+    "SpriteName": "cursor",
+    "Enabled": true
+  },
+  {
+    "ID": 1173,
+    "HumanName": "Cursor Lines",
+    "Dictionary": "trafficcam",
+    "SpriteName": "cursor_lines",
+    "Enabled": true
+  },
+  {
+    "ID": 1174,
+    "HumanName": "Lights H",
+    "Dictionary": "trafficcam",
+    "SpriteName": "lights_h",
+    "Enabled": true
+  },
+  {
+    "ID": 1175,
+    "HumanName": "Lights V",
+    "Dictionary": "trafficcam",
+    "SpriteName": "lights_v",
+    "Enabled": true
+  },
+  {
+    "ID": 1176,
+    "HumanName": "Radar Centre",
+    "Dictionary": "trafficcam",
+    "SpriteName": "radar_centre",
+    "Enabled": true
+  },
+  {
+    "ID": 1177,
+    "HumanName": "Traffic Junction Box",
+    "Dictionary": "trafficcam",
+    "SpriteName": "traffic_junction_box",
+    "Enabled": true
+  },
+  {
+    "ID": 1178,
+    "HumanName": "Triathlon Junction Line V",
+    "Dictionary": "trafficcam",
+    "SpriteName": "triathlon_junction_line_v",
+    "Enabled": true
+  },
+  {
+    "ID": 1179,
+    "HumanName": "Triathlon Lights Horz",
+    "Dictionary": "trafficcam",
+    "SpriteName": "triathlon_lights_horz",
+    "Enabled": true
+  },
+  {
+    "ID": 1180,
+    "HumanName": "Triathlon Lights Horz Large",
+    "Dictionary": "trafficcam",
+    "SpriteName": "triathlon_lights_horz_large",
+    "Enabled": true
+  },
+  {
+    "ID": 1181,
+    "HumanName": "Triathlon Lights Vert",
+    "Dictionary": "trafficcam",
+    "SpriteName": "triathlon_lights_vert",
+    "Enabled": true
+  },
+  {
+    "ID": 1182,
+    "HumanName": "Triathlon Lights Vert Large",
+    "Dictionary": "trafficcam",
+    "SpriteName": "triathlon_lights_vert_large",
+    "Enabled": true
+  },
+  {
+    "ID": 1183,
+    "HumanName": "Vehicle Marker",
+    "Dictionary": "trafficcam",
+    "SpriteName": "vehicle_marker",
+    "Enabled": true
+  },
+  {
+    "ID": 1184,
+    "HumanName": "Sprtriathlon Mountainroad 256",
+    "Dictionary": "triathlon",
+    "SpriteName": "sprtriathlon_mountainroad_256",
+    "Enabled": true
+  },
+  {
+    "ID": 1185,
+    "HumanName": "Sprtriathlon Musclebeach 256",
+    "Dictionary": "triathlon",
+    "SpriteName": "sprtriathlon_musclebeach_256",
+    "Enabled": true
+  },
+  {
+    "ID": 1186,
+    "HumanName": "Sprtriathlon Trailerpark 256",
+    "Dictionary": "triathlon",
+    "SpriteName": "sprtriathlon_trailerpark_256",
+    "Enabled": true
+  },
+  {
+    "ID": 1187,
+    "HumanName": "Triathlon Bronze 128",
+    "Dictionary": "triathlon",
+    "SpriteName": "triathlon_bronze_128",
+    "Enabled": true
+  },
+  {
+    "ID": 1188,
+    "HumanName": "Triathlon Cycling",
+    "Dictionary": "triathlon",
+    "SpriteName": "triathlon_cycling",
+    "Enabled": true
+  },
+  {
+    "ID": 1189,
+    "HumanName": "Triathlon Gold 128",
+    "Dictionary": "triathlon",
+    "SpriteName": "triathlon_gold_128",
+    "Enabled": true
+  },
+  {
+    "ID": 1190,
+    "HumanName": "Triathlon Running",
+    "Dictionary": "triathlon",
+    "SpriteName": "triathlon_running",
+    "Enabled": true
+  },
+  {
+    "ID": 1191,
+    "HumanName": "Triathlon Silver 128",
+    "Dictionary": "triathlon",
+    "SpriteName": "triathlon_silver_128",
+    "Enabled": true
+  },
+  {
+    "ID": 1192,
+    "HumanName": "Triathlon Swimming",
+    "Dictionary": "triathlon",
+    "SpriteName": "triathlon_swimming",
+    "Enabled": true
+  },
+  {
+    "ID": 1193,
+    "HumanName": "Crosshair",
+    "Dictionary": "visualflow",
+    "SpriteName": "crosshair",
+    "Enabled": true
+  }
+]

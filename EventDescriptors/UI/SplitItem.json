@@ -1,0 +1,6 @@
+{
+  "Type": "UI",
+  "Parameters": {
+  	"new_item_num_stacks": "uint"
+  }
+}

@@ -1,0 +1,136 @@
+<html>
+<head>
+	<link href="../../owl_client_shared/bootstrap/bootstrap.min.css" rel="stylesheet">
+	<link href="../../owl_client_shared/core/core.css" rel="stylesheet">
+	<link href="../../owl_client_shared/core/menu.css" rel="stylesheet">
+	<link href="../../owl_client_shared/slider.css" rel="stylesheet">
+	<link href="../../owl_client_shared/animate.css" rel="stylesheet">
+	<script src="../../owl_client_shared/core/core.js"></script>
+	<script src="../../owl_client_shared/jquery.min.js"></script>
+	<script src="../../owl_client_shared/jquery-ui.min.js"></script>
+	<script src="../../owl_client_shared/vue.min.js"></script>
+	<script src="../../owl_client_shared/jscolor.min.js"></script>
+
+	<link href="package://owl_client_shared/bootstrap.min.css" rel="stylesheet">
+	<link href="package://owl_client_shared/core.css" rel="stylesheet">
+	<link href="package://owl_client_shared/menu.css" rel="stylesheet">
+	<link href="package://owl_client_shared/slider.css" rel="stylesheet">
+	<link href="package://owl_client_shared/animate.css" rel="stylesheet">
+	<script src="package://owl_client_shared//core.js"></script>
+	<script src="package://owl_client_shared//jquery.min.js"></script>
+	<script src="package://owl_client_shared//jquery-ui.min.js"></script>
+	<script src="package://owl_client_shared//vue.min.js"></script>
+	<script src="package://owl_client_shared//jscolor.min.js"></script>
+
+
+	<script type="text/javascript">
+		function SetDefaults(vehicles_unoccupied, vehicles_occupied, moving_vehicles_only, people, nvg, thermal)
+		{
+			document.getElementById("vehicles_unoccupied").checked = vehicles_unoccupied;
+			document.getElementById("vehicles_occupied").checked = vehicles_occupied;
+			document.getElementById("moving_vehicles_only").checked = moving_vehicles_only;
+			document.getElementById("people").checked = people;
+			document.getElementById("nvg").checked = nvg;
+			document.getElementById("thermal").checked = thermal;
+		}
+
+		function OnChange_VehiclesUnoccupied()
+		{
+			var checked = document.getElementById("vehicles_unoccupied").checked;
+			TriggerEvent("PDHelicopterHUD_ToggleVehiclesUnoccupied", checked);
+		}
+
+		function OnChange_VehiclesOccupied()
+		{
+			var checked = document.getElementById("vehicles_occupied").checked;
+			TriggerEvent("PDHelicopterHUD_ToggleVehiclesOccupied", checked);
+		}
+
+		function OnChange_MovingVehiclesOnly()
+		{
+			var checked = document.getElementById("moving_vehicles_only").checked;
+			TriggerEvent("PDHelicopterHUD_ToggleMovingVehiclesOnly", checked);
+		}
+
+		function OnChange_People()
+		{
+			var checked = document.getElementById("people").checked;
+			TriggerEvent("PDHelicopterHUD_TogglePeople", checked);
+		}
+
+		function OnChange_NVG()
+		{
+			var checked = document.getElementById("nvg").checked;
+			TriggerEvent("PDHelicopterHUD_ToggleNVG", checked);
+		}
+
+		function OnChange_Thermal()
+		{
+			var checked = document.getElementById("thermal").checked;
+			TriggerEvent("PDHelicopterHUD_ToggleThermal", checked);
+		}
+
+	</script>
+
+	<style type="text/css">
+		body {
+			background-color: transparent;
+		}
+
+		.bottom-right-align {
+			margin-left: 2%;
+			width: 300px;
+			vertical-align: middle;
+			position: relative;
+			top: 60%;
+			left: 90%;
+			transform: translate(-50%, -50%);
+		}
+
+		.panel {
+			margin-bottom: 0;
+		}
+
+		.panel-body p {
+			margin-bottom: 0;
+		}
+
+
+		p {
+			font-family: "Lucida Console", Monaco, monospace;
+		}
+	</style>
+
+</head>
+<body>
+<div class="card bottom-right-align" id="root" align="center">
+		<div class="card-header">
+			<h5 class="card-title">Police Helicopter</h5>
+		</div>
+		<div class="card-body" id="details">
+			<div class="custom-control custom-switch" align="left">
+				<input type="checkbox" class="custom-control-input" id="vehicles_unoccupied" onclick="OnChange_VehiclesUnoccupied()"><label class="custom-control-label" for="vehicles_unoccupied">Show Vehicles (Unoccupied)</label>
+			</div>
+			<div class="custom-control custom-switch" align="left">
+				<input type="checkbox" class="custom-control-input" id="vehicles_occupied" onclick="OnChange_VehiclesOccupied()"><label class="custom-control-label" for="vehicles_occupied">Show Vehicles (Occupied)</label>
+			</div>
+			<div class="custom-control custom-switch" align="left">
+				<input type="checkbox" class="custom-control-input" id="moving_vehicles_only" onclick="OnChange_MovingVehiclesOnly()"><label class="custom-control-label" for="moving_vehicles_only">Show Moving Vehicles Only</label>
+			</div>
+			<div class="custom-control custom-switch" align="left">
+				<input type="checkbox" class="custom-control-input" id="people" onclick="OnChange_People()"><label class="custom-control-label" for="people">Show People</label>
+			</div>
+			<div class="custom-control custom-switch" align="left">
+				<input type="checkbox" class="custom-control-input" id="nvg" onclick="OnChange_NVG()"><label class="custom-control-label" for="nvg">Nightvision</label>
+			</div>
+			<div class="custom-control custom-switch" align="left">
+				<input type="checkbox" class="custom-control-input" id="thermal" onclick="OnChange_Thermal()"><label class="custom-control-label" for="thermal">Thermal Vision</label>
+			</div>
+		</div>
+	</div>
+
+	<div class="panel panel-default bottom-right-align">
+		
+</div>
+</body>
+</html>

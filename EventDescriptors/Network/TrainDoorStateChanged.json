@@ -1,0 +1,7 @@
+{
+  "Type": "Network_Bidirectional_RemoteOnly",
+  "Parameters": {
+    "ID": "int",
+    "bDoorsOpen": "bool"
+  }
+}

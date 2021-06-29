@@ -1,0 +1,9 @@
+{
+  "Type": "UI",
+  "Parameters": {
+    "strUsername": "string",
+    "strPassword": "string",
+    "strPasswordVerify": "string",
+    "strEmail": "string"
+  }
+}

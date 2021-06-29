@@ -1,0 +1,16 @@
+{
+  "Type": "Network_ClientToServer_RemoteOnly",
+  "Parameters": {
+    "spawn": "EScriptLocation",
+    "gender": "EGender",
+    "strName":  "string",
+    "SkinHash":  "uint",
+    "Age":  "int",
+    "drawables":  "int[]",
+    "Textures":  "int[]",
+    "PropsDrawables":  "Dictionary<ECustomPropSlot, int>",
+    "PropsTextures":  "Dictionary<ECustomPropSlot, int>",
+	"PrimaryLanguage" : "ECharacterLanguage",
+	"SecondaryLanguage" : "ECharacterLanguage"
+  }
+}

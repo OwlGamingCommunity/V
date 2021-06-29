@@ -1,0 +1,86 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Remove="DiscordBotRequests\**" />
+    <EmbeddedResource Remove="DiscordBotRequests\**" />
+    <None Remove="DiscordBotRequests\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\DiscordBotShared\JSONRequest.cs" Link="DiscordBotIntegration\Shared\JSONRequest.cs" />
+    <Compile Include="..\DiscordBotShared\RequestResponse\RequestResponse_BiDirectionalAdminChat.cs" Link="DiscordBotIntegration\RequestResponse\RequestResponse_BiDirectionalAdminChat.cs" />
+    <Compile Include="..\DiscordBotShared\RequestResponse\RequestResponse_GetDiscordUsernameFromID.cs" Link="DiscordBotIntegration\RequestResponse\RequestResponse_GetDiscordUsernameFromID.cs" />
+    <Compile Include="..\DiscordBotShared\RequestResponse\RequestResponse_PushCommand.cs" Link="DiscordBotIntegration\RequestResponse\RequestResponse_PushCommand.cs" />
+    <Compile Include="..\DiscordBotShared\RequestResponse\RequestResponse_PushDM.cs" Link="DiscordBotIntegration\RequestResponse\RequestResponse_PushDM.cs" />
+    <Compile Include="..\DiscordBotShared\RequestResponse\RequestResponse_PushRawChannelMessage.cs" Link="DiscordBotIntegration\RequestResponse\RequestResponse_PushRawChannelMessage.cs" />
+    <Compile Include="..\DiscordBotShared\RequestResponse\RequestResponse_UpdateBotStatus.cs" Link="DiscordBotIntegration\RequestResponse\RequestResponse_UpdateBotStatus.cs" />
+    <Compile Include="..\DiscordBotShared\Shared.cs" Link="DiscordBotIntegration\Shared\Shared.cs" />
+    <Compile Include="..\owl_shared\BinaryBuffer.cs" Link="Server\BinaryBuffer.cs" />
+    <Compile Include="..\owl_shared\BinarySerializer.cs" Link="Server\BinarySerializer.cs" />
+    <Compile Include="..\owl_shared\HTTPServer.cs" Link="Server\HTTPServer.cs" />
+    <Compile Include="..\owl_shared\MapTypes.cs" Link="Server\MapTypes.cs" />
+    <Compile Include="..\owl_shared\MultiFrameWorkQueue.cs" Link="MultiFrameWorkQueue.cs" />
+    <Compile Include="..\owl_shared\RestClient.cs" Link="Server\RestClient.cs" />
+    <Compile Include="..\owl_shared\Taxation.cs" Link="Server\Taxation.cs" />
+    <Compile Include="..\owl_shared\VehicleDefinitions.cs" Link="Server\VehicleDefinitions.cs" />
+		<Compile Include="..\owl_shared\TattooDefinitions.cs" Link="Server\TattooDefinitions.cs" />
+    <Compile Include="..\owl_shared\WeakRef.cs" Link="WeakRef.cs" />
+  </ItemGroup>
+  <ItemGroup>
+  	<PackageReference Include="BCrypt.Net-Next" Version="2.1.2" />
+  	<PackageReference Include="MessagePack" Version="2.1.194" />
+
+    <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="2.6.1" />
+    <PackageReference Include="Sentry" Version="1.2.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\owl_mysql\owl_mysql.csproj" />
+    <ProjectReference Include="..\owl_servershared\owl_servershared.csproj" />
+  </ItemGroup>
+    <ItemGroup>
+    <Reference Include="Bootstrapper">
+      <HintPath>..\..\RageDeps\Bootstrapper.dll</HintPath>
+    </Reference>
+    <Reference Include="Elasticsearch.Net">
+      <HintPath>..\deps_crossplatform\Elasticsearch.Net.dll</HintPath>
+    </Reference>
+    <Reference Include="libCodewalker">
+      <HintPath>..\deps_crossplatform\libCodewalker.dll</HintPath>
+    </Reference>
+    <Reference Include="Nest">
+      <HintPath>..\deps_crossplatform\Nest.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\..\RageDeps\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="SharpDX">
+      <HintPath>..\deps_crossplatform\SharpDX.dll</HintPath>
+    </Reference>
+    <Reference Include="SharpDX.Mathematics">
+      <HintPath>..\deps_crossplatform\SharpDX.Mathematics.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+    <ItemGroup>
+      <Folder Include="DiscordBotIntegration\Shared\" />
+      <Folder Include="DiscordBotIntegration\RequestResponse\" />
+    </ItemGroup>
+
+  <PropertyGroup> 
+     <CodeAnalysisRuleSet>$(SolutionDir)\OwlV.ruleset</CodeAnalysisRuleSet> 
+     <Features>IOperation</Features> 
+     <NoWarn></NoWarn>   
+  </PropertyGroup>  
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DefineConstants>SERVER</DefineConstants>
+    <PlatformTarget>x64</PlatformTarget>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DefineConstants>SERVER</DefineConstants>
+    <PlatformTarget>x64</PlatformTarget>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+  </PropertyGroup>
+</Project>

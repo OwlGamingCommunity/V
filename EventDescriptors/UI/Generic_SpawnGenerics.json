@@ -1,0 +1,9 @@
+{
+  "Type": "UI",
+  "Parameters": {
+    "name": "string",
+    "model": "string",
+    "amount": "string",
+    "price": "string"
+  }
+}

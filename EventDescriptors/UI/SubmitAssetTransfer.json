@@ -1,0 +1,11 @@
+{
+  "Type": "UI",
+  "Parameters": {
+    "fromCharacter": "long",
+    "toCharacter": "long",
+    "money": "float",
+    "bankMoney": "float",
+    "vehicles": "string",
+    "properties": "string"
+  }
+}

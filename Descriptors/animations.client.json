@@ -1,0 +1,26 @@
+{
+	"Files": [
+		{
+			"Name": "Init.Client.cs",
+			"Type": "ClientScript"
+		},
+		{
+			"Name": "Assets/animations.html",
+			"Type": "ClientAsset"
+		},
+		{
+			"Name": "Animations.Client.cs",
+			"Type": "ClientScript"
+		},
+		{
+			"Name": "CGUIAnimations.Client.cs",
+			"Type": "ClientScript"
+		},
+		{
+			"Name": "AnimationsUI.Client.cs",
+			"Type": "ClientScript"
+		}
+	],
+	"ExportedFunctions": [
+	]
+}

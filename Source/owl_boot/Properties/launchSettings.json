@@ -1,0 +1,9 @@
+{
+  "profiles": {
+    "Boot": {
+      "commandName": "Executable",
+      "executablePath": "..\\..\\Output\\Debug\\ragemp-server.exe",
+      "workingDirectory": "..\\..\\Output\\Debug\\"
+    }
+  }
+}

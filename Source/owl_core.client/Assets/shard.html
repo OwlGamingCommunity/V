@@ -1,0 +1,91 @@
+<html>
+<head>
+	<link href="../../owl_client_shared/bootstrap/bootstrap.min.legacy.css" rel="stylesheet">
+	<link href="../../owl_client_shared/core/core.css" rel="stylesheet">
+	<link href="../../owl_client_shared/core/menu.css" rel="stylesheet">
+	<link href="../../owl_client_shared/slider.css" rel="stylesheet">
+	<link href="../../owl_client_shared/animate.css" rel="stylesheet">
+	<script src="../../owl_client_shared/core/core.js"></script>
+	<script src="../../owl_client_shared/jquery.min.js"></script>
+	<script src="../../owl_client_shared/jquery-ui.min.js"></script>
+	<script src="../../owl_client_shared/vue.min.js"></script>
+	<script src="../../owl_client_shared/jscolor.min.js"></script>
+
+	<link href="package://owl_client_shared/bootstrap.min.legacy.css" rel="stylesheet">
+	<link href="package://owl_client_shared/core.css" rel="stylesheet">
+	<link href="package://owl_client_shared/menu.css" rel="stylesheet">
+	<link href="package://owl_client_shared/slider.css" rel="stylesheet">
+	<link href="package://owl_client_shared/animate.css" rel="stylesheet">
+	<script src="package://owl_client_shared//core.js"></script>
+	<script src="package://owl_client_shared//jquery.min.js"></script>
+	<script src="package://owl_client_shared//jquery-ui.min.js"></script>
+	<script src="package://owl_client_shared//vue.min.js"></script>
+	<script src="package://owl_client_shared//jscolor.min.js"></script>
+
+	<script>
+		var g_ShardTimer = null;
+		function ShowShard(title, text1, text2)
+		{
+			document.getElementById("shard_title").textContent = title;
+			document.getElementById("shard_text1").textContent = text1;
+			document.getElementById("shard_text2").textContent = text2;
+
+			$("#shard_box").fadeTo(600, 0.9, function ()
+			{
+				g_ShardTimer = setTimeout(FadeOut, 5000);
+			});
+		}
+
+		function FadeOut()
+		{
+			clearTimeout(g_ShardTimer);
+
+			$("#shard_box").fadeOut(600, function ()
+			{
+				OnFadedOut();
+			});
+		}
+
+		function OnFadedOut()
+		{
+			TriggerEvent("Shard_OnFadedOut");
+		}
+	</script>
+	<style>
+
+		body {
+			background-color: transparent;
+			opacity: 1;
+		}
+
+		h3 {
+			color: orange;
+		}
+
+		h5 {
+			color: white;
+		}
+
+		span {
+			color: white;
+		}
+
+		.left-box {
+			margin-left: 0px;
+			position: fixed;
+			top: 20%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			width: 520px;
+			background-color: rgba(0, 0, 0, 0.8);
+		}
+	</style>
+</head>
+<body>
+	<div id="shard_box" class="left-box" align="center" style="display:none;">
+		<h3><span id="shard_title"></span></h3>
+		<h5><span id="shard_text1"></span></h5>
+		<h5><span id="shard_text2"></span></h5>
+	</div>
+</body>
+</html>

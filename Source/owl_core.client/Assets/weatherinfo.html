@@ -1,0 +1,134 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+	<title></title>
+
+	<link href="../../owl_client_shared/bootstrap/bootstrap.min.css" rel="stylesheet">
+	<link href="../../owl_client_shared/fontawesome/all.min.dev.css" rel="stylesheet">
+	<link href="../../owl_client_shared/core/core.css" rel="stylesheet">
+	<link href="../../owl_client_shared/core/menu.css" rel="stylesheet">
+	<link href="../../owl_client_shared/slider.css" rel="stylesheet">
+	<link href="../../owl_client_shared/animate.css" rel="stylesheet">
+
+	<link href="package://owl_client_shared/bootstrap.min.css" rel="stylesheet">
+	<link href="package://owl_client_shared/all.min.css" rel="stylesheet">
+	<link href="package://owl_client_shared/core.css" rel="stylesheet">
+	<link href="package://owl_client_shared/menu.css" rel="stylesheet">
+	<link href="package://owl_client_shared/slider.css" rel="stylesheet">
+	<link href="package://owl_client_shared/animate.css" rel="stylesheet">
+
+	<style>
+
+        #box-middle {
+            margin: 0;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+			color: white;
+        }
+
+        .chip {
+            width: 500px;
+            background: #131521;
+            border-radius: 4px;
+            padding: 50px;
+        }
+
+		.display-3,
+		h3,
+		h4,
+		h6,
+		button {
+			font-family: 'Montserrat', sans-serif;
+		}
+
+		#weather-icon {
+			color: #2d314a;
+		}
+
+		#description {
+			position: relative;
+			top: -15px;
+			left: 20px;
+		}
+
+		#otherDetails {
+			margin-top: 20px;
+			color: #2d314a;
+		}
+	</style>
+</head>
+<body>
+	<div id="box-middle">
+		<!-- Weather Chip -->
+		<div class="chip">
+			<!-- Temperature Row -->
+			<div class="row">
+				<div class="col-5" id="weather-icon"><i class="fas fa-cloud-sun-rain" style='font-size: 7em'></i></div>
+				<div class="col-7">
+					<div class="row">
+						<div class="col-8">
+							<h1 class="display-3" id="temp"></h1>
+						</div>
+					</div>
+					<div class="row">
+						<h6 id="description"></h6>
+					</div>
+				</div>
+			</div> <!-- end Temperature Row -->
+			<!-- Date, Time and Place Row -->
+			<div class="row">
+				<div class="col text-center">
+					<h3 id="place">Los Santos</h3>
+					<h3 id="dateTime"></h3>
+				</div>
+			</div> <!-- end Date, Time and Place Row -->
+			<!-- Other Weather Details Row -->
+			<div id="otherDetails" class="row">
+				<div class="col text-center">
+					<i class='fas fa-tint' style='font-size: 3em'></i>
+					<h4 id="humidity"></h4>
+				</div>
+				<div class="col text-center">
+					<i class='fas fa-wind' style='font-size: 3em'></i>
+					<h4 id="windSpeed"></h4>
+				</div>
+				<div class="col text-center">
+					<i class='fas fa-thermometer-three-quarters' style='font-size: 3em'></i>
+					<h4 id="celsius"></h4>
+				</div>
+			</div> <!-- end Other Weather Details Row -->
+		</div> <!-- end Weather Chip -->
+
+	</div>
+
+	<script src="../../owl_client_shared/core/core.js"></script>
+	<script src="../../owl_client_shared/jquery.min.js"></script>
+	<script src="../../owl_client_shared/jquery-ui.min.js"></script>
+	<script src="../../owl_client_shared/vue.min.js"></script>
+	<script src="../../owl_client_shared/jscolor.min.js"></script>
+
+	<script src="package://owl_client_shared//core.js"></script>
+	<script src="package://owl_client_shared//jquery.min.js"></script>
+	<script src="package://owl_client_shared//jquery-ui.min.js"></script>
+	<script src="package://owl_client_shared//vue.min.js"></script>
+	<script src="package://owl_client_shared//jscolor.min.js"></script>
+
+	<script>
+
+		function SetAllData(description, temperature, windSpeed, humidity) {
+			var dt = new Date();
+			$("#dateTime").html(dt.toUTCString());
+			$("#windSpeed").html(windSpeed + "km/h");
+			$("#humidity").html(humidity + "%");
+			$("#description").html(description);
+			$("#temp").html(temperature.toFixed(1));
+            $("#celsius").html(temperature.toFixed(1) + "&#8451;");
+		}
+
+	</script>
+</body>
+</html>

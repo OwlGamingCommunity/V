@@ -1,0 +1,43 @@
+.box {
+    margin-bottom: 10px;
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 15px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    line-height: 1; 
+    backdrop-filter: blur(3px);  
+    padding: 15px 15px;
+    transition: all .3s ease;
+    position: fixed;
+	top: 50%;
+	left: 50%;
+	margin-left: -120px;
+	margin-top: -200px;
+    width: 210px;
+    height: auto;
+}
+  
+.app-title {
+    font-weight: 500;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+    color: rgba(0,0,0,.66);
+    word-spacing: .1px;
+    font-size: 14px;
+}
+  
+.person {
+    font-weight: 600;
+    color: #0a030b;
+    line-height: 1.4;
+}
+  
+.msg {
+    color: rgba(0,0,0,.8);
+}
+
+.notification-img {
+    width: 17px;
+    margin-right: 7px;
+}

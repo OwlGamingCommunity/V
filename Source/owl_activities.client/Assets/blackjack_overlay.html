@@ -1,0 +1,200 @@
+<html>
+<head>
+	<link href="../../owl_client_shared/bootstrap/bootstrap.min.css" rel="stylesheet">
+	<link href="../../owl_client_shared/core/core.css" rel="stylesheet">
+	<link href="../../owl_client_shared/core/menu.css" rel="stylesheet">
+	<link href="../../owl_client_shared/slider.css" rel="stylesheet">
+	<link href="../../owl_client_shared/animate.css" rel="stylesheet">
+	<script src="../../owl_client_shared/core/core.js"></script>
+	<script src="../../owl_client_shared/jquery.min.js"></script>
+	<script src="../../owl_client_shared/jquery-ui.min.js"></script>
+	<script src="../../owl_client_shared/vue.min.js"></script>
+	<script src="../../owl_client_shared/jscolor.min.js"></script>
+	<link href="../../owl_client_shared/fontawesome/all.min.dev.css" rel="stylesheet">
+
+	<link href="package://owl_client_shared/bootstrap.min.css" rel="stylesheet">
+	<link href="package://owl_client_shared/core.css" rel="stylesheet">
+	<link href="package://owl_client_shared/menu.css" rel="stylesheet">
+	<link href="package://owl_client_shared/slider.css" rel="stylesheet">
+	<link href="package://owl_client_shared/animate.css" rel="stylesheet">
+	<script src="package://owl_client_shared//core.js"></script>
+	<script src="package://owl_client_shared//jquery.min.js"></script>
+	<script src="package://owl_client_shared//jquery-ui.min.js"></script>
+	<script src="package://owl_client_shared//vue.min.js"></script>
+	<script src="package://owl_client_shared//jscolor.min.js"></script>
+	<link href="package://owl_client_shared/all.min.css" rel="stylesheet">
+	
+	<script type="text/javascript">
+		function OnLoad()
+		{
+			if (IsRunningInRAGECEF())
+			{
+                return;
+            }
+
+			AddParticipantCard("diamond", "ace", true);
+			AddParticipantCard("heart", "jack", true);
+			AddParticipantCard("club", "queen", true);
+			AddParticipantCard("spade", "king", false);
+			AddParticipantCard("diamond", "seven", true);
+			SetParticipantDetails("Test Character", "Hand Value: 20", "21,500", "Waiting on person");
+			SetParticipantDetails("Test Character", "Hand Values: 10, 20, 30", "21,500", "Waiting on person");
+			SetTimeRemaining("10 seconds remaining");
+		}
+
+		function ResetOverlay()
+		{
+			document.getElementById("participant_details").style.display = "block";
+			document.getElementById("outcome_details").style.display = "none";
+
+			document.getElementById("cards").innerHTML = "";
+			document.getElementById("active_participant_name").innerText = "";
+			document.getElementById("active_participant_card_total").innerHTML = "";
+			document.getElementById("active_participant_bet").innerHTML = "";
+		}
+
+		function AddParticipantCard(cardClass, cardNumber, faceUp)
+		{
+			var imgName = faceUp ? `${cardClass}_${cardNumber}` : `card_flipped`;
+			document.getElementById("cards").insertAdjacentHTML("beforeend", `<img src="package://owl_activities.client/${imgName}.png" height="150px">`)
+		}
+
+		function SetParticipantDetails(name, card_total, bet)
+		{
+			document.getElementById("participant_details").style.display = "block";
+			document.getElementById("outcome_details").style.display = "none";
+
+			document.getElementById("active_participant_name").innerText = `${name}`;
+			document.getElementById("active_participant_card_total").innerHTML = `${card_total}`;
+			document.getElementById("active_participant_bet").innerHTML = `${bet}`;
+			
+			if (bet <= 0)
+			{
+				document.getElementById("bet_amount_area").style.visibility = "hidden";
+			}
+			else
+			{
+				document.getElementById("bet_amount_area").style.visibility = "visible";
+			}
+		}
+
+		function ShowOutcome(html)
+		{
+			document.getElementById("participant_details").style.display = "none";
+			document.getElementById("outcome_details").style.display = "block";
+
+			document.getElementById("outcome_details").innerHTML = html;
+		}
+
+		function SetTimeRemaining(time_text)
+		{
+			document.getElementById("time_text").innerHTML = time_text;
+
+			if (time_text.length == 0)
+			{
+				document.getElementById("area_time").style.visibility = "hidden";
+			}
+			else
+			{
+				document.getElementById("area_time").style.visibility = "visible";
+			}
+		}
+
+		function SetWaitingText(waiting_text)
+		{
+			document.getElementById("waiting_text").innerHTML = waiting_text;
+
+			if (waiting_text.length == 0)
+			{
+				document.getElementById("area_waiting").style.visibility = "hidden";
+			}
+			else
+			{
+				document.getElementById("area_waiting").style.visibility = "visible";
+			}
+		}
+
+		function SetActionsVisible(visible)
+		{
+			document.getElementById("actions").style.visibility = visible ? "visible" : "hidden";
+		}
+
+		function HitMe()
+		{
+			TriggerEvent("Blackjack_Action_HitMe");
+		}
+
+		function Stick()
+		{
+			TriggerEvent("Blackjack_Action_Stick");
+		}
+	</script>
+
+	<style type="text/css">
+
+		body {
+			background-color: black;
+		}
+
+		#cards_root {
+			margin: 0 auto;
+			position: absolute;
+			bottom: 2%;
+			left: 33%;
+			width: 30%;
+			min-width: 700px;
+		}
+
+		#local_root {
+			margin: 0 auto;
+			position: absolute;
+			bottom: 20%;
+			left: 1%;
+			width: 30%;
+			min-width: 700px;
+			color: #000000;
+		}
+
+
+		.panel {
+			margin-bottom: 0;
+		}
+
+		.panel-body p {
+			margin-bottom: 0;
+		}
+
+		h3
+		{
+			color: rgb(255, 194, 15);
+		}
+
+		h4
+		{
+			color: rgb(255, 194, 15);
+		}
+	</style>
+
+</head>
+<body>
+	<div class="card" id="cards_root" align="center">
+		<div class="card-header">
+			<h5 class="card-title"><div id="active_participant_name"></div></h5>
+			<h6 class="card-subtitle mb-2 text-muted" id="area_waiting"><div class="spinner-border spinner-border-sm" role="status"></div>&nbsp;&nbsp;&nbsp;<span id="waiting_text"></span></h6>
+			<h6 class="card-subtitle mb-2 text-muted" id="area_time"><i class="fas fa-hourglass-half"></i>&nbsp;&nbsp;&nbsp;<span id="time_text"></span></h6>
+		</div>
+		<div class="card-body" id="participant_details">
+			<i class="fas fa-info"></i>&nbsp;&nbsp;<span id="active_participant_card_total"></span>
+			<br>
+			<span id="bet_amount_area"><i class="fas fa-dollar-sign"></i>&nbsp;&nbsp;<span id="active_participant_bet"></span></span>
+			<div id="cards"></div>
+		</div>
+		<div class="card-body" id="outcome_details" style="display:none">
+		</div>
+			<div class="btn-group btn-group-justified btn-block" role="group" aria-label="Justified button group" id="actions" style="visibility:hidden">
+		    	<button id="hitbutton" type="button" class="btn btn-danger" onclick="HitMe();">Hit Me</button>
+		    	<button id="stickbutton" type="button" class="btn btn-success" onclick="Stick();">Stick</button>
+			</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,8 @@
+{
+  "Type": "UI",
+  "Parameters": {
+    "max_messages_displayed": "int",
+    "showChatboxBackground": "bool",
+    "chatboxBackgroundAlpha": "float"
+  }
+}

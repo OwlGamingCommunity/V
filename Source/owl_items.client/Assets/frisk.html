@@ -1,0 +1,542 @@
+<html>
+<head>
+	<link href="../../owl_client_shared/bootstrap/bootstrap.min.legacy.css" rel="stylesheet">
+	<link href="../../owl_client_shared/core/core.css" rel="stylesheet">
+	<link href="../../owl_client_shared/core/menu.css" rel="stylesheet">
+	<link href="../../owl_client_shared/slider.css" rel="stylesheet">
+	<link href="../../owl_client_shared/animate.css" rel="stylesheet">
+	<script src="../../owl_client_shared/core/core.js"></script>
+	<script src="../../owl_client_shared/jquery.min.js"></script>
+	<script src="../../owl_client_shared/jquery-ui.min.js"></script>
+	<script src="../../owl_client_shared/vue.min.js"></script>
+	<script src="../../owl_client_shared/jscolor.min.js"></script>
+
+	<link href="package://owl_client_shared/bootstrap.min.legacy.css" rel="stylesheet">
+	<link href="package://owl_client_shared/core.css" rel="stylesheet">
+	<link href="package://owl_client_shared/menu.css" rel="stylesheet">
+	<link href="package://owl_client_shared/slider.css" rel="stylesheet">
+	<link href="package://owl_client_shared/animate.css" rel="stylesheet">
+	<script src="package://owl_client_shared//core.js"></script>
+	<script src="package://owl_client_shared//jquery.min.js"></script>
+	<script src="package://owl_client_shared//jquery-ui.min.js"></script>
+	<script src="package://owl_client_shared//vue.min.js"></script>
+	<script src="package://owl_client_shared//jscolor.min.js"></script>
+
+	<style type="text/css">
+		body {
+			background-color: transparent;
+			opacity: 0.9;
+		}
+
+		#inventory {
+			max-width: 400px;
+		}
+
+		.list-group {
+			max-height: 187px;
+			overflow-y: scroll;
+		}
+
+			.list-group.item-list-empty {
+				overflow: auto;
+			}
+
+		.list-group-item {
+			padding-left: 115px;
+		}
+
+		.list-group.item-list-empty .list-group-item {
+			padding-left: 15px;
+		}
+
+		.image-holder {
+			background: #fafafa;
+			height: 100%;
+			left: 0;
+			position: absolute;
+			top: 0;
+			width: 100px;
+		}
+
+		a.list-group-item:hover .image-holder,
+		button.list-group-item:hover .image-holder,
+		a.list-group-item.pinned .image-holder,
+		button.list-group-item.pinned .image-holder {
+			background: #f5f5f5;
+		}
+
+		.list-group img {
+			max-width: 100%;
+			max-height: 100%;
+			position: absolute;
+			left: 50%;
+			transform: translateX(-50%);
+		}
+
+		#item-info {
+			/*background: #ffffff;*/
+			display: none;
+			margin-bottom: 0;
+		}
+
+			#item-info.visible {
+				display: block;
+			}
+
+		#item-title {
+			margin-top: 0;
+			position: relative;
+			padding-right: 90px;
+		}
+
+			#item-title .label {
+				position: absolute;
+				right: 0;
+			}
+
+		#item-actions p {
+			margin-bottom: 20px;
+		}
+
+		#item-info.visible + #item-actions p {
+			margin-top: 20px;
+		}
+
+		.btn-group {
+			margin: 0 0 20px;
+		}
+
+		.progress-title {
+			margin: 2px 0px 13px;
+		}
+
+		.weight-title {
+			margin: 0;
+		}
+
+			.weight-title .label {
+				padding: 5px;
+			}
+
+		.progress-title .label {
+			display: inline-block;
+			margin-top: 5px;
+		}
+
+		.progress {
+			margin-bottom: 0;
+			padding: 0;
+		}
+
+		.progress-bar {
+			min-width: 2em;
+		}
+
+		.btn {
+			border: none;
+		}
+
+		button.list-group-item:focus,
+		button.list-group-item:active {
+			background: #ffffff;
+			color: #555555;
+			outline: none;
+		}
+
+		button.list-group-item:hover,
+		button.list-group-item.pinned {
+			text-decoration: none;
+			color: #555555;
+			background-color: #f5f5f5;
+		}
+
+		#item-info p:last-child {
+			margin-bottom: 0;
+		}
+
+		/* Positioning */
+
+		[class*="align-"] {
+			position: fixed;
+		}
+
+		.align-bottom {
+			bottom: 20px;
+		}
+
+		.align-left {
+			left: 25px;
+		}
+
+		.align-right {
+			right: 25px;
+		}
+
+		.align-top {
+			top: 20px;
+		}
+
+		.align-center-h {
+			left: 50%;
+			transform: translateX(-50%);
+		}
+
+		.align-center-v {
+			top: 50%;
+			transform: translateY(-50%);
+		}
+
+		.align-center-h.align-center-v {
+			transform: translate(-50%,-50%);
+		}
+
+		.bottom-left-minimap-align-smallmap {
+			position: fixed;
+			left: calc(18% + 15px);
+			bottom: 20px;
+		}
+
+		.bottom-left-minimap-align-bigmap {
+			position: fixed;
+			left: calc(26% + 15px);
+			bottom: 20px;
+		}
+
+		.middle-right-align {
+			position: fixed;
+			right: 10px;
+			top: 40%;
+		}
+	</style>
+</head>
+<body>
+
+	<span id="content" style="visibility:visible">
+		<div id="inventory" class="container well align-bottom align-right">
+
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h4><span id="character_name">Inventory</span></h4>
+				</div>
+
+				<!-- List group -->
+				<div id="item-list" class="list-group item-list-empty">
+
+					<div class="list-group-item">No items to show</div>
+					<!--<button type="button" class="list-group-item" data-id="" data-weight="" data-value=""><div class="image-holder"><img src="item_images/0.png"/></div>Knife</button>-->
+				</div>
+				<div class="panel-footer"></div>
+			</div>
+
+			<div class="row">
+				<div class="col-xs-12">
+
+					<div id="item-info" class="well">
+
+						<h5 id="item-title"><span id="item-title-text"></span> <span class="label label-default"><span id="item-weight-text">0.0</span> lbs</span></h5>
+
+						<p id="item-desc"></p>
+
+					</div>
+
+					<div>
+						<div class="btn-group btn-group-justified" role="group"><a class="btn btn-default" onclick="OnHideFrisk();">Exit</a></div>
+					</div>
+					<div id="item-actions">
+						<p>Click an item in the list to see available actions.</p>
+					</div>
+
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-xs-4">
+					<h5 class="progress-title space-title">Space</h5>
+				</div>
+				<div class="col-xs-8">
+					<div id="space_bar" class="progress">
+						<div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%; min-width: 2em;">0%</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-xs-4">
+					<h5 class="progress-title weight-title">Weight <span class="label label-default">Max: <span id="max-weight-text">0.0</span> lbs</span></h5>
+				</div>
+				<div class="col-xs-8">
+					<div id="weight_bar" class="progress">
+						<div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%; min-width: 2em;">0%</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</span>
+
+	<script type="text/javascript">
+	var numItemSlots = 0;
+	var items = { };
+	var item_definitions = { };
+	var maxWeightLbs = 0;
+	var pinned_item_slot = -1;
+	var itemList = document.getElementById("item-list");
+
+	function Initialize(max_item_slots, max_weight)
+	{
+		numItemSlots = max_item_slots;
+		maxWeightLbs = max_weight;
+
+		// Set the max weight text
+		document.getElementById("max-weight-text").innerHTML = maxWeightLbs;
+
+		Reset();
+
+	}
+
+	function Reset()
+	{
+		items = { };
+		document.getElementById('item-list').innerHTML = '<div class="list-group-item">No items to show</div>';
+		document.getElementById('item-list').classList.add("item-list-empty");
+	}
+
+	function ClearItemInfo()
+	{
+		pinned_item_slot = -1;  // remove pinned item slot.
+		document.getElementById("item-info").classList.remove('visible'); // hide the item info.
+		document.getElementById("item-actions").innerHTML = "<p>Click an item in list to see available actions.</p>"; // Show #iem-action placeholder text.
+	}
+
+	function RegisterItem(id, name, valuename, description, weight)
+	{
+		item_definitions[id] = { };
+		item_definitions[id]['name'] = name;
+		item_definitions[id]['valuename'] = valuename;
+		item_definitions[id]['description'] = description;
+		item_definitions[id]['weight'] = weight;
+	}
+
+	function MouseEnter(slot)
+	{
+
+		// Only update item info box if no item is pinned.
+		if (-1 == pinned_item_slot)
+		{
+
+			var item_id = items[slot]['id'];
+
+			// Update item title
+			document.getElementById("item-title-text").innerHTML = item_definitions[item_id]['name'];
+
+			// Update item description text
+			document.getElementById("item-desc").innerHTML = item_definitions[item_id]['description'];
+
+			// Update item weight text
+			var item_weight = item_definitions[item_id]['weight'];
+			document.getElementById("item-weight-text").innerHTML = item_weight;
+
+
+			// Set the #item-info child elements to visible by adding the class.
+			document.getElementById("item-info").classList.add('visible');
+
+		}
+
+	}
+
+	function OnFriskTakeItem(slot)
+	{
+		TriggerEvent("OnFriskTakeItem", slot);
+	}
+
+	function OnHideFrisk()
+	{
+		TriggerEvent("OnHideFrisk");
+	}
+
+	function MouseClick(slot)
+	{
+
+		// remove pinned class from old pinned item.
+		const items = document.querySelectorAll(".list-group-item");
+		items.forEach(item => item.classList.remove("pinned"));
+
+		// If this slot is already the pinned slot unset it. Essentially it's a toggle.
+		if ( pinned_item_slot == slot )
+		{
+			ClearItemInfo(); // unset the pinned_item_slot variable and reset #item-info and #item-action back to defaults.
+		}
+		else
+		{
+			pinned_item_slot = -1;
+			MouseEnter(slot);
+
+			// highlight the pinned item.
+			items[slot].classList.add("pinned");
+
+			// add the action buttons to #item-actions.
+			document.getElementById("item-actions").innerHTML = `<div class="btn-group btn-group-justified" role="group"><a class="btn btn-default" onclick="OnFriskTakeItem(${slot});">Take Item</a></div>`;
+
+			// set the pinned slot variable to this slot.
+			pinned_item_slot = slot;
+		}
+	}
+
+	function MouseLeave(slot)
+	{
+
+		// if no item is set as pinned clear #item-info and #item-actions.
+		if (pinned_item_slot == -1)
+		{
+			ClearItemInfo();
+		}
+
+	}
+
+	// There aren't boxes anymore so this needs to be tweaked.
+	function AddItem(slot, id, value)
+	{
+
+		// Check there's space for the item
+		var numItems = document.querySelectorAll('.list-group-item');
+
+		if (numItems.length < numItemSlots)
+		{
+
+			// Remove the placeholder if it's present and enable the scrollbar.
+			if (document.querySelector('.item-list-empty')) {
+				itemList.innerHTML = "";
+				itemList.classList.remove("item-list-empty");
+			}
+
+			var name = item_definitions[id]['name'];
+
+			items[slot] = {};
+			items[slot]['id'] = id;
+			items[slot]['value'] = value; // not currently shown in UI.
+			items[slot]['name'] = name;
+
+			// TODO_LAUNCH: Frisk doesn't show item states (e.g. state_1, _2 etc) and also doesnt support containers properly.
+			// Add the item to the bottom of #item-list.
+			document.getElementById('item-list').insertAdjacentHTML('beforeend', `<button type="button" onmouseenter="MouseEnter(${slot});" onclick="MouseClick(${slot});" class="list-group-item"><div class="image-holder"><img src="package://owl_items.client/${id}.png"/></div>${name}</button>`);
+
+			// Update space and weight bars
+			CalculateUsage();
+
+		}
+	}
+
+	function AddDebugData()
+	{
+		Initialize(20, 20.0);
+		SetCharacterName("Test Character");
+
+		RegisterItem(0, "Test 1", "None", "Item 1", 0.5);
+		RegisterItem(1, "Test 2", "None", "Item 2", 0.5);
+		RegisterItem(2, "Test 3", "None", "Item 3", 0.5);
+		RegisterItem(3, "Test 4", "None", "Item 4", 0.5);
+		RegisterItem(4, "Test 5", "None", "Item 5", 0.5);
+		RegisterItem(5, "Test 6", "None", "Item 6", 0.5);
+		RegisterItem(6, "Test 7", "None", "Item 7", 0.5);
+		RegisterItem(7, "Test 8", "None", "Item 8", 0.5);
+		RegisterItem(8, "Test 9", "None", "Item 9", 0.5);
+		RegisterItem(9, "Test 10", "None", "Item 10", 0.6);
+
+		AddItem(0, 0, 500);
+		AddItem(1, 1, 500);
+		AddItem(2, 2, 500);
+		AddItem(3, 3, 500);
+		AddItem(4, 4, 500);
+		AddItem(5, 5, 500);
+		AddItem(6, 6, 500);
+		AddItem(7, 7, 500);
+		AddItem(8, 8, 500);
+		AddItem(9, 9, 500);
+	}
+	
+	function OnLoad()
+	{
+		if (IsRunningInRAGECEF()) {
+			return;
+		}
+
+		AddDebugData();
+	}
+
+	function RemoveItem(slot)
+	{
+
+		//remove the item
+		//document.getElementById(`item_${slot}`).src = `item_images/no_item.png`;
+
+		// If there is no firstItem (#item-list is empty) add the placeholder text and add the .item-list-empty class to disable the scrollbar.
+		var firstItem = document.querySelector('.list-group-item');
+		if (!firstItem)
+		{
+			itemList.innerHTML = '<div class="list-group-item">No items to show</div>';
+			itemList.classList.add("item-list-empty");
+		}
+
+		// Update space and weight bars
+		CalculateUsage();
+
+	}
+
+  function SetCharacterName(name)
+  {
+	document.getElementById("character_name").textContent = name;
+  }
+
+	function CalculateUsage()
+	{
+
+		var slots_used = 0;
+		var weight = 0.0;
+
+		var numItems = document.querySelectorAll('.list-group-item');
+
+		for (var i = 0; i < numItems.length && i < numItemSlots; ++i)
+		{
+			var item_id = items[i]['id'];
+			if (item_id != -1)
+			{
+				var item_weight = item_definitions[item_id]['weight'];
+				weight += item_weight;
+				slots_used++;
+			}
+		}
+
+		weight_percent = (weight / maxWeightLbs) * 100.0;
+		space_percent = (slots_used / numItemSlots) * 100.0;
+
+		var weight_class = "success";
+		if (weight_percent > 50 && weight_percent <= 75)
+		{
+			weight_class = "warning";
+		}
+		else if (weight_percent > 75)
+		{
+			weight_class = "danger";
+		}
+
+		var space_class = "success";
+		if (space_percent > 50 && space_percent <= 75)
+		{
+			space_class = "warning";
+		}
+		else if (weight_percent > 75)
+		{
+			space_class = "danger";
+		}
+
+		weight_percent = Math.round(weight_percent * 100) / 100;
+		space_percent = Math.round(space_percent * 100) / 100;
+
+		document.getElementById("space_bar").innerHTML = `<div class='progress-bar progress-bar-${space_class}' role='progressbar' aria-valuenow='${space_percent}' aria-valuemin='0' aria-valuemax='100' style='width: ${space_percent}%;'>${space_percent}%</div></div>`;
+		document.getElementById("weight_bar").innerHTML = `<div class='progress-bar progress-bar-${weight_class}' role='progressbar' aria-valuenow='${weight_percent}' aria-valuemin='0' aria-valuemax='100' style='width: ${weight_percent}%;'>${weight_percent}%</div></div>`;
+
+	}
+	</script>
+
+</body>
+</html>

@@ -1,0 +1,1373 @@
+<html>
+<head>
+    <script src="../../owl_client_shared/jquery.min.js"></script>
+    <script src="../../owl_client_shared/popper.min.js"></script>
+    <script src="../../owl_client_shared/bootstrap/bootstrap.min.js"></script>
+    <link href="../../owl_client_shared/bootstrap/bootstrap.min.css" rel="stylesheet">
+    <link href="../../owl_client_shared/fontawesome/all.min.dev.css" rel="stylesheet">
+    <link href="../../owl_client_shared/core/core.css" rel="stylesheet">
+    <link href="../../owl_client_shared/core/menu.css" rel="stylesheet">
+    <link href="../../owl_client_shared/slider.css" rel="stylesheet">
+    <link href="../../owl_client_shared/animate.css" rel="stylesheet">
+    <script src="../../owl_client_shared/core/core.js"></script>
+    <script src="../../owl_client_shared/jquery-ui.min.js"></script>
+    <script src="../../owl_client_shared/vue.min.js"></script>
+    <script src="../../owl_client_shared/jscolor.min.js"></script>
+    <link href="../../owl_client_shared/nouislider.min.css" rel="stylesheet">
+    <script src="../../owl_client_shared/nouislider.min.js"></script>
+
+    <script src="package://owl_client_shared//jquery.min.js"></script>
+    <script src="package://owl_client_shared//popper.min.js"></script>
+    <script src="package://owl_client_shared//bootstrap.min.js"></script>
+    <link href="package://owl_client_shared/bootstrap.min.css" rel="stylesheet">
+    <link href="package://owl_client_shared/all.min.css" rel="stylesheet">
+    <link href="package://owl_client_shared/core.css" rel="stylesheet">
+    <link href="package://owl_client_shared/menu.css" rel="stylesheet">
+    <link href="package://owl_client_shared/slider.css" rel="stylesheet">
+    <link href="package://owl_client_shared/animate.css" rel="stylesheet">
+    <script src="package://owl_client_shared//core.js"></script>
+    <script src="package://owl_client_shared//jquery-ui.min.js"></script>
+    <script src="package://owl_client_shared//vue.min.js"></script>
+    <script src="package://owl_client_shared//jscolor.min.js"></script>
+    <link href="package://owl_client_shared//nouislider.min.css" rel="stylesheet">
+    <script src="package://owl_client_shared//nouislider.min.js"></script>
+
+    <script type="text/javascript">
+        let g_CanClickBG = true;
+        let g_FadeInterval = 400;
+        var keys = {};
+        window.onkeyup = function (e) {
+            keys[e.keyCode] = false;
+        }
+        window.onkeydown = function (e) {
+            keys[e.keyCode] = true;
+        }
+
+        function OnLoad() {
+            if (IsRunningInRAGECEF()) {
+                return;
+            }
+
+            //ShowSplitItem("test", 10);
+            CreateWindow("Item 1", false, 0);
+
+            //CreateWindow("Item 2", false, 0);
+            CreateWindow("Item 3", true, 1);
+
+            //AddBreadcrumb("Sub Item 1", 0);
+            //AddBreadcrumb("Sub Item 2", 0);
+            //CommitBreadcrumbs(0);
+
+            UpdateBreadcrumb(0, "A", "B");
+
+            //AddBreadcrumb("Sub Item 1", 1);
+            //CommitBreadcrumbs(1);
+
+            /*
+                        for (var i = 0; i < 20; ++i)
+                        {
+                            AddItemToWindow(0, 0, 1, "blah.png", false, 0, 0, false, 0, false, false);
+                            AddItemToWindow(0, 0, 1, "blah.png", false, 0, 0, false, 0, false, false);
+                            AddItemToWindow(0, 0, 1, "blah.png", false, 0, 0, false, 0, false, false);
+                            AddItemToWindow(0, 0, 1, "blah.png", false, 0, 0, false, 0, false, false);
+                            AddItemToWindow(0, 0, 1, "blah.png", false, 0, 0, false, 0, false, false);
+                            AddItemToWindow(0, 0, 1, "blah.png", false, 0, 0, false, 0, false, false);
+                            AddItemToWindow(0, 0, 1, "blah.png", false, 0, 0, false, 0, false, false);
+                            AddItemToWindow(0, 0, 1, "blah.png", false, 0, 0, false, 0, false, false);
+                        }
+                        */
+
+            //function AddItemToWindow(window_index, item_index, item_id, item_image, is_container, current_num_items, max_items, is_stackable, current_num_stacks, is_weapon, is_weapon_attachment)
+            AddItemToWindow(0, 0, 1, "blah.png", true, 5, 10, false, 0, false, false);
+            CommitBuiltUpWindowsContents(0);
+            CommitBuiltUpWindowsContents(1);
+            //CommitBuiltUpWindowsContents(2);
+
+            for (var i = 0; i < 20; ++i) {
+                AddTabItem(0, 0, "blah.png", "", "");
+                AddTabItem(0, 0, "blah.png", "", "");
+                AddTabItem(0, 0, "blah.png", "", "");
+                AddTabItem(0, 0, "blah.png", "", "");
+                AddTabItem(0, 0, "blah.png", "", "");
+            }
+            CommitTabItems(1, "clothing");
+
+            //AddTabItem(0, 0, "blah.png");
+            //AddTabItem(0, 0, "blah.png");
+            CommitTabItems(2, "furniture");
+
+            CommitTabItems(3, "keys");
+
+            ShowItemInfo("Name", "Description here", "100", "String value", 0, 100, 900, "Use");
+
+            for (var i = 0; i < 10; ++i) {
+                AddMergeTarget("a");
+                AddMergeTarget("b");
+                AddMergeTarget("c");
+            }
+
+            // ShowMergeItem("blah");
+
+            SetItemSocketIcon(6, "none.png", true, false, 5, 10, false, 1, false);
+        }
+
+        function OnMoveItem() {
+            TriggerEvent("OnMoveItem");
+        }
+
+        function OnMergeItem() {
+            TriggerEvent("OnMergeItem");
+        }
+
+        function OnUseItem() {
+            TriggerEvent("OnUseItem");
+        }
+
+        function OnShowItem() {
+            TriggerEvent("OnShowItem");
+        }
+
+        function OnDropItem() {
+            TriggerEvent("OnDropItem");
+        }
+
+        function OnDestroyItem() {
+            TriggerEvent("OnDestroyItem");
+        }
+
+        function OnDutyOutfitShare()
+        {
+			TriggerEvent("OnDutyOutfitShare");
+		}
+
+        function SetItemSocketIcon(socket_id, image_path, is_socket_container, is_container, num_items, max_items, is_stackable, num_stacks, is_small_type) {
+            var target_socket_name = `slot_${socket_id}_img`;
+
+            document.getElementById(target_socket_name).src = image_path;
+            document.getElementById(target_socket_name).width = 64;
+            document.getElementById(target_socket_name).height = 64;
+
+            var target_postbadge_name = `slot_${socket_id}_postbadge`;
+
+            if (is_socket_container) {
+                // if (max_items <= 0) {
+                    document.getElementById(target_postbadge_name).innerHTML = `<span class="badge badge-pill badge-secondary postbadge_large">${num_items} Item(s)</span>`;
+                // } else {
+                //     document.getElementById(target_postbadge_name).innerHTML = `<span class="badge badge-pill badge-secondary postbadge_large">${num_items}/${max_items}</span>`;
+                // }
+            } else if (is_container) {
+                // if (max_items <= 0) {
+                    document.getElementById(target_postbadge_name).innerHTML = `<span class="badge badge-pill badge-secondary postbadge_large"">${num_items} Item(s)</span>`;
+                // } else {
+                //     document.getElementById(target_postbadge_name).innerHTML = `<span class="badge badge-pill badge-secondary postbadge_large">${num_items}/${max_items}</span>`;
+                // }
+            } else if (is_stackable) {
+                document.getElementById(target_postbadge_name).innerHTML = `<span class="badge badge-pill badge-secondary postbadge_large">${num_stacks}</span>`;
+            } else {
+                document.getElementById(target_postbadge_name).innerHTML = ``;
+            }
+        }
+
+        function ResetCanClickBGFlag() {
+            g_CanClickBG = true;
+        }
+
+        function DisableBGClick() {
+            setTimeout(ResetCanClickBGFlag, 400);
+            g_CanClickBG = false;
+        }
+
+        function IncrementItemCount(inputbox_name) {
+            var inputbox = document.getElementById(inputbox_name);
+            var step = 1;
+            var value = Number(inputbox.value);
+
+            if (value + step <= inputbox.max) {
+                inputbox.value = value + step;
+            }
+        }
+
+        function DecrementItemCount(inputbox_name) {
+            var inputbox = document.getElementById(inputbox_name);
+            var step = 1;
+            var limit = 1;
+            var value = Number(inputbox.value);
+
+            if (value - step >= limit) {
+                inputbox.value = value - step;
+            }
+        }
+
+        function ShowSplitItem(item_name, split_max) {
+            document.getElementById("item_split_name").textContent = item_name;
+            document.getElementById("item_count").max = split_max;
+            $(`#item_split`).fadeIn(g_FadeInterval);
+            $(`#box-middle`).fadeOut(g_FadeInterval);
+            $(`#item-info`).fadeOut(g_FadeInterval);
+            $(`#item_move`).fadeOut(g_FadeInterval);
+            $(`#item_merge`).fadeOut(g_FadeInterval);
+
+            FadeOutWindows();
+        }
+
+        function HideSplitItem() {
+            $(`#item_split`).fadeOut(g_FadeInterval);
+            $(`#box-middle`).fadeIn(g_FadeInterval);
+            TriggerEvent("ResetSplitItem");
+
+            FadeInWindows();
+        }
+
+        function DoSplitItem() {
+            var num_stacks_to_split = Number(document.getElementById("item_count").value);
+            TriggerEvent("SplitItem", num_stacks_to_split);
+
+            HideSplitItem();
+        }
+
+        function GotoSplitItem() {
+            TriggerEvent("GotoSplitItem");
+        }
+
+        function OnItemClicked_Finish(event, item_index, socket_id, element_name, is_socket, window_index) {
+            if (event.button == 2) {
+                TriggerEvent("ShowItemInfo", item_index, socket_id, $(element_name).offset().left, $(element_name).offset().top);
+            } else if (event.button == 0) {
+                TriggerEvent("ExpandContainer", item_index, socket_id, true);
+            }
+        }
+
+        function RemoveWindow(window_index) {
+            var elementContents = document.getElementById(`window_${window_index}_contents`);
+            var elementWindow = document.getElementById(`window_${window_index}`);
+
+            if (elementContents != null) {
+                elementContents.remove();
+            }
+
+            if (elementWindow != null) {
+                elementWindow.remove();
+            }
+        }
+
+        function ResetWindow(windowID) {
+            SetWindowContentsBlank(windowID);
+        }
+
+        function SetWindowContentsBlank(windowID) {
+            var window_contents = document.getElementById(`window_${windowID}_contents`);
+            window_contents.innerHTML = "";
+        }
+
+        function CreateWindow(windowName, isSecondPage, windowID) {
+            var windows = document.getElementById(isSecondPage ? "windows2" : "windows");
+
+            windows.innerHTML += `<div id="window_${windowID}">`;
+
+            var window = document.getElementById(`window_${windowID}`);
+
+            /*
+            window.innerHTML += `
+                        <div class="container">
+                        <div class="well well-white">
+                            <div class="row"><span class="glyphicon glyphicon-remove" onclick="CloseWindow(${windowID})"></span> <span id="window_${windowID}_breadcrumbs"></span><br><br>
+                            <div id="window_${windowID}_contents">
+
+                            </div>
+                        </div>
+                    </div>`;
+                    */
+
+            window.innerHTML += `<div class="card">
+                        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <a class="navbar-brand" href="#" id="window_${windowID}_name">${windowName}</a>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav" id="window_${windowID}_breadcrumbs"></ul>
+  </div>
+  
+  <div class="float-right"><button class="close" onclick="CloseWindow(${windowID})">&times;</button></div>
+
+</nav>
+                       
+<div class="scrollable_window_contents" id="window_${windowID}_contents"></div>
+                        </div>
+                    </div><br>`;
+
+            windows.innerHTML += `</span>`;
+        }
+
+        function CloseWindow(window_index) {
+            TriggerEvent("Inventory_CloseWindow", window_index);
+        }
+
+        function GoBack(window_index) {
+            TriggerEvent("Inventory_GoBack", window_index);
+        }
+
+        function UpdateBreadcrumb(windowID, displayName, goBackName) {
+            var elementName = `window_${windowID}_breadcrumb_${displayName.replace(" ", "_")}`;
+
+            var nameElement = document.getElementById(`window_${windowID}_name`);
+            nameElement.innerHTML = displayName;
+
+            var element = document.getElementById(`window_${windowID}_breadcrumbs`);
+            element.innerHTML = `<a class="nav-link" role="tab" onclick="GoBack(${windowID})" data-window_id=${windowID} id="${elementName}"><small>${goBackName}</a></small>`;
+
+            //<li class="nav-item active"><small><a class="nav-link" role="tab" data-window_id=${windowID} id="${elementName}">${displayName}</a></small></li>
+        }
+
+        function SetNoBreadcrumb(windowID, displayName) {
+            var element = document.getElementById(`window_${windowID}_breadcrumbs`);
+            element.innerHTML = ``;
+
+            var nameElement = document.getElementById(`window_${windowID}_name`);
+            nameElement.innerHTML = displayName;
+        }
+
+        var elementsPendingAddToWindow = [];
+
+        var elementsPendingAddToTab = [];
+
+        function AddTabItem(item_index, item_id, item_image, prebadge_text, postbade_text) {
+            var element_name = `clothing_item_${item_index}`;
+
+            var prefix = "";
+            if (prebadge_text.length > 0) {
+                prefix = `<span class="badge badge-pill badge-secondary prebadge_small">${prebadge_text}</span>`;
+            }
+
+            var postfix = "";
+            if (postbade_text.length > 0) {
+                postfix += `<span class="badge badge-pill badge-secondary postbadge_small">${postbade_text}</span>`;
+            }
+
+            elementsPendingAddToTab.push(`<div class="col-sm-3" id="${element_name}_root"><div>${prefix}</div><div class="item_icon_no_border"><a href="#" onmousedown="OnItemClicked(event, ${item_index}, -1, '#${element_name}', false, -1)" id="${element_name}" class="thumbnail"><img src="${item_image}" width='64' height='64' id="${element_name}_img"></a></div>${postfix}</div>`);
+        }
+
+        function CommitTabItems(tabID, name) {
+            var window_contents = document.getElementById(`tab${tabID}`);
+            if (elementsPendingAddToTab.length == 0) {
+                window_contents.innerHTML = `&nbsp;&nbsp;<center>You do not have any ${name}</center>`;
+            } else {
+                var builtUpHTMLWindowContentsData = `<div class="container">`;
+
+                var numPerRow = 4;
+                var numAddedCurrentRow = 0;
+                for (var i = 0; i < elementsPendingAddToTab.length; ++i) {
+
+                    if (numAddedCurrentRow == 0) {
+                        builtUpHTMLWindowContentsData += `<br><div class="row">`;
+                    }
+
+                    builtUpHTMLWindowContentsData += elementsPendingAddToTab[i];
+
+                    ++numAddedCurrentRow;
+
+                    if (numAddedCurrentRow >= numPerRow) {
+                        numAddedCurrentRow = 0;
+                        builtUpHTMLWindowContentsData += `</div>`;
+                    }
+                }
+                elementsPendingAddToTab = [];
+
+                // Do we have to add dummy columns?
+                var numRemainingToAdd = numPerRow - numAddedCurrentRow;
+                if (numRemainingToAdd > 0 && numRemainingToAdd != numPerRow) {
+                    builtUpHTMLWindowContentsData += `<div class="col-sm"></div>`;
+                }
+
+
+                builtUpHTMLWindowContentsData += `</div>`;
+                window_contents.innerHTML = builtUpHTMLWindowContentsData;
+
+            }
+
+            builtUpHTMLWindowContentsData = "";
+        }
+
+        function AddItemToWindow(window_index, item_index, item_id, item_image, is_container, current_num_items, max_items, is_stackable, current_num_stacks, is_weapon, is_weapon_attachment) {
+            var element_name = `overview_${window_index}_item_${item_index}`;
+
+            var prefix = "";
+            if (is_container) {
+                if (is_weapon) {
+                    prefix = `<span class="badge badge-pill badge-secondary prebadge_small">Mods</span>`;
+                } else {
+                    prefix = `<span class="badge badge-pill badge-secondary prebadge_small">Container</span>`;
+                }
+
+            } else if (is_stackable) // are we stackable?
+            {
+                prefix = `<span class="badge badge-pill badge-secondary prebadge_small">Stacked</span>`;
+            } else {
+                if (is_weapon_attachment) {
+                    prefix = `<span class="badge badge-pill badge-secondary prebadge_small">Weapon</span>`;
+                } else {
+                    ////prefix = `<span class="badge badge-pill badge-secondary prebadge_small">Single</span>`;
+                }
+            }
+
+            var postfix = "";
+            // are we a container?
+            if (is_container) {
+                postfix += `<span class="badge badge-pill badge-secondary postbadge_small">${current_num_items} Items</span>`;
+            } else if (is_stackable) // are we stackable?
+            {
+                postfix += `<span class="badge badge-pill badge-secondary postbadge_small">${current_num_stacks}</span>`;
+            } else {
+                if (is_weapon_attachment) {
+                    postfix += `<span class="badge badge-pill badge-secondary postbadge_small">Mod</span>`;
+                } else {
+                    ////postfix += `<span class="badge badge-pill badge-secondary postbadge_small">Item</span>`;
+                }
+            }
+
+            elementsPendingAddToWindow.push(`<div class="col-sm-3 pt-3" id="${element_name}_root"><div>${prefix}</div><div class="item_icon_window"><a href="#" onmousedown="OnItemClicked(event, ${item_index}, -1, '#${element_name}', false, ${window_index})" id="${element_name}" class="thumbnail"><img src="${item_image}" width='64' height='64' id="${element_name}_img" data-item_index=${item_index} data-item_id=${item_id}  data-is_socket=true data-window_index=${window_index}></a></div>${postfix}</div>`);
+        }
+
+        function OverrideWindowContents(window_index, overrideText) {
+            var window_contents = document.getElementById(`window_${window_index}_contents`);
+            window_contents.innerHTML = `&nbsp;&nbsp;${overrideText}<br>`;
+        }
+
+        function CommitBuiltUpWindowsContents(window_index) {
+            var window_contents = document.getElementById(`window_${window_index}_contents`);
+            if (elementsPendingAddToWindow.length == 0) {
+                window_contents.innerHTML = "<br><center>&nbsp;&nbsp;This container is empty.<br>";
+            } else {
+                var builtUpHTMLWindowContentsData = `<div class="container">`;
+
+                var numPerRow = 3;
+                var numAddedCurrentRow = 0;
+                for (var i = 0; i < elementsPendingAddToWindow.length; ++i) {
+
+                    if (numAddedCurrentRow == 0) {
+                        builtUpHTMLWindowContentsData += `${i == 0 ? "" : "<br>"}<div class="row">`;
+                    }
+
+                    builtUpHTMLWindowContentsData += elementsPendingAddToWindow[i];
+
+                    ++numAddedCurrentRow;
+
+                    if (numAddedCurrentRow >= numPerRow) {
+                        numAddedCurrentRow = 0;
+                        builtUpHTMLWindowContentsData += `</div>`;
+                    }
+                }
+                elementsPendingAddToWindow = [];
+
+                // Do we have to add dummy columns?
+                var numRemainingToAdd = numPerRow - numAddedCurrentRow;
+                if (numRemainingToAdd > 0 && numRemainingToAdd != numPerRow) {
+                    builtUpHTMLWindowContentsData += `<div class="col-sm"></div>`;
+                }
+
+
+                builtUpHTMLWindowContentsData += `</div>`;
+                window_contents.innerHTML = builtUpHTMLWindowContentsData;
+
+            }
+
+            builtUpHTMLWindowContentsData = "";
+        }
+
+        function HideItemInfo() {
+            $("#item_data").fadeOut(g_FadeInterval);
+        }
+
+        // move
+        function ShowMoveItem(item_name) {
+            document.getElementById("item_move_name").textContent = item_name;
+            $(`#item_move`).fadeIn(g_FadeInterval);
+            $(`#item_data`).fadeOut(g_FadeInterval);
+            $(`#box-middle`).fadeOut(g_FadeInterval);
+
+            FadeOutWindows();
+        }
+
+        function RequestMoveItem(is_socket, socket_or_item_dbid) {
+            TriggerEvent("RequestMoveItem", is_socket, socket_or_item_dbid);
+            HideMoveItem();
+            HideItemInfo();
+        }
+
+        function AddMoveTarget(display_name, can_move, is_socket, socket_or_item_dbid) {
+            var list = document.getElementById("move_target_list");
+            list.innerHTML += `<div onclick="RequestMoveItem(${is_socket}, ${socket_or_item_dbid});" class="list-group-item list-group-item-action">
+                <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1">${display_name}</h5>
+                </div>
+                </div>`;
+        }
+
+        // merge
+        function ShowMergeItem(item_name) {
+            document.getElementById("item_merge_name").textContent = item_name;
+            $(`#item_merge`).fadeIn(g_FadeInterval);
+            $(`#item_data`).fadeOut(g_FadeInterval);
+            $(`#box-middle`).fadeOut(g_FadeInterval);
+
+            FadeOutWindows();
+        }
+
+        function RequestMergeItem(item_dbid) {
+            TriggerEvent("RequestMergeItem", item_dbid);
+            HideMergeItem();
+            HideItemInfo();
+        }
+
+        function AddMergeTarget(display_name, can_move, item_dbid) {
+            var list = document.getElementById("merge_target_list");
+            list.innerHTML += `<div onclick="RequestMergeItem(${item_dbid});" class="list-group-item list-group-item-action">
+                <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1">${display_name}</h5>
+                </div>
+                </div>`;
+        }
+
+        // fade out windows
+        function FadeOutWindows() {
+            $(`#windows`).fadeOut(g_FadeInterval);
+            $(`#windows2`).fadeOut(g_FadeInterval);
+        }
+
+        function FadeInWindows() {
+            $(`#windows`).fadeIn(g_FadeInterval);
+            $(`#windows2`).fadeIn(g_FadeInterval);
+        }
+
+        function ValidateItemCount(inputBox) {
+            var isNumber = !isNaN(inputBox.value) && String(inputBox.value).length > 0;
+
+            if (isNumber) {
+                var value = Number(inputBox.value);
+
+                // Fix for setting 23 when min is 16 for example, initial 2 triggers the min cap :(
+                var valueAsString = String(inputBox.value);
+                var minAsString = String(inputBox.min);
+
+                if (value < inputBox.min && valueAsString.length >= minAsString.length) // dont cap if shorter (see fix above)
+                {
+                    inputBox.value = inputBox.min;
+                } else if (value > inputBox.max) {
+                    inputBox.value = inputBox.max;
+                }
+            }
+        }
+
+        function HideMoveItem() {
+            ClickedDropdownCooldown();
+
+            $(`#item_move`).fadeOut(g_FadeInterval);
+            $(`#item_data`).fadeIn(g_FadeInterval);
+            $(`#box-middle`).fadeIn(g_FadeInterval);
+
+            FadeInWindows();
+
+            document.getElementById("move_target_list").innerHTML = "";
+        }
+
+        function HideMergeItem() {
+            ClickedDropdownCooldown();
+
+            $(`#item_merge`).fadeOut(g_FadeInterval);
+            $(`#item_data`).fadeIn(g_FadeInterval);
+            $(`#box-middle`).fadeIn(g_FadeInterval);
+
+            FadeInWindows();
+
+            document.getElementById("merge_target_list").innerHTML = "";
+        }
+
+        function ShowItemInfo(item_name, item_desc, item_weight, item_value_string, actionsMode, root_x, root_y, useItemText) {
+            var itemInfoElement = document.getElementById("item_data");
+
+            var maxAccountedHeight = 420;
+            if (root_y + maxAccountedHeight > window.innerHeight) {
+                root_y = window.innerHeight - maxAccountedHeight;
+            }
+
+            itemInfoElement.style.left = root_x + 64 + 12 + 'px';
+            itemInfoElement.style.top = root_y + 'px';
+
+            if (useItemText.length == 0)
+            {
+                useItemText = "Use Item";
+            }
+
+            document.getElementById("item-title-text").innerHTML = item_name;
+            document.getElementById("item-desc").innerHTML = item_desc;
+            document.getElementById("item-weight-text").innerHTML = item_weight;
+            document.getElementById("item-value").innerHTML = `${item_value_string}`;
+
+            if (actionsMode == 0)
+            {
+                document.getElementById("item-actions").innerHTML = `<div class="btn-group btn-group-sm btn-group-vertical">
+    <a class="btn btn-outline" href="#" onclick="ClickedDropdownCooldown(); HideItemInfo(); OnUseItem();">${useItemText}</a>
+    <a class="btn btn-outline" href="#" onclick="ClickedDropdownCooldown(); HideItemInfo(); OnShowItem();">Show</a>
+    <a class="btn btn-outline" href="#" onclick="ClickedDropdownCooldown(); HideItemInfo(); OnDropItem();">Drop</a>
+    <a class="btn btn-outline" href="#" onclick="ClickedDropdownCooldown(); HideItemInfo(); OnMoveItem();">Move</a>
+    <a class="btn btn-outline" href="#" onclick="ClickedDropdownCooldown(); HideItemInfo(); GotoSplitItem();">Split</a>
+    <a class="btn btn-outline" href="#" onclick="ClickedDropdownCooldown(); HideItemInfo(); OnMergeItem();">Merge / Stack</a>
+    <a class="btn btn-outline" href="#" onclick="ClickedDropdownCooldown(); HideItemInfo(); OnDestroyItem();">Destroy</a>
+</div>`;
+            }
+            else if (actionsMode == 1) // move only actions means its in a vehicle / furniture, so they cant use etc
+            {
+                document.getElementById("item-actions").innerHTML = `<div class="btn-group btn-group-sm btn-group-vertical">
+    <a class="btn btn-outline" href="#" onclick="ClickedDropdownCooldown(); HideItemInfo(); OnMoveItem();">Move Item</a>
+</div>`;
+            }
+            else if (actionsMode == 2) // use only actions
+            {
+                document.getElementById("item-actions").innerHTML = `<div class="btn-group btn-group-sm btn-group-vertical">
+    <a class="btn btn-outline" href="#" onclick="ClickedDropdownCooldown(); HideItemInfo(); OnUseItem();">${useItemText}</a>
+</div>`;
+            }
+			else if (actionsMode == 3) // duty outfit (use + share)
+			{
+				document.getElementById("item-actions").innerHTML = `<div class="btn-group btn-group-sm btn-group-vertical">
+    <a class="btn btn-outline" href="#" onclick="ClickedDropdownCooldown(); HideItemInfo(); OnUseItem();">${useItemText}</a>
+    <a class="btn btn-outline" href="#" onclick="ClickedDropdownCooldown(); HideItemInfo(); OnDutyOutfitShare();">Share</a>
+</div>`;
+			}
+
+            $(`#item-info`).fadeIn(g_FadeInterval);
+            $("#item_data").fadeIn(g_FadeInterval);
+        }
+
+        function ClickedDropdownCooldown() {
+            DisableBGClick();
+        }
+
+        function OnItemClicked(event, item_index, socket_id, element_name, is_socket, window_index = -1) {
+            DisableBGClick();
+            setTimeout(function () {
+                OnItemClicked_Finish(event, item_index, socket_id, element_name, is_socket, window_index)
+            }, 200);
+        }
+
+        function onClickBody() {
+            if (g_CanClickBG) {
+                HideItemInfo();
+            }
+        }
+
+
+        function copyToClipboard(element) {
+            let tempInput = $("<input>");
+            $("body").append(tempInput);
+            tempInput.val($(element).text()).select();
+            document.execCommand("copy");
+            tempInput.remove();
+            TriggerEvent("CopyToClipboardItemValue");
+        }
+
+    </script>
+
+    <style type="text/css">
+        body {
+            background-color: transparent;
+            opacity: 0.9;
+        }
+
+        .label-block {
+            font-weight: normal;
+
+            padding: 2px 4px;
+            margin: 0;
+            border: 1px solid transparent;
+            color: #fff;
+
+            white-space: nowrap;
+            vertical-align: baseline;
+            border-radius: .25em;
+            width: 107%;
+        }
+
+        .prebadge_small {
+            font-weight: normal;
+            width: 64px;
+            position: relative;
+            top: 10px;
+            margin-top: -10px;
+        }
+
+        .postbadge_small {
+            font-weight: normal;
+            width: 64px;
+            position: relative;
+            top: -10px;
+        }
+
+        .prebadge_large {
+            font-weight: normal;
+            position: relative;
+            left: 40px;
+            margin-left: -45px;
+            top: 58px;
+            margin-top: -38px;
+            width: 80px;
+        }
+
+        .postbadge_large {
+            font-weight: normal;
+            position: relative;
+            left: 40px;
+            margin-left: -45px;
+            top: 30px;
+            margin-top: -38px;
+            width: 80px;
+        }
+
+        #toggle_state_button {
+            margin: 0;
+            position: absolute;
+            top: 96%;
+            left: 92%;
+            transform: translate(-50%, -50%);
+        }
+
+        #move_target_list {
+            overflow: auto;
+        }
+
+        #move_target_list::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        #move_target_list::-webkit-scrollbar-track {
+            background: lightgrey;
+        }
+
+        #move_target_list::-webkit-scrollbar-thumb {
+            background-color: blue; /* color of the scroll thumb */
+            border-radius: 20px; /* roundness of the scroll thumb */
+            border: 3px solid darkgrey;
+        }
+
+		.container {
+            align-items: center;
+            align-content: center;
+            text-align: left;
+            font-size: 12px;
+		}
+
+        .itemsplitting {
+            width: 400px;
+            margin: 0;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .itemmoving {
+            width: 500px;
+            margin: 0;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .itemmerging {
+            width: 500px;
+            margin: 0;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .item_icon {
+            width: 64px;
+            height: 64px;
+            border: 1px solid #021a40;
+        }
+
+        .item_icon_no_border {
+            width: 64px;
+            height: 64px;
+        }
+
+        .item_icon_window {
+            width: 64px;
+            height: 64px;
+        }
+
+        #overview_items {
+            margin: 0;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 900px;
+        }
+
+		img
+        {
+			position: relative;
+			border-radius: 8px;
+		}
+
+        #container_items {
+            margin: 0;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 900px;
+        }
+
+
+        .list-group {
+            max-height: 187px;
+            overflow-y: scroll;
+        }
+
+        .list-group.item-list-empty {
+            overflow: auto;
+        }
+
+
+        .list-group.item-list-empty .list-group-item {
+            padding-left: 15px;
+        }
+
+        .image-holder {
+            background: #fafafa;
+            height: 100%;
+            left: 0;
+            position: absolute;
+            top: 0;
+            width: 100px;
+        }
+
+        a.list-group-item:hover .image-holder,
+        button.list-group-item:hover .image-holder,
+        a.list-group-item.pinned .image-holder,
+        button.list-group-item.pinned .image-holder {
+            background: #f5f5f5;
+        }
+
+        .list-group img {
+            max-width: 100%;
+            max-height: 100%;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        #item-title {
+            margin-top: 0;
+            position: relative;
+            padding-right: 90px;
+        }
+
+        #item-title .label {
+            position: absolute;
+            right: 0;
+        }
+
+        #item-actions .btn {
+            text-align: left !important;
+        }
+
+        .btn-group-vertical {
+            width: 100%;
+            text-align: left !important;
+        }
+
+        .btn-outline {
+            border-top: 1px solid #fff;
+        }
+        
+        .btn-outline:hover {
+            background-color: #375a7f;
+            border-bottom: 1px solid #fff;
+        }
+
+        #item_data {
+            /*background: #ffffff;*/
+            display: none;
+            margin-bottom: 0;
+            margin: 0;
+            position: absolute;
+            width: 350px;
+        }
+
+        .thumbnail-div {
+            width: 72px;
+            height: 72px;
+        }
+
+		.slot_border {
+			padding: 1px;
+			border: 1px solid #1c1c1c;
+			width: 68px;
+			position: relative;
+			border-radius: 8px;
+		}
+
+        #box-middle {
+            margin: 0;
+            position: absolute;
+            width: 490px;
+            height: 500px;
+            top: 50%;
+            left: 50%;
+            margin-left: -350px;
+            margin-top: -350px;
+        }
+
+        #class_overview {
+            margin: 0;
+            position: absolute;
+            width: 300px;
+            height: 500px;
+            top: 50%;
+            left: 50%;
+            margin-left: 150px;
+            margin-top: -350px;
+        }
+
+        #class_overview2 {
+            margin: 0;
+            position: absolute;
+            width: 300px;
+            height: 500px;
+            top: 50%;
+            left: 50%;
+            margin-left: 460px;
+            margin-top: -350px;
+        }
+
+        #item-value {
+            margin-left: 0;
+            border: unset;
+        }
+
+
+        .scrollable_window_contents {
+            overflow-x: hidden;
+            overflow-y: auto;
+            height: 180px;
+        }
+
+
+        #tab1 {
+            overflow: auto;
+            height: 610px;
+        }
+
+        #tab2 {
+            overflow: auto;
+            height: 610px;
+        }
+
+        #tab3 {
+            overflow: auto;
+            height: 610px;
+        }
+
+        #tab4 {
+            overflow: auto;
+            height: 610px;
+        }
+
+        #tabs-area {
+            overflow: hidden;
+            height: 610px;
+        }
+
+        #tabs-area::-webkit-scrollbar {
+            display: none;
+        }
+
+        .scrollable_window_contents::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .scrollable_window_contents::-webkit-scrollbar-track {
+            background: lightgrey;
+        }
+
+        .scrollable_window_contents::-webkit-scrollbar-thumb {
+            background-color: blue; /* color of the scroll thumb */
+            border-radius: 20px; /* roundness of the scroll thumb */
+            border: 3px solid darkgrey;
+        }
+
+        #tab1::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        #tab1::-webkit-scrollbar-track {
+            background: lightgrey;
+        }
+
+        #tab1::-webkit-scrollbar-thumb {
+            background-color: blue; /* color of the scroll thumb */
+            border-radius: 20px; /* roundness of the scroll thumb */
+            border: 3px solid darkgrey;
+        }
+
+        #tab2::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        #tab2::-webkit-scrollbar-track {
+            background: lightgrey;
+        }
+
+        #tab2::-webkit-scrollbar-thumb {
+            background-color: blue; /* color of the scroll thumb */
+            border-radius: 20px; /* roundness of the scroll thumb */
+            border: 3px solid darkgrey;
+        }
+
+        #tab3::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        #tab3::-webkit-scrollbar-track {
+            background: lightgrey;
+        }
+
+        #tab3::-webkit-scrollbar-thumb {
+            background-color: blue; /* color of the scroll thumb */
+            border-radius: 20px; /* roundness of the scroll thumb */
+            border: 3px solid darkgrey;
+        }
+    </style>
+</head>
+
+<body onclick="onClickBody();">
+<div id="box-middle">
+    <div class="card">
+
+
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+            <a class="navbar-brand" href="#"><b>Inventory</b></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="nav navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" data-toggle="tab" id="tab0-tab" href="#tab0" role="tab">On Person</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="tab" id="tab1-tab" href="#tab1" role="tab">Clothing</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="tab" id="tab2-tab" href="#tab2" role="tab">Outfits</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="tab" id="tab3-tab" href="#tab3" role="tab">Keys</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="tab" id="tab4-tab" href="#tab4" role="tab">Furniture</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+
+        <div class="tab-content" id="tabs-area">
+
+            <div class="tab-pane fade show active" id="tab0" role="tabpanel">
+
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <br>
+                            <div id="slot_11_prebadge"></div>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Head
+                            <div id="slot_11" class="slot_border">
+                                <img onmousedown="OnItemClicked(event, -1, 11, '#slot_11_img', true)"
+                                     data-socket_index=11 id="slot_11_img" src="item_slots/empty_slot.png">
+                            </div>
+                            <div id="slot_11_postbadge"></div>
+                            <br>
+                            <div id="slot_1_prebadge"></div>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Back
+                            <div id="slot_1" class="slot_border">
+                                <img onmousedown="OnItemClicked(event, -1, 1, '#slot_1_img', true)" data-socket_index=1
+                                     raggable="false" id="slot_1_img" src="item_slots/empty_slot.png">
+                            </div>
+                            <div id="slot_1_postbadge"></div>
+                            <br>
+                            <div id="slot_10_prebadge"></div>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Chest
+                            <div id="slot_10" class="slot_border">
+                                <img onmousedown="OnItemClicked(event, -1, 10, '#slot_10_img', true)"
+                                     data-socket_index=10 id="slot_10_img" src="item_slots/empty_slot.png">
+                            </div>
+                            <div id="slot_10_postbadge"></div>
+                            <br>
+                            <div id="slot_23_prebadge"></div>
+                            &nbsp;Chest (Sling)
+                            <div id="slot_23" class="slot_border">
+                                <img onmousedown="OnItemClicked(event, -1, 23, '#slot_23_img', true)"
+                                     data-socket_index=23 id="slot_23_img" src="item_slots/empty_slot.png">
+                            </div>
+                            <div id="slot_23_postbadge"></div>
+                        </div>
+                        <div class="col-md-3">
+                            <br>
+                            <div id="slot_0_prebadge"></div>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Heart
+                            <div id="slot_0" class="slot_border">
+                                <img onmousedown="OnItemClicked(event, -1, 0, '#slot_0_img', true)" data-socket_index=0
+                                     id="slot_0_img" src="item_slots/empty_slot.png">
+                            </div>
+                            <div id="slot_0_postbadge"></div>
+                            <br>
+                            <div id="slot_2_prebadge"></div>
+                            Rear Pockets
+                            <div id="slot_2" class="slot_border">
+                                <img onmousedown="OnItemClicked(event, -1, 2, '#slot_2_img', true)" data-socket_index=2
+                                     id="slot_2_img" src="item_slots/empty_slot.png">
+                            </div>
+                            <div id="slot_2_postbadge"></div>
+                            <br>
+                            <div id="slot_4_prebadge"></div>
+                            &nbsp;&nbsp;&nbsp;Left Waist
+                                <div id="slot_4" class="slot_border">
+                                    <img onmousedown="OnItemClicked(event, -1, 4, '#slot_4_img', true)" data-socket_index=4
+                                         id="slot_4_img" src="item_slots/empty_slot.png">
+                                </div>
+                                <div id="slot_4_postbadge"></div>
+                                <br>
+                                <div id="slot_17_prebadge"></div>
+                                &nbsp;&nbsp;&nbsp;Left Hand
+                                <div id="slot_17" class="slot_border">
+                                    <img onmousedown="OnItemClicked(event, -1, 17, '#slot_17_img', true)"
+                                         data-socket_index=17 id="slot_17_img" src="item_slots/empty_slot.png">
+                                </div>
+                                <div id="slot_17_postbadge"></div>
+                        </div>
+                        <div class="col-md-3">
+                            <br>
+                            <div id="slot_3_prebadge"></div>
+                            &nbsp;Front Pockets
+                            <div id="slot_3" class="slot_border">
+                                <img onmousedown="OnItemClicked(event, -1, 3, '#slot_3_img', true)" data-socket_index=3
+                                     id="slot_3_img" src="item_slots/empty_slot.png">
+                            </div>
+                            <div id="slot_3_postbadge"></div>
+                            <br>
+                            <div id="slot_6_prebadge"></div>
+                           &nbsp;&nbsp;&nbsp;Back Pants
+                            <div id="slot_6" class="slot_border">
+                                <img onmousedown="OnItemClicked(event, -1, 6, '#slot_6_img', true)" data-socket_index=6
+                                     id="slot_6_img" src="item_slots/empty_slot.png">
+                            </div>
+                            <div id="slot_6_postbadge"></div>
+                            <br>
+                            <div id="slot_19_prebadge"></div>
+                           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Wallet
+                            <div id="slot_19" class="slot_border">
+                                <img onmousedown="OnItemClicked(event, -1, 19, '#slot_19_img', true)" data-socket_index=6
+                                     id="slot_19_img" src="item_slots/empty_slot.png">
+                            </div>
+                            <div id="slot_19_postbadge"></div>
+                            <br>
+                            <div id="slot_7_prebadge"></div>
+                            &nbsp;&nbsp;Front Pants
+                            <div id="slot_7" class="slot_border">
+                                <img onmousedown="OnItemClicked(event, -1, 7, '#slot_7_img', true)" data-socket_index=7
+                                     id="slot_7_img" src="item_slots/empty_slot.png">
+                            </div>
+                            <div id="slot_7_postbadge"></div>
+                        </div>
+                            <div class="col-md-3">
+                                <br>
+                                <div id="slot_8_prebadge"></div>
+                                &nbsp;&nbsp;&nbsp;Left Ankle
+                                <div id="slot_8" class="slot_border">
+                                    <img onmousedown="OnItemClicked(event, -1, 8, '#slot_8_img', true)" data-socket_index=8
+                                         id="slot_8_img" src="item_slots/empty_slot.png">
+                                </div>
+                                <div id="slot_8_postbadge"></div>
+                                <br>
+                                <div id="slot_9_prebadge"></div>
+                                &nbsp;&nbsp;Right Ankle
+                                <div id="slot_9" class="slot_border">
+                                    <img onmousedown="OnItemClicked(event, -1, 9, '#slot_9_img', true)" data-socket_index=9
+                                         id="slot_9_img" src="item_slots/empty_slot.png">
+                                </div>
+                                <div id="slot_9_postbadge"></div>
+                                <br>
+                                <div id="slot_5_prebadge"></div>
+                                &nbsp;&nbsp;Right Waist
+                                <div id="slot_5" class="slot_border">
+                                    <img onmousedown="OnItemClicked(event, -1, 5, '#slot_5_img', true)" data-socket_index=5
+                                         id="slot_5_img" src="item_slots/empty_slot.png">
+                                </div>
+                                <div id="slot_5_postbadge"></div>
+                                <br>
+                                <div id="slot_18_prebadge"></div>
+                                &nbsp;&nbsp;Right Hand
+                                <div id="slot_18" class="slot_border">
+                                    <img onmousedown="OnItemClicked(event, -1, 18, '#slot_18_img', true)"
+                                         data-socket_index=18 id="slot_18_img" src="item_slots/empty_slot.png">
+                                </div>
+                                <div id="slot_18_postbadge"></div>
+                                <br>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+
+            </div>
+
+            <div class="tab-pane fade" id="tab1" role="tabpanel"></div>
+            <div class="tab-pane fade" id="tab2" role="tabpanel"></div>
+            <div class="tab-pane fade" id="tab3" role="tabpanel"></div>
+            <div class="tab-pane fade" id="tab4" role="tabpanel"></div>
+        </div>
+
+    </div>
+</div>
+
+<div id="class_overview">
+		<span id="windows">
+
+		</span>
+</div>
+<div id="class_overview2">
+		<span id="windows2">
+
+		</span>
+</div>
+
+<span id="container_items" style="position:absolute"></span>
+
+<div id="item_data">
+    <div id="item-info" class="well well-white" onclick="ClickedDropdownCooldown();">
+        <div class="card">
+            <div class="card-header">
+                <h4 class="card-title"><span id="item-title-text"></span></h4>
+                <h6 class="card-subtitle mb-2 text-muted"><span id="item-value"
+                                                                onclick="copyToClipboard('#item-value')"></span>
+                </h6>
+                <h6 class="card-subtitle mb-2 text-muted"><small><span id="item-weight-text"></span>
+                    Lbs</small></h6>
+            </div>
+            <div class="card-body">
+                <span id="item-desc"></span>
+            </div>
+            <div class="card-footer" style="padding: 0">
+                <div id="item-actions"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="item_move" class="itemmoving" style="display:none">
+    <div class="card">
+        <div class="card-header">
+            <h4 class="card-title mb-0">
+                <span id="item_move_name"></span>
+                <small class="text-muted small float-right">Move Item</small>
+            </h4>
+        </div>
+
+        <div class="move-item-table">
+
+
+            <ul class="list-group" id="move_target_list"></ul>
+        </div>
+
+        <div class="btn-group btn-group-justified" role="group" aria-label="Justified button group">
+            <a class='btn btn-danger' style="opacity:0.9" onclick="HideMoveItem();">Cancel</a>
+        </div>
+    </div>
+</div>
+
+<!-- MERGE ITEM -->
+<div id="item_merge" class="itemmerging" style="display:none">
+    <div class="card">
+        <div class="card-header">
+            <h4 class="card-title mb-0">
+                <span id="item_merge_name"></span>
+                <small class="text-muted small float-right">Merge Item</small>
+            </h4>
+        </div>
+
+        <div class="move-item-table">
+
+
+            <ul class="list-group" id="merge_target_list"></ul>
+        </div>
+
+        <div class="btn-group btn-group-justified" role="group" aria-label="Justified button group">
+            <a class='btn btn-danger' style="opacity:0.9" onclick="HideMergeItem();">Cancel</a>
+        </div>
+    </div>
+</div>
+
+<div class="itemsplitting">
+    <div id="item_split" style="display:none">
+
+        <div class="card">
+            <div class="card-header">
+                <h4 class="card-title mb-0">
+                    <span id="item_split_name"></span>
+                    <small class="text-muted small float-right">Split Item</small>
+                </h4>
+            </div>
+
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <button class="btn btn-outline-secondary" type="button" onclick="DecrementItemCount('item_count')">
+                        <i class="fas fa-caret-down"></i></button>
+                </div>
+                <input type="number" class="form-control" id="item_count" value="1" min=1 max=0
+                       oninput="ValidateItemCount(this)">
+                <div class="input-group-append">
+                    <button class="btn btn-outline-secondary" type="button" onclick="IncrementItemCount('item_count')">
+                        <i class="fas fa-caret-up"></i></button>
+                </div>
+            </div>
+
+            <div class="btn-group btn-group-justified" role="group" aria-label="Justified button group">
+                <a class='btn btn-danger' style="opacity:0.9" onclick="HideSplitItem();">Cancel</a>
+                <a class='btn btn-success' style="opacity:0.9" onclick="DoSplitItem();">Split</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+    <!-- PROGRESS BARS
+        <div class="row">
+            <div class="col-xs-4">
+                <h5 class="progress-title space-title">Space</h5>
+            </div>
+            <div class="col-xs-8">
+                <div id="space_bar" class="progress">
+                    <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%; min-width: 2em;">0%</div>
+                </div>
+            </div>
+        </div>
+    
+        <div class="row">
+            <div class="col-xs-4">
+                <h5 class="progress-title weight-title">Weight <span class="label label-default">Max: <span id="max-weight-text">0.0</span> lbs</span></h5>
+            </div>
+            <div class="col-xs-8">
+                <div id="weight_bar" class="progress">
+                    <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%; min-width: 2em;">0%</div>
+                </div>
+            </div>
+        </div>
+    -->
+</body>
+</html>

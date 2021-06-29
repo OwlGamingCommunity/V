@@ -1,0 +1,11 @@
+{
+  "Type": "Network_ServerToClient_RemoteOnly",
+  "Parameters": {
+    "x": "float",
+    "y": "float",
+    "z": "float",
+    "mapID": "int",
+    "bHasParentInterior": "bool",
+    "parentMap": "int"
+  }
+}

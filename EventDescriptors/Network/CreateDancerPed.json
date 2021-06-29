@@ -1,0 +1,12 @@
+{
+  "Type": "Network_ServerToClient_RemoteOnly",
+  "Parameters": {
+  	"vecPos" : "Vector3",
+  	"fRot": "float",
+  	"dimension": "uint",
+  	"dancerID": "Int64",
+  	"dancerSkin": "uint",
+	"bAllowTip": "bool",
+	"AnimationTransmit": "TransmitAnimation",
+  }
+}

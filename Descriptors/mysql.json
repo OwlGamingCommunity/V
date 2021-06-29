@@ -1,0 +1,14 @@
+{
+  "Files": [
+    {
+      "Name": "owl_mysql.dll",
+      "Type": "ServerScript"
+    },
+    {
+      "Name":  "MySql.Data.dll",
+      "Type": "ServerDependency"
+    }
+  ],
+  "ExportedFunctions": [
+  ]
+}

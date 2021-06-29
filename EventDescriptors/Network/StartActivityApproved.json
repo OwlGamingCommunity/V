@@ -1,0 +1,8 @@
+{
+  "Type": "Network_ServerToClient_RemoteOnly",
+  "Parameters": {
+  	"participantIndex" : "int",
+  	"uniqueIdentifier": "Int64",
+  	"activityType" : "EActivityType"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "Type": "Network_ClientToServer_RemoteOnly",
+  "Parameters": {
+  	"commandName": "string",
+  	"animDictionary": "string",
+  	"animName": "string",
+  	"loop": "bool",
+  	"stopOnLastFrame": "bool",
+  	"onlyAnimateUpperBody": "bool",
+  	"allowPlayerMovement": "bool",
+  	"durationSeconds": "int",
+  	"isSilent": "bool"
+  }
+}

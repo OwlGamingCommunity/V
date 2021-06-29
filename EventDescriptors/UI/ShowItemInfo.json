@@ -1,0 +1,9 @@
+{
+  "Type": "UI",
+  "Parameters": {
+  	"item_index": "int",
+  	"socket_id": "EItemSocket",
+  	"rootX": "float",
+  	"rootY": "float",
+  }
+}

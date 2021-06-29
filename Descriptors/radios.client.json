@@ -1,0 +1,29 @@
+{
+  "Files": [
+    {
+      "Name": "Assets/radios.html",
+      "Type": "ClientAsset"
+    },
+    {
+      "Name": "Assets/radioplayer.html",
+      "Type": "ClientAsset"
+    },
+    {
+      "Name": "RadioManagement.Client.cs",
+      "Type": "ClientScript"
+    },
+    {
+      "Name": "CGUIRadioManagement.Client.cs",
+      "Type": "ClientScript"
+    },
+    {
+      "Name": "CGUIRadioPlayer.Client.cs",
+      "Type": "ClientScript"
+    },
+    {
+      "Name": "Init.Client.cs",
+      "Type": "ClientScript"
+    }
+  ],
+  "ExportedFunctions": []
+}

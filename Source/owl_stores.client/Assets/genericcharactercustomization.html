@@ -1,0 +1,1065 @@
+<html>
+<head>
+	<script src="../../owl_client_shared/core/core.js"></script>
+	<script src="../../owl_client_shared/jquery.min.js"></script>
+	<script src="../../owl_client_shared/popper.min.js"></script>
+	<script src="../../owl_client_shared/bootstrap/bootstrap.min.js"></script>
+	<link href="../../owl_client_shared/bootstrap/bootstrap.min.css" rel="stylesheet">
+	<link href="../../owl_client_shared/fontawesome/all.min.dev.css" rel="stylesheet">
+	<link href="../../owl_client_shared/core/core.css" rel="stylesheet">
+	<link href="../../owl_client_shared/core/menu.css" rel="stylesheet">
+	<link href="../../owl_client_shared/slider.css" rel="stylesheet">
+	<link href="../../owl_client_shared/animate.css" rel="stylesheet">
+	<script src="../../owl_client_shared/jquery-ui.min.js"></script>
+	<script src="../../owl_client_shared/vue.min.js"></script>
+	<script src="../../owl_client_shared/jscolor.min.js"></script>
+	<link href="../../owl_client_shared/nouislider.min.css" rel="stylesheet">
+	<script src="../../owl_client_shared/nouislider.min.js"></script>
+
+	<script src="package://owl_client_shared//core.js"></script>
+	<script src="package://owl_client_shared//jquery.min.js"></script>
+	<script src="package://owl_client_shared//popper.min.js"></script>
+	<script src="package://owl_client_shared//bootstrap.min.js"></script>
+	<link href="package://owl_client_shared/bootstrap.min.css" rel="stylesheet">
+	<link href="package://owl_client_shared/all.min.css" rel="stylesheet">
+	<link href="package://owl_client_shared/core.css" rel="stylesheet">
+	<link href="package://owl_client_shared/menu.css" rel="stylesheet">
+	<link href="package://owl_client_shared/slider.css" rel="stylesheet">
+	<link href="package://owl_client_shared/animate.css" rel="stylesheet">
+	<script src="package://owl_client_shared//jquery-ui.min.js"></script>
+	<script src="package://owl_client_shared//vue.min.js"></script>
+	<script src="package://owl_client_shared//jscolor.min.js"></script>
+	<link href="package://owl_client_shared//nouislider.min.css" rel="stylesheet">
+	<script src="package://owl_client_shared//nouislider.min.js"></script>
+
+	<script src="logic.js"></script>
+
+	<script type="text/javascript">
+		let g_MaxTabs = 5;
+		let g_TabCount = 0;
+		let g_ElementCounter = 0
+
+		function ToggleActive(element)
+		{
+			$(element).siblings().removeClass('active');
+			$(element).addClass("active");
+		}
+
+		function DeleteTabContent_GenericListItem(elementName)
+		{
+			document.getElementById(elementName).remove();
+		}
+
+		function AddTabContent_GenericListItem(title, subtitle, tinytext, eventName, mouseEnterEventName, mouseLeaveEventName, associatedID)
+		{
+			var element = document.getElementById(`main_content`);
+			if (element != null)
+			{
+				var elementName = `genericlistitem_${g_ElementCounter}_${associatedID}`;
+				++g_ElementCounter;
+
+				element.insertAdjacentHTML("beforeend", `<div id="${elementName}" class="list-group">
+					<button type="button" onmouseenter="javascript:TriggerEvent('${mouseEnterEventName}', '${elementName}', ${associatedID});" onmouseleave="javascript:TriggerEvent('${mouseLeaveEventName}', '${elementName}', ${associatedID});" onclick="javascript:TriggerEvent('${eventName}', '${elementName}', ${associatedID});" class="btn btn-light"><h5>${title}</h5><p>${subtitle}</p><small>${tinytext}</small></button><br></div>`);
+			}
+		}
+
+		function DoTransitionFade(outElementName, inElementName)
+		{
+			$(outElementName).fadeOut(200);
+			setTimeout(function()
+				{ 
+					$(inElementName).fadeIn(200);
+				}
+			, 300);
+		}
+
+		let g_FinishEventName = null;
+		let g_ExitEventName = null;
+		let g_ToggleClothesEventName = null;
+		let g_GotoBodyCam_NearEventName = null;
+		let g_GotoBodyCam_FarEventName = null;
+		let g_GotoHeadCamEventName = null;
+		let g_StartRotationEventName = null;
+		let g_StopRotationEventName = null;
+		let g_ResetRotationEventName = null;
+		function Initialize(storeName, FinishEventName, ExitEventName, ToggleClothesEventName, GotoBodyCam_NearEventName, GotoBodyCam_FarEventName, GotoHeadCamEventName, StartRotationEventName, StopRotationEventName, ResetRotationEventName)
+		{
+			SetName(storeName);
+			g_FinishEventName = FinishEventName;
+			g_ExitEventName = ExitEventName;
+			g_ToggleClothesEventName = ToggleClothesEventName;
+			g_GotoBodyCam_NearEventName = GotoBodyCam_NearEventName;
+			g_GotoBodyCam_FarEventName = GotoBodyCam_FarEventName;
+			g_GotoHeadCamEventName = GotoHeadCamEventName;
+			g_StartRotationEventName = StartRotationEventName;
+			g_StopRotationEventName = StopRotationEventName;
+			g_ResetRotationEventName = ResetRotationEventName;
+		}
+
+		function SetName(storeName)
+		{
+			document.getElementById("store_name").innerText = storeName;
+		}
+
+		function SetPriceString(priceString)
+		{
+			document.getElementById("price").innerHTML = priceString;
+		}
+
+		function ToggleClothes()
+		{
+			TriggerEvent(g_ToggleClothesEventName);
+		}
+
+		function GotoBodyCam_Near()
+		{
+			TriggerEvent(g_GotoBodyCam_NearEventName);
+		}
+
+		function GotoBodyCam_Far()
+		{
+			TriggerEvent(g_GotoBodyCam_FarEventName);
+		}
+
+		function GotoHeadCam()
+		{
+			TriggerEvent(g_GotoHeadCamEventName);
+		}
+
+		function StartRotation(direction)
+		{
+			TriggerEvent(g_StartRotationEventName, direction);
+		}
+
+		function StopRotation(direction)
+		{
+			TriggerEvent(g_StopRotationEventName, direction);
+		}
+
+		function ResetRotation()
+		{
+			TriggerEvent(g_ResetRotationEventName);
+		}
+
+		function ShowTattooCreator()
+		{
+			// Reset
+			document.getElementById("tattoo_location_dropdown").innerHTML = "Tattoo Location";
+			document.getElementById("tattoo_list").innerHTML = "";
+
+			DoTransitionFade('#main_page', '#tattoo_creator')
+		}
+
+		function HideTattooCreator()
+		{
+			DoTransitionFade('#tattoo_creator', '#main_page')
+		}
+
+		function HideCreationUI()
+		{
+			$("#main_page").fadeOut(200);
+		}
+
+		function ShowCreationUI()
+		{
+			$("#main_page").fadeIn(200);
+		}
+
+		function AddTabContent_GenericButton(text, eventName)
+		{
+			var element = document.getElementById(`main_content`);
+			if (element != null)
+			{
+				var elementName = `genericbutton${g_ElementCounter}`;
+				++g_ElementCounter;
+
+				element.insertAdjacentHTML("beforeend", `<br><div class="btn-group btn-group-justified btn-block" role="group" aria-label="Justified button group">
+			<a class='btn btn-info' href="#" style="opacity:0.9" onclick="javascript:TriggerEvent('${eventName}');">${text}</a>
+		</div><br><br>`);
+			}
+		}
+
+		function OnLoad()
+		{
+			Reset();
+
+			if (IsRunningInRAGECEF())
+			{
+				return;
+			}
+
+			AddTabContent_TwoRadioOptions("test", "test2", "a", "b", "testEvent", 1)
+
+			for (var i = 0; i < 10; ++i) {
+				AddPendingDropdownItem(String(i), `VAL ${i}`);
+			}
+			AddTabContent_Dropdown("Testing", "Testing 2", "testEvent");
+
+			for (var i = 0; i < 10; ++i) {
+				AddPendingDropdownItem(String(i), `VAL ${i}`);
+			}
+			AddTabContent_Dropdown("Testing", "Testing 2", "testEvent");
+			return;
+			
+			//AddTab("Body", "fa-user-circle", "eventName");
+			//AddTab("Visuals", "fa-cut", "eventName");
+			//AddTab("Tattoos", "fa-palette", "eventName");
+			//AddTab("Clothing", "fa-tshirt", "eventName");
+			//AddTab("Info", "fa-info-circle", "eventName");
+//AddTabContent_NumberSelector("Testing", "Testing 2", 16, 99, "testEvent");
+			//AddTabContent_HeritageSelector("Parent 1", 0, "What did your 1st parent look like?", "testEvent");
+    		//AddTabContent_HeritageSelector("Parent 2", 1, 1, "What did your 2nd parent look like?", "testEvent");
+			//AddTabContent_ClothingSelector("Triple Selector", "Drawable", 0, 1, 5, "eventDrawable", "Texture", 0, 15, 10, "eventTexture", "eventNameOnRootChanged");
+			//AddTabContent_ClothingSelector("Triple Selector", "Drawable", 0, 1, 5, "eventDrawable", "Texture", 0, 15, 10, "eventTexture", "eventNameOnRootChanged");
+			//AddTabContent_ClothingSelector("Triple Selector", "Drawable", 0, 1, 5, "eventDrawable", "Texture", 0, 15, 10, "eventTexture", "eventNameOnRootChanged");
+			//AddTabContent_ClothingSelector("Triple Selector", "Drawable", 0, 1, 5, "eventDrawable", "Texture", 0, 15, 10, "eventTexture", "eventNameOnRootChanged");
+
+			AddTabContent_GenericListItem("Tattoo #3 (Right Leg)", "Parachute Belle", "Click to Delete", "testEvent", "enterEvent", "leaveEvent", 2);
+			AddTabContent_GenericListItem("Tattoo #3 (Right Leg)", "Parachute Belle", "Click to Delete", "testEvent", "enterEvent", "leaveEvent", 2);
+			AddTabContent_GenericListItem("Tattoo #3 (Right Leg)", "Parachute Belle", "Click to Delete", "testEvent", "enterEvent", "leaveEvent", 2);
+			AddTabContent_GenericListItem("Tattoo #3 (Right Leg)", "Parachute Belle", "Click to Delete", "testEvent", "enterEvent", "leaveEvent", 2);
+			AddTabContent_GenericListItem("Tattoo #3 (Right Leg)", "Parachute Belle", "Click to Delete", "testEvent", "enterEvent", "leaveEvent", 2);
+			AddTabContent_GenericListItem("Tattoo #3 (Right Leg)", "Parachute Belle", "Click to Delete", "testEvent", "enterEvent", "leaveEvent", 2);
+			AddTabContent_GenericListItem("Tattoo #3 (Right Leg)", "Parachute Belle", "Click to Delete", "testEvent", "enterEvent", "leaveEvent", 2);
+			AddTabContent_GenericListItem("Tattoo #3 (Right Leg)", "Parachute Belle", "Click to Delete", "testEvent", "enterEvent", "leaveEvent", 2);
+			return;
+
+
+			g_HeritagesMale = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 42, 43, 44];
+			g_HeritagesFemale = [21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 45];
+			
+			Initialize("Name", "ExitEvent", "ToggleClothesEventName", "GotoBodyCam_NearEvent", "GotoBodyCam_FarEvent", "GotoHeadCamEvent", "StartRotationEvent", "StopRotationEvent", "ResetRotationEvent");
+			AddTabContent_GenericButton("Add New Tattoo", "testEvent");
+			AddTabContent_GenericListItem("Tattoo #1 (Torso)", "Parachute Belle", "Click to Delete", "testEvent", 0);
+			AddTabContent_GenericListItem("Tattoo #2 (Head)", "Parachute Belle", "Click to Delete", "testEvent", 1);
+			AddTabContent_GenericListItem("Tattoo #3 (Right Leg)", "Parachute Belle", "Click to Delete", "testEvent", 2);
+			AddTabContent_GenericListItem("Tattoo #3 (Right Leg)", "Parachute Belle", "Click to Delete", "testEvent", 2);
+			AddTabContent_GenericListItem("Tattoo #3 (Right Leg)", "Parachute Belle", "Click to Delete", "testEvent", 2);
+			AddTabContent_GenericListItem("Tattoo #3 (Right Leg)", "Parachute Belle", "Click to Delete", "testEvent", 2);
+			AddTabContent_GenericListItem("Tattoo #3 (Right Leg)", "Parachute Belle", "Click to Delete", "testEvent", 2);
+			AddTabContent_GenericListItem("Tattoo #3 (Right Leg)", "Parachute Belle", "Click to Delete", "testEvent", 2);
+			AddTabContent_GenericListItem("Tattoo #3 (Right Leg)", "Parachute Belle", "Click to Delete", "testEvent", 2);
+			AddTabContent_GenericListItem("Tattoo #3 (Right Leg)", "Parachute Belle", "Click to Delete", "testEvent", 2);
+			return;
+			
+
+			AddTabContent_Textbox("Name", "What should we call you?", 5, true, "testEvent", "Firstname Lastname");
+
+			AddTabContent_GenericButton("Add New Tattoo", "testEvent");
+			AddTabContent_GenericListItem("Tattoo #1 (Torso)", "Parachute Belle", "Click to Delete", "testEvent", 0);
+			AddTabContent_GenericListItem("Tattoo #2 (Head)", "Parachute Belle", "Click to Delete", "testEvent", 1);
+			AddTabContent_GenericListItem("Tattoo #3 (Right Leg)", "Parachute Belle", "Click to Delete", "testEvent", 2);
+
+			//ShowTattooCreator();
+			return;
+    		
+    		AddTabContent_Textbox("Name", "What should we call you?", 5, true, "testEvent", "Firstname Lastname");
+    		AddTabContent_TwoRadioOptions("Spawn", "Where would you like to spawn?", "Los Santos", "Paleto Bay", "testEvent");
+			AddTabContent_NumberSelector("Testing", "Testing 2", 16, 99, "testEvent");
+
+			for (var i = 0; i < 10; ++i)
+			{
+				AddPendingDropdownItem(String(i), `VAL ${i}`);
+			}
+			AddTabContent_Dropdown("Testing", "Testing 2", "testEvent");
+
+			return;
+		};
+
+		let g_PendingDropdownItems = []
+		function AddPendingDropdownItem(value, displayName)
+		{
+			var newItem = {};
+			newItem.value = value;
+			newItem.displayName = displayName;
+			g_PendingDropdownItems.push(newItem);
+		}
+
+		function OnDropdownChanged(elementName, eventName, val, display)
+		{
+			document.getElementById(elementName).innerText = display;
+			TriggerEvent(eventName, val, display);
+		}
+
+		function AddTabContent_Dropdown(title, description, initialText, eventName)
+		{
+			var htmlBuilder = ``;
+			var element = document.getElementById(`main_content`);
+			if (element != null)
+			{
+				htmlBuilder += `<br><h6 class="card-subtitle mb-2 text-muted">${title}&nbsp;&nbsp;<small>${description}</small></h6><div class="dropdown">
+				  <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdown_${title}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				    ${initialText}
+				  </a><div class="dropdown-menu" aria-labelledby="dropdownMenuLink">`;
+				for (var i = 0; i < g_PendingDropdownItems.length; ++i)
+				{
+					var isNewRow = (i > 0 && i % 12 == 0);
+
+
+					//var innerElementTemplate = `color_${title}_`;
+					//var innerElementName = `${innerElementTemplate}${i}`;
+					var value = g_PendingDropdownItems[i].value;
+					var displayName = g_PendingDropdownItems[i].displayName;
+
+					htmlBuilder += `<a class="dropdown-item" href="javascript:OnDropdownChanged('dropdown_${title}', '${eventName}', '${value}', '${displayName}');">${displayName}</a>`;
+				}
+				htmlBuilder += `</div></div>`;
+
+				element.insertAdjacentHTML("beforeend", htmlBuilder);
+			}
+
+			g_PendingDropdownItems = [];
+		}
+
+		let g_PendingColors = []
+		function AddPendingColor(value, color)
+		{
+			var newItem = {};
+			newItem.value = value;
+			newItem.color = color;
+			g_PendingColors.push(newItem);
+		}
+
+		function ToggleColor(activeElement, elementTemplate)
+		{
+			for (var i = 0; i < 100; ++i)
+			{
+				var elementName = `${elementTemplate}${i}`;
+				var element = document.getElementById(elementName);
+				if (element != null)
+				{
+					if (elementName == activeElement)
+					{
+						element.className = "fas fa-check-circle"; 
+					}
+					else
+					{
+						element.className = "fas fa-circle"; 
+					}
+				}
+				else
+				{
+					break;
+				}
+			}
+		}
+
+		function AddTabContent_ClothingSelector(title, box1_name, box1_min, box1_max, box1_default, box1_event, box2_name, box2_min, box2_max, box2_default, box2_event, rootResetEvent)
+		{
+			var element = document.getElementById(`main_content`);
+			if (element != null)
+			{
+				var inputBoxName1 = `number_selector_button_${g_ElementCounter}_1`;
+				var inputBoxName2 = `number_selector_button_${g_ElementCounter}_2`;
+				var inputBoxName3 = `number_selector_button_${g_ElementCounter}_3`;
+				++g_ElementCounter;
+
+				element.insertAdjacentHTML("beforeend", `<br><h6 class="card-subtitle mb-2 text-muted">${title}&nbsp;&nbsp;</h6>
+					
+					  <div class="row">
+					    <div class="col-sm">
+					     	${box1_name}
+					    </div>
+					    <div class="col-sm">
+					     ${box2_name}
+					    </div>
+					  </div>
+					  <div class="row">
+					    <div class="col-sm">
+					    <div class="input-group">
+					    <div class="input-group-prepend">
+					     <button class="btn" type="button" onclick="DecrementBoxWithReset(${inputBoxName1}, '${box1_event}', ${inputBoxName2}, '${box2_event}', '${rootResetEvent}')"><i class="fas fa-caret-down"></i></button>
+						</div>
+							<input type="number" class="form-control" id="${inputBoxName1}" value="${box1_default}" min=${box1_min} max=${box1_max} oninput="ValidateNumberBoxWithReset(this, '${box1_event}', ${inputBoxName2}, '${box2_event}', '${rootResetEvent}')"><div class="input-group-append">
+					     <div class="input-group-append">
+					     	<button class="btn" type="button" onclick="IncrementBoxWithReset(${inputBoxName1}, '${box1_event}', ${inputBoxName2}, '${box2_event}', '${rootResetEvent}')"><i class="fas fa-caret-up"></i></button>
+						</div>
+					     
+					    </div>
+					    </div>
+
+					    </div>
+					    <div class="col-sm">
+					 		<div class="input-group">
+					     		<div class="input-group-prepend">
+									<button class="btn" onclick="DecrementBox(${inputBoxName2}, '${box2_event}')"><i class="fas fa-caret-down"></i></button>
+					     		</div>
+					     		<input type="number" class="form-control" id="${inputBoxName2}" value="${box2_default}" min=${box2_min} max=${box2_max} oninput="ValidateNumberBox(this, '${box2_event}')"><div class="input-group-append">
+					     		<div class="input-group-append">
+					     			<button class="btn" onclick="IncrementBox(${inputBoxName2}, '${box2_event}')"><i class="fas fa-caret-up"></i></button>
+								 </div>
+					    	</div>
+					    </div>
+					    
+					  </div>
+					`);
+			}
+		}
+
+		function AddTabContent_ColorPicker(title, description, initialVal, eventName)
+		{
+			var element = document.getElementById(`main_content`);
+			if (element != null)
+			{
+				element.insertAdjacentHTML("beforeend", `<br><h6 class="card-subtitle mb-2 text-muted">${title}&nbsp;&nbsp;<small>${description}</small></h6><div class="type-radio">`);
+				for (var i = 0; i < g_PendingColors.length; ++i)
+				{
+					var isNewRow = (i > 0 && i % 12 == 0);
+
+
+					var innerElementTemplate = `color_${title}_`;
+					var innerElementName = `${innerElementTemplate}${i}`;
+					var value = g_PendingColors[i].value;
+					var color = g_PendingColors[i].color;
+
+					var icon = "fa-circle";
+					if (i == initialVal) // activate first color by default (UI only)
+					{
+						icon = "fa-check-circle";
+					}
+
+					element.insertAdjacentHTML("beforeend", `<i style="font-size:32px;" class="fas ${icon}" id="${innerElementName}" onclick="ToggleColor('${innerElementName}', '${innerElementTemplate}'); TriggerEvent('${eventName}', ${i});"></i>`);
+					document.getElementById(innerElementName).style.color = color;
+				}
+				element.insertAdjacentHTML("beforeend", `</div><br><br>`);
+			}
+
+			g_PendingColors = [];
+		}
+
+		function Reset()
+		{
+			ResetConfirmButtonText();
+			ResetExitButtonText();
+			g_HeritagesMale = [];
+			g_HeritagesFemale = [];
+			g_ElementCounter = 0;
+			document.getElementById("main_content").innerHTML = "";
+		}
+
+		function SetMaxForElement(elementName, newMax)
+		{
+			var element = document.getElementById(elementName);
+			if (element != null)
+			{
+				element.max = newMax;
+			}
+		}
+
+		function ValidateNumberBoxWithReset(inputBox, eventName, inputBoxReset, eventNameReset, eventNameOnRootChanged)
+		{
+			inputBoxReset.value = 0;
+
+			ValidateNumberBox(inputBox, eventName);
+			ValidateNumberBox(inputBoxReset, eventNameReset);
+
+			TriggerEvent(eventNameOnRootChanged, inputBoxReset.id); // NOTE: This must be last, it relies on the drawable being updated...
+		}
+
+		function ValidateNumberBox(inputBox, eventName)
+		{
+			var isNumber = !isNaN(inputBox.value) && String(inputBox.value).length > 0;
+
+			if (isNumber)
+			{
+				var value = Number(inputBox.value);
+
+				// Fix for setting 23 when min is 16 for example, initial 2 triggers the min cap :(
+				var valueAsString = String(inputBox.value);
+				var minAsString = String(inputBox.min);
+
+				if (value < inputBox.min && valueAsString.length >= minAsString.length) // dont cap if shorter (see fix above)
+				{
+					inputBox.value = inputBox.min;
+				}
+				else if (value > inputBox.max)
+				{
+					inputBox.value = inputBox.max;
+				}
+
+				TriggerEvent(eventName, Number(inputBox.value));
+			}
+		}
+
+		function DecrementBoxWithReset(inputBox, eventName, inputBoxReset, eventNameReset, eventNameOnRootChanged)
+		{
+			inputBoxReset.value = 0;
+
+			DecrementBox(inputBox, eventName);
+			TriggerEvent(eventNameReset, 0);
+			TriggerEvent(eventNameOnRootChanged, inputBoxReset.id); // NOTE: This must be last, it relies on the drawable being updated...
+		}
+
+		function IncrementBoxWithReset(inputBox, eventName, inputBoxReset, eventNameReset, eventNameOnRootChanged)
+		{
+			inputBoxReset.value = 0;
+
+			IncrementBox(inputBox, eventName);
+			TriggerEvent(eventNameReset, 0);
+			TriggerEvent(eventNameOnRootChanged, inputBoxReset.id); // NOTE: This must be last, it relies on the drawable being updated...
+		}
+
+		function DecrementBox(inputBox, eventName)
+		{
+			if (inputBox)
+			{
+				var value = Number(inputBox.value);
+				value = value - 1;
+
+				if (value < inputBox.min)
+				{
+					inputBox.value = inputBox.min;
+				}
+				else if (value > inputBox.max)
+				{
+					inputBox.value = inputBox.max;
+				}
+				else
+				{
+					inputBox.value = value;
+				}
+			}
+
+			TriggerEvent(eventName, Number(inputBox.value));
+		}
+
+		function IncrementBox(inputBox, eventName)
+		{
+			if (inputBox)
+			{
+				var value = Number(inputBox.value);
+				value = value + 1;
+
+				if (value < inputBox.min)
+				{
+					inputBox.value = inputBox.min;
+				}
+				else if (value > inputBox.max)
+				{
+					inputBox.value = inputBox.max;
+				}
+				else
+				{
+					inputBox.value = value;
+				}
+			}
+
+			TriggerEvent(eventName, Number(inputBox.value));
+		}
+
+		function OnFinish()
+		{
+			TriggerEvent(g_FinishEventName);
+		}
+
+		function OnExit()
+		{
+			TriggerEvent(g_ExitEventName);
+		}
+
+		function AddSeperator()
+		{
+			var element = document.getElementById(`main_content`);
+			if (element != null)
+			{
+				element.insertAdjacentHTML("beforeend", `<hr>`);
+			}
+		}
+
+		function AddTabContent_TwoRadioOptions(title, description, radio1text, radio2text, eventName, initialVal)
+		{
+			var element = document.getElementById(`main_content`);
+			if (element != null)
+			{
+				var elementName = `radio_options_${g_ElementCounter}`;
+				++g_ElementCounter;
+
+				element.insertAdjacentHTML("beforeend", `<br><h6 class="card-subtitle mb-2 text-muted">${title}&nbsp;&nbsp;<small>${description}</small></h6>
+					<div class="form-check">
+						<input class="form-check-input" type="radio" name="${elementName}" id="${elementName}_0" onclick="TriggerEvent('${eventName}', 0);" ${initialVal == 0 ? `checked` : ``}>
+						<label class="form-check-label" for="${elementName}_0">${radio1text}</label>
+					</div>
+					<div class="form-check">
+						<input class="form-check-input" type="radio" name="${elementName}" id="${elementName}_1" onchange="TriggerEvent('${eventName}', 1);" ${initialVal == 1 ? `checked` : ``}>
+						<label class="form-check-label" for="${elementName}_1">${radio2text}</label>
+					</div><br>`);
+			}
+		}
+
+		function toTitleCase(str)
+		{
+			return removeTags(str.replace(/\w\S*/g, function (txt) { return txt.charAt(0).toUpperCase() + txt.substr(1); }));
+		}
+
+		function IsCharacterNameValid(name)
+		{
+			var components = name.split(" ");
+
+			// Must have atleast two names
+			if (components.length < 2)
+			{
+				////ShowCreationError(1);
+				return false;
+			}
+
+			for (var i = 0; i < components.length; ++i)
+			{
+				if (components[i].length < 2)
+				{
+					////ShowCreationError(2);
+					return false;
+				}
+			}
+
+			////ShowCreationError(-1);
+			return true;
+		}
+
+		function OnTextboxChanged(textboxName, eventName)
+		{
+			var textbox = document.getElementById(textboxName);
+
+			textbox.value = toTitleCase(textbox.value);
+
+			var validity_field = document.getElementById(`${textboxName}_validity`);
+			if (validity_field != null)
+			{
+				// check name is valid before checking if unique, checking for uniqueness is expensive
+				if (IsCharacterNameValid(textbox.value))
+				{
+					validity_field.innerHTML = "<i class='fas fa-thumbs-up'></i>";
+				}
+				else
+				{
+					validity_field.innerHTML = "<i class='fas fa-thumbs-down'></i>";
+				}
+			}
+
+			TriggerEvent(eventName, textbox.value);
+		}
+
+		function AddTabContent_Textbox(title, description, maxLength, addValidator, eventName, defaultVal)
+		{
+			var element = document.getElementById(`main_content`);
+			if (element != null)
+			{
+				var inputBoxName = `textbox_${g_ElementCounter}`;
+				++g_ElementCounter;
+
+				element.insertAdjacentHTML("beforeend", `<br><h6 class="card-subtitle mb-2 text-muted">${title}&nbsp;&nbsp;<small>${description}</small>${addValidator ? "&nbsp;&nbsp;<span id='" + inputBoxName + "_validity'><i class='fas fa-thumbs-up'></i></span><br>" : ""}</h6>
+					<div class="input-group">
+					<input type="text" class="form-control" id="${inputBoxName}" max-length=${maxLength} value="${defaultVal}"" onkeydown="setTimeout(function(){ OnTextboxChanged('${inputBoxName}', '${eventName}'); }, 100, false);"></div>`);
+
+			}
+		}
+
+		function AddTabContent_NumberSelector(title, description, minVal, maxVal, initialVal, eventName)
+		{
+			var element = document.getElementById(`main_content`);
+			if (element != null)
+			{
+				var inputBoxName = `number_selector_button_${g_ElementCounter}`;
+				++g_ElementCounter;
+
+				element.insertAdjacentHTML("beforeend", `<br><h6 class="card-subtitle mb-2 text-muted">${title}&nbsp;&nbsp;<small>${description}</small></h6>
+					<div class="input-group"><div class="input-group-prepend"><button class="btn" type="button" onclick="DecrementBox(${inputBoxName}, '${eventName}')"><i class="fas fa-caret-down"></i></button></div>
+					<input type="number" class="form-control" id="${inputBoxName}" value="${initialVal}" min=${minVal} max=${maxVal} oninput="ValidateNumberBox(this, '${eventName}')"><div class="input-group-append">
+					<button class="btn" type="button" onclick="IncrementBox(${inputBoxName}, '${eventName}')"><i class="fas fa-caret-up"></i></button>
+					</div></div><br>`);
+			}
+		}
+
+		function AddTabContent_Slider(title, description, left_text, right_text, minVal, maxVal, defaultVal, onChangeEventName, onFinalizedChangeEventName)
+		{
+			var element = document.getElementById(`main_content`);
+			if (element != null)
+			{
+				element.insertAdjacentHTML("beforeend", `<h6 class="card-subtitle mb-2 text-muted">${title}&nbsp;&nbsp;<small>${description}</small></h6>`);
+
+				if (left_text != null && left_text.length > 0 && right_text != null && right_text.length > 0)
+				{
+					element.insertAdjacentHTML("beforeend", `${left_text}<p align="right">${right_text}</p>`);
+				}
+
+				var elementName = `slider_${g_ElementCounter}`;
+				element.insertAdjacentHTML("beforeend", `<div id="${elementName}"></div><br>`);
+
+				var slider = document.getElementById(elementName);
+
+				noUiSlider.create(slider, {
+				    start: [defaultVal],
+				    padding: [5, 5],
+				    connect: 'lower',
+					    range: {
+					        'min': [minVal],
+					        'max': [maxVal]
+					    }
+				});
+
+				slider.noUiSlider.on('change', function (values, handle)
+				{
+					TriggerEvent(onFinalizedChangeEventName, Number(values[handle]));
+				});
+
+				slider.noUiSlider.on('update', function (values, handle)
+				{
+					TriggerEvent(onChangeEventName, Number(values[handle]));
+				});
+
+				++g_ElementCounter;
+
+				element.insertAdjacentHTML("beforeend", `<br>`);
+			}
+		}
+		
+		// HERITAGE SELECTORS
+		let g_HeritagesMale = [];
+		let g_HeritagesFemale = [];
+		function AddHeritage(gender, value)
+		{
+			if (gender == 0)
+			{
+				g_HeritagesMale.push(value);
+			}
+			else
+			{
+				g_HeritagesFemale.push(value);
+			}
+		}
+
+		function AddTabContent_HeritageSelector(title, callback_id, gender, description, eventName)
+		{
+			var element = document.getElementById(`main_content`);
+			if (element != null)
+			{
+				var elementName = `heritage_selector_${g_ElementCounter}`;
+				element.insertAdjacentHTML("beforeend", `<div id="${elementName}"></div><br>`);
+				++g_ElementCounter;
+
+				PopulateHeritageSelector(elementName, title, callback_id, gender, description, eventName);
+			}
+		}
+
+		function PopulateHeritageSelector(elementName, title, callback_id, gender, description, eventName)
+		{
+			var element = document.getElementById(elementName);
+			if (element != null)
+			{
+				element.innerHTML = "";
+
+				var otherGender = gender == 0 ? "Female" : "Male";
+				element.insertAdjacentHTML("beforeend", `<br><h6 class="card-subtitle mb-2 text-muted">${title}&nbsp;<i class="fas fa-${gender == 0 ? "mars" : "venus"}"></i>&nbsp;<small>${description}</small></h6><a href="#" onclick="ChangeHeritageGender('${elementName}', '${title}', ${callback_id}, ${gender}, '${description}', '${eventName}');" class="badge badge-info">Switch parent to ${otherGender}</a><br><br>`);
+
+				const numImages = gender == 0 ? g_HeritagesMale.length : g_HeritagesFemale.length;
+				for (var i = 0; i < numImages; ++i)
+				{
+					var heritageValue = gender == 0 ? g_HeritagesMale[i] : g_HeritagesFemale[i];
+					element.insertAdjacentHTML("beforeend", `<a href="#" class="bordered"><img src="package://owl_account_system.client/Face-${heritageValue}.jpg" width="64" height="64" onclick="TriggerEvent('${eventName}', ${callback_id}, ${gender}, ${heritageValue});");></img></a>`);
+				}
+				element.insertAdjacentHTML("beforeend", `<br>`);
+			}
+		}
+
+		function ChangeHeritageGender(elementName, title, callback_id, currentGender, description, eventName)
+		{
+			var newGender = currentGender == 0 ? 1 : 0;
+			PopulateHeritageSelector(elementName, title, callback_id, newGender, description, eventName);
+		}
+
+		function OnSelectTattooLocation(dropdownItem, tattoo_zone)
+		{
+			var rootDropdownElement = document.getElementById("tattoo_location_dropdown");
+			if (rootDropdownElement != null)
+			{
+				rootDropdownElement.innerHTML = dropdownItem.innerHTML;
+				TriggerEvent("TattooArtist_ChangeZone", tattoo_zone);
+			}
+		}
+
+		function SortByDisplayName(a, b)
+		{
+			return a["display_name"] > b["display_name"];
+		}
+
+		function OnChangeTattooListSelectedItem(control)
+		{
+			var tattooID = control.value;
+			TriggerEvent("TattooArtist_ChangeTattoo", tattooID);
+		}
+
+		var tattoolist = [];
+		function ClearAddTattooList()
+		{
+			tattoolist = [];
+		}
+
+		function SetConfirmButtonText(text)
+		{
+			document.getElementById("confirm_button_text").innerText = text;
+		}
+
+		function ResetConfirmButtonText()
+		{
+			document.getElementById("confirm_button_text").innerText = "Confirm Changes";
+		}
+
+		function SetExitButtonText(text)
+		{
+			document.getElementById("exit_button_text").innerText = text;
+		}
+
+		function ResetExitButtonText()
+		{
+			document.getElementById("exit_button_text").innerText = "Exit";
+		}
+
+		function AddTattooListItem(id, display_name)
+		{
+			var insert_id = tattoolist.length;
+			tattoolist[insert_id] = [];
+			tattoolist[insert_id]["id"] = id;
+			tattoolist[insert_id]["display_name"] = display_name;
+		}
+
+		function CommitTattooList()
+		{
+			tattoolist.sort(SortByDisplayName);
+
+			var html = `<select id="tattoo_selector_listbox" class="form-control" multiple onchange="OnChangeTattooListSelectedItem(this);">`;
+
+            if (tattoolist.length > 0)
+            {
+                for (var i = 0; i < tattoolist.length; ++i)
+                {
+                    html += `<option value="${tattoolist[i]["id"]}">${tattoolist[i]["display_name"]}</option>`;
+                    document.getElementById("tattoo_list").innerHTML = html;
+                }
+            }
+            else
+            {
+                document.getElementById("tattoo_list").innerHTML = "No tattoos are available in this position";
+            }
+
+			html += `</select>`;
+
+			ClearAddTattooList();
+		}
+
+		function AddCurrentTattoo()
+		{
+			TriggerEvent("TattooArtist_Create");
+		}
+
+	</script>
+
+	<style type="text/css">
+		body {
+			background: transparent;
+		}
+
+		hr {
+			margin-top: 1rem;
+			margin-bottom: 1rem;
+			border: 0;
+			border-top: 4px solid rgba(0, 0, 0, 0.3);
+		}
+
+		#tattoo_selector_listbox
+		{
+			width: 200px;
+		}
+
+		#tattoo_location_dropdown
+		{
+			width: 200px;
+		}
+
+		.left-box {
+			margin-left: 2%;
+			width: 485px;
+			vertical-align: middle;
+			position: relative;
+			top: 35%;
+			transform: translateY(-30%);
+			
+		}
+
+
+		#tabs-area {
+			overflow: auto;
+			height: 500px;
+		}
+
+		#tabs-area::-webkit-scrollbar
+		{
+  			display: none;
+		}
+
+		.btn.btn-female {
+			color: #ffffff;
+			background-color: grey;
+			border-color: grey;
+		}
+
+		.btn.btn-female.active {
+			color: #ffffff;
+			background-color: deeppink;
+			border-color: deeppink;
+		}
+
+		.btn.btn-male {
+			color: #ffffff;
+			background-color: grey;
+			border-color: grey;
+		}
+
+		.btn.btn-male.active {
+			color: #ffffff;
+			background-color: dodgerblue;
+			border-color: dodgerblue;
+		}
+
+		.btn.btn-character-type {
+			color: #ffffff;
+			background-color: grey;
+			border-color: grey;
+		}
+
+		.btn.btn-character-type.active {
+			color: #ffffff;
+			background-color: dodgerblue;
+			border-color: dodgerblue;
+		}
+
+		a.bordered:hover img {
+   			border: solid 2px grey;
+		}
+
+		.bottom-right-box-1 {
+			position: fixed;
+			right: 25px;
+			bottom: 93px
+		}
+
+		.bottom-right-box-2 {
+			position: fixed;
+			right: 25px;
+			bottom: 60px
+		}
+
+		.bottom-right-box-3 {
+			position: fixed;
+			right: 25px;
+			bottom: 20px
+		}
+
+		/* Hide arrows on number inputs, we render our own arrow */
+		input::-webkit-outer-spin-button,
+		input::-webkit-inner-spin-button {
+		  -webkit-appearance: none;
+		  margin: 0;
+		}
+
+		#tattoo_creator {
+			margin-left: 2%;
+			width: 445px;
+			vertical-align: middle;
+			position: relative;
+			top: 40%;
+			transform: translateY(-30%);
+		}
+
+		.dropdown-menu {
+			max-height: 200px;
+			overflow-y: auto;
+		}
+	</style>
+</head>
+<body>
+	
+
+	<div id="tattoo_creator" class="card text-white mb-3 text-center" style="display:none; max-width: 18rem;">
+  <div class="card-header"><font color="black">Add Tattoo</font></div>
+  <div class="card-body">
+    <h5 class="card-title"></h5>
+    <p class="card-text"><font color="black"><div class="btn-group">
+  <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" id="tattoo_location_dropdown">
+    Tattoo Location
+  </button>
+  <div class="dropdown-menu">
+    <button class="dropdown-item" type="button" onclick="OnSelectTattooLocation(this, 0);">Torso (Chest & Back)</button>
+    <button class="dropdown-item" type="button" onclick="OnSelectTattooLocation(this, 1);">Head</button>
+    <button class="dropdown-item" type="button" onclick="OnSelectTattooLocation(this, 2);">Left Arm</button>
+    <button class="dropdown-item" type="button" onclick="OnSelectTattooLocation(this, 3);">Right Arm</button>
+    <button class="dropdown-item" type="button" onclick="OnSelectTattooLocation(this, 4);">Left Leg</button>
+    <button class="dropdown-item" type="button" onclick="OnSelectTattooLocation(this, 5);">Right Leg</button>
+</div>
+<br>
+    	<span id="tattoo_list">
+            </span></font></p></div>
+</div>
+<div class="btn-group btn-group-justified" role="group" aria-label="Justified button group">
+	<button type="button" class="btn btn-success" onclick="HideTattooCreator(); AddCurrentTattoo();">Apply</button>
+</div>
+   	<div class="btn-group btn-group-justified" role="group" aria-label="Justified button group">
+    	<button type="button" class="btn btn-danger" onclick="HideTattooCreator(); TriggerEvent('TattooArtist_Cancel');">Cancel</button>
+	</div>
+  </div>
+
+	</div>
+
+	<div id="main_page" class="left-box">
+<div class="card">
+			<div class="card-header">
+				<h4 class="card-title" id="store_name"></h4>
+				<small><div id="price"></div></small>
+				<div class="tab-content" id="tabs-area">
+  <div class="tab-pane fade show active" id="tab0" role="tabpanel"></div>
+				<div id="main_content">
+				</div>
+			</div>
+
+
+			</div>
+
+		</div>
+
+
+
+
+<br>
+
+<div class="btn-group btn-group-justified btn-block" role="group" aria-label="Justified button group">
+<a class='btn btn-success' href="#" style="opacity:0.9" onclick="OnFinish();" id="confirm_button_text">Confirm Changes</a>
+</div>
+
+<div class="btn-group btn-group-justified btn-block" role="group" aria-label="Justified button group">
+			<a class='btn btn-danger' href="#" style="opacity:0.9" onclick="OnExit();" id="exit_button_text">Exit</a>
+		</div>
+
+</div>
+
+<div id="clothing_options" class="bottom-right-box-1" style="display:block">
+	<div class="btn-group btn-group-justified" role="group" aria-label="Justified button group">
+		<a class='btn btn-info' href="#" style="opacity:0.9" onclick="ToggleClothes();"><i class="fas fa-tshirt"></i>&nbsp;Toggle Clothing</a><br>
+	</div>
+</div>
+
+<div id="rotation_options" class="bottom-right-box-2" style="display:block">
+	<div class="btn-group btn-group-justified" role="group" aria-label="Justified button group">
+		<a class='btn btn-info' href="#" style="opacity:0.9" onmousedown="StartRotation(1);" onmouseup="StopRotation(1);"><i class="fas fa-arrow-left"></i></a>
+		<a class='btn btn-info' href="#" style="opacity:0.9" onclick="ResetRotation();"><i class="fas fa-dot-circle"></i></a>
+		<a class='btn btn-info' href="#" style="opacity:0.9" onmousedown="StartRotation(2);" onmouseup="StopRotation(2);"><i class="fas fa-arrow-right"></i></a>
+	</div>
+</div>
+
+<div id="camera_options" class="bottom-right-box-3" style="display:block">
+	<div class="btn-group btn-group-justified" role="group">
+		<a class='btn btn-info' href="#" style="opacity:0.9" onclick="GotoHeadCam();"><i class="fas fa-video"></i>&nbsp;Head</a><br>
+		<a class='btn btn-info' href="#" style="opacity:0.9" onclick="GotoBodyCam_Near();"><i class="fas fa-video"></i>&nbsp;Body (Near)</a><br>
+		<a class='btn btn-info' href="#" style="opacity:0.9" onclick="GotoBodyCam_Far();"><i class="fas fa-video"></i>&nbsp;Body (Far)</a><br>
+	</div>
+</div>
+
+</body>
+</html>

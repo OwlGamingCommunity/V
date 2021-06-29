@@ -1,0 +1,8 @@
+{
+  "Type": "Network_ClientToServer_RemoteOnly",
+  "Parameters": {
+    "strUsername": "string",
+    "strPassword":  "string",
+    "bAutoLogin":  "bool"
+  }
+}

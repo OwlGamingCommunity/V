@@ -1,0 +1,313 @@
+<html>
+<head>
+
+	<link href="../../owl_client_shared/bootstrap/bootstrap.min.legacy.css" rel="stylesheet">
+	<link href="../../owl_client_shared/core/core.css" rel="stylesheet">
+	<link href="../../owl_client_shared/core/menu.css" rel="stylesheet">
+	<link href="../../owl_client_shared/slider.css" rel="stylesheet">
+	<link href="../../owl_client_shared/animate.css" rel="stylesheet">
+	<link href="../../owl_client_shared/fontawesome/all.min.dev.css" rel="stylesheet">
+	<script src="../../owl_client_shared/core/core.js"></script>
+	<script src="../../owl_client_shared/jquery.min.js"></script>
+	<script src="../../owl_client_shared/jquery-ui.min.js"></script>
+	<script src="../../owl_client_shared/vue.min.js"></script>
+	<script src="../../owl_client_shared/jscolor.min.js"></script>
+
+	<link href="package://owl_client_shared/bootstrap.min.legacy.css" rel="stylesheet">
+	<link href="package://owl_client_shared/core.css" rel="stylesheet">
+	<link href="package://owl_client_shared/menu.css" rel="stylesheet">
+	<link href="package://owl_client_shared/slider.css" rel="stylesheet">
+	<link href="package://owl_client_shared/animate.css" rel="stylesheet">
+	<link href="package://owl_client_shared/all.min.css" rel="stylesheet">
+	<script src="package://owl_client_shared//core.js"></script>
+	<script src="package://owl_client_shared//jquery.min.js"></script>
+	<script src="package://owl_client_shared//jquery-ui.min.js"></script>
+	<script src="package://owl_client_shared//vue.min.js"></script>
+	<script src="package://owl_client_shared//jscolor.min.js"></script>
+
+	<script type="text/javascript">
+		var furniture_items = [];
+		var removed_furniture_items = [];
+		var insert_id = 0;
+
+		function AddDebugData() {
+			AddFurnitureItem(0, "Test 1");
+			AddFurnitureItem(1, "Test 2");
+			AddFurnitureItem(2, "Test 3");
+			CommitFurnitureItems();
+
+			AddRemovedFurnitureItem(0, "R Test 1");
+			AddRemovedFurnitureItem(1, "R Test 2");
+			AddRemovedFurnitureItem(2, "R Test 3");
+			CommitRemovedFurnitureItems();
+		}
+
+		function OnChangeClass(value) {
+			TriggerEvent("FurnitureStore_OnChangeClass", value);
+		}
+
+		function OnChangeFurnitureItem() {
+			var value = document.getElementById("furniture_listbox").value;
+			TriggerEvent("FurnitureStore_OnChangeFurnitureItem", value);
+		}
+
+		function SortByDisplayName(a, b) {
+			return a["display_name"] > b["display_name"];
+		}
+
+		function AddFurnitureItem(id, display_name) {
+			furniture_items[insert_id] = [];
+			furniture_items[insert_id]["id"] = id;
+			furniture_items[insert_id]["display_name"] = display_name;
+			insert_id++;
+		}
+
+		function CommitFurnitureItems() {
+			furniture_items.sort(SortByDisplayName);
+
+			var html = `<select id="furniture_listbox" class="form-control" multiple onchange="OnChangeFurnitureItem()">`;
+
+			if (furniture_items.length > 0) {
+				for (var i = 0; i < furniture_items.length; ++i) {
+					html += `<option value="${furniture_items[i]["id"]}">${furniture_items[i]["display_name"]}</option>`;
+					document.getElementById("furniture_list").innerHTML = html;
+				}
+			} else {
+				document.getElementById("furniture_list").innerHTML = "There is no furniture in this category";
+			}
+
+			html += `</select>`;
+
+			furniture_items = [];
+			insert_id = 0;
+		}
+
+		function CurrencyFormat(number) {
+			return number.toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, "$1,");
+		}
+
+		function SetPriceInfo(price, tax, price_with_tax, storage_capacity, allows_outfit_change) {
+			if (storage_capacity > 0) {
+				document.getElementById("storage_capacity").innerHTML = `This furniture stores ${storage_capacity} item(s).`;
+			} else {
+				document.getElementById("storage_capacity").innerHTML = `This furniture does not include any storage capacity.`;
+			}
+
+			if (allows_outfit_change)
+			{
+				document.getElementById("outfit_change").innerHTML = `This furniture allows people to change outfits.`;
+			}
+			else
+			{
+				document.getElementById("outfit_change").innerHTML = `This furniture does not allow people to change outfits.`;
+			}
+
+			document.getElementById("price").innerHTML = `$${CurrencyFormat(price)}`;
+			document.getElementById("tax").innerHTML = `$${CurrencyFormat(tax)}`;
+			document.getElementById("price_with_tax").innerHTML = `$${CurrencyFormat(price_with_tax)}`;
+		}
+
+		function Hide() {
+			TriggerEvent("FurnitureStore_Hide");
+		}
+
+		function OnCheckout() {
+			SetButtonsEnabled(false);
+			TriggerEvent("FurnitureStore_OnCheckout");
+		}
+
+		$(function () {
+			$(".dropdown-menu li a").click(function () {
+				$("#dropdownClass").text($(this).text());
+				$("#dropdownClass").val($(this).text());
+			});
+		});
+
+		function StartRotation(direction) {
+			TriggerEvent("FurnitureStore_StartRotation", direction);
+		}
+
+		function StopRotation() {
+			TriggerEvent("FurnitureStore_StopRotation",);
+		}
+
+		function ResetCamera() {
+			TriggerEvent("FurnitureStore_ResetCamera");
+		}
+
+		function StartZoom(direction) {
+			TriggerEvent("FurnitureStore_StartZoom", direction);
+		}
+
+		function StopZoom() {
+			TriggerEvent("FurnitureStore_StopZoom");
+		}
+
+		function ShowErrorMessage(text) {
+			SetButtonsEnabled(true);
+			document.getElementById("error_text").innerHTML = `<div class="panel-body">${text}</div>`;
+		}
+
+		function SetButtonsEnabled(enabled) {
+			document.getElementById("exitbutton").disabled = !enabled;
+			document.getElementById("buybutton").disabled = !enabled;
+		}
+
+	</script>
+
+	<style type="text/css">
+		body {
+			background-color: transparent;
+		}
+
+		.bottom-center-box-upper {
+			position: fixed;
+			right: 85px;
+			bottom: 100px
+		}
+
+		.bottom-center-box {
+			position: fixed;
+			right: 25px;
+			bottom: 60px
+		}
+
+		.bottom-center-box-lower {
+			position: fixed;
+			right: 80px;
+			bottom: 20px
+		}
+
+		#box-left {
+			left: 25px;
+			position: fixed;
+			top: 40%;
+			transform: translateY(-40%);
+			width: 320px;
+		}
+
+		.dropdown-menu > li > a {
+			padding: 7.5px 15px;
+		}
+
+		#box-right {
+			position: fixed;
+			right: 25px;
+			top: 40%;
+			transform: translateY(-40%);
+			width: 320px;
+		}
+
+		tr {
+			text-align: right;
+		}
+
+
+		#error_text:empty {
+			display: none;
+		}
+
+		#error_text {
+			color: #FF0000;
+		}
+	</style>
+</head>
+<body>
+
+<div id="box-left">
+
+	<div class="well">
+		<h4>Furniture Store</h4>
+		<br>
+		<div id="storage_capacity"></div>
+		<br>
+		<div id="outfit_change"></div>
+		<br>
+		<div class="btn-group">
+			<button class="btn btn-default dropdown-toggle" type="button" id="dropdownClass" data-toggle="dropdown"
+					aria-haspopup="true" aria-expanded="false">
+				Select Type
+				<span class="caret"></span>
+			</button>
+			<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+				<li><a onclick='OnChangeClass("Activities");'>Activities</a></li>
+				<li><a onclick='OnChangeClass("AllOutfitChange");'>All Items Offering Outfit Changing</a></li>
+				<li><a onclick='OnChangeClass("AllStorage");'>All Items Offering Storage</a></li>
+				<li><a onclick='OnChangeClass("Bathroom");'>Bathroom</a></li>
+				<li><a onclick='OnChangeClass("Seating");'>Seating</a></li>
+				<li><a onclick='OnChangeClass("Tables");'>Tables</a></li>
+				<li><a onclick='OnChangeClass("Storage");'>General Storage</a></li>
+				<li><a onclick='OnChangeClass("Bedroom");'>Bedroom</a></li>
+				<li><a onclick='OnChangeClass("Lights");'>Lights</a></li>
+				<li><a onclick='OnChangeClass("Electronics");'>Electronics</a></li>
+				<li><a onclick='OnChangeClass("Miscellaneous");'>Miscellaneous</a></li>
+				<li><a onclick='OnChangeClass("Kitchen");'>Kitchen</a></li>
+				<li><a onclick='OnChangeClass("Decoration");'>Decoration</a></li>
+			</ul>
+		</div>
+		<br />
+		<br />
+		<span id="furniture_list">
+		</span>
+	</div>
+</div>
+
+<div id="box-right">
+	<!-- COST INFO -->
+	<div class="panel panel-default">
+
+		<div class="panel-heading">
+			<h5>Payment Information</h5>
+		</div>
+
+		<table class="table">
+			<tr>
+				<th>Price</th>
+				<td id="price"></td>
+			</tr>
+			<tr>
+				<th>Tax</th>
+				<td id="tax"></td>
+			</tr>
+			<tr>
+				<th>Total Price</th>
+				<td id="price_with_tax"></td>
+			</tr>
+		</table>
+		<div class="btn-group btn-group-justified" role="group" aria-label="Justified button group">
+			<div class="btn-group">
+				<button type="button" class="btn btn-success" id="buybutton" onclick='OnCheckout();'>Checkout</button>
+			</div>
+		</div>
+		<div class="btn-group btn-group-justified" role="group" aria-label="Justified button group">
+			<div class="btn-group">
+				<button type="button" class="btn btn-danger" id="exitbutton" onclick='Hide();'>Exit</button>
+			</div>
+		</div>
+	</div>
+	<div class="panel panel-default" id="error_text"></div>
+</div>
+
+<div class="bottom-center-box-upper" style="display:block">
+	<div class="btn-group" role="group">
+		<a type='button' class='btn btn-default' onmousedown="StartZoom(1);" onmouseup="StopZoom();">Zoom In</a>
+	</div>
+</div>
+
+<div class="bottom-center-box" style="display:block; z-index: 1">
+	<div class="btn-group" role="group">
+		<button class='btn btn-default' style="height: 45px;" onmousedown="StartRotation(1);"
+				onmouseup="StopRotation();"><span class="fa fa-angle-left"></span></button>
+		<button class='btn btn-default' onclick="ResetCamera();">Reset Camera</button>
+		<button class='btn btn-default' style="height: 45px;" onmousedown="StartRotation(2);"
+				onmouseup="StopRotation();"><span class="fa fa-angle-right"></span></button>
+	</div>
+</div>
+
+<div class="bottom-center-box-lower" style="display:block; z-index: 0;">
+	<div class="btn-group" role="group">
+		<a type='button' class='btn btn-default' onmousedown="StartZoom(2);" onmouseup="StopZoom();">Zoom Out</a>
+	</div>
+</div>
+</body>
+</html>

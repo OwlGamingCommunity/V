@@ -1,0 +1,8 @@
+{
+  "Type": "Network_ServerToClient_RemoteOnly",
+  "Parameters": {
+  	"bHasLink": "bool",
+  	"strDiscordName": "string",
+  	"strEndpoint": "string"
+  }
+}

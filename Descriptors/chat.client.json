@@ -1,0 +1,221 @@
+{
+  "Files": [
+    {
+      "Name": "Cellphone.Client.cs",
+      "Type": "ClientScript"
+    },
+    {
+      "Name": "ChatBubbles.Client.cs",
+      "Type": "ClientScript"
+    },
+    {
+      "Name": "Assets/cellphone.html",
+      "Type": "ClientAsset"
+    },
+    {
+      "Name": "Chatbox.Client.cs",
+      "Type": "ClientScript"
+    },
+    {
+      "Name": "CoinFlip.Client.cs",
+      "Type": "ClientScript"
+    },
+    {
+      "Name": "Languages.Client.cs",
+      "Type": "ClientScript"
+    },
+    {
+      "Name": "Init.Client.cs",
+      "Type": "ClientScript"
+    },
+    {
+      "Name": "ChatVisualization.Client.cs",
+      "Type": "ClientScript"
+    },
+    {
+      "Name": "CGUICellphone.Client.cs",
+      "Type": "ClientScript"
+    },
+    {
+      "Name": "CGUIChatbox.Client.cs",
+      "Type": "ClientScript"
+    },
+    {
+      "Name": "CGUILanguages.Client.cs",
+      "Type": "ClientScript"
+    },
+    {
+      "Name": "Assets/chatbox.html",
+      "Type": "ClientAsset"
+    },
+    {
+      "Name": "Assets/languages.html",
+      "Type": "ClientAsset"
+    },
+    {
+      "Name": "Assets/cellphone_resources/css/alert.css",
+      "Type": "ClientAsset"
+    },
+    {
+      "Name": "Assets/cellphone_resources/css/ionicons.min.css",
+      "Type": "ClientAsset"
+    },
+    {
+      "Name": "Assets/cellphone_resources/css/apps.css",
+      "Type": "ClientAsset"
+    },
+    {
+      "Name": "Assets/cellphone_resources/css/notification.css",
+      "Type": "ClientAsset"
+    },
+    {
+      "Name": "Assets/cellphone_resources/css/phone.css",
+      "Type": "ClientAsset"
+    },
+    {
+      "Name": "Assets/cellphone_resources/css/contactslist.css",
+      "Type": "ClientAsset"
+    },
+    {
+      "Name": "Assets/cellphone_resources/css/chat.css",
+      "Type": "ClientAsset"
+    },
+    {
+      "Name": "Assets/cellphone_resources/images/apps/banking.png",
+      "Type": "ClientAsset"
+    },
+    {
+      "Name": "Assets/cellphone_resources/images/apps/call.png",
+      "Type": "ClientAsset"
+    },
+    {
+      "Name": "Assets/cellphone_resources/images/apps/camera.png",
+      "Type": "ClientAsset"
+    },
+    {
+      "Name": "Assets/cellphone_resources/images/apps/contacts.png",
+      "Type": "ClientAsset"
+    },
+    {
+      "Name": "Assets/cellphone_resources/images/apps/hotlines.png",
+      "Type": "ClientAsset"
+    },
+    {
+      "Name": "Assets/cellphone_resources/images/apps/photos.png",
+      "Type": "ClientAsset"
+    },
+    {
+      "Name": "Assets/cellphone_resources/images/apps/safari.png",
+      "Type": "ClientAsset"
+    },
+    {
+      "Name": "Assets/cellphone_resources/images/apps/settings.png",
+      "Type": "ClientAsset"
+    },
+    {
+      "Name": "Assets/cellphone_resources/images/apps/sms.png",
+      "Type": "ClientAsset"
+    },
+    {
+      "Name": "Assets/cellphone_resources/images/apps/taxi.png",
+      "Type": "ClientAsset"
+    },
+    {
+      "Name": "Assets/cellphone_resources/images/apps/weather.png",
+      "Type": "ClientAsset"
+    },
+    {
+      "Name": "Assets/cellphone_resources/images/backgrounds/callbackground.png",
+      "Type": "ClientAsset"
+    },
+    {
+      "Name": "Assets/cellphone_resources/images/backgrounds/default.jpg",
+      "Type": "ClientAsset"
+    },
+    {
+      "Name": "Assets/cellphone_resources/images/backgrounds/dialbackground.png",
+      "Type": "ClientAsset"
+    },
+    {
+      "Name": "Assets/cellphone_resources/images/backgrounds/taxibackground.png",
+      "Type": "ClientAsset"
+    },
+    {
+      "Name": "Assets/cellphone_resources/images/misc/accept.png",
+      "Type": "ClientAsset"
+    },
+    {
+      "Name": "Assets/cellphone_resources/images/misc/decline.png",
+      "Type": "ClientAsset"
+    },
+    {
+      "Name": "Assets/cellphone_resources/images/misc/notification-icon.png",
+      "Type": "ClientAsset"
+    },
+    {
+      "Name": "Assets/cellphone_resources/js/contactslist.min.js",
+      "Type": "ClientAsset"
+    },
+    {
+      "Name": "Assets/cellphone_resources/js/main.js",
+      "Type": "ClientAsset"
+    },
+    {
+      "Name": "Assets/cellphone_resources/js/chat.js",
+      "Type": "ClientAsset"
+    },
+    {
+      "Name": "Assets/cellphone_resources/js/call.js",
+      "Type": "ClientAsset"
+    },
+    {
+      "Name": "Assets/cellphone_resources/js/taxi.js",
+      "Type": "ClientAsset"
+    },
+    {
+      "Name": "Assets/cellphone_resources/js/contacts.js",
+      "Type": "ClientAsset"
+    },
+    {
+      "Name": "Assets/cellphone_resources/js/home.js",
+      "Type": "ClientAsset"
+    },
+    {
+      "Name": "Assets/cellphone_resources/screens/callingscreen.html",
+      "Type": "ClientAsset"
+    },
+    {
+      "Name": "Assets/cellphone_resources/screens/contactsscreen.html",
+      "Type": "ClientAsset"
+    },
+    {
+      "Name": "Assets/cellphone_resources/screens/dialpadscreen.html",
+      "Type": "ClientAsset"
+    },
+    {
+      "Name": "Assets/cellphone_resources/screens/homescreen.html",
+      "Type": "ClientAsset"
+    },
+    {
+      "Name": "Assets/cellphone_resources/screens/lockscreen.html",
+      "Type": "ClientAsset"
+    },
+    {
+      "Name": "Assets/cellphone_resources/screens/taxiscreen.html",
+      "Type": "ClientAsset"
+    },
+    {
+      "Name": "Assets/cellphone_resources/screens/chatscreen.html",
+      "Type": "ClientAsset"
+    },
+    {
+      "Name": "Assets/cellphone_resources/screens/messagescreen.html",
+      "Type": "ClientAsset"
+    },
+    {
+      "Name": "Assets/cellphone_resources/screens/pickupscreen.html",
+      "Type": "ClientAsset"
+    }
+  ],
+  "ExportedFunctions": []
+}

@@ -1,0 +1,10 @@
+{
+  "Type": "Network_ServerToClient_RemoteOnly",
+  "Parameters": {
+    "bSuccessful": "bool",
+    "userID": "int",
+    "titleID": "string",
+    "Username": "string",
+    "strErrorMessage": "string",
+  }
+}

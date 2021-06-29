@@ -1,0 +1,18 @@
+image: node:latest
+
+
+# This folder is cached between builds
+# http://docs.gitlab.com/ce/ci/yaml/README.html#cache
+cache:
+  paths:
+  - node_modules/
+
+test_json:
+  script:
+    # install locally for easier caching
+   - npm install strip-json-comments-cli jsonlint
+   # Automatically created by the install, don't check it
+   - rm package-lock.json
+   # Loop all the files and check the lint
+   # Only outputs errors
+   - for file in *.json; do node_modules/.bin/strip-json-comments "$file" | node_modules/.bin/jsonlint > /dev/null || break -1; done

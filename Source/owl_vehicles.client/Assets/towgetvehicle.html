@@ -1,0 +1,290 @@
+<html>
+<head>
+	<link href="../../owl_client_shared/bootstrap/bootstrap.min.legacy.css" rel="stylesheet">
+	<link href="../../owl_client_shared/core/core.css" rel="stylesheet">
+	<link href="../../owl_client_shared/core/menu.css" rel="stylesheet">
+	<link href="../../owl_client_shared/slider.css" rel="stylesheet">
+	<link href="../../owl_client_shared/animate.css" rel="stylesheet">
+	<script src="../../owl_client_shared/core/core.js"></script>
+	<script src="../../owl_client_shared/jquery.min.js"></script>
+	<script src="../../owl_client_shared/jquery-ui.min.js"></script>
+	<script src="../../owl_client_shared/vue.min.js"></script>
+	<script src="../../owl_client_shared/jscolor.min.js"></script>
+
+	<link href="package://owl_client_shared/bootstrap.min.legacy.css" rel="stylesheet">
+	<link href="package://owl_client_shared/core.css" rel="stylesheet">
+	<link href="package://owl_client_shared/menu.css" rel="stylesheet">
+	<link href="package://owl_client_shared/slider.css" rel="stylesheet">
+	<link href="package://owl_client_shared/animate.css" rel="stylesheet">
+	<script src="package://owl_client_shared//core.js"></script>
+	<script src="package://owl_client_shared//jquery.min.js"></script>
+	<script src="package://owl_client_shared//jquery-ui.min.js"></script>
+	<script src="package://owl_client_shared//vue.min.js"></script>
+	<script src="package://owl_client_shared//jscolor.min.js"></script>
+
+	<style type="text/css">
+		body {
+			background-color: transparent;
+			opacity: 0.9;
+		}
+
+		#towing_main {
+			max-width: 400px;
+		}
+
+		.list-group {
+			max-height: 187px;
+			overflow-y: scroll;
+		}
+
+			.list-group.item-list-empty {
+				overflow: auto;
+			}
+
+		.list-group-item {
+			padding-left: 115px;
+		}
+
+		.list-group.item-list-empty .list-group-item {
+			padding-left: 15px;
+		}
+
+		.image-holder {
+			background: #fafafa;
+			height: 100%;
+			left: 0;
+			position: absolute;
+			top: 0;
+			width: 100px;
+		}
+
+		a.list-group-item:hover .image-holder,
+		button.list-group-item:hover .image-holder,
+		a.list-group-item.pinned .image-holder,
+		button.list-group-item.pinned .image-holder {
+			background: #f5f5f5;
+		}
+
+		.list-group img {
+			max-width: 100%;
+			max-height: 100%;
+			position: absolute;
+			left: 50%;
+			transform: translateX(-50%);
+		}
+
+		#item-info {
+			background: #ffffff;
+			display: none;
+			margin-bottom: 0;
+		}
+
+			#item-info.visible {
+				display: block;
+			}
+
+		#item-title {
+			margin-top: 0;
+			position: relative;
+			padding-right: 90px;
+		}
+
+			#item-title .label {
+				position: absolute;
+				right: 0;
+			}
+
+		#item-actions p {
+			margin-bottom: 20px;
+		}
+
+		#item-info.visible + #item-actions p {
+			margin-top: 20px;
+		}
+
+		.btn-group {
+			margin: 0 0 20px;
+		}
+
+		.progress-title {
+			margin: 2px 0px 13px;
+		}
+
+		.weight-title {
+			margin: 0;
+		}
+
+			.weight-title .label {
+				padding: 5px;
+			}
+
+		.progress-title .label {
+			display: inline-block;
+			margin-top: 5px;
+		}
+
+		.progress {
+			margin-bottom: 0;
+			padding: 0;
+		}
+
+		.progress-bar {
+			min-width: 2em;
+		}
+
+		.btn {
+			border: none;
+		}
+
+		button.list-group-item:focus,
+		button.list-group-item:active {
+			background: #ffffff;
+			color: #555555;
+			outline: none;
+		}
+
+		button.list-group-item:hover,
+		button.list-group-item.pinned {
+			text-decoration: none;
+			color: #555555;
+			background-color: #f5f5f5;
+		}
+
+		#item-info p:last-child {
+			margin-bottom: 0;
+		}
+
+		/* Positioning */
+
+		[class*="align-"] {
+			position: fixed;
+		}
+
+		.align-bottom {
+			bottom: 20px;
+		}
+
+		.align-left {
+			left: 25px;
+		}
+
+		.align-right {
+			right: 25px;
+		}
+
+		.align-top {
+			top: 20px;
+		}
+
+		.align-center-h {
+			left: 50%;
+			transform: translateX(-50%);
+		}
+
+		.align-center-v {
+			top: 50%;
+			transform: translateY(-50%);
+		}
+
+		.align-center-h.align-center-v {
+			transform: translate(-50%,-50%);
+		}
+
+		#content {
+			margin: 0 auto;
+			position: absolute;
+			top: 60%;
+			left: 45%;
+			transform: translate(-50%, -50%);
+			width: 30%;
+			min-width: 500px;
+		}
+	</style>
+</head>
+<body>
+
+	<span id="content" style="visibility:visible">
+		<div id="towing_main" class="container well align-bottom align-right">
+
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h4><span id="character_name">Impounded Vehicles</span></h4>
+				</div>
+
+				<div id="item-list" class="list-group item-list-empty">
+				</div>
+				<div class="panel-footer"></div>
+			</div>
+
+			<div class="row">
+				<div class="col-xs-12">
+
+
+					<div>
+						<center>Click on any vehicle to un-impound it ($50)</center><br>
+						<div class="btn-group btn-group-justified" role="group"><a class="btn btn-default" onclick="OnHideImpoundedVehicle();">Exit</a></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</span>
+
+	<script type="text/javascript">
+	var vehicles = [];
+
+	function SelectVehicle(index)
+	{
+		var entry = vehicles[index];
+		TriggerEvent("UnimpoundVehicle", entry['id']);
+	}
+
+	function OnHideImpoundedVehicle()
+	{
+		TriggerEvent("OnHideImpoundedVehicle");
+	}
+
+	function Reset()
+	{
+		vehicles = [];
+		document.getElementById("item-list").innerHTML = "";
+	}
+
+	function AddVehicle(id, name, plate)
+	{
+		var newEntry = {};
+		newEntry['id'] = id;
+		newEntry['name'] = name;
+		newEntry['plate'] = plate;
+		vehicles.push(newEntry);
+
+
+		// Remove the placeholder if it's present and enable the scrollbar.
+		if (document.querySelector('.item-list-empty'))
+		{
+			document.getElementById("item-list").innerHTML = "";
+			document.getElementById("item-list").classList.remove("item-list-empty");
+		}
+
+		// Add the item to the bottom of #item-list.
+		document.getElementById('item-list').insertAdjacentHTML('beforeend', `<button type="button" onclick="SelectVehicle(${vehicles.length - 1});" class="list-group-item">${name} (${plate})</button>`);
+	}
+
+	function InitDone()
+	{
+		if (vehicles.length == 0)
+		{
+			document.getElementById("item-list").innerHTML = `<div class="list-group-item">No vehicles are impounded.</div>`;
+		}
+	}
+
+	function AddDebugData()
+	{
+		AddVehicle(0, "Obey Tailgator", "ABC123");
+		AddVehicle(1, "Obey Tailgator 2", "ABC123");
+		AddVehicle(2, "Obey Tailgator 3", "ABC123");
+	}
+
+	</script>
+
+</body>
+</html>

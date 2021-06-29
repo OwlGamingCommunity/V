@@ -1,0 +1,53 @@
+body {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  overflow:hidden;
+  opacity: 0.89;
+  background: transparent !important;
+}
+
+.dropdown-menu {
+  background-color: #fff;
+  color: #000;
+}
+
+.dropdown-toggle {
+  background-color: #fff;
+  color: #000;
+}
+
+.dropdown-toggle:hover {
+  background-color: #fff;
+  color: #000;
+}
+
+.dropdown-item {
+  color: #000;
+}
+
+.dropdown-menu>li>a {
+  color: #000;
+}
+
+#app {
+  height: 100%;
+}
+
+.delete-icon {
+  color: rgb(155, 155, 155);
+}
+
+.delete-icon:hover {
+  color: rgb(255, 50, 50);
+}
+
+.drop-icon {
+  color: rgb(155, 155, 155);
+}
+
+.drop-icon:hover {
+  color: rgb(245, 241, 12);
+}

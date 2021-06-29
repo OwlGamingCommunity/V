@@ -1,0 +1,208 @@
+<html>
+<head>
+	<link href="../../owl_client_shared/bootstrap/bootstrap.min.legacy.css" rel="stylesheet">
+	<link href="../../owl_client_shared/core/core.css" rel="stylesheet">
+	<link href="../../owl_client_shared/core/menu.css" rel="stylesheet">
+	<link href="../../owl_client_shared/slider.css" rel="stylesheet">
+	<link href="../../owl_client_shared/animate.css" rel="stylesheet">
+	<script src="../../owl_client_shared/core/core.js"></script>
+	<script src="../../owl_client_shared/jquery.min.js"></script>
+	<script src="../../owl_client_shared/jquery-ui.min.js"></script>
+	<script src="../../owl_client_shared/vue.min.js"></script>
+	<script src="../../owl_client_shared/jscolor.min.js"></script>
+
+	<link href="package://owl_client_shared/bootstrap.min.legacy.css" rel="stylesheet">
+	<link href="package://owl_client_shared/core.css" rel="stylesheet">
+	<link href="package://owl_client_shared/menu.css" rel="stylesheet">
+	<link href="package://owl_client_shared/slider.css" rel="stylesheet">
+	<link href="package://owl_client_shared/animate.css" rel="stylesheet">
+	<script src="package://owl_client_shared//core.js"></script>
+	<script src="package://owl_client_shared//jquery.min.js"></script>
+	<script src="package://owl_client_shared//jquery-ui.min.js"></script>
+	<script src="package://owl_client_shared//vue.min.js"></script>
+	<script src="package://owl_client_shared//jscolor.min.js"></script>
+	
+	<script type="text/javascript">
+		var g_ExitEventName = null;
+
+		var datatable_headers = [];
+		var datatable_entries = [];
+
+		function ClearDatabox()
+        {
+        	datatable_headers = [];
+        	datatable_entries = [];
+
+            document.getElementById("datatable_area").innerHTML = ``;
+        }
+
+        function Debug()
+        {
+        	ClearDatabox();
+
+        	AddDatatableHeaders(0, "H1");
+        	AddDatatableHeaders(1, "H2");
+        	AddDatatableHeaders(2, "H3");
+
+        	for (var row = 0; row < 155; ++row)
+        	{
+        		AddDatatableEntry(row, 0, `Row ${row} Val 1`);
+				AddDatatableEntry(row, 1, `Row ${row} Val 2`);
+				AddDatatableEntry(row, 2, `Row ${row} Val 3`);
+        	}
+
+
+        	CommitDataTableItems();
+        }
+
+        function AddDatatableHeaders(column_id, name)
+        {
+        	datatable_headers[column_id] = name;
+        }
+
+        function AddDatatableEntry(row_id, column_id, text)
+        {
+        	if (row_id >= datatable_entries.length)
+        	{
+        		datatable_entries[row_id] = [];
+        	}
+
+        	datatable_entries[row_id][column_id] = text;
+        }
+
+        const numPerPage = 10;
+        function CommitDataTableItems()
+        {
+			var numPages = Math.ceil(datatable_entries.length / numPerPage);
+
+			// page selector
+			var pageSelectorHTML = `<nav><ul class="pagination">`;
+			for (var i = 0; i < numPages; ++i)
+			{
+				pageSelectorHTML += `<li class="page-item"><a class="page-link" href="javascript:GotoPage(${i});">${i+1}</a></li>`;
+			}
+
+			pageSelectorHTML += `</ul></nav>`
+
+			document.getElementById("page_selector").innerHTML = pageSelectorHTML;
+
+			GotoPage(0);
+        }
+
+        function GotoPage(pageNum)
+        {
+        	var startIndex = pageNum * numPerPage;
+        	var endIndex = startIndex + numPerPage;
+
+        	// support for < numPerPage on final row
+        	if (endIndex > datatable_entries.length)
+        	{
+        		endIndex = datatable_entries.length;
+        	}
+
+        	var html = `<table class="table table-sm table-bordered table-hover">`;
+
+        	// headers
+        	html += `<thead><tr>`;
+        	for (var i = 0; i < datatable_headers.length; ++i)
+            {
+				html += `<th scope="col" class="bg-primary">${datatable_headers[i]}</th>`;
+            }
+            html += `</tr></thead>`;
+
+            // rows
+            html += `<tbody>`;
+            for (var rowNum = startIndex; rowNum < endIndex; ++rowNum)
+            {
+            	html += `<tr>`;
+
+            	var rowData = datatable_entries[rowNum];
+
+            	for (var colNum = 0; colNum < rowData.length; ++colNum)
+            	{
+            		var text = rowData[colNum];
+					html += `<td>${text}</td>`;
+            	}
+				html += `</tr>`;
+            }
+            html += `</tbody>`;
+
+            // end table
+            html += `</table>`;
+
+			document.getElementById("datatable_area").innerHTML = html;
+
+        }
+
+		function ShowDataTable(title, exit_button_text, exit_event_name)
+		{
+			document.getElementById("title").textContent = title;
+
+			document.getElementById("exitbutton").textContent = exit_button_text;
+
+			g_ExitEventName = exit_event_name;
+		}
+
+		function ExitButtonPressed()
+		{
+			TriggerEvent("GenericDataTable_OnClose");
+
+			if (g_CancelEventName.length > 0)
+			{
+				TriggerEvent(g_CancelEventName);
+			}
+		}
+	</script>
+
+	<style type="text/css">
+
+		body {
+			background-color: transparent;
+		}
+
+		#input-frame {
+			margin: 0 auto;
+			position: absolute;
+			top: 45%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			width: 80%;
+			min-width: 700px;
+		}
+
+		.panel {
+			margin-bottom: 0;
+		}
+
+		.panel-body p {
+			margin-bottom: 0;
+		}
+
+		.list-group {
+            max-height: 187px;
+            overflow-y: scroll;
+        }
+	</style>
+
+</head>
+<body>
+
+	<div id="input-frame" class="text-center">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h4><span id="title"></span></h4>
+			</div>
+
+			<div class="panel-body">
+				<div id="datatable_area"></div>
+				<div id="page_selector"></div>
+				
+		</div>
+		<div class="btn-group btn-group-justified">
+				<a type='button' id="exitbutton" class='btn btn-info' onclick="ExitButtonPressed();"></a>
+			</div>
+	</div>
+</div>
+
+</body>
+</html>

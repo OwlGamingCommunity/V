@@ -1,0 +1,41 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<TargetFramework>netcoreapp3.1</TargetFramework>
+		<AssemblyName>owl_scripter</AssemblyName>
+	</PropertyGroup>
+	<ItemGroup>
+		<PackageReference Include="Microsoft.CodeAnalysis" Version="3.5.0" />
+		<PackageReference Include="Microsoft.CodeAnalysis.CSharp.Scripting" Version="3.5.0" />
+		<PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="2.6.1" />
+		<PackageReference Include="Microsoft.CodeAnalysis.Scripting" Version="3.5.0" />
+	</ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\owl_admin\Admin.csproj" />
+		<ProjectReference Include="..\owl_core\owl_core.csproj" />
+		<ProjectReference Include="..\owl_servershared\owl_servershared.csproj" />
+	</ItemGroup>
+	<ItemGroup>
+		<Reference Include="Bootstrapper">
+			<HintPath>..\..\RageDeps\Bootstrapper.dll</HintPath>
+		</Reference>
+		<Reference Include="Newtonsoft.Json">
+			<HintPath>..\..\RageDeps\Newtonsoft.Json.dll</HintPath>
+		</Reference>
+	</ItemGroup>
+
+	<PropertyGroup>
+		<CodeAnalysisRuleSet>$(SolutionDir)\OwlV.ruleset</CodeAnalysisRuleSet>
+		<Features>IOperation</Features>
+		<NoWarn></NoWarn>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+		<DefineConstants>SERVER</DefineConstants>
+		<PlatformTarget>x64</PlatformTarget>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+		<DefineConstants>SERVER</DefineConstants>
+		<PlatformTarget>x64</PlatformTarget>
+	</PropertyGroup>
+</Project>

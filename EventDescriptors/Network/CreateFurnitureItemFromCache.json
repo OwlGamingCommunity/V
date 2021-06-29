@@ -1,0 +1,8 @@
+{
+  "Type": "ClientLocal",
+  "Parameters": {
+    "furnitureDef": "CFurnitureDefinition",
+    "objectInstance": "ObjectType",
+    "DBID": "long"
+  }
+}

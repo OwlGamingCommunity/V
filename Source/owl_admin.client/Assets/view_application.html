@@ -1,0 +1,239 @@
+<html>
+<head>
+	<link href="../../owl_client_shared/bootstrap/bootstrap.min.legacy.css" rel="stylesheet">
+	<link href="../../owl_client_shared/core/core.css" rel="stylesheet">
+	<link href="../../owl_client_shared/core/menu.css" rel="stylesheet">
+	<link href="../../owl_client_shared/slider.css" rel="stylesheet">
+	<link href="../../owl_client_shared/animate.css" rel="stylesheet">
+	<script src="../../owl_client_shared/core/core.js"></script>
+	<script src="../../owl_client_shared/jquery.min.js"></script>
+	<script src="../../owl_client_shared/jquery-ui.min.js"></script>
+	<script src="../../owl_client_shared/vue.min.js"></script>
+	<script src="../../owl_client_shared/jscolor.min.js"></script>
+
+	<link href="package://owl_client_shared/bootstrap.min.legacy.css" rel="stylesheet">
+	<link href="package://owl_client_shared/core.css" rel="stylesheet">
+	<link href="package://owl_client_shared/menu.css" rel="stylesheet">
+	<link href="package://owl_client_shared/slider.css" rel="stylesheet">
+	<link href="package://owl_client_shared/animate.css" rel="stylesheet">
+	<script src="package://owl_client_shared//core.js"></script>
+	<script src="package://owl_client_shared//jquery.min.js"></script>
+	<script src="package://owl_client_shared//jquery-ui.min.js"></script>
+	<script src="package://owl_client_shared//vue.min.js"></script>
+	<script src="package://owl_client_shared//jscolor.min.js"></script>
+
+	<script type="text/javascript">
+		function ReceivedApplicationInformation(number_of_apps, question1, question2, question3, question4, answer1, answer2, answer3, answer4)
+        {
+			document.getElementById("written_q1").textContent = question1;
+			document.getElementById("written_q2").textContent = question2;
+			document.getElementById("written_q3").textContent = question3;
+			document.getElementById("written_q4").textContent = question4;
+
+			document.getElementById("box1").textContent = answer1;
+			document.getElementById("box2").textContent = answer2;
+			document.getElementById("box3").textContent = answer3;
+			document.getElementById("box4").textContent = answer4;
+
+			var account_id = g_Applications[g_CurrentApplicationIndex]["account_id"];
+			var account_name = g_Applications[g_CurrentApplicationIndex]["account_name"];
+			document.getElementById("application_title").textContent = `Applications for ${account_name} (${account_id})`;
+
+			document.getElementById("box_apps").style.display = "none";
+			document.getElementById("box_writtenanswers").style.display = "block";
+		}
+
+		function HideAll()
+		{
+			document.getElementById("box_apps").style.display = "none";
+			document.getElementById("box_writtenanswers").style.display = "none";
+		}
+
+		function CloseApplication()
+		{
+			HideAll();
+			ResetVals();
+
+			TriggerEvent("GetPendingApplications");
+		}
+
+		function DenyApplication()
+		{
+			var account_id = g_Applications[g_CurrentApplicationIndex]["account_id"];
+			TriggerEvent("DenyApplication", account_id);
+
+			HideAll();
+			ResetVals();
+
+			// NOTE: No need to request refreshed list, it's sent by the server AFTER the update has posted
+		}
+
+		function ApproveApplication()
+		{
+			var account_id = g_Applications[g_CurrentApplicationIndex]["account_id"];
+			TriggerEvent("ApproveApplication", account_id);
+
+			HideAll();
+			ResetVals();
+
+			// NOTE: No need to request refreshed list, it's sent by the server AFTER the update has posted
+		}
+
+		var g_CurrentApplicationIndex = -1;
+		function OpenApplication(index)
+		{
+			g_CurrentApplicationIndex = index;
+
+			document.getElementById("box_apps").style.display = "none";
+			document.getElementById("box_writtenanswers").style.display = "none";
+
+			var account_id = g_Applications[index]["account_id"];
+			TriggerEvent("RequestApplicationDetails", account_id);
+		}
+
+		var g_Applications = [];
+		function AddApplication(account_id, account_name)
+		{
+			var newObj = [];
+			newObj["account_id"] = account_id;
+			newObj["account_name"] = account_name;
+			g_Applications.push(newObj)
+		}
+
+		function CommitApplications()
+        {
+			document.getElementById(`pending_apps`).innerHTML = "";
+
+			for (var i = 0; i < g_Applications.length; ++i)
+			{
+				var account_id = g_Applications[i]["account_id"];
+				var account_name = g_Applications[i]["account_name"];
+				document.getElementById(`pending_apps`).innerHTML += `<li class="list-group-item" onclick='OpenApplication(${i});'>${account_name}</li>`;
+			}
+
+			document.getElementById("pending_applications_title").textContent = `Pending Applications (${g_Applications.length})`;
+
+			document.getElementById("box_apps").style.display = "block";
+			document.getElementById("box_writtenanswers").style.display = "none";
+		}
+
+		function ResetVals()
+		{
+			g_Applications = [];
+			g_CurrentApplicationIndex = -1;
+		}
+
+		function ExitPendingAppsScreen()
+		{
+			ResetVals();
+			TriggerEvent("ExitPendingAppsScreen");
+		}
+
+		function RefreshPendingApps()
+		{
+			CloseApplication();
+		}
+	</script>
+
+	<style type="text/css">
+
+		body {
+			background-color: transparent;
+		}
+
+		#applist-box {
+			width: 680px;
+			margin-left: 2%;
+			vertical-align: middle;
+			position: relative;
+			top: 45%;
+			left: 45%;
+			transform: translate(-50%, -50%);
+		}
+
+		#written-box {
+			width: 680px;
+			margin-left: 2%;
+			vertical-align: middle;
+			position: relative;
+			top: 45%;
+			left: 45%;
+			transform: translate(-50%, -50%);
+		}
+
+		.panel {
+			margin-bottom: 0;
+		}
+
+		.panel-body p {
+			margin-bottom: 0;
+		}
+
+		#pending_apps {
+			max-height: 450px;
+			margin-bottom: 0;
+			overflow-y: scroll;
+		}
+
+			#pending_apps .list-group-item:hover,
+			#pending_apps .list-group-item:active,
+			#pending_apps .list-group-item:focus {
+				background: #f5f5f5;
+			}
+
+			#pending_apps .label {
+				margin-right: 5px;
+			}
+
+			#pending_apps .label-info:hover {
+				background: #31b0d5;
+			}
+	</style>
+
+</head>
+<body>
+
+	<div id="written-box" class="text-center">
+		<div class="panel panel-default" id="box_apps" style="display:none">
+			<div class="panel-heading">
+				<h4><span id="pending_applications_title"></span></h4>
+				<ul class="list-group" id="pending_apps"></ul>
+				<br>
+				<div class="btn-group btn-group-justified">
+					<a type='button' class='btn btn-danger' onclick="ExitPendingAppsScreen();">Exit</a>
+					<a type='button' class='btn btn-info' onclick="RefreshPendingApps();">Refresh</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	</div>
+
+	<div id="applist-box" class="text-center">
+		<div class="panel panel-default" id="box_writtenanswers" style="display:none">
+			<div class="panel-heading">
+				<h4><span id="application_title"></span></h4>
+				<p><strong><span id="written_q1"></span></strong></p>
+				<textarea class="form-control" rows="5" id="box1" style="resize:none" readonly></textarea>
+				<br>
+				<p><strong><span id="written_q2"></span></strong></p>
+				<textarea class="form-control" rows="5" id="box2" style="resize:none" readonly></textarea>
+				<br>
+				<p><strong><span id="written_q3"></span></strong></p>
+				<textarea class="form-control" rows="5" id="box3" style="resize:none" readonly></textarea>
+				<br>
+				<p><strong><span id="written_q4"></span></strong></p>
+				<textarea class="form-control" rows="5" id="box4" style="resize:none" readonly></textarea>
+				<br>
+				<div class="btn-group btn-group-justified">
+					<a type='button' class='btn btn-danger' onclick="DenyApplication();">Deny</a>
+					<a type='button' class='btn btn-success' onclick="ApproveApplication();">Approve</a>
+				</div>
+				<div class="btn-group btn-group-justified">
+					<a type='button' class='btn btn-info' onclick="CloseApplication();">Close (Perform No Action)</a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>

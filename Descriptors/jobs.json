@@ -1,0 +1,26 @@
+{
+  "Files": [
+    {
+      "Name": "owl_jobs.dll",
+      "Type": "ServerScript"
+    },
+  ],
+  "ExportedFunctions": [
+    {
+      "Class": "TaxiDriverJob",
+      "Function": "TaxiDriverJob_ResetForPlayer"
+    },
+    {
+      "Class": "TaxiDriverJob",
+      "Function": "GetTaxiStateForPlayer"
+    },
+    {
+      "Class": "TaxiDriverJob",
+      "Function": "OnRequestTaxi"
+    },
+    {
+      "Class": "TaxiDriverJob",
+      "Function": "OnRequestCancelTaxi"
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+{
+  "Type": "ClientLocal",
+  "Parameters": {
+    "enabled": "bool"
+  }
+}

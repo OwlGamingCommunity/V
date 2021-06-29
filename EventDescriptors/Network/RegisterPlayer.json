@@ -1,0 +1,9 @@
+{
+  "Type": "Network_ClientToServer_RemoteOnly",
+  "Parameters": {
+    "strUsername": "string",
+    "strPassword":  "string",
+    "strPasswordVerify":  "string",
+    "strEmail":  "string"
+  }
+}

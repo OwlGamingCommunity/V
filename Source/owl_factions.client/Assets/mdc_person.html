@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link href="../../owl_client_shared/bootstrap/bootstrap.min.legacy.css" rel="stylesheet">
+	<link href="../../owl_client_shared/core/core.css" rel="stylesheet">
+	<link href="../../owl_client_shared/core/menu.css" rel="stylesheet">
+	<link href="../../owl_client_shared/slider.css" rel="stylesheet">
+	<link href="../../owl_client_shared/animate.css" rel="stylesheet">
+	<script src="../../owl_client_shared/core/core.js"></script>
+	<script src="../../owl_client_shared/jquery.min.js"></script>
+	<script src="../../owl_client_shared/jquery-ui.min.js"></script>
+	<script src="../../owl_client_shared/vue.min.js"></script>
+	<script src="../../owl_client_shared/jscolor.min.js"></script>
+
+	<link href="package://owl_client_shared/bootstrap.min.legacy.css" rel="stylesheet">
+	<link href="package://owl_client_shared/core.css" rel="stylesheet">
+	<link href="package://owl_client_shared/menu.css" rel="stylesheet">
+	<link href="package://owl_client_shared/slider.css" rel="stylesheet">
+	<link href="package://owl_client_shared/animate.css" rel="stylesheet">
+	<script src="package://owl_client_shared//core.js"></script>
+	<script src="package://owl_client_shared//jquery.min.js"></script>
+	<script src="package://owl_client_shared//jquery-ui.min.js"></script>
+	<script src="package://owl_client_shared//vue.min.js"></script>
+	<script src="package://owl_client_shared//jscolor.min.js"></script>
+
+	<script type="text/javascript">
+	var app = null;
+
+	function ShowTerminal(id, name, age, gender)
+	{
+		app = new Vue({
+			el: '#app',
+			data: {
+				id: id,
+				name: name,
+				age: age,
+				gender: gender == 0 ? 'Male' : 'Female',
+				vehicles: [],
+				properties: []
+			},
+			methods: {
+				exit: function() {
+					TriggerEvent("HideMDCUIs");
+				},
+				gotoProperty: function (propertyId) {
+					TriggerEvent("MdcGotoProperty", propertyId);
+				},
+				gotoVehicle: function (vehiclePlate) {
+					TriggerEvent("MdcGotoVehicle", vehiclePlate);
+				}
+			}
+		});
+	}
+
+	function AddVehicle(id, model, plate)
+	{
+		app.vehicles.push({
+			id: id,
+			model: model,
+			plate: plate,
+		});
+	}
+
+	function AddProperty(id, name)
+	{
+		app.properties.push({
+			id: id,
+			name: name
+		})
+	}
+	</script>
+
+	<style type="text/css">
+		body {
+			background: none;
+		}
+
+		 .main-container { 
+			vertical-align: bottom;
+			position: fixed;
+			top: 15%;
+			width: 100%;
+		} 
+
+		.main-body {
+			/* min-height: 300px; */
+		}
+
+		a.header-links {
+			font-size: 18px;
+		}
+		
+		.panel-heading {
+			margin: 0;
+		}
+
+		.column {
+			padding: 0;
+		}
+
+		.inner-nav {
+			margin-bottom: 20px;
+		}
+
+		.navbar {
+			margin-bottom: 0;
+		}
+
+		.navbar-header, .navbar-nav {
+			cursor: pointer;
+		}
+
+		.navbar-right {
+			margin-right: 0;
+		}
+
+		select .form-control {
+			margin-top: -3px;
+		} 
+
+		.search-type-input {
+			padding-left: 0px;
+			padding-right: 0px;
+		}
+	</style>
+
+</head>
+<body>
+
+	<div id="app" class="main-container">
+		<div class="container" style="width: 400px; margin: auto;">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<div class="navbar nav-justified">
+						<div class="navbar-header">
+							<b class="navbar-brand">Mobile Data Terminal</b>
+						</div>
+					</div>
+				</div>
+
+				<div class="panel-body main-body">
+					<h2>Person Details</h2>
+					<b>Name:</b> {{ name }}<br>
+					<b>Age:</b> {{ age }}<br>
+					<b>Gender:</b> {{ gender }}
+					
+					<h2>Properties</h2>
+					<div v-if="properties.length == 0">Person does not own any properties.</div>
+					<div v-else>
+						<table class="table">
+							<thead>
+								<tr>
+									<th>ZIP</th>
+									<th>Name</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr v-for="property in properties">
+									<td><a @click.prevent="gotoProperty(property.id)">{{ property.id }}</a></td>
+									<td>{{ property.name }}</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+
+					<h2>Vehicles</h2>
+					<div v-if="vehicles.length == 0">Person does not own any vehicles.</div>
+					<div v-else>
+						<table class="table">
+							<thead>
+								<tr>
+									<th>VIN</th>
+									<th>Model</th>
+									<th>Plate</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr v-for="vehicle in vehicles">
+									<td><a @click.prevent="gotoVehicle(vehicle.plate)">{{ vehicle.id }}</a></td>
+									<td>{{ vehicle.model }}</td>
+									<td>{{ vehicle.plate }}</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+			   </div>
+				<a @click.prevent="exit" class="btn btn-danger btn-block">Exit</a>
+			</div> 
+		</div>
+	</div>
+
+</body>
+</html>

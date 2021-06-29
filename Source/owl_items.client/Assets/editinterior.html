@@ -1,0 +1,379 @@
+<html>
+<head>
+
+	<link href="../../owl_client_shared/bootstrap/bootstrap.min.legacy.css" rel="stylesheet">
+	<link href="../../owl_client_shared/core/core.css" rel="stylesheet">
+	<link href="../../owl_client_shared/core/menu.css" rel="stylesheet">
+	<link href="../../owl_client_shared/slider.css" rel="stylesheet">
+	<link href="../../owl_client_shared/animate.css" rel="stylesheet">
+	<script src="../../owl_client_shared/core/core.js"></script>
+	<script src="../../owl_client_shared/jquery.min.js"></script>
+	<script src="../../owl_client_shared/jquery-ui.min.js"></script>
+	<script src="../../owl_client_shared/vue.min.js"></script>
+	<script src="../../owl_client_shared/jscolor.min.js"></script>
+
+	<link href="package://owl_client_shared/bootstrap.min.legacy.css" rel="stylesheet">
+	<link href="package://owl_client_shared/core.css" rel="stylesheet">
+	<link href="package://owl_client_shared/menu.css" rel="stylesheet">
+	<link href="package://owl_client_shared/slider.css" rel="stylesheet">
+	<link href="package://owl_client_shared/animate.css" rel="stylesheet">
+	<script src="package://owl_client_shared//core.js"></script>
+	<script src="package://owl_client_shared//jquery.min.js"></script>
+	<script src="package://owl_client_shared//jquery-ui.min.js"></script>
+	<script src="package://owl_client_shared//vue.min.js"></script>
+	<script src="package://owl_client_shared//jscolor.min.js"></script>
+
+	<script type="text/javascript">
+		var furniture_items = [];
+		var removed_furniture_items = [];
+		var current_furniture_items = [];
+
+		function AddDebugData()
+		{
+			AddFurnitureItem(0, "Test 1");
+			AddFurnitureItem(1, "Test 2");
+			AddFurnitureItem(2, "Test 3");
+			CommitFurnitureItems();
+
+			AddRemovedFurnitureItem(0, "R Test 1");
+			AddRemovedFurnitureItem(1, "R Test 2");
+			AddRemovedFurnitureItem(2, "R Test 3");
+			CommitRemovedFurnitureItems();
+
+			AddCurrentFurnitureItem(0, "A");
+			AddCurrentFurnitureItem(0, "B");
+			AddCurrentFurnitureItem(0, "C");
+			CommitCurrentFurnitureItems();
+		}
+
+		function PlaceFurniture()
+		{
+			SetButtonsEnabled(false);
+			TriggerEvent("EditInterior_PlaceFurniture");
+		}
+
+		function PickupFurniture()
+		{
+			SetButtonsEnabled(false);
+			TriggerEvent("EditInterior_PickupFurniture");
+		}
+
+		function RestoreFurniture()
+		{
+			SetButtonsEnabled(false);
+			TriggerEvent("EditInterior_RestoreFurniture");
+		}
+
+		function SetButtonsEnabled(enabled)
+		{
+			//document.getElementById("button_placefurniture").disabled = !enabled;
+		}
+
+		function Hide()
+		{
+			TriggerEvent("EditInterior_Hide");
+		}
+
+		function OnChangeClass(value)
+		{
+			TriggerEvent("EditInterior_OnChangeClass", value);
+		}
+
+		function OnChangeFurnitureItem()
+		{
+			var value = document.getElementById("furniture_listbox").value;
+			TriggerEvent("EditInterior_OnChangeFurnitureItem", value);
+		}
+
+		function OnChangeRemovedFurnitureItem()
+		{
+			var value = document.getElementById("removed_furniture_listbox").value;
+			TriggerEvent("EditInterior_OnChangeRemovedFurnitureItem", value);
+		}
+
+		function OnChangeCurrentFurnitureItem()
+		{
+			var value = document.getElementById("current_furniture_listbox").value;
+			TriggerEvent("EditInterior_OnChangeCurrentFurnitureItem", value);
+		}
+
+		function SortByDisplayName(a, b)
+		{
+			return a["display_name"] > b["display_name"];
+		}
+
+		function SetFurnitureCapacity(storage_capacity)
+		{
+			if (storage_capacity > 0)
+			{
+				document.getElementById("storage_capacity").innerHTML = `This furniture stores ${storage_capacity} item(s).`;
+			}
+			else
+			{
+				document.getElementById("storage_capacity").innerHTML = `This furniture does not include any storage capacity.`;
+			}
+		}
+
+		function SetOutfitChange(allows)
+		{
+			if (allows)
+			{
+				document.getElementById("outfit_change").innerHTML = `This furniture allows people to change outfits.`;
+			}
+			else
+			{
+				document.getElementById("outfit_change").innerHTML = `This furniture does not allow people to change outfits.`;
+			}
+		}
+
+		function AddFurnitureItem(id, display_name)
+		{
+			var insert_id = furniture_items.length;
+			furniture_items[insert_id] = [];
+			furniture_items[insert_id]["id"] = id;
+			furniture_items[insert_id]["display_name"] = display_name;
+		}
+
+		function CommitFurnitureItems()
+		{
+			furniture_items.sort(SortByDisplayName);
+
+			var html = `<select id="furniture_listbox" class="form-control" multiple onchange="OnChangeFurnitureItem()">`;
+
+            if (furniture_items.length > 0)
+            {
+                for (var i = 0; i < furniture_items.length; ++i)
+			    {
+				    html += `<option value="${furniture_items[i]["id"]}">${furniture_items[i]["display_name"]}</option>`;
+			    }
+
+			    html += `</select>`;
+			    html += `<button type="button" class="btn btn-success" id="button_placefurniture" onclick='PlaceFurniture();'>Place Furniture</button>`;
+			    document.getElementById("furniture_list").innerHTML = html;
+            }
+            else
+            {
+                document.getElementById("furniture_list").innerHTML = "You do not have any furniture in this category";
+            }
+
+			furniture_items = [];
+		}
+
+		function AddRemovedFurnitureItem(id, display_name)
+		{
+			var insert_id = removed_furniture_items.length;
+			removed_furniture_items[insert_id] = [];
+			removed_furniture_items[insert_id]["id"] = id;
+			removed_furniture_items[insert_id]["display_name"] = display_name;
+		}
+
+		function CommitRemovedFurnitureItems()
+		{
+			removed_furniture_items.sort(SortByDisplayName);
+
+			var html = `<select id="removed_furniture_listbox" class="form-control" multiple onchange="OnChangeRemovedFurnitureItem()">`;
+
+            if (removed_furniture_items.length > 0)
+            {
+                for (var i = 0; i < removed_furniture_items.length; ++i)
+			    {
+				    html += `<option value="${removed_furniture_items[i]["id"]}">${removed_furniture_items[i]["display_name"]}</option>`;
+			    }
+
+			    html += `</select>`;
+				html += `<br><button type="button" class="btn btn-danger" id="button_restorefurniture" onclick='RestoreFurniture();'>Restore Default Furniture Item</button>`
+			    document.getElementById("removed_furniture_list").innerHTML = html;
+            }
+            else
+            {
+                document.getElementById("removed_furniture_list").innerHTML = "No default furniture has been removed.";
+            }
+
+			removed_furniture_items = [];
+			insert_id = 0;
+		}
+
+		// current furniture items
+		function AddCurrentFurnitureItem(id, display_name)
+		{
+			var insert_id = current_furniture_items.length;
+			current_furniture_items[insert_id] = [];
+			current_furniture_items[insert_id]["id"] = id;
+			current_furniture_items[insert_id]["display_name"] = display_name;
+		}
+
+		function CommitCurrentFurnitureItems()
+		{
+			current_furniture_items.sort(SortByDisplayName);
+
+			var html = `<select id="current_furniture_listbox" class="form-control" multiple onchange="OnChangeCurrentFurnitureItem()">`;
+
+            if (current_furniture_items.length > 0)
+            {
+                for (var i = 0; i < current_furniture_items.length; ++i)
+			    {
+				    html += `<option value="${current_furniture_items[i]["id"]}">${current_furniture_items[i]["display_name"]}</option>`;
+			    }
+
+			    html += `</select>`;
+				html += `<br><button type="button" class="btn btn-danger" id="button_takefurniture" onclick='PickupFurniture();'>Pickup Furniture</button>`
+
+				document.getElementById("current_furniture_list").innerHTML = html;
+			
+            }
+            else
+            {
+                document.getElementById("current_furniture_list").innerHTML = "This property has no custom furniture currently.";
+            }
+
+			current_furniture_items = [];
+		}
+
+		$(function ()
+		{
+			$(".dropdown-menu li a").click(function ()
+			{
+				$("#dropdownClass").text($(this).text());
+				$("#dropdownClass").val($(this).text());
+			});
+		});
+
+	</script>
+
+	<style type="text/css">
+		body {
+			background-color: transparent;
+		}
+
+		.bottom-center-box-upper {
+			position: fixed;
+			right: 85px;
+			bottom: 100px
+		}
+
+		.bottom-center-box {
+			position: fixed;
+			right: 25px;
+			bottom: 60px
+		}
+
+		.bottom-center-box-lower {
+			position: fixed;
+			right: 80px;
+			bottom: 20px
+		}
+
+		#box-left {
+			left: 25px;
+			position: fixed;
+			top: 40%;
+			transform: translateY(-40%);
+			width: 320px;
+		}
+
+		#vehicle_listbox {
+			margin-bottom: 15px;
+		}
+
+
+		.dropdown-menu > li > a {
+			padding: 7.5px 15px;
+		}
+
+		#box-right {
+			position: fixed;
+			right: 25px;
+			top: 40%;
+			transform: translateY(-40%);
+			width: 320px;
+		}
+
+		tr {
+			text-align: right;
+		}
+
+
+		#error_text:empty {
+			display: none;
+		}
+
+		#error_text {
+			color: #FF0000;
+		}
+	</style>
+</head>
+<body>
+
+    <div id="box-left">
+
+		<div class="well">
+			<h4>Furniture Available</h4>
+			<br />
+			<div id="storage_capacity"></div>
+			<br />
+			<div id="outfit_change"></div>
+			<br />
+			<div class="btn-group">
+				<button class="btn btn-default dropdown-toggle" type="button" id="dropdownClass" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					Select Type
+					<span class="caret"></span>
+				</button>
+				<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+					<li><a onclick='OnChangeClass("Activities");'>Activities</a></li>
+					<li><a onclick='OnChangeClass("AllOutfitChange");'>All Items Offering Outfit Changing</a></li>
+					<li><a onclick='OnChangeClass("AllStorage");'>All Items Offering Storage</a></li>
+					<li><a onclick='OnChangeClass("Bathroom");'>Bathroom</a></li>
+					<li><a onclick='OnChangeClass("Seating");'>Seating</a></li>
+					<li><a onclick='OnChangeClass("Tables");'>Tables</a></li>
+					<li><a onclick='OnChangeClass("Storage");'>General Storage</a></li>
+					<li><a onclick='OnChangeClass("Bedroom");'>Bedroom</a></li>
+					<li><a onclick='OnChangeClass("Lights");'>Lights</a></li>
+					<li><a onclick='OnChangeClass("Electronics");'>Electronics</a></li>
+					<li><a onclick='OnChangeClass("Miscellaneous");'>Miscellaneous</a></li>
+					<li><a onclick='OnChangeClass("Kitchen");'>Kitchen</a></li>
+					<li><a onclick='OnChangeClass("Decoration");'>Decoration</a></li>
+				</ul>
+				<br><br>
+
+			</div>
+			<br />
+			<br />
+			<span id="furniture_list">
+			</span>
+		</div>
+
+        <!-- FURNITURE REMOVED -->
+
+		<div class="well">
+            <h4>Default Furniture Removed</h4>
+            <br />
+            <span id="removed_furniture_list">
+            </span>
+            <br />
+            <br />
+        </div>
+
+    </div>
+
+     <div id="box-right">
+<!-- FURNITURE PLACED ALREADY -->
+
+		<div class="well">
+            <h4>Current Property Furniture</h4>
+            <br />
+            <span id="current_furniture_list">
+            </span>
+            <br />
+            <br />
+        </div>
+
+          <div class="btn-group btn-group-justified" role="group" aria-label="Justified button group">
+                <div class="btn-group">
+                    <button type="button" class="btn btn-danger" id="exitbutton" onclick='Hide();'>Exit</button>
+                </div>
+            </div>
+     </div>
+
+
+</body>
+</html>

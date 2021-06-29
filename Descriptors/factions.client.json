@@ -1,0 +1,174 @@
+{
+  "Files": [
+    {
+      "Name": "EMSSystem.Client.cs",
+      "Type": "ClientScript"
+    },
+    {
+      "Name": "PDSearchlight.Client.cs",
+      "Type": "ClientScript"
+    },
+    {
+      "Name": "DutySystem.Client.cs",
+      "Type": "ClientScript"
+    },
+    {
+      "Name": "CGUIDuty.Client.cs",
+      "Type": "ClientScript"
+    },
+    {
+      "Name": "FactionManagement.Client.cs",
+      "Type": "ClientScript"
+    },
+    {
+      "Name": "FactionInvites.Client.cs",
+      "Type": "ClientScript"
+    },
+    {
+      "Name": "CGUIFactionManagement.Client.cs",
+      "Type": "ClientScript"
+    },
+    {
+      "Name": "CGUIFactionInvite.Client.cs",
+      "Type": "ClientScript"
+    },
+    {
+      "Name": "DutyOutfitEditor.Client.cs",
+      "Type": "ClientScript"
+    },
+    {
+      "Name": "PDVehicleHud.Client.cs",
+      "Type": "ClientScript"
+    },
+    {
+      "Name": "PDHelicopterHud.Client.cs",
+      "Type": "ClientScript"
+    },
+    {
+      "Name": "CGUIPDVehicleHud.Client.cs",
+      "Type": "ClientScript"
+    },
+    {
+      "Name": "CGUIPDHelicopterHud.Client.cs",
+      "Type": "ClientScript"
+    },
+    {
+      "Name": "CGUIPDTicket.Client.cs",
+      "Type": "ClientScript"
+    },
+    {
+      "Name": "CGUIRoadblockEditor.Client.cs",
+      "Type": "ClientScript"
+    },
+    {
+      "Name": "CGUIPDLicensingDevice.Client.cs",
+      "Type": "ClientScript"
+    },
+    {
+      "Name": "CGUIPDMDC_Person.Client.cs",
+      "Type": "ClientScript"
+    },
+    {
+      "Name": "CGUIPDMDC_Vehicle.Client.cs",
+      "Type": "ClientScript"
+    },
+    {
+      "Name": "CGUIPDMDC_Property.Client.cs",
+      "Type": "ClientScript"
+    },
+    {
+      "Name": "PDShield.Client.cs",
+      "Type": "ClientScript"
+    },
+    {
+      "Name": "PDGates.Client.cs",
+      "Type": "ClientScript"
+    },
+    {
+      "Name": "PDSystem.Client.cs",
+      "Type": "ClientScript"
+    },
+    {
+      "Name": "FDSystem.Client.cs",
+      "Type": "ClientScript"
+    },
+    {
+      "Name": "RoadblockSystem.Client.cs",
+      "Type": "ClientScript"
+    },
+    {
+      "Name": "PDMDC.Client.cs",
+      "Type": "ClientScript"
+    },
+    {
+      "Name": "PDSpeedCameras.Client.cs",
+      "Type": "ClientScript"
+    },
+    {
+      "Name": "SpikeStrips.Client.cs",
+      "Type": "ClientScript"
+    },
+    {
+      "Name": "GovernmentBlips.Client.cs",
+      "Type": "ClientScript"
+    },
+	{
+      "Name": "NewsSystem.Client.cs",
+      "Type": "ClientScript"
+    },
+    {
+      "Name": "Init.Client.cs",
+      "Type": "ClientScript"
+    },
+    {
+      "Name": "Assets/images/nothing_here.svg",
+      "Type": "ClientAsset"
+    },
+    {
+      "Name": "Assets/duty.html",
+      "Type": "ClientAsset"
+    },
+    {
+      "Name": "Assets/pdvehiclehud.html",
+      "Type": "ClientAsset"
+    },
+    {
+      "Name": "Assets/pdhelicopterhud.html",
+      "Type": "ClientAsset"
+    },
+    {
+      "Name": "Assets/ticket.html",
+      "Type": "ClientAsset"
+    },
+    {
+      "Name": "Assets/faction.html",
+      "Type": "ClientAsset"
+    },
+    {
+      "Name": "Assets/roadblockeditor.html",
+      "Type": "ClientAsset"
+    },
+    {
+      "Name": "Assets/receivefactioninvite.html",
+      "Type": "ClientAsset"
+    },
+    {
+      "Name": "Assets/mdc_person.html",
+      "Type": "ClientAsset"
+    },
+    {
+      "Name": "Assets/mdc_property.html",
+      "Type": "ClientAsset"
+    },
+    {
+      "Name": "Assets/mdc_vehicle.html",
+      "Type": "ClientAsset"
+    },
+    {
+      "Name": "Assets/pdlicensedevice.html",
+      "Type": "ClientAsset"
+    },
+  ],
+  "ExportedFunctions": [
+  ]
+}

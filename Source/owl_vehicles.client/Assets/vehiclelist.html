@@ -1,0 +1,199 @@
+<html>
+<head>
+    <link href="../../owl_client_shared/bootstrap/bootstrap.min.css" rel="stylesheet">
+    <link href="../../owl_client_shared/bootstrap/bootstrap-table.min.css" rel="stylesheet">
+
+    <link href="package://owl_client_shared/bootstrap.min.css" rel="stylesheet">
+    <link href="package://owl_client_shared/bootstrap-table.min.css" rel="stylesheet">
+
+    <style type="text/css">
+
+        body {
+            background-color: transparent;
+        }
+
+        #box-middle {
+            margin: 0;
+            position: absolute;
+            top: 45%;
+            left: 45%;
+            transform: translate(-50%, -50%);
+            width: 1100px;
+            height: 600px;
+        }
+
+        .nav-tabs {
+            overflow-x: auto;
+            overflow-y: hidden;
+            flex-wrap: nowrap;
+        }
+
+        .nav-tabs .nav-link {
+            white-space: nowrap;
+        }
+
+        .nav-item {
+            cursor: pointer;
+        }
+
+        ::-webkit-scrollbar {
+            width: 0px;
+            background: transparent; /* make scrollbar transparent */
+        }
+    </style>
+</head>
+<body>
+    <div id="box-middle">
+        <div class="row" id="vehiclesTable">
+            <div class="col-sm-12">
+                <div class="card" id="panel1">
+                    <div class="card-header" id="header">
+                        <button type="button" class="ml-2 mb-1 close" onclick="Close();" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <center>Vehicles List</center><br />
+                        <ul class="nav nav-tabs card-header-tabs" id="vehiclesTabs" role="tablist"></ul>
+                    </div>
+                    <div class="card-body">
+                        <table id="table" data-search="true">
+                            <thead>
+                                <tr>
+                                    <th data-field="Index" data-sortable="true">Index</th>
+                                    <th data-field="Manufacturer">Manufacturer</th>
+                                    <th data-field="Name">Name</th>
+                                    <th data-field="IsPurchasable">Can be purchased</th>
+                                    <th data-field="IsRentable">Can be rented</th>
+                                    <th data-field="Class">Class</th>
+                                    <th data-field="Price">Price</th>
+                                    <th data-field="RentalPricePerDay">Rental price per day</th>
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../owl_client_shared/core/core.js"></script>
+    <script src="../../owl_client_shared/jquery.min.js"></script>
+    <script src="../../owl_client_shared/bootstrap/bootstrap-table.min.js"></script>
+
+    <script src="package://owl_client_shared//core.js"></script>
+    <script src="package://owl_client_shared//jquery.min.js"></script>
+    <script src="package://owl_client_shared//bootstrap-table.min.js"></script>
+
+    <script>
+
+        function loadVehicleData(vehiclesList) {
+            var $table = $('#table');
+
+            $(function () {
+                $table.bootstrapTable({ data: JSON.parse(vehiclesList) })
+            })
+
+            $('#vehiclesTabs').empty();
+        }
+
+        function loadCategory(category) {
+            var capitalizedString = category[0].toUpperCase() + category.slice(1); 
+            $('#vehiclesTabs').append(`
+                <li class="nav-item">
+                    <a class="nav-link ${category == "all" ? "active" : ""}" href="#" id="${category}" onclick="loadTabData(this);">${capitalizedString}</a>
+                </li>
+            `);
+        }
+
+        function loadTabData(tab) {
+            $(".nav-tabs li a").removeClass("active");
+            $('#' + tab.id).addClass('active');
+            if (tab.id == "all") {
+                $('#table').bootstrapTable('filterBy', {});
+            } else {
+                $('#table').bootstrapTable('filterBy', {
+                    Class: tab.id
+                });
+            }
+        }
+
+        function Close() {
+            TriggerEvent("CloseVehiclesListUI");
+            $('#table').bootstrapTable('destroy');
+        }
+
+        function OnLoad() {
+            dragElement(document.getElementById("box-middle"));
+        }
+
+
+        function dragElement(elmnt) {
+            var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+            if (document.getElementById("header")) {
+                document.getElementById("header").onmousedown = dragMouseDown;
+            }
+
+            function dragMouseDown(e) {
+                if (e.target.nodeName == "TEXTAREA" || e.target.nodeName == "A" || e.target.className == "nav-tabs") {
+                    return;
+                }
+
+                e = e || window.event;
+                e.preventDefault();
+                // get the mouse cursor position at startup:
+                pos3 = e.clientX;
+                pos4 = e.clientY;
+                document.onmouseup = closeDragElement;
+                // call a function whenever the cursor moves:
+                document.onmousemove = elementDrag;
+            }
+
+            function elementDrag(e) {
+                e = e || window.event;
+                e.preventDefault();
+                // calculate the new cursor position:
+                pos1 = pos3 - e.clientX;
+                pos2 = pos4 - e.clientY;
+                pos3 = e.clientX;
+                pos4 = e.clientY;
+                // set the element's new position:
+                elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+                elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+            }
+        }
+
+        function closeDragElement() {
+            // stop moving when mouse button is released:
+            document.onmouseup = null;
+            document.onmousemove = null;
+        } 
+
+        // SLIDER
+        const slider = document.querySelector('#vehiclesTabs');
+        let isDown = false;
+        let startX;
+        let scrollLeft;
+
+        slider.addEventListener('mousedown', (e) => {
+            isDown = true;
+            slider.classList.add('active');
+            startX = e.pageX - slider.offsetLeft;
+            scrollLeft = slider.scrollLeft;
+        });
+        slider.addEventListener('mouseleave', () => {
+            isDown = false;
+            slider.classList.remove('active');
+        });
+        slider.addEventListener('mouseup', () => {
+            isDown = false;
+            slider.classList.remove('active');
+        });
+        slider.addEventListener('mousemove', (e) => {
+            if (!isDown) return;
+            e.preventDefault();
+            const x = e.pageX - slider.offsetLeft;
+            const walk = (x - startX) * 3; //scroll-fast
+            slider.scrollLeft = scrollLeft - walk;
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,7 @@
+{
+  "Type": "Network_ServerToClient_RemoteOnly",
+  "Parameters": {
+    "lstLayers": "List<GangTagLayer>",
+    "lstLayersWIP": "List<GangTagLayer>",
+  }
+}

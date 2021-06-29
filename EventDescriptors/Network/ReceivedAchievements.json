@@ -1,0 +1,10 @@
+{
+  "Type": "Network_ServerToClient_RemoteOnly",
+  "Parameters": {
+    "numAchievements": "int",
+    "maxAchievements": "int",
+    "totalScore": "int",
+    "maxScore": "int",
+    "lstAchievements": "List<AchievementTransmissionObject>"
+  }
+}

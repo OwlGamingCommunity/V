@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title></title>
+
+    <link href="../../owl_client_shared/bootstrap/bootstrap.min.css" rel="stylesheet">
+    <link href="../../owl_client_shared/core/core.css" rel="stylesheet">
+    <link href="../../owl_client_shared/core/menu.css" rel="stylesheet">
+    <link href="../../owl_client_shared/slider.css" rel="stylesheet">
+    <link href="../../owl_client_shared/animate.css" rel="stylesheet">
+
+    <link href="package://owl_client_shared/bootstrap.min.css" rel="stylesheet">
+    <link href="package://owl_client_shared/core.css" rel="stylesheet">
+    <link href="package://owl_client_shared/menu.css" rel="stylesheet">
+    <link href="package://owl_client_shared/slider.css" rel="stylesheet">
+    <link href="package://owl_client_shared/animate.css" rel="stylesheet">
+
+    <style>
+        .top-right-align {
+            right: 25px;
+            vertical-align: bottom;
+            position: fixed;
+        }
+
+        #reportsList {
+            overflow-x: hidden;
+            overflow-y: scroll;
+        }
+
+        /* Hide scrollbar for Chrome, Safari and Opera */
+        #reportsList::-webkit-scrollbar {
+            display: none;
+        }
+
+        @media screen and (max-width: 1920px) {
+            .top-right-align {
+                top: 5%;
+                transform: translateY(-5%);
+            }
+
+            #reportsList {
+                width: 400px;
+                height: 600px;
+            }
+        }
+
+        @media screen and (min-width: 2000px) {
+            .top-right-align {
+                top: 20%;
+                transform: translateY(-20%);
+            }
+
+            #reportsList {
+                width: 500px;
+                height: 600px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="top-right-align">
+                <ul class="list-group" id="reportsList"></ul>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../owl_client_shared/core/core.js"></script>
+    <script src="../../owl_client_shared/jquery.min.js"></script>
+    <script src="../../owl_client_shared/jquery-ui.min.js"></script>
+    <script src="../../owl_client_shared/vue.min.js"></script>
+    <script src="../../owl_client_shared/jscolor.min.js"></script>
+
+    <script src="package://owl_client_shared//core.js"></script>
+    <script src="package://owl_client_shared//jquery.min.js"></script>
+    <script src="package://owl_client_shared//jquery-ui.min.js"></script>
+    <script src="package://owl_client_shared//vue.min.js"></script>
+    <script src="package://owl_client_shared//jscolor.min.js"></script>
+
+    <script>
+
+        currentReports = null;
+
+        function SetAllReports(reportsList) {
+            ClearReports();
+            currentReports = JSON.parse(reportsList);
+            if (Object.keys(currentReports).length >= 1) {
+                $.each(currentReports, function (key, value) {
+                    AddReport(value.reportID, value.reporting, value.reporter, value.content, value.reportType, value.handlingAdmin);
+                });
+            } else {
+                AddReport("0", "None", "None", "Currently no reports available", "Unknown", "nobody")
+            }
+        }
+
+        function AddReport(reportID, reportedPlayer, reportingPlayer, content, reportType, handlingAdmin) {
+            
+            var reportTile = `
+            <a href="#" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                <div class="flex-column">
+                    <b>#` + reportID + `</b> - <b>Reported player:</b> ` + reportedPlayer + `
+                    <p><small>by ` + reportingPlayer + `</small></p>
+                    <p><small>` + content + `</small></p>
+                    <span class="badge badge-info badge-pill">` + reportType + `</span>
+                    <span style="margin-left: 100px;" class="badge badge-success badge-pill">Handled by ` + handlingAdmin + `</span>
+                </div>
+             </a>`;
+
+            $("#reportsList").append(reportTile);
+        }
+
+        function ClearReports() {
+            $("#reportsList").empty();
+            currentReports = null;
+        }
+
+    </script>
+</body>
+
+</html>

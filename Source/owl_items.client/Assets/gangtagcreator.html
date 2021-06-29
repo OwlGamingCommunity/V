@@ -1,0 +1,640 @@
+<html>
+<head>
+    <link href="../../owl_client_shared/bootstrap/bootstrap.min.legacy.css" rel="stylesheet">
+    <link href="../../owl_client_shared/core/core.css" rel="stylesheet">
+    <link href="../../owl_client_shared/core/menu.css" rel="stylesheet">
+    <link href="../../owl_client_shared/slider.css" rel="stylesheet">
+    <link href="../../owl_client_shared/animate.css" rel="stylesheet">
+    <link href="../../owl_client_shared/fontawesome/all.min.dev.css" rel="stylesheet">
+    <script src="../../owl_client_shared/core/core.js"></script>
+    <script src="../../owl_client_shared/jquery.min.js"></script>
+    <script src="../../owl_client_shared/jquery-ui.min.js"></script>
+    <script src="../../owl_client_shared/vue.min.js"></script>
+    <script src="../../owl_client_shared/jscolor.min.js"></script>
+
+    <link href="package://owl_client_shared/bootstrap.min.legacy.css" rel="stylesheet">
+    <link href="package://owl_client_shared/core.css" rel="stylesheet">
+    <link href="package://owl_client_shared/menu.css" rel="stylesheet">
+    <link href="package://owl_client_shared/slider.css" rel="stylesheet">
+    <link href="package://owl_client_shared/animate.css" rel="stylesheet">
+    <link href="package://owl_client_shared/all.min.css" rel="stylesheet">
+    <script src="package://owl_client_shared//core.js"></script>
+    <script src="package://owl_client_shared//jquery.min.js"></script>
+    <script src="package://owl_client_shared//jquery-ui.min.js"></script>
+    <script src="package://owl_client_shared//vue.min.js"></script>
+    <script src="package://owl_client_shared//jscolor.min.js"></script>
+
+    <script type="text/javascript">
+        function OnExit() {
+
+        }
+
+        function Reset() {
+
+        }
+
+        function OnLoad() {
+            AddDebugData();
+        }
+
+        var sprites = [];
+        var insert_id = 0;
+
+        function RegisterSprite(name) {
+            sprites[insert_id] = name;
+            insert_id++;
+        }
+
+        function CommitSprites() {
+            var html = `<select id="sprite_listbox" class="form-control" multiple onchange="OnChangeSprite()">`;
+
+            if (sprites.length > 0) {
+                for (var i = 0; i < sprites.length; ++i) {
+                    html += `<option value="${sprites[i]}">${sprites[i]}</option>`;
+                }
+            }
+
+            html += `</select>`;
+            document.getElementById("sprites").innerHTML = html;
+
+            sprites = [];
+            insert_id = 0;
+        }
+
+        function OnChangeSprite() {
+            var value = document.getElementById("sprite_listbox").value;
+            TriggerEvent("GangTagCreator_EditLayer_ChangeSprite", value);
+        }
+
+        function ClearLayers() {
+            document.getElementById("layerlist").innerHTML = "";
+        }
+
+        function AddLayer(id, layer_type, layer_type_name) {
+            var icon = "italic";
+
+            if (layer_type == 1) {
+                "pencil"
+            } else if (layer_type == 2) {
+                icon = "hand-stop-o";
+            }
+
+            document.getElementById("layerlist").innerHTML += `<li class="list-group-item layer" id="layer_${id}">
+                    <div class="layer-meta">
+                        <span class="fa fa-${icon}"></span>
+                    </div>
+                    <div class="layer-text">
+                        <h5 class="layer-name" id="layer_${id}_name">${layer_type_name}</h5>
+                        <div class="btn-group btn-group-justified">
+                            <a class='btn btn-sm btn-info' onclick='OnMoveLayerDown(${id});'><span class="fa fa-angle-down"></span></a>
+                            <a class='btn btn-sm btn-warning' onclick='OnEditLayer(${id});'><span class="fa fa-pencil-alt"></span></a>
+                            <a class='btn btn-sm btn-danger' onclick='OnDeleteLayer(${id});'><span class="fa fa-trash-alt"></span></a>
+                            <a class='btn btn-sm btn-info' onclick='OnMoveLayerUp(${id});'><span class="fa fa-angle-up"></span></a>
+                        </div>
+                    </div>
+                </li>`;
+        }
+
+        function RemoveLayer(id) {
+            var element_name = `layer_${id}`;
+            if (document.getElementById(element_name) != null) {
+                document.getElementById(element_name).remove();
+            }
+        }
+
+        function AddDebugData() {
+            for (var i = 0; i < 100; ++i) {
+                var layerType = i % 2 == 0 ? 1 : 0;
+                AddLayer(i, layerType, layerType == 0 ? `Text Layer ${i}` : `Sprite Layer ${i}`);
+            }
+
+            SetUsageInfo(1, 100);
+
+            GotoEditTextLayer("Text Layer", 255, 194, 15, 200, 0.5, 0.5, 1.0, 2, 1, true, false, true);
+            // GotoEditSpriteLayer(255, 194, 15, 200, 0.5, 0.5, 1.0, 2, 1);
+            // CommitSprites();
+            // GotoEditRectangleLayer(255, 194, 15, 200, 0.5, 0.5, 1.0, 2);
+        }
+
+        function GotoEditTextLayer(text, r, g, b, a, x, y, scale, font, outline, shadow) {
+            // apply values
+            document.getElementById("layertext").value = text;
+
+            document.getElementById("xposition_text").value = x;
+            document.getElementById("yposition_text").value = y;
+            document.getElementById("scale_text").value = scale;
+            document.getElementById("alpha_text").value = a;
+
+            document.getElementById('text_color').jscolor.fromRGB(r, g, b);
+
+            document.getElementById("radio_font_0").checked = font == 0;
+            document.getElementById("radio_font_1").checked = font == 1;
+            document.getElementById("radio_font_2").checked = font == 2;
+            document.getElementById("radio_font_4").checked = font == 4;
+            document.getElementById("radio_font_7").checked = font == 7;
+
+            document.getElementById("chk_outline").checked = outline;
+            document.getElementById("chk_shadow").checked = shadow;
+
+            document.getElementById("edit_layer_sprite").style.display = "none";
+            document.getElementById("edit_layer_rectangle").style.display = "none";
+            document.getElementById("edit_layer_text").style.display = "block";
+        }
+
+        function GotoEditSpriteLayer(r, g, b, a, x, y, width, height, rotation) {
+            // apply values
+            document.getElementById("xposition_sprite").value = x;
+            document.getElementById("yposition_sprite").value = y;
+            document.getElementById("width_sprite").value = width;
+            document.getElementById("height_sprite").value = height;
+            document.getElementById("rotation_sprite").value = rotation;
+            document.getElementById("alpha_sprite").value = a;
+
+            document.getElementById('sprite_color').jscolor.fromRGB(r, g, b);
+
+            document.getElementById("edit_layer_text").style.display = "none";
+            document.getElementById("edit_layer_rectangle").style.display = "none";
+            document.getElementById("edit_layer_sprite").style.display = "block";
+        }
+
+        function GotoEditRectangleLayer(r, g, b, a, x, y, width, height) {
+            // apply values
+            document.getElementById("xposition_rectangle").value = x;
+            document.getElementById("yposition_rectangle").value = y;
+            document.getElementById("width_rectangle").value = width;
+            document.getElementById("height_rectangle").value = height;
+            document.getElementById("alpha_rectangle").value = a;
+
+            document.getElementById('rectangle_color').jscolor.fromRGB(r, g, b);
+
+            document.getElementById("edit_layer_text").style.display = "none";
+            document.getElementById("edit_layer_sprite").style.display = "none";
+            document.getElementById("edit_layer_rectangle").style.display = "block";
+        }
+
+        function SetUsageInfo(layers_used, max_layers) {
+            document.getElementById("layers-total").innerText = layers_used;
+            document.getElementById("layers-max").innerText = max_layers;
+        }
+
+        // call back to C# for actions
+        function OnAddLayer_Sprite() {
+            TriggerEvent("GangTagCreator_AddLayer_Sprite");
+        }
+
+        function OnAddLayer_Rectangle() {
+            TriggerEvent("GangTagCreator_AddLayer_Rectangle");
+        }
+
+        function OnAddLayer_Text() {
+            TriggerEvent("GangTagCreator_AddLayer_Text");
+        }
+
+        function OnEditLayer(id) {
+            TriggerEvent("GangTagCreator_EditLayer", id);
+        }
+
+        function OnMoveLayerUp(id) {
+            TriggerEvent("GangTagCreator_MoveLayerUp", id);
+        }
+
+        function OnMoveLayerDown(id) {
+            TriggerEvent("GangTagCreator_MoveLayerDown", id);
+        }
+
+        function OnDeleteLayer(id) {
+            TriggerEvent("GangTagCreator_DeleteLayer", id);
+        }
+
+        function OnExit_Save() {
+            TriggerEvent("GangTagCreator_Exit_Save")
+        }
+
+        function OnExit_Discard() {
+            TriggerEvent("GangTagCreator_Exit_Discard")
+        }
+
+        function OnExit_KeepWIP() {
+            TriggerEvent("GangTagCreator_Exit_KeepWIP")
+        }
+
+        function EditLayer_SetFontID(index) {
+            TriggerEvent("GangTagCreator_EditLayer_SetFontID", index);
+        }
+
+        function EditLayer_SetOutline(checkbox) {
+            var checked = checkbox.checked;
+            TriggerEvent("GangTagCreator_EditLayer_SetOutline", checked);
+        }
+
+        function EditLayer_SetShadow(checkbox) {
+            var checked = checkbox.checked;
+            TriggerEvent("GangTagCreator_EditLayer_SetShadow", checked);
+        }
+
+        function EditLayer_SetName(elem) {
+            var val = elem.value;
+            TriggerEvent("GangTagCreator_EditLayer_SetName", val);
+        }
+
+        function EditLayer_SetText() {
+            var val = document.getElementById('layertext').value;
+            TriggerEvent("GangTagCreator_EditLayer_SetText", val);
+        }
+
+        function EditLayer_SetXCoordinate(elem) {
+            var val = elem.value;
+
+            if (!isNaN(val) && val.length > 0) {
+                TriggerEvent("GangTagCreator_EditLayer_SetXCoordinate", val);
+            }
+        }
+
+        function EditLayer_SetYCoordinate(elem) {
+            var val = elem.value;
+
+            if (!isNaN(val) && val.length > 0) {
+                TriggerEvent("GangTagCreator_EditLayer_SetYCoordinate", val);
+            }
+        }
+
+        function EditLayer_SetWidth(elem) {
+            var val = elem.value;
+            TriggerEvent("GangTagCreator_EditLayer_SetWidth", val);
+        }
+
+        function EditLayer_SetHeight(elem) {
+            var val = elem.value;
+
+            if (!isNaN(val) && val.length > 0) {
+                TriggerEvent("GangTagCreator_EditLayer_SetHeight", val);
+            }
+        }
+
+        function EditLayer_SetSpriteRotation(elem) {
+            var val = elem.value;
+
+            if (!isNaN(val) && val.length > 0) {
+                TriggerEvent("GangTagCreator_EditLayer_SetSpriteRotation", val);
+            }
+        }
+
+        function EditLayer_SetScale(elem) {
+            var val = elem.value;
+
+            if (!isNaN(val) && val.length > 0) {
+                TriggerEvent("GangTagCreator_EditLayer_SetScale", val);
+            }
+        }
+
+        function EditLayer_SetColor(picker) {
+            var r = Math.round(picker.rgb[0]);
+            var g = Math.round(picker.rgb[1]);
+            var b = Math.round(picker.rgb[2]);
+            TriggerEvent("GangTagCreator_EditLayer_SetColor", r, g, b);
+        }
+
+        function EditLayer_SetAlpha(elem) {
+            var val = elem.value;
+
+            if (!isNaN(val) && val.length > 0) {
+                TriggerEvent("GangTagCreator_EditLayer_SetAlpha", val);
+            }
+        }
+    </script>
+
+    <style type="text/css">
+
+        body {
+            background-color: transparent;
+        }
+
+        #left-box {
+            position: absolute;
+            top: 10%;
+            left: 0%;
+            margin-left: 2%;
+            width: 350px;
+        }
+
+        #left-box > .panel {
+            margin-bottom: 0;
+        }
+
+        #right-box {
+            position: absolute;
+            top: 10%;
+            left: 75%;
+            margin-left: 2%;
+            width: 350px;
+        }
+
+        #right-box > .panel {
+            margin-bottom: 0;
+        }
+
+        .list-group > p {
+            margin: 15px;
+        }
+
+        #layerlist {
+            max-height: 540px;
+            overflow: auto;
+            min-height: 540px;
+        }
+
+        .layer-meta,
+        .layer-text {
+            float: left;
+        }
+
+        .margins {
+            padding-left: 15px;
+            padding-top: 15px;
+        }
+
+        .layer {
+            overflow: hidden;
+        }
+
+        .layer-text {
+            padding-left: 15px;
+            width: 300px;
+        }
+
+        .layer-text h5 {
+            margin-top: 0;
+        }
+
+        .layer-text h6 {
+            line-height: 1.4em;
+        }
+
+        .layer-text > *:last-child {
+            margin-bottom: 0;
+        }
+
+        .panel-footer h5 {
+            margin: 0;
+        }
+
+        label {
+            font-weight: normal;
+        }
+    </style>
+
+</head>
+<body>
+
+<div id="left-box">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4>Layers</h4>
+            <h6>The first layer will be drawn as the top-most layer.</h6>
+        </div>
+        <ul id="layerlist" class="list-group"></ul>
+        <div class="panel-footer">
+            <div class="row layers-number">
+                <div class="col-xs-6">
+                    <h5>Layers Used:</h5>
+                </div>
+                <div class="col-xs-6">
+                    <h5><span id="layers-total"></span>/<span id="layers-max"></span></h5>
+                </div>
+            </div>
+        </div>
+        <div class="btn-group btn-group-justified">
+            <a class='btn btn-success' onclick='OnAddLayer_Sprite();'>+ Sprite</a>
+            <a class='btn btn-success' onclick='OnAddLayer_Text();'>+ Text</a>
+            <a class='btn btn-success' onclick='OnAddLayer_Rectangle();'>+ Rectangle</a>
+        </div>
+        <div class="btn-group btn-group-justified">
+            <a class='btn btn-info' onclick='OnExit_Save();'>Exit & Save Changes to Active Tag</a>
+        </div>
+        <div class="btn-group btn-group-justified">
+            <a class='btn btn-warning' onclick='OnExit_KeepWIP();'>Exit & Save Changes to WIP Tag</a>
+        </div>
+        <div class="btn-group btn-group-justified">
+            <a class='btn btn-danger' onclick='OnExit_Discard();'>Exit & Delete WIP Tag</a>
+        </div>
+    </div>
+</div>
+
+<div id="right-box">
+    <div class="panel panel-default" id="edit_layer_text" style="display:none">
+        <div class="panel-heading">
+            <h4>Edit Text Layer</h4>
+        </div>
+        <div class="panel-body">
+            <form class="form-horizontal">
+                <div class="form-group">
+                    <label for="layertext" class="col-sm-3 control-label">Text</label>
+                    <div class="col-sm-9">
+                        <!-- // TODO_GITHUB: Replace CommunityName with your community name -->
+                        <input type='text' class='form-control' placeholder='CommunityName' maxlength="32" id='layertext'
+                               onkeydown='setTimeout(EditLayer_SetText, 100);'>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="xposition_text" class="col-sm-3 control-label">X</label>
+                    <div class="col-sm-9">
+                        <input type='text' class='form-control' placeholder='0.0' id='xposition_text'
+                               onkeydown='setTimeout(EditLayer_SetXCoordinate, 100, this);'>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="yposition_text" class="col-sm-3 control-label">Y</label>
+                    <div class="col-sm-9">
+                        <input type='text' class='form-control' placeholder='0.0' id='yposition_text'
+                               onkeydown='setTimeout(EditLayer_SetYCoordinate, 100, this);'>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="scale_text" class="col-sm-3 control-label">Scale</label>
+                    <div class="col-sm-9">
+                        <input type='text' class='form-control' placeholder='1.0' id='scale_text'
+                               onkeydown='setTimeout(EditLayer_SetScale, 100, this);'>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="alpha_text" class="col-sm-3 control-label">Alpha</label>
+                    <div class="col-sm-9">
+                        <input type='text' class='form-control' placeholder='255' id='alpha_text'
+                               onkeydown='setTimeout(EditLayer_SetAlpha, 100, this);'>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="text_color" class="col-sm-3 control-label">Color</label>
+                    <div class="col-sm-9">
+                        <input id="text_color" size="3" maxlength="6" value="000000"
+                               class="form-control jscolor {onFineChange:'EditLayer_SetColor(this)', position:'right'}">
+                    </div>
+                </div>
+
+                <div class="col-sm-12">
+                    <label>Font</label>
+                    <div class="form-group">
+                        <label><input type="radio" name="radiotype" id="radio_font_0" checked="checked"
+                                      onclick="EditLayer_SetFontID(0);">Chalet London</label>
+                        <label><input type="radio" name="radiotype" id="radio_font_1" checked=""
+                                      onclick="EditLayer_SetFontID(1);">House Script</label>
+                        <label><input type="radio" name="radiotype" id="radio_font_2" checked=""
+                                      onclick="EditLayer_SetFontID(2);">Monospace</label>
+                        <label><input type="radio" name="radiotype" id="radio_font_4" checked=""
+                                      onclick="EditLayer_SetFontID(4);">Chalet Comprime Colonge</label>
+                        <label><input type="radio" name="radiotype" id="radio_font_7" checked=""
+                                      onclick="EditLayer_SetFontID(7);">Pricedown</label>
+                    </div>
+                </div>
+
+                <div class="col-sm-12">
+                    <label>Border</label>
+                    <div class="checkbox">
+                        <label><input type="checkbox" id="chk_outline"
+                                      onclick="EditLayer_SetOutline(this)">Outline</label><br/>
+                        <label><input type="checkbox" id="chk_shadow" onclick="EditLayer_SetShadow(this)">Drop
+                            Shadow</label><br/>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="panel panel-default" id="edit_layer_sprite" style="display:none">
+        <div class="panel-heading">
+            <h4>Edit Sprite Layer</h4>
+        </div>
+
+        <div class="panel-body">
+            <form class="form-horizontal">
+                <div class="form-group">
+                    <label for="xposition_sprite" class="col-sm-3 control-label">X</label>
+                    <div class="col-sm-9">
+                        <input type='text' class='form-control' placeholder='0.0' id='xposition_sprite'
+                               onkeydown='setTimeout(EditLayer_SetXCoordinate, 100, this);'>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="yposition_sprite" class="col-sm-3 control-label">Y</label>
+                    <div class="col-sm-9">
+                        <input type='text' class='form-control' placeholder='0.0' id='yposition_sprite'
+                               onkeydown='setTimeout(EditLayer_SetYCoordinate, 100, this);'>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="width_sprite" class="col-sm-3 control-label">Width</label>
+                    <div class="col-sm-9">
+                        <input type='text' class='form-control' placeholder='0.0' id='width_sprite'
+                               onkeydown='setTimeout(EditLayer_SetWidth, 100, this);'>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="height_sprite" class="col-sm-3 control-label">Height</label>
+                    <div class="col-sm-9">
+                        <input type='text' class='form-control' placeholder='0.0' id='height_sprite'
+                               onkeydown='setTimeout(EditLayer_SetHeight, 100, this);'>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="rotation_sprite" class="col-sm-3 control-label">Rotation</label>
+                    <div class="col-sm-9">
+                        <input type='text' class='form-control' placeholder='0.0' id='rotation_sprite'
+                               onkeydown='setTimeout(EditLayer_SetSpriteRotation, 100, this);'>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="alpha_sprite" class="col-sm-3 control-label">Alpha</label>
+                    <div class="col-sm-9">
+                        <input type='text' class='form-control' placeholder='255' id='alpha_sprite'
+                               onkeydown='setTimeout(EditLayer_SetAlpha, 100, this);'>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="sprite_color" class="col-sm-3 control-label">Color</label>
+                    <div class="col-sm-9">
+                        <input id="sprite_color" size="3" maxlength="6" value="000000"
+                               class="form-control jscolor {onFineChange:'EditLayer_SetColor(this)', position:'right'}">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Font</label>
+                    <div class="col-sm-9">
+                        <div id="sprites"></div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="panel panel-default" id="edit_layer_rectangle" style="display:none">
+        <div class="panel-heading">
+            <h4>Edit Rectangle Layer</h4>
+        </div>
+
+        <div class="panel-body">
+            <form class="form-horizontal">
+                <div class="form-group">
+                    <label for="xposition_rectangle" class="col-sm-3 control-label">X</label>
+                    <div class="col-sm-9">
+                        <input type='text' class='form-control' placeholder='0.0' id='xposition_rectangle'
+                               onkeydown='setTimeout(EditLayer_SetXCoordinate, 100, this);'>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="yposition_rectangle" class="col-sm-3 control-label">Y</label>
+                    <div class="col-sm-9">
+                        <input type='text' class='form-control' placeholder='0.0' id='yposition_rectangle'
+                               onkeydown='setTimeout(EditLayer_SetYCoordinate, 100, this);'>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="width_rectangle" class="col-sm-3 control-label">Width</label>
+                    <div class="col-sm-9">
+                        <input type='text' class='form-control' placeholder='0.0' id='width_rectangle'
+                               onkeydown='setTimeout(EditLayer_SetWidth, 100, this);'>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="height_rectangle" class="col-sm-3 control-label">Height</label>
+                    <div class="col-sm-9">
+                        <input type='text' class='form-control' placeholder='0.0' id='height_rectangle'
+                               onkeydown='setTimeout(EditLayer_SetHeight, 100, this);'>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="alpha_rectangle" class="col-sm-3 control-label">Alpha</label>
+                    <div class="col-sm-9">
+                        <input type='text' class='form-control' placeholder='255' id='alpha_rectangle'
+                               onkeydown='setTimeout(EditLayer_SetAlpha, 100, this);'>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="rectangle_color" class="col-sm-3 control-label">Color</label>
+                    <div class="col-sm-9">
+                        <input id="rectangle_color" size="3" maxlength="6" value="000000"
+                               class="form-control jscolor {onFineChange:'EditLayer_SetColor(this)', position:'right'}">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>
