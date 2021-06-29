@@ -38,9 +38,9 @@ OwlV requires Windows Developer Mode to be enabled. This can be enabled by going
 
 #### Build Configurations ####
 
-Debug x64 - Recommended for development, also enables 'fast iteration mode' for faster dev times
-Debug Full Cook x64 - Simulates a release style cook, but uses debug binaries. Only recommended for diagnosing cook issues
-Release x64 - Recommended for your server build
+* Debug x64 - Recommended for development, also enables 'fast iteration mode' for faster dev times
+* Debug Full Cook x64 - Simulates a release style cook, but uses debug binaries. Only recommended for diagnosing cook issues
+* Release x64 - Recommended for your server build
 
 For running in debugger, you should start the Boot project as your startup project.
 
