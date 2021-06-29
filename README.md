@@ -4,6 +4,20 @@
 
 The Grand Theft Auto V Roleplay server for RAGE:MP.
 
+### Credits
+Massive props to the developers who have spent countless hours making this project what it is right now!
+- Daniels ([@DanielsGTA](https://github.com/DanielsGTA))
+- Yannick ([@yannickboy15](https://github.com/yannickboy15))
+- Jer ([@JeremyEspresso](https://github.com/JeremyEspresso))
+- Chaos ([@braunsonm](https://github.com/braunsonm))
+- Daniel ([@dlett](https://github.com/dlett))
+
+Also a thank you to the people who contributed to the game data
+- Vubstersmurf
+- Dexter
+- Wright
+
+
 ### What is this repository for? ###
 
 * Used for the OwlGaming Community's V RP server
