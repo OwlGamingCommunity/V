@@ -582,7 +582,7 @@ CREATE TABLE IF NOT EXISTS `game_accounts` (
   `local_nametag_toggled` tinyint(1) NOT NULL DEFAULT 0,
   `auto_spawn_character` bigint(11) DEFAULT -1,
   `admin_jail_minutes_remaining` int(10) NOT NULL DEFAULT -1,
-  `admin_jail_reason varchar(255)` NOT NULL DEFAULT ""
+  `admin_jail_reason` varchar(255) NOT NULL DEFAULT ""
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- Data exporting was unselected.
